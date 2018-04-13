@@ -4,37 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
-<?
-session_start();
 
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/lib/class_db.php";
-$db = new DB();
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/lib/define.php";
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/lib/class_paging.php";
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/fun/function.php";
-
-if(!$page) $page = 1;
-$en_keyword = urlencode($keyword);
-$Query_Where = " WHERE 1";
-if ($member_join_type) $Query_Where .= " and member_join_type='$member_join_type'";
-if(eregi("[^[:space:]]+",$keyword)) {
-	 $Query_Where .= " and $key LIKE '%$keyword%'";
-}
-if($mode=="lev_chn"){
-	$db->Query("
-              UPDATE
-                BlueAD_member
-              SET
-				member_join_type  = '$lev'
-              WHERE
-                no  = '$no'
-	 "); 
-}
-
-$db->Query("SELECT * FROM BlueAD_member".$Query_Where);
-$total_num = $db->recordNum();
-$paging = new PAGING($total_num, $page, 20, 10, 'common');
-?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
@@ -47,6 +17,7 @@ $paging = new PAGING($total_num, $page, 20, 10, 'common');
 </head>
 <body>
 <? include "title.php" ?>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>    
     <td style="padding:2;"><select onchange="location.href='<?=$PHP_SELF?>?member_join_type='+this.value">
@@ -75,20 +46,19 @@ $paging = new PAGING($total_num, $page, 20, 10, 'common');
     <td width="100" class="field_b">가입일</td>
 	<td width="150" class="field_b">합창단과의 관계</td>
   </tr>
-<?
-$db->Query("SELECT * FROM BlueAD_member".$Query_Where." ORDER BY member_join_date DESC LIMIT $paging->first, $paging->pageSize");
-$article_num = $total_num - 20 * ($paging->curPage - 1);
-if($total_num > 0) {
-  while($row = $db->Fetch()) {
-?>
+  
+
+   
+   
+   <c:forEach items="${list}" var="member" varStatus="status">
   <tr bgcolor="#ffffff" height="30" onMouseOver=this.style.background="#f5f5f5" onMouseOut=this.style.background="#ffffff">
-    <td align="center"><?= $article_num ?></td>    
-    <td align="center" onclick="location.href('view.php?no=<?= $row["no"] ?>&bbs_id=member&page=<?= $page ?>&key=<?= $key?>&keyword=<?= $en_keyword ?>');" style="cursor:hand"><?= $row["member_name"] ?></td>
-    <td align="center" onclick="location.href('view.php?no=<?= $row["no"] ?>&bbs_id=member&page=<?= $page ?>&key=<?= $key?>&keyword=<?= $en_keyword ?>');" style="cursor:hand"><?= $row["member_id"] ?></td>
-    <td align="center" onclick="location.href('view.php?no=<?= $row["no"] ?>&bbs_id=member&page=<?= $page ?>&key=<?= $key?>&keyword=<?= $en_keyword ?>');" style="cursor:hand"><?= $row["member_address1"] ?></td>
-    <td align="center" onclick="location.href('view.php?no=<?= $row["no"] ?>&bbs_id=member&page=<?= $page ?>&key=<?= $key?>&keyword=<?= $en_keyword ?>');" style="cursor:hand"><?= $row["member_tel1"] ?> - <?= $row["member_tel2"] ?> - <?= $row["member_tel3"] ?></td>        
-    <td align="center" onclick="location.href('view.php?no=<?= $row["no"] ?>&bbs_id=member&page=<?= $page ?>&key=<?= $key?>&keyword=<?= $en_keyword ?>');" style="cursor:hand"><?= Date_Cut($row["member_join_date"],'/','L'); ?></td>
-	<td align="center">
+    <td align="center" style="cursor:hand" onclick="location.href('view.jsp?no=<?= $row["no"] >${member.no}</td>
+    <td align="center" style="cursor:hand" onclick="location.href('view.jsp?member_name=<?= $row["member_name"]>${member.member_name}</td>
+    <td align="center" style="cursor:hand" onclick="location.href('view.php?member_id=<?= $row["member_id"] >${member.member_id}</td>
+    <td align="center" style="cursor:hand" onclick="location.href('view.php?member_address=<?= $row["member_address1"]- >${member.member_address1}${member.member_address2}</td>
+    <td align="center" style="cursor:hand" onclick="location.href('view.php?no=<?= $row["member_tel1"]-["member_tel2"] >${member.member_tel1}-${member.member_tel2}-${member.member_tel3}</td>
+     <td align="center" style="cursor:hand" onclick="location.href('view.php?no=<?= $row["member_join_date"] >${member.member_join_date}</td>
+ <td align="center">
       <select name="level" onChange="chn_lev(this.value,'<?=$PHP_SELF?>?no=<?= $row["no"] ?>&page=<?=$page?>&key=<?=$key?>&keyword=<?=$keyword?>&member_join_type=<?=$member_join_type?>');">
         <option value="1"<?if($row["member_join_type"]=="1"){echo " selected";}?>>후원자</option>
         <option value="2" style="color:blue;"<?if($row["member_join_type"]=="2"){echo " selected";}?>>기타</option>
@@ -96,31 +66,18 @@ if($total_num > 0) {
 		<option value="5" style="color:#660000;"<?if($row["member_join_type"]=="5"){echo " selected";}?>>단원/자모</option>
 		<option value="10" style="color:red;"<?if($row["member_join_type"]=="10"){echo " selected";}?>>동문</option>
       </select>
-    </td>
+    </td>  
   </tr>
-<?
-  $article_num--;
-  }
-}
-else {
-  echo"<tr><td height=\"27\" bgcolor=\"#FFFFFF\" align=\"center\" colspan=\"9\">등록된 게시물이 없습니다.</td></tr>\n";
-}
-?>
-</table>
+ </c:forEach> 
+</table> 
+
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>
     <td valign="middle" width="100"><input type="image" src="/BlueAD/admin/images/btn_list.gif" onfocus="this.blur();" onClick="location.href='list.php'"></td>
     <td align="center" height="50">
-	<?
-      $page_link = "&key=$key&keyword=$en_keyword&member_join_type=$member_join_type";
-      if($total_num > 0) {
-        $paging->addQueryString($page_link);
-        $paging->showPage();
-      }
-      else {
-        echo"&nbsp;\n";
-      }
-      ?>
+	
+     
 	</td>
     <td align="right" width="100"></td>
   </tr>
@@ -132,18 +89,20 @@ else {
   <tr>
     <td align="center">
       <select name="key">
-      <option value="member_name" <?if($key=="member_name"){echo "selected";}?>>이름</option>
-      <option value="member_id" <?if($key=="member_id"){echo "selected";}?>>아이디</option>
+      <option value="member_name">이름</option>
+      <option value="member_id">아이디</option>
       </select>
-      <input type="text" size="20" maxlength="30" name="keyword" value="<?= $keyword ?>" class="b_input">
-      <input type="image" src="/BlueAD/admin/images/btn_search.gif" align="absmiddle" onfocus="this.blur();">
+      <input type="text" size="20" maxlength="30" name="keyword"class="b_input">
+      <input type="image" src="${contextPath}/images/BlueAD/admin/images/btn_search.gif" align="absmiddle" onfocus="this.blur();">
     </td>
   </tr>
 </form>
 </table>
 </body>
 </html>
+<!--  
 <?
 
 $db->Close();
 ?>
+ -->

@@ -23,7 +23,7 @@ public class Bluead_MemberController {
     @RequestMapping("list")
     public String list(
             @RequestParam(value="pn", defaultValue="1") int pageNo,
-            @RequestParam(value="ps", defaultValue="5") int pageSize,
+            @RequestParam(value="ps", defaultValue="20") int pageSize,
             @RequestParam(value="words", required=false) String[] words,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
@@ -44,8 +44,8 @@ public class Bluead_MemberController {
             pageNo = 1;
         }
         
-        if (pageSize < 5 || pageSize > 15) {
-            pageSize = 5;
+        if (pageSize < 20 || pageSize > 30) {
+            pageSize = 20;
         }
         
         // 코드의 실행 상태를 확인하기 위해

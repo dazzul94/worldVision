@@ -6,7 +6,7 @@
 <!-- DAO 객체를 자동으로 생성하려면, namespace의 값이 인터페이스 이름과 같아야 한다. -->
 <mapper namespace="java100.app.dao.Bluead_MemberDao">
 
-	<resultMap type="member" id="memberMap">
+	<resultMap type="bluead_Member" id="bluead_MemberMap">
 		<id column="no" property="no" />
 		<!-- 컬럼 이름과 프로퍼티 이름이 같아서 생략! -->
 		<!-- <result column="name" property="name"/> <result column="email" property="email"/> -->
@@ -14,25 +14,10 @@
 
 	<sql id="select1">
 		select
-		no,
-		member_id,
-		member_nick,
-		member_pass,
-		member_name,
-		member_reg_no1,
-		member_reg_no2,
-		member_birth1,
-		member_birth2,
-		member_email,
-		member_zip1,
-		member_zip2,
-		member_address1,
-		member_address2,
-		member_tel1,
-		member_tel2
+		* 
 	</sql>
 
-	<select id="findAll" resultMap="memberMap" parameterType="map">
+	<select id="findAll" resultMap="bluead_MemberMap" parameterType="map">
 		<include refid="select1" />
 		from bluead_member
 
@@ -70,7 +55,7 @@
 				member_id desc
 			</when>
 			<otherwise>
-				no asc
+				no desc
 			</otherwise>
 		</choose>
 
@@ -78,7 +63,7 @@
 		limit #{startIndex}, #{size}
 	</select>
 
-	<select id="findByNo" resultMap="memberMap" parameterType="int">
+	<select id="findByNo" resultMap="bluead_MemberMap" parameterType="int">
 		<include refid="select1" />
 		from bluead_member
 		where no=#{value}
