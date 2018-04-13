@@ -94,6 +94,11 @@ public class Bluead_MemberController {
         return "bluead_member/form";
         
     }
+    @RequestMapping("default")
+    public String default1() throws Exception {
+        return "bluead_member/default";
+        
+    }
    /* 
     @RequestMapping("update")
     public String update(Member member) throws Exception {

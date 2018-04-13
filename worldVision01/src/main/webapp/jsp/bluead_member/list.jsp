@@ -7,8 +7,7 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
-<link href="../style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
 <script language="javascript">
 	function chn_lev(lev,url){
 		location.href = url + "&mode=lev_chn&lev="+lev;
@@ -16,7 +15,20 @@
 </script>
 </head>
 <body>
-<? include "title.php" ?>
+
+<!--  회원관리 이미지 -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 회원관리</td>
+  </tr>
+  <tr>
+    <td height="4" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
+  </tr>
+  <tr>
+    <td height="20"></td>
+  </tr>
+</table>
+
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>    
@@ -74,9 +86,25 @@
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>
-    <td valign="middle" width="100"><input type="image" src="/BlueAD/admin/images/btn_list.gif" onfocus="this.blur();" onClick="location.href='list.php'"></td>
+    <td valign="middle" width="100"><input type="image" src="${contextPath}/images/BlueAD/admin/btn_list.gif" onfocus="this.blur();" onClick="location.href='list.php'"></td>
     <td align="center" height="50">
-	
+	 <c:set var="prevPageDisabled" value="${(pageNo > 1) ? '':'disabled'}"/>
+                        <c:set var="prevPageTabIndex" value="${(pageNo > 1) ? 0 : -1}"/>
+                        <c:set var="nextPageDisabled" value="${(pageNo < lastPageNo) ? '':'disabled'}"/>
+                        <c:set var="nextPageTabIndex" value="${(pageNo < lastPageNo) ? 0 : -1}"/>
+						  <ul class="pagination justify-content-center">
+                      <li class="page-item"><a href="list?pn=1&select=${select}&words=${words}"><img src="${contextPath}/image/prev.gif" width="22" height="15" border="0" align="absmiddle"></a>&nbsp;</li>
+						    <li class="page-item ${prevPageDisabled}"><a id="prevBtn"
+						        href="list?pn=${pageNo - 1}&select=${select}&words=${words}"
+						        tabindex="${prevPageTabIndex}"><img src="/BlueAD/skin/bbs/common/images/page_prev_off.gif" width="42" height="15" border="0" align="absmiddle"></a>&nbsp;</li>
+						        
+						    <li><a href="#">${pageNo}</a>&nbsp;</li>
+						    
+						    <li class="page-item ${nextPageDisabled}"><a id="nextBtn"
+						        href="list?pn=${pageNo + 1}&select=${select}&words=${words}"
+						        tabindex="${nextPageTabIndex}"><img src="${contextPath}/image/BlueAD/skin/bbs/common/next.gif" width="42" height="15" border="0" align="absmiddle"></a>&nbsp;</li>
+                      <li class="page-item"><a href="list?pn=${lastPageNo}&select=${select}&words=${words}"><img src="${contextPath}/image/next_.gif" width="22" height="15" border="0" align="absmiddle"></a>&nbsp;</li>
+						  </ul>
      
 	</td>
     <td align="right" width="100"></td>
@@ -93,7 +121,7 @@
       <option value="member_id">아이디</option>
       </select>
       <input type="text" size="20" maxlength="30" name="keyword"class="b_input">
-      <input type="image" src="${contextPath}/images/BlueAD/admin/images/btn_search.gif" align="absmiddle" onfocus="this.blur();">
+      <input type="image" src="${contextPath}/images/BlueAD/admin/btn_search.gif" align="absmiddle" onfocus="this.blur();">
     </td>
   </tr>
 </form>
