@@ -11,7 +11,7 @@
 <frame name="top" scrolling="no" marginwidth="0" marginheight="0" target_frame="main" src="../../jsp/BlueAD/top.jsp" noresize>
 <frameset rows="1*" cols="220, 1*">
 <frame name="left" scrolling="no" marginwidth="0" marginheight="0" target_frame="main" src="../../jsp/BlueAD/left.jsp" noresize>
-<frame name="main" scrolling="auto" marginwidth="0" marginheight="0" target_frame="main" src="../../jsp/BlueAD/main.jsp">
+<frame name="main" scrolling="auto" marginwidth="0" marginheight="0" target_frame="main" src="../../jsp/board/list.jsp">
 </frameset>
 <noframes>
 <body>
