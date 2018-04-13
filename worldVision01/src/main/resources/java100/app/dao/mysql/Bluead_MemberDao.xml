@@ -70,7 +70,7 @@
 				member_id desc
 			</when>
 			<otherwise>
-				member_id asc
+				no asc
 			</otherwise>
 		</choose>
 

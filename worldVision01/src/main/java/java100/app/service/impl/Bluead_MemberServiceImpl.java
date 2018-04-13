@@ -21,7 +21,7 @@ public class Bluead_MemberServiceImpl implements Bluead_MemberService {
     
     @Override
     public List<Bluead_Member> list(int pageNo, int pageSize, Map<String, Object> options) {
-        
+        	
         logger.debug("Bluead_MemberService.list()..... 호출됨!");
         
         HashMap<String,Object> params = new HashMap<>();
