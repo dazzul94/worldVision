@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    @RequestMapping("main")
+    @RequestMapping("default")
     public String main() throws Exception {
-        return "BlueAD/admin/main";
+        return "BlueAD/admin/default";
     }
 }
 
