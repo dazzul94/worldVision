@@ -46,15 +46,15 @@ function TodayFunc() {
 <body class="top_left">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td background="images/top_bg.gif" bgcolor="#000000" style="padding-left:10px">
+    <td background="${contextPath}/images/BlueAD/admin/top_bg.gif" bgcolor="#000000" style="padding-left:10px">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td width="200" rowspan="2" align="center" valign="top" background="images/admin_logo_bg.gif" style="background-repeat:no-repeat"><table width="180" border="0" cellspacing="0" cellpadding="0">
+          <td width="200" rowspan="2" align="center" valign="top" background="${contextPath}/images/BlueAD/admin/admin_logo_bg.gif" style="background-repeat:no-repeat"><table width="180" border="0" cellspacing="0" cellpadding="0">
             <tr>
               <td height="45" valign="bottom" align="center"><div id="today_print" class="txt_gray"></div></td>
             </tr>
             <tr>
-              <td><img src="images/admin_logo.gif" onClick="go_chk('left.php','main.php');" style="cursor:hand"></td>
+              <td><img src="${contextPath}/images/BlueAD/admin/admin_logo.gif" onClick="go_chk('left.php','main.php');" style="cursor:hand"></td>
             </tr>
           </table></td>
           <td height="25" align="right" style="padding-right:20px"><a href="/" target="_blank" class="top_blue">사이트보기</a> &nbsp; <a href="#" onClick="frames['top'].location.href='logout.php'" class="top_blue">로그아웃</a></td>
@@ -66,11 +66,11 @@ function TodayFunc() {
 <!---------------------------------------------- 추가항목-------------------------------------------->
 <!---------------------------------------------- 추가항목-------------------------------------------->
                         <td width="10%" align="center" id="td_no<?= $i ?>" onClick="go_chk('left.php?t_code=<?=$i?>','<?= ${"menu"}[url][$i] ?>');" style="cursor:hand" class="top_mn">
-                            <img src="images/top_mn<?= $i ?>_on.gif" align="absmiddle"> <?= $menu[text][$i] ?>
+                            <img src="${contextPath}/images/BlueAD/admin/top_mn<?= $i ?>_on.gif" align="absmiddle"> <?= $menu[text][$i] ?>
                         </td>
 <!-------------------------------------------- 관리자항목 ---------------------------------------->
                         <td width="10%" align="center" id="td_no<?= $i ?>" onClick="go_chk('left.php?t_code=<?=$j?>','<?= ${"menu"}[url][$i] ?>');" style="cursor:hand" class="top_mn">
-                            <img src="images/top_mn<?= $j ?>_on.gif" align="absmiddle"> 
+                            <img src="${contextPath}/images/BlueAD/admin/top_mn<?= $j ?>_on.gif" align="absmiddle"> 
                             <?= $menu[text][$i] ?>
                         </td>
                         <td width="<?= $width ?>"></td><!-- 남은 여백주기 -->

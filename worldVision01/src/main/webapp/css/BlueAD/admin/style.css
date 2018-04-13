@@ -1,0 +1,214 @@
+@charset "UTF-8";
+
+body {
+    scrollbar-face-color:#ffffff;
+    scrollbar-highlight-color:#aaaaaa;
+    scrollbar-shadow-color:#aaaaaa;
+    scrollbar-3dlight-color:#ffffff;
+    scrollbar-arrow-color:#aaaaaa;
+    scrollbar-track-color:#ffffff;
+    scrollbar-darkshadow-color:#ffffff;
+    background-color:#ffffff;
+    margin:20;
+}
+
+.top_left {
+  margin:0
+}
+
+body, td, input, select, table, textarea, div, p, b {
+    font-family:굴림,verdana,arial;
+    font-size:12px;
+    color:#333333;
+    text-decoration:none; /* none l underline l overline l line-through */
+    line-height:16px;
+    letter-spacing:0; /* 자간(1, 0, -1 ..) */
+    word-break:break-all; /* 줄바꿈 break-all , nowrap  */
+}
+
+img {
+    border:none
+}
+
+a:link    {color:#333333; text-decoration:none;} /* 기본 */
+a:visited {color:#333333; text-decoration:none;}
+a:hover   {color:#f66901; text-decoration:none;}
+a:active  {color:#333333; text-decoration:none;}
+
+
+a.top_blue:link    {color:#8aa9dd; text-decoration:none;} /* 기본 */
+a.top_blue:visited {color:#8aa9dd; text-decoration:none;}
+a.top_blue:hover   {color:#f66901; text-decoration:none;}
+a.top_blue:active  {color:#8aa9dd; text-decoration:none;}
+
+
+#popCal{
+  position:absolute;
+    visibility:hidden;
+    padding:1px;
+    background:#E0E0E0
+}
+
+
+.input_btn
+{
+  background-color: #eeeeee; color: #000000; font-family: 굴림; font-size: 12px; cursor:hand
+}
+
+.no_border
+{
+  border:none; background-color:#ffffff; 
+}
+
+.pad_left
+{
+  padding-left:15px
+}
+
+.pad_right
+{
+  padding-right:15px
+}
+
+.pad_all
+{
+  padding:15px;
+}
+
+/* 페이지 분할  */
+.bbs_list_page
+{
+  font-size:11Px; font-family:verdana; COLOR: red;
+}
+
+/* 페이지 분할 하이퍼링크 */
+a.bbs_link_page:link       {font-size: 11px; color: #6c6c6c; font-family:verdana; text-decoration: none}
+a.bbs_link_page:visited    {font-size: 11px; color: #6c6c6c; font-family:verdana; text-decoration: none}
+a.bbs_link_page:hover      {font-size: 11px; color: blue;; font-family:verdana; text-decoration: none}
+a.bbs_link_page:active     {font-size: 11px; color: #6c6c6c; font-family:verdana; text-decoration: none}
+
+
+/* 로그인css  */
+.txt_s {font-size: 11px; font-family:돋움,돋움체; color:#979797}
+
+.log_id
+{
+    background-color:transparent;
+    border:1px solid #bebebf;
+    font-size:12px;
+    color:#e6e6e6
+}
+
+.log_pw
+{
+    background-color:transparent;
+    border:1px solid #bebebf;
+    font-size:12px;
+    color:#979797;
+}
+
+/* form */
+.b_input
+{
+    background-color:#f9f9f9;
+    border:1px solid #d5d5d5;
+}
+
+.b_search
+{
+ background-color:#f9f9f9;
+ height:20;
+}
+
+.b_textarea
+{
+    background-color:#f9f9f9;
+    border:1px solid #d5d5d5;
+  scrollbar-face-color:#f0f0f0;
+  scrollbar-shadow-color:#9C9C9C;
+  scrollbar-highlight-color:#ffffff;
+  scrollbar-3dlight-color:#9C9C9C;
+  scrollbar-darkshadow-color:#ffffff;
+  scrollbar-base-color:#ffffff;
+  scrollbar-arrow-color:#DCDCDC
+}
+
+.b_input_white
+{
+  background-color:#ffffff;
+    border:1px solid #d5d5d5;
+}
+
+.b_textarea_white
+{
+  background-color:#ffffff;
+    border:1px solid #d5d5d5;
+  scrollbar-face-color:#f0f0f0;
+  scrollbar-shadow-color:#9C9C9C;
+  scrollbar-highlight-color:#ffffff;
+  scrollbar-3dlight-color:#9C9C9C;
+  scrollbar-darkshadow-color:#ffffff;
+  scrollbar-base-color:#ffffff;
+  scrollbar-arrow-color:#DCDCDC
+}
+
+/* font */
+.top_mn {
+    color:#d0d0d0; /* #8aa9dd */
+    font-weight:bold
+}
+
+.left_mn {
+    color:#d0d0d0;
+    padding-left:15px;
+    background-image:url(images/left_bar.gif);
+    background-repeat:no-repeat;
+}
+
+.txt_blue {
+    color:#8aa9dd;
+}
+
+.txt_gray {
+    color:#9b9b9b;
+}
+
+.txt_gray_s {
+    color:#7a7a7a;
+    font-size:11px
+}
+
+.txt_blue_b {
+    color:#5555aa;
+    font-weight:bold
+}
+
+.field_b {
+    color:#4d5766;
+    font-weight:bold;
+    background-color:#d5deee
+}
+
+.field_b_pad {
+    color:#4d5766;
+    font-weight:bold;
+    background-color:#d5deee;
+    padding-left:15px
+}
+
+.field_b_pad_p {
+    color:#ac189d;
+    font-weight:bold;
+    background-color:#d5deee;
+    padding-left:15px
+}
+
+
+/* 컨텐츠 */
+.blue_b {
+  font-weight:bold;
+    color:#0159d2
+}
+
+/* gm_edit */
+p { margin-top:1px; margin-bottom:1px } p { margin-top:1px; margin-bottom:1px } }
