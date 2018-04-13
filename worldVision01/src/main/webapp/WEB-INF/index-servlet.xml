@@ -49,7 +49,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
     
-    <!-- 인터셉터를 등록한다. -->
+    <!-- 인터셉터를 등록한다. 
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
@@ -57,7 +57,7 @@
             <bean class="java100.app.web.interceptor.IndexInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
-    
+    -->
 </beans>
 
 
