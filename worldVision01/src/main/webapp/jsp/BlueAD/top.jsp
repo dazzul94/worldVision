@@ -65,13 +65,34 @@ function TodayFunc() {
               <tr>
 <!---------------------------------------------- 추가항목-------------------------------------------->
 <!---------------------------------------------- 추가항목-------------------------------------------->
-                        <td width="10%" align="center" id="td_no<?= $i ?>" onClick="go_chk('left.php?t_code=<?=$i?>','<?= ${"menu"}[url][$i] ?>');" style="cursor:hand" class="top_mn">
-                            <img src="${contextPath}/images/BlueAD/admin/top_mn<?= $i ?>_on.gif" align="absmiddle"> <?= $menu[text][$i] ?>
+                        <td width="10%" align="center" id="td_no0" onClick="#" style="cursor:pointer" class="top_mn">
+                            <img src="${contextPath}/images/BlueAD/admin/top_mn0_on.gif" align="absmiddle"> ABOUT
+                        </td>
+                        <td width="10%" align="center" id="td_no1" onClick="#" style="cursor:pointer" class="top_mn">
+                            <img src="${contextPath}/images/BlueAD/admin/top_mn1_on.gif" align="absmiddle"> CHOIR
+                        </td>
+                        <td width="10%" align="center" id="td_no2" onClick="#" style="cursor:pointer" class="top_mn">
+                            <img src="${contextPath}/images/BlueAD/admin/top_mn2_on.gif" align="absmiddle"> CONCERT
+                        </td>
+                        <td width="10%" align="center" id="td_no3" onClick="#" style="cursor:pointer" class="top_mn">
+                            <img src="${contextPath}/images/BlueAD/admin/top_mn3_on.gif" align="absmiddle"> GALLERY
+                        </td>
+                        <td width="10%" align="center" id="td_no4" onClick="#" style="cursor:pointer" class="top_mn">
+                            <img src="${contextPath}/images/BlueAD/admin/top_mn4_on.gif" align="absmiddle"> REQUEST
+                        </td>
+                        <td width="10%" align="center" id="td_no5" onClick="#" style="cursor:pointer" class="top_mn">
+                            <img src="${contextPath}/images/BlueAD/admin/top_mn5_on.gif" align="absmiddle"> COMMUNITY
+                        </td>
+                        <td width="10%" align="center" id="td_no6" onClick="#" style="cursor:pointer" class="top_mn">
+                            <img src="${contextPath}/images/BlueAD/admin/top_mn6_on.gif" align="absmiddle"> BOARD
+                        </td>
+                        <td width="10%" align="center" id="td_no7" onClick="#" style="cursor:pointer" class="top_mn">
+                            <img src="${contextPath}/images/BlueAD/admin/top_mn7_on.gif" align="absmiddle"> MEMBER
                         </td>
 <!-------------------------------------------- 관리자항목 ---------------------------------------->
-                        <td width="10%" align="center" id="td_no<?= $i ?>" onClick="go_chk('left.php?t_code=<?=$j?>','<?= ${"menu"}[url][$i] ?>');" style="cursor:hand" class="top_mn">
-                            <img src="${contextPath}/images/BlueAD/admin/top_mn<?= $j ?>_on.gif" align="absmiddle"> 
-                            <?= $menu[text][$i] ?>
+                        <td width="10%" align="center" id="td_no8" onClick="#" style="cursor:pointer" class="top_mn">
+                            <img src="${contextPath}/images/BlueAD/admin/top_mn8_on.gif" align="absmiddle"> 
+                            관리자관리
                         </td>
                         <td width="<?= $width ?>"></td><!-- 남은 여백주기 -->
               </tr>
