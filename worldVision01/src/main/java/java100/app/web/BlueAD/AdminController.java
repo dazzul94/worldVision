@@ -10,14 +10,6 @@ public class AdminController {
     public String main() throws Exception {
         return "BlueAD/admin/default";
     }
-    @RequestMapping("default2")
-    public String main2() throws Exception {
-        return "BlueAD/admin/default2";
-    }
-    @RequestMapping("default3")
-    public String main3() throws Exception {
-        return "BlueAD/admin/default3";
-    }
 }
 
 
