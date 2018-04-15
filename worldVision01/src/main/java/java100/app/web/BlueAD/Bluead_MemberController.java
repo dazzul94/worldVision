@@ -72,14 +72,14 @@ public class Bluead_MemberController {
         
         model.addAttribute("list", bluead_memberService.list(pageNo, pageSize, options));
         
-        return "bluead_member/list";
+        return "BlueAD/bluead_member/list";
     }
     
     @RequestMapping("{no}")
     public String view(@PathVariable int no, Model model) throws Exception {
         
         model.addAttribute("bluead_member", bluead_memberService.get(no));
-        return "bluead_member/view";
+        return "BlueAD/bluead_member/view";
     }
 /*    
     @RequestMapping("add")
@@ -91,12 +91,12 @@ public class Bluead_MemberController {
     */
     @RequestMapping("form")
     public String form() throws Exception {
-        return "bluead_member/form";
+        return "BlueAD/bluead_member/form";
         
     }
     @RequestMapping("default")
     public String default1() throws Exception {
-        return "bluead_member/default";
+        return "BlueAD/bluead_member/default";
         
     }
    /* 

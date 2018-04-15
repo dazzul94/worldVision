@@ -17,10 +17,10 @@
 </head>
 <body>
 <div id="header">
-<jsp:include page="../BlueAD/top.jsp"/>
+<jsp:include page="../top.jsp"/>
 </div>
 <div id="navigation">
-<jsp:include page="../BlueAD/left.jsp"/>
+<jsp:include page="../left.jsp"/>
 </div>
 <div id="content">
 <!--  회원관리 이미지 -->
@@ -132,7 +132,7 @@
 </form>
 </table>
 </div>
-<jsp:include page="../jslib.jsp"/>
+<jsp:include page="../../jslib.jsp"/>
 <script type="text/javascript">
 var prevPageDisabled = '<c:out value="${prevPageDisabled}"/>';
 var nextPageDisabled = '<c:out value="${nextPageDisabled}"/>';
