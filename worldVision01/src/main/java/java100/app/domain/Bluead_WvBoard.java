@@ -1,5 +1,7 @@
 package java100.app.domain;
 
+import java.sql.Date;
+
 public class Bluead_WvBoard {
     String bbs_no;
     String bbs_fid;
@@ -59,7 +61,7 @@ public class Bluead_WvBoard {
     String bbs_opt9;
     String bbs_opt10;
     String bbs_ip;
-    String bbs_date;
+    Date bbs_date;
     public String getBbs_no() {
         return bbs_no;
     }
@@ -408,10 +410,10 @@ public class Bluead_WvBoard {
     public void setBbs_ip(String bbs_ip) {
         this.bbs_ip = bbs_ip;
     }
-    public String getBbs_date() {
+    public Date getBbs_date() {
         return bbs_date;
     }
-    public void setBbs_date(String bbs_date) {
+    public void setBbs_date(Date bbs_date) {
         this.bbs_date = bbs_date;
     }
     @Override
