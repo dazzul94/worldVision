@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java100.app.service.Bluead_MemberService;
+import java100.app.service.Bluead_OnlineService;
 
 @Controller
-@RequestMapping("/bluead_member")
-public class Bluead_MemberController {
+@RequestMapping("/bluead_online")
+public class Bluead_OnlineController {
     
-    @Autowired Bluead_MemberService bluead_memberService;
+    @Autowired Bluead_OnlineService bluead_onlineService;
     
-    static Logger logger = Logger.getLogger(Bluead_MemberController.class);
+    static Logger logger = Logger.getLogger(Bluead_OnlineController.class);
     
     @RequestMapping("list")
     public String list(
@@ -60,7 +60,7 @@ public class Bluead_MemberController {
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
-        int totalCount = bluead_memberService.getTotalCount();
+        int totalCount = bluead_onlineService.getTotalCount();
         int lastPageNo = totalCount / pageSize;
         if ((totalCount % pageSize) > 0) {
             lastPageNo++;
@@ -70,16 +70,16 @@ public class Bluead_MemberController {
         model.addAttribute("pageNo", pageNo);
         model.addAttribute("lastPageNo", lastPageNo);
         
-        model.addAttribute("list", bluead_memberService.list(pageNo, pageSize, options));
+        model.addAttribute("list", bluead_onlineService.list(pageNo, pageSize, options));
         
-        return "BlueAD/bluead_member/list";
+        return "BlueAD/bluead_online/list";
     }
     
     @RequestMapping("{no}")
     public String view(@PathVariable int no, Model model) throws Exception {
         
-        model.addAttribute("bluead_member", bluead_memberService.get(no));
-        return "BlueAD/bluead_member/view";
+        model.addAttribute("bluead_online", bluead_onlineService.get(no));
+        return "BlueAD/bluead_online/view";
     }
 /*    
     @RequestMapping("add")

@@ -3,7 +3,7 @@ package java100.app.domain;
 import java.sql.Date;
 
 public class Bluead_WvBoard {
-    String bbs_no;
+    int bbs_no;
     String bbs_fid;
     String bbs_thread;
     String bbs_name;
@@ -62,10 +62,10 @@ public class Bluead_WvBoard {
     String bbs_opt10;
     String bbs_ip;
     Date bbs_date;
-    public String getBbs_no() {
+    public int getBbs_no() {
         return bbs_no;
     }
-    public void setBbs_no(String bbs_no) {
+    public void setBbs_no(int bbs_no) {
         this.bbs_no = bbs_no;
     }
     public String getBbs_fid() {
