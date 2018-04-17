@@ -195,32 +195,7 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
                 <td width="45" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_listening.gif"></td>
         <td width="4" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_right.gif"></td>
       </tr>
-      <!-- -----------------공지리스트 --------------------------->
-      <c:forEach items="${list}" var="community" varStatus="status">
-      <c:if test="${community.bbs_notice eq 'Y'}">
-      <tr height="30">
-        <td align="center" bgcolor="#f1f1f1"></td>
-        <td align="center" bgcolor="#f1f1f1">&nbsp;</td>
-        <td align="center" bgcolor="#f1f1f1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/icon_notice.gif" border="0" align="absmiddle"></td>
-        <td align="center" bgcolor="#f1f1f1"></td>
-        <td bgcolor="#f1f1f1">&nbsp;&nbsp;&nbsp;<span class="bbs_normal">${community.bbs_subject }</span></td>
-         <td align="center" bgcolor="#f1f1f1"></td>
-        <td align="center" bgcolor="#f1f1f1">
-          <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><img src="${contextPath}/images/BlueAD/skin/bbs/1198130437.gif" align="absmiddle"></a>        
-        </td>
-        <td bgcolor="#f1f1f1"></td>
-        <td align="center" bgcolor="#f1f1f1"><span class="bbs_normal">${community.bbs_date}</span>
-        </td>
-        <td align="center" bgcolor="#f1f1f1"></td>
-        <td align="center" bgcolor="#f1f1f1"><span class="bbs_normal">${community.bbs_hit}</span></td>
-      </tr>
-     <tr>
-        <td bgcolor="#e6e6e6"></td>
-        <td colspan="13" bgcolor="#e6e6e6" height="1"></td>
-      </tr>
-      </c:if>
-      </c:forEach>
-      <!-- ----------------공지리스트 --------------------->
+     
        <!-- ----------------------------리스트---------------------------- -->
 <c:forEach items="${list}" var="gallery" varStatus="status">
       <tr height="30">
