@@ -67,6 +67,7 @@ public class Bluead_OnlineController {
         }
         
         // view 컴포넌트가 사용할 값을 Model에 담는다.
+        model.addAttribute("totalCount", totalCount);
         model.addAttribute("pageNo", pageNo);
         model.addAttribute("lastPageNo", lastPageNo);
         

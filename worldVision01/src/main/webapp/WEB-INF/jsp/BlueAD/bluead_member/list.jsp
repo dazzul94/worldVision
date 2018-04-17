@@ -8,7 +8,6 @@
 <head>
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
-<link rel='stylesheet' href='${contextPath}/node_modules/bootstrap/dist/css/bootstrap.min.css'>
 <script language="javascript">
 	function chn_lev(lev,url){
 		location.href = url + "&mode=lev_chn&lev="+lev;
