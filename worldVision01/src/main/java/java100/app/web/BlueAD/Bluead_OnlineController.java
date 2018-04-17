@@ -70,6 +70,7 @@ public class Bluead_OnlineController {
         model.addAttribute("totalCount", totalCount);
         model.addAttribute("pageNo", pageNo);
         model.addAttribute("lastPageNo", lastPageNo);
+        model.addAttribute("pageSize", pageSize);
         
         model.addAttribute("list", bluead_onlineService.list(pageNo, pageSize, options));
         

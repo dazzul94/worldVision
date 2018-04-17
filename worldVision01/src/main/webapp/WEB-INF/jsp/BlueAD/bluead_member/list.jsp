@@ -8,6 +8,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
+<link rel='stylesheet' href='${contextPath}/node_modules/bootstrap/dist/css/bootstrap.min.css'>
 <script language="javascript">
 	function chn_lev(lev,url){
 		location.href = url + "&mode=lev_chn&lev="+lev;
@@ -92,23 +93,7 @@
   <tr>
     <td valign="middle" width="100"><input type="image" src="${contextPath}/images/BlueAD/admin/btn_list.gif" onfocus="this.blur();" onClick="location.href='list.php'"></td>
     <td align="center" height="50">
-	 <c:set var="prevPageDisabled" value="${(pageNo > 1) ? '':'disabled'}"/>
-                        <c:set var="prevPageTabIndex" value="${(pageNo > 1) ? 0 : -1}"/>
-                        <c:set var="nextPageDisabled" value="${(pageNo < lastPageNo) ? '':'disabled'}"/>
-                        <c:set var="nextPageTabIndex" value="${(pageNo < lastPageNo) ? 0 : -1}"/>
-                          <ul class="pagination justify-content-center">
-                      <li class="page-item"><a href="list?pn=1&select=${select}&words=${words}"><img src="${contextPath}/images/BlueAD/skin/bbs/common/page_prev_on.gif" width="22" height="15" border="0" align="absmiddle"></a>&nbsp;</li>
-                            <li class="page-item ${prevPageDisabled}"><a id="prevBtn"
-                                href="list?pn=${pageNo - 1}&select=${select}&words=${words}"
-                                tabindex="${prevPageTabIndex}"><img src="${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_on.gif" width="42" height="15" border="0" align="absmiddle"></a>&nbsp;</li>
-                                
-                            <li><a href="#">${pageNo}</a>&nbsp;</li>
-                            
-                            <li class="page-item ${nextPageDisabled}"><a id="nextBtn"
-                                href="list?pn=${pageNo + 1}&select=${select}&words=${words}"
-                                tabindex="${nextPageTabIndex}"><img src="${contextPath}/images/BlueAD/skin/bbs/common/page_next10_on.gif" width="42" height="15" border="0" align="absmiddle"></a>&nbsp;</li>
-                      <li class="page-item"><a href="list?pn=${lastPageNo}&select=${select}&words=${words}"><img src="${contextPath}/images/BlueAD/skin/bbs/common/page_next_on.gif" width="22" height="15" border="0" align="absmiddle"></a>&nbsp;</li>
-                          </ul>
+	 페이징
      
 	</td>
     <td align="right" width="100"></td>
@@ -132,19 +117,6 @@
 </table>
 </div>
 <jsp:include page="../../jslib.jsp"/>
-<script type="text/javascript">
-var prevPageDisabled = '<c:out value="${prevPageDisabled}"/>';
-var nextPageDisabled = '<c:out value="${nextPageDisabled}"/>';
-if (prevPageDisabled == "disabled") {
-$('#prevBtn').bind('click', false);
-} else {
-    $('#prevBtn').unbind('click', false);
-}
-if (nextPageDisabled == "disabled") {
-$('#nextBtn').bind('click', false);
-} else {
-    $('#nextBtn').unbind('click', false);
-}</script>
 </body>
 </html>
 <!--  
