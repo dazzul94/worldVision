@@ -192,7 +192,10 @@
         console.log("(한 페이지에 나타낼 데잍터 수)dataPerPage: " + dataPerPage);
         console.log("(보이는 페이지 개수무조건 열개!)pageCount: " + pageCount);
         console.log("(현재 페이지)currentPage : " + currentPage);
-        
+        var next = Number(currentPage) + 1;
+        var prev = Number(currentPage) - 1;
+        console.log("(이전 페이지 번호)prev : " + prev);
+        console.log("(다음 페이지 번호)next : " + next);
         var totalPage = Math.ceil(totalData/dataPerPage);    // 총 페이지 수
         var pageGroup = Math.ceil(currentPage/pageCount);    // 페이지 그룹
         
@@ -202,30 +205,41 @@
         if(last > totalPage)
             last = totalPage;
         var first = last - (pageCount-1);    // 화면에 보여질 첫번째 페이지 번호
-        var next = last+1;
-        var prev = first-1;
+        var afterNext = last+1;
+        var beforePrev = first-1;
         console.log("(총 페이지 수)totalPage:" + totalPage);        
         console.log("(화면에 보여질 마지막 페이지 번호)last : " + last);
         console.log("(화면에 보여질 첫번쨰 페이지 번호)first : " + first);
-        console.log("(>누르면 갈페이지 번호)next : " + next);
-        console.log("(<누르면 갈 페이지 번호)prev : " + prev);
+        console.log("(>누르면 갈페이지 번호)afterNext : " + afterNext);
+        console.log("(<누르면 갈 페이지 번호)beforePrev : " + beforePrev);
+        
         console.log("-------------------------------------")
-        var $pingingView = $("#paging");
-        
         var html = "";
-        
-        if(prev > 0)
-            html += "<a href=# id='prev'><</a> ";
-        
-        for(var i=first; i <= last; i++){
-            html += "<a href='list?pn="+ i + "' id=" + i + ">" + i + "</a> ";
+        if(beforePrev > 0) {
+            html += "<a href=list?pn=" + beforePrev + " id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_on.gif' border='0'></a> ";
+        }else {
+            html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_off.gif' border='0'> ";
         }
-        
-        if(last < totalPage)
-            html += "<a href=list?pn=" + next + " id='next'>></a>";
-        
+        if(currentPage > 1) {
+            html += "<a href=list?pn=" + prev + " id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev_on.gif' border='0'></a>&nbsp; ";
+        } else {
+            html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev_off.gif' border='0'>&nbsp; ";
+        }
+        for(var i=first; i <= last; i++){
+            html += "<b><a href='list?pn="+ i + "' id=" + i + " class='bbs_link_page'>" + i + "</a></b> ";
+        }
+        if(currentPage < totalPage) {
+            html += "&nbsp;<a href=list?pn=" + next + " id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next_on.gif' border='0'></a> ";
+        } else {
+            html += "&nbsp;<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next_off.gif' border='0'> ";
+        }
+        if(last < totalPage) {
+            html += "<a href=list?pn=" + afterNext + " id='afterNext'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next10_on.gif' border='0'></a>";
+        } else {
+            html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next10_off.gif' border='0'> ";
+        }
         $("#paging").html(html);    // 페이지 목록 생성
-        $("#paging a").css("color", "black");
+        $("#paging a").css("color", "#6C6C6C");
         $("#paging a#" + currentPage).css({"text-decoration":"none", 
                                            "color":"red", 
                                            "font-weight":"bold"});    // 현재 페이지 표시
@@ -236,8 +250,8 @@
             var $id = $item.attr("id");
             var selectedPage = $item.text();
             
-            if($id == "next")    selectedPage = next;
-            if($id == "prev")    selectedPage = prev;
+            if($id == "afterNext")    selectedPage = afterNext;
+            if($id == "beforePrev")    selectedPage = beforePrev;
             
             paging(totalData, dataPerPage, pageCount, selectedPage);
         });
