@@ -50,7 +50,7 @@ else {
 <jsp:include page="../top.jsp"/>
 </div>
 <div id="navigation">
-<jsp:include page="../left.jsp"/>
+<jsp:include page="community_left.jsp"/>
 </div>
 <div id="content">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -111,21 +111,6 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr>
     <td>
-            <!-- <?
-      //카테고리 출력
-      if($is_category == true  && (__ADMIN_ID__ && $bbs_admin == "chk")  ) {
-      ?>
-       -->
-      <select name="scate" class="bbs_select" onchange="location.href='board.php?bbs_id=<?= $bbs_id ?>&scate='+this.value+'<? if(__ADMIN_ID__ && $bbs_admin == "chk") echo"&bbs_admin=chk"; ?>'">
-        <option value="">전체</option>
-        <!-- <?
-        for($i=0; $i < count($cfg_category_arr); $i++) {
-          if($cfg_category_arr[$i] == $scate) echo"<option value=\"".$cfg_category_arr[$i]."\" selected>".$cfg_category_arr[$i]."</option>\n";
-          else                                echo"<option value=\"".$cfg_category_arr[$i]."\">".$cfg_category_arr[$i]."</option>\n";
-        }
-        ?>
-         -->
-      </select>
       <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/newhot.gif">
     </td>
     <td width="270" align="right" style="padding-right:3">
