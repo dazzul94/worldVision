@@ -65,7 +65,7 @@ function TodayFunc() {
               <tr>
 <!---------------------------------------------- 추가항목-------------------------------------------->
 <!---------------------------------------------- 추가항목-------------------------------------------->
-                        <td width="10%" align="center" id="td_no0" onClick="#" style="cursor:pointer" class="top_mn">
+                        <td width="10%" align="center" id="td_no0" onclick='window.location="${contextPath}/BlueAD/about/list"'  style="cursor:pointer" class="top_mn">
                             <img src="${contextPath}/images/BlueAD/admin/top_mn0_on.gif" align="absmiddle"> ABOUT
                         </td>
                         <td width="10%" align="center" id="td_no1" onClick="#" style="cursor:pointer" class="top_mn">

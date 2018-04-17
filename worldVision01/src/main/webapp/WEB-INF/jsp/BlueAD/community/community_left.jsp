@@ -45,7 +45,7 @@ document.onfocusin=autoBlur;
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no2" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community04&amp;bbs_admin=chk',2,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> 갤러리</td>
+                <td height="24" class="left_mn" id="td_no2" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community04&amp;bbs_admin=chk',2,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../community04/list04">갤러리</a></td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>

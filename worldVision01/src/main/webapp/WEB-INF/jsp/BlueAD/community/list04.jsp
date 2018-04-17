@@ -4,6 +4,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<!--  등록된 게시물이 없습니다 해야함 글씨임 -->
 <!-- <?
 session_start();
 
@@ -61,7 +63,7 @@ else {
 			<tr>
 				<td height="25" class="txt_blue_b"><img
 					src="${contextPath}/images/BlueAD/admin/title_icon.gif"
-					align="absmiddle"><font color="#5555aa">갤러리</font></td>
+					align="absmiddle"><font color="#5555aa"> 갤러리</font></td>
 			</tr>
 			<tr>
 				<td height="1"
@@ -142,8 +144,8 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
         </tr>
         <tr>
           <td height="35" valign="middle" width="150">
-            <a href="board.php?bbs_id=wv_community04&key=&keyword=&bbs_admin=chk"><img src="skin/bbs/bluead_gallery_gray_140/images/bluead_list.gif" align="absmiddle" border="0"></a>
-            <a href="javascript:All_del();"><img src="skin/bbs/bluead_gallery_gray_140/images/bluead_list_sel.gif" align="absmiddle" border="0"></a>          </td>
+            <a href="board.php?bbs_id=wv_community04&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gallery_gray_140/bluead_list.gif" align="absmiddle" border="0"></a>
+            <a href="javascript:All_del();"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gallery_gray_140/bluead_list_sel.gif" align="absmiddle" border="0"></a>          </td>
           <td align="center">
             <table border="0" cellspacing="0" cellpadding="0">
               <tr>
@@ -154,7 +156,7 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
             </table>
           </td>
           <td align="right" width="150">
-            <a href="board.php?bbs_id=wv_community04&mode=write&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_write.gif" align="absmiddle" border="0"></a>
+            <a href="board.php?bbs_id=wv_community04&mode=write&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gallery_gray_140/bluead_write.gif" align="absmiddle" border="0"></a>
           </td>
         </tr>
       </table>

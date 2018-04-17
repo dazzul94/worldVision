@@ -55,7 +55,7 @@ else {
 <div id="content">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa">음악감상실</font></td>
+    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 음악감상실</font></td>
   </tr>
   <tr>
     <td height="1" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
