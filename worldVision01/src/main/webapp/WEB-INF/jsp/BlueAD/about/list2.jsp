@@ -50,7 +50,7 @@ else {
 <jsp:include page="../top.jsp"/>
 </div>
 <div id="navigation">
-<jsp:include page="../left.jsp"/>
+<jsp:include page="about_left.jsp"/>
 </div>
 <div id="content">
 <h1>국외</h1>
