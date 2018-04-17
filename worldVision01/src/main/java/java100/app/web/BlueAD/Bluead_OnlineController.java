@@ -27,6 +27,7 @@ public class Bluead_OnlineController {
             @RequestParam(value="words", required=false) String[] words,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
+            @RequestParam(value="type", defaultValue="1") String type,
             Model model) throws Exception {
         
         
@@ -54,13 +55,17 @@ public class Bluead_OnlineController {
         System.out.printf("pageNo=%d, pageSize=%d\n", pageNo, pageSize);
         
         HashMap<String,Object> options = new HashMap<>();
+        if (type != null) {
+            options.put("type", type);
+            model.addAttribute("type", type);
+        }
         if (words != null && words[0].length() > 0) {
             options.put("words", words);
         }
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
-        int totalCount = bluead_onlineService.getTotalCount();
+        int totalCount = bluead_onlineService.getTotalCount(options);
         int lastPageNo = totalCount / pageSize;
         if ((totalCount % pageSize) > 0) {
             lastPageNo++;

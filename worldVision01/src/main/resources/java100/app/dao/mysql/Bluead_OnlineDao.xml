@@ -19,47 +19,8 @@
 
 	<select id="findAll" resultMap="bluead_OnlineMap" parameterType="map">
 		<include refid="select1" />
-		from bluead_online
-
-		<if test="words != null">
-			<where>
-				name in
-				<foreach collection="words" item="word" open="(" close=")"
-					separator=",">
-					#{word}
-				</foreach>
-				or email in
-				<foreach collection="words" item="word" open="(" close=")"
-					separator=",">
-					#{word}
-				</foreach>
-			</where>
-		</if>
-
-		<!-- 정렬 조건에 따라 SQL문을 변경한다. -->
-		order by
-		<choose>
-			<when test="orderColumn == 'member_id' and align == 'asc'">
-				member_id asc
-			</when>
-			<when test="orderColumn == 'member_id' and align == 'desc'">
-				member_id desc
-			</when>
-			<when test="orderColumn == 'member_id' and align == 'asc'">
-				member_id asc
-			</when>
-			<when test="orderColumn == 'member_id' and align == 'desc'">
-				member_id desc
-			</when>
-			<when test="orderColumn == 'member_id' and align == 'desc'">
-				member_id desc
-			</when>
-			<otherwise>
-				no desc
-			</otherwise>
-		</choose>
-
-		<!-- 페이지징 처리 -->
+		from bluead_online where type=#{type}
+		order by no desc
 		limit #{startIndex}, #{size}
 	</select>
 
@@ -73,8 +34,8 @@
 		<include refid="select1"/> from ex_memb where email=#{email} and pwd=password(#{password}) 
 		</select> <select id="findByEmail" resultMap="memberMap" parameterType="string"> 
 		<include refid="select1"/> from ex_memb where email=#{email} </select> -->
-	<select id="countAll" resultType="int">
-		select count(*) from bluead_online
+	<select id="countAll" resultType="int" parameterType="map">
+		select count(*) from bluead_online where type=#{type}
 	</select>
 
 	<!-- <insert id="insert" parameterType="member" useGeneratedKeys="true" 

@@ -3,7 +3,6 @@ package java100.app.service;
 import java.util.List;
 import java.util.Map;
 
-import java100.app.domain.Bluead_Member;
 import java100.app.domain.Bluead_Online;
 
 
@@ -22,7 +21,7 @@ public interface Bluead_OnlineService {
     Bluead_Online get(int no);
 /*    Member get(String email, String password);
     Member get(String email);*/
-    int getTotalCount();
+    int getTotalCount(Map<String, Object> options);
    /* int add(Member member);
     int update(Member member);
     int delete(int no);*/

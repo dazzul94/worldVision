@@ -66,6 +66,7 @@
         </tr>
         <!-- -----------리스트 ------------------- -->
         <c:forEach items="${list}" var="online" varStatus="status">
+            <c:if test="${online.type eq '1'}">
         <tr height="30" bgcolor="#FFFFFF" onmouseover="this.style.background=&quot;#f5f5f5&quot;" onmouseout="this.style.background=&quot;#ffffff&quot;" style="background: rgb(255, 255, 255);">
           <td align="center"><input type="checkbox" name="check[]" value="${online.no}" style="cursor:pointer"></td>
           <td align="center">${online.no}</td>
@@ -75,6 +76,7 @@
           <td align="center"><select onchange="location.href('/BlueAD/admin/online/list.php?mode=CHK_Change&amp;no=1493&amp;page=2&amp;bbs_id=online&amp;type=1');"><option value="N" style="color:red">접수대기</option><option value="Y" style="color:blue" selected="">처리완료</option></select></td>
           <td align="center" onclick="location.href('view.php?no=1493&amp;page=2&amp;bbs_id=online&amp;type=1')" style="cursor:pointer">${online.wdate}</td>
         </tr>
+        </c:if>
         </c:forEach>
         <!-- -----------리스트 ------------------- -->
       </tbody></table>
@@ -96,21 +98,6 @@
   <!------------------ paging ---------------------->
           <td height="50" align="center">
           <div id="paging"></div>
-            <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_off.gif" border="0"></a>
-            <a href="list?pn=${pageNo-1}"><img src="${contextPath}/images/BlueAD/skin/bbs/common/page_prev_on.gif" border="0"></a>&nbsp;
-            <b><a href="list?pn=1" class="bbs_link_page">1</a></b>
-            <!-- <b><span class="bbs_list_page">2</span></b> -->
-            <b><a href="list?pn=2" class="bbs_link_page">2</a></b>
-            <b><a href="list?pn=3" class="bbs_link_page">3</a></b>
-            <b><a href="list?pn=4" class="bbs_link_page">4</a></b>
-            <b><a href="list?pn=5" class="bbs_link_page">5</a></b>
-            <b><a href="list?pn=6" class="bbs_link_page">6</a></b>
-            <b><a href="list?pn=7" class="bbs_link_page">7</a></b>
-            <b><a href="list?pn=8" class="bbs_link_page">8</a></b>
-            <b><a href="list?pn=9" class="bbs_link_page">9</a></b>
-            <b><a href="list?pn=10" class="bbs_link_page">10</a></b>
-            &nbsp;<a href="list?pn=${pageNo+1}"><img src="${contextPath}/images/BlueAD/skin/bbs/common/page_next_on.gif" border="0"></a>
-            <a href="list?pn=${lastPageNo}"><img src="${contextPath}/images/BlueAD/skin/bbs/common/page_next10_on.gif" border="0"></a>
           </td>
           <td align="right" width="300"><!-- 오른쪽 간격 -->
                       </td>
@@ -187,6 +174,8 @@
     var totalData = '<c:out value="${totalCount}"/>';    // 총 데이터 수
     var dataPerPage = '<c:out value="${pageSize}"/>';    // 한 페이지에 나타낼 데이터 수
     var pageCount = 10;        // 한 화면에 나타낼 페이지 수
+    var type = '<c:out value="${type}"/>';
+    console.log("type: " + type)
     function paging(totalData, dataPerPage, pageCount, currentPage){
         console.log("(전체데이터개수)totalData: " + totalData);
         console.log("(한 페이지에 나타낼 데잍터 수)dataPerPage: " + dataPerPage);

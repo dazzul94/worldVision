@@ -58,8 +58,8 @@ public class Bluead_OnlineServiceImpl implements Bluead_OnlineService {
     
     
     @Override
-    public int getTotalCount() {
-        return bluead_onlineDao.countAll();
+    public int getTotalCount(Map<String, Object> options) {
+        return bluead_onlineDao.countAll(options);
     }
 
 /*    @Override
