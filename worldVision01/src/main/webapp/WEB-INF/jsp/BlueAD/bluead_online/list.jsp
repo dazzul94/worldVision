@@ -11,6 +11,8 @@
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
 <link rel='stylesheet' href='${contextPath}/node_modules/bootstrap/dist/css/bootstrap.min.css'>
 <link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css">
+<script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
+
 </head>
 
 <body>
@@ -93,10 +95,12 @@
   <!-- 목록, 선택삭제 -->
   <!------------------ paging ---------------------->
           <td height="50" align="center">
+          <div id="paging"></div>
             <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_off.gif" border="0"></a>
             <a href="list?pn=${pageNo-1}"><img src="${contextPath}/images/BlueAD/skin/bbs/common/page_prev_on.gif" border="0"></a>&nbsp;
             <b><a href="list?pn=1" class="bbs_link_page">1</a></b>
-            <b><span class="bbs_list_page">2</span></b>
+            <!-- <b><span class="bbs_list_page">2</span></b> -->
+            <b><a href="list?pn=2" class="bbs_link_page">2</a></b>
             <b><a href="list?pn=3" class="bbs_link_page">3</a></b>
             <b><a href="list?pn=4" class="bbs_link_page">4</a></b>
             <b><a href="list?pn=5" class="bbs_link_page">5</a></b>
@@ -177,6 +181,73 @@
         }
       }
     }
+</script>
+
+<script type="text/javascript">
+    var totalData = '<c:out value="${totalCount}"/>';    // 총 데이터 수
+    var dataPerPage = '<c:out value="${pageSize}"/>';    // 한 페이지에 나타낼 데이터 수
+    var pageCount = 10;        // 한 화면에 나타낼 페이지 수
+    function paging(totalData, dataPerPage, pageCount, currentPage){
+        console.log("(전체데이터개수)totalData: " + totalData);
+        console.log("(한 페이지에 나타낼 데잍터 수)dataPerPage: " + dataPerPage);
+        console.log("(보이는 페이지 개수무조건 열개!)pageCount: " + pageCount);
+        console.log("(현재 페이지)currentPage : " + currentPage);
+        
+        var totalPage = Math.ceil(totalData/dataPerPage);    // 총 페이지 수
+        var pageGroup = Math.ceil(currentPage/pageCount);    // 페이지 그룹
+        
+        console.log("(현재 페이지 그룹)pageGroup : " + pageGroup);
+        
+        var last = pageGroup * pageCount;    // 화면에 보여질 마지막 페이지 번호
+        if(last > totalPage)
+            last = totalPage;
+        var first = last - (pageCount-1);    // 화면에 보여질 첫번째 페이지 번호
+        var next = last+1;
+        var prev = first-1;
+        console.log("(총 페이지 수)totalPage:" + totalPage);        
+        console.log("(화면에 보여질 마지막 페이지 번호)last : " + last);
+        console.log("(화면에 보여질 첫번쨰 페이지 번호)first : " + first);
+        console.log("(>누르면 갈페이지 번호)next : " + next);
+        console.log("(<누르면 갈 페이지 번호)prev : " + prev);
+        console.log("-------------------------------------")
+        var $pingingView = $("#paging");
+        
+        var html = "";
+        
+        if(prev > 0)
+            html += "<a href=# id='prev'><</a> ";
+        
+        for(var i=first; i <= last; i++){
+            html += "<a href='list?pn="+ i + "' id=" + i + ">" + i + "</a> ";
+        }
+        
+        if(last < totalPage)
+            html += "<a href=list?pn=" + next + " id='next'>></a>";
+        
+        $("#paging").html(html);    // 페이지 목록 생성
+        $("#paging a").css("color", "black");
+        $("#paging a#" + currentPage).css({"text-decoration":"none", 
+                                           "color":"red", 
+                                           "font-weight":"bold"});    // 현재 페이지 표시
+                                           
+        $("#paging a").click(function(){
+            
+            var $item = $(this);
+            var $id = $item.attr("id");
+            var selectedPage = $item.text();
+            
+            if($id == "next")    selectedPage = next;
+            if($id == "prev")    selectedPage = prev;
+            
+            paging(totalData, dataPerPage, pageCount, selectedPage);
+        });
+                                           
+    }
+    
+    $("document").ready(function(){        
+        paging(totalData, dataPerPage, pageCount, '<c:out value="${pageNo}"/>');
+        
+    });
 </script>
 </body>
 </html>
