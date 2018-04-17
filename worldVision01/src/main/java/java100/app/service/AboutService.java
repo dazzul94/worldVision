@@ -18,6 +18,7 @@ import java100.app.domain.About;
 //
 public interface AboutService {
     List<About> list(int pageNo, int pageSize, Map<String,Object> options);
+    List<About> list2(int pageNo, int pageSize, Map<String,Object> options);
     About get(int no);
 /*    Member get(String email, String password);
     Member get(String email);*/

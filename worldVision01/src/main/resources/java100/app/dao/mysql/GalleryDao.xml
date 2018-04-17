@@ -4,10 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- DAO 객체를 자동으로 생성하려면, namespace의 값이 인터페이스 이름과 같아야 한다. -->
-<mapper namespace="java100.app.dao.AboutDao">
+<mapper namespace="java100.app.dao.GalleryDao">
 
-	<resultMap type="about" id="about">
-		<id column="no" property="no" />
+	<resultMap type="gallery" id="gallery">
+		<id column="bbs_no" property="bbs_no" />
 		<!-- 컬럼 이름과 프로퍼티 이름이 같아서 생략! -->
 		<!-- <result column="name" property="name"/> <result column="email" property="email"/> -->
 	</resultMap>
@@ -16,14 +16,14 @@
 		select
 		* 
 	</sql>
-
-	<select id="findAll" resultMap="about" parameterType="map">
+	
+	<select id="findAll" resultMap="gallery" parameterType="map">
 		<include refid="select1" />
-		from bluead_history
+		from bluead_wv_gallery01
 
 		<if test="words != null">
 			<where>
-				dates in
+				bbs_names in
 				<foreach collection="words" item="word" open="(" close=")"
 					separator=",">
 					#{word}
@@ -39,34 +39,35 @@
 		<!-- 정렬 조건에 따라 SQL문을 변경한다. -->
 		order by
 		<choose>
-			<when test="orderColumn == 'date' and align == 'asc'">
-				date asc
+			<when test="orderColumn == 'bbs_name' and align == 'asc'">
+				bbs_name asc
 			</when>
-			<when test="orderColumn == 'date' and align == 'desc'">
-				date desc
+			<when test="orderColumn == 'bbs_name' and align == 'desc'">
+				bbs_name desc
 			</when>
-			<when test="orderColumn == 'date' and align == 'asc'">
-				date asc
+			<when test="orderColumn == 'bbs_name' and align == 'asc'">
+				bbs_name asc
 			</when>
-			<when test="orderColumn == 'date' and align == 'desc'">
-				date desc
+			<when test="orderColumn == 'bbs_name' and align == 'desc'">
+				bbs_name desc
 			</when>
-			<when test="orderColumn == 'date' and align == 'desc'">
-				date desc
+			<when test="orderColumn == 'bbs_name' and align == 'desc'">
+				bbs_name desc
 			</when>
 			<otherwise>
-				no desc
+				bbs_no desc
 			</otherwise>
 		</choose>
 
 		<!-- 페이지징 처리 -->
 		limit #{startIndex}, #{size}
 	</select>
+	
 
-	<select id="findByNo" resultMap="about" parameterType="int">
+	<select id="findByNo" resultMap="gallery" parameterType="int">
 		<include refid="select1" />
-		from bluead_history
-		where no=#{value}
+		from bluead_wv_gallery01
+		where bbs_no=#{value}
 	</select>
 
 	<!-- <select id="findByEmailAndPassword" resultMap="memberMap" parameterType="map"> 
@@ -85,7 +86,6 @@
 		delete from ex_memb where no=#{value} </delete> -->
 
 </mapper>  
-
 
 
 

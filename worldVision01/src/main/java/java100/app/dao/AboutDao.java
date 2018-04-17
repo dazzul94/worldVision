@@ -7,6 +7,7 @@ import java100.app.domain.About;
 
 public interface AboutDao {
     List<About> findAll(Map<String,Object> params);
+    List<About> findAll2(Map<String,Object> params);
     About findByNo(int no);
    /* Member findByEmailAndPassword(Map<String,Object> params);
     Member findByEmail(String email);*/

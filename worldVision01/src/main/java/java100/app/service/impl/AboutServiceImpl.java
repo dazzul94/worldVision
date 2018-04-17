@@ -36,6 +36,22 @@ public class AboutServiceImpl implements AboutService {
         
         return aboutDao.findAll(params);
     }
+    
+    @Override
+    public List<About> list2(int pageNo, int pageSize, Map<String, Object> options) {
+        	
+        logger.debug("GalleryService.list()..... 호출됨!");
+        
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("startIndex", (pageNo - 1) * pageSize);
+        params.put("size", pageSize);
+        
+        if (options != null) {
+            params.putAll(options);
+        }
+        
+        return aboutDao.findAll2(params);
+    }
 
     @Override
     public About get(int no) {

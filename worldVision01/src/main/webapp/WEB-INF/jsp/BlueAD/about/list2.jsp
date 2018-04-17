@@ -53,7 +53,7 @@ else {
 <jsp:include page="../left.jsp"/>
 </div>
 <div id="content">
-
+<h1>국외</h1>
 <!--  회원관리 이미지 -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -70,7 +70,7 @@ else {
 <!--국내 국외 토탈.페이지 -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
 	<tr>
-		<td height=30><a href='list'><span >국내</span></a> | <a href='list2'><span >국외</span></a></td>
+		<td height=30><a href='./list.php?bbs_id=history&cate=1'><span >국내</span></a> | <a href='./list.php?bbs_id=history&cate=2'><span >국외</span></a></td>
 	</tr>
   <tr>    
     <td align="right" style="font-size:10Px;font-family:verdana;">		
@@ -104,10 +104,18 @@ else {
           <td width="100" class="field_b">등록일</td>
         </tr>
        
+       
+       
+       
+       
+       
+       
+       
+       
+       
        <!-- 반복문 시작 -->
        <c:forEach items="${list}" var="about" varStatus="status">
-        <c:if test="${about.cate eq 1}"><!-- 국내 국외 조건 -->
-        
+            <c:if test="${about.cate eq '2'}"><!-- 국내 국외 조건 -->
           <tr height="30" bgcolor="#FFFFFF" onMouseOver="this.style.background='#f5f5f5'" onMouseOut="this.style.background='#FFFFFF'">
             <td align="center"><input type="checkbox" name="check[]" value="<?= $row[no] ?>" style="cursor:hand" ></td>
             <td align="center">${about.no}</td>
