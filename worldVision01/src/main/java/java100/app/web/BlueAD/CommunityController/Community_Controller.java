@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java100.app.service.CommunityService.CommunityService;
 
 @Controller
-@RequestMapping("/community")
+@RequestMapping("/community/community01")
 public class Community_Controller {
     
     @Autowired CommunityService communityService;
@@ -72,7 +72,7 @@ public class Community_Controller {
         
         model.addAttribute("list", communityService.list(pageNo, pageSize, options));
         
-        return "BlueAD/community/list";
+        return "BlueAD/community/community01/list";
     }
     
     @RequestMapping("{no}")
@@ -92,11 +92,6 @@ public class Community_Controller {
     @RequestMapping("form")
     public String form() throws Exception {
         return "BlueAD/community/form";
-        
-    }
-    @RequestMapping("default")
-    public String default1() throws Exception {
-        return "BlueAD/bluead_member/default";
         
     }
    /* 

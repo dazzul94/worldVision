@@ -16,10 +16,10 @@
 <body>
 <body>
 <div id="header">
-<jsp:include page="../top.jsp"/>
+<jsp:include page="../../top.jsp"/>
 </div>
 <div id="navigation">
-<jsp:include page="../left.jsp"/>
+<jsp:include page="../../left.jsp"/>
 </div>
 <div id="content">
 

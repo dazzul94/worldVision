@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java100.app.service.CommunityService.Community05Service;
 
 @Controller
-@RequestMapping("/community05")
+@RequestMapping("/community/community05")
 public class Community05_Controller {
 //community 강서반외     
     @Autowired Community05Service community05Service;
     
     static Logger logger = Logger.getLogger(Community05_Controller.class);
     
-    @RequestMapping("list05")
+    @RequestMapping("list")
     public String list(
             @RequestParam(value="pn", defaultValue="1") int pageNo,
             @RequestParam(value="ps", defaultValue="10") int pageSize,
@@ -72,14 +72,14 @@ public class Community05_Controller {
         
         model.addAttribute("list", community05Service.list(pageNo, pageSize, options));
         
-        return "BlueAD/community/list05";
+        return "BlueAD/community/community05/list";
     }
     
     @RequestMapping("{no}")
     public String view(@PathVariable int no, Model model) throws Exception {
         
         model.addAttribute("community05", community05Service.get(no));
-        return "BlueAD/community/view";
+        return "BlueAD/community/community05/view";
     }
 /*    
     @RequestMapping("add")
@@ -91,12 +91,7 @@ public class Community05_Controller {
     */
     @RequestMapping("form")
     public String form() throws Exception {
-        return "BlueAD/community/form";
-        
-    }
-    @RequestMapping("default")
-    public String default1() throws Exception {
-        return "BlueAD/bluead_member/default";
+        return "BlueAD/community/community05/form";
         
     }
    /* 
