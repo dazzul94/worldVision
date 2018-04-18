@@ -24,6 +24,7 @@ public class Bluead_Online1Controller {
     public String list(
             @RequestParam(value="pn", defaultValue="1") int pageNo,
             @RequestParam(value="ps", defaultValue="20") int pageSize,
+            @RequestParam(value = "select", defaultValue="all") String select,
             @RequestParam(value="words", required=false) String[] words,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
@@ -55,12 +56,17 @@ public class Bluead_Online1Controller {
         System.out.printf("pageNo=%d, pageSize=%d\n", pageNo, pageSize);
         
         HashMap<String,Object> options = new HashMap<>();
+        if (select != null) {
+            options.put("select", select);
+            model.addAttribute("select", select);
+        }
         if (type != null) {
             options.put("type", type);
             model.addAttribute("type", type);
         }
         if (words != null && words[0].length() > 0) {
             options.put("words", words);
+            model.addAttribute("words", words[0]);
         }
         options.put("orderColumn", orderColumn);
         options.put("align", align);

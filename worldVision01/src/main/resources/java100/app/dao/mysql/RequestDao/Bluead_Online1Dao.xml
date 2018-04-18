@@ -19,7 +19,54 @@
 
 	<select id="findAll" resultMap="bluead_Online1Map" parameterType="map">
 		<include refid="select1" />
-		from bluead_online where type=#{type}
+		from bluead_online  
+        <choose>
+        <when test="select == 'all'">
+            <where>
+               or name like '%${word}%' 
+             or member_id like '%${word}%'
+              or email like '%${word}%'
+                or contents like '%${word}%'
+            </where>
+        </when>
+        <when test="select == 'name'">
+        <if test="words != null">
+            <where>
+                <foreach collection="words" item="word">
+                    or name like '%${word}%' 
+                </foreach>
+            </where>
+        </if>
+        </when>
+        <when test="select == 'member_id'">
+        <if test="words != null">
+            <where>
+                <foreach collection="words" item="word">
+                    or member_id like '%${word}%'
+                </foreach>
+            </where>
+        </if>
+        </when>
+        <when test="select == 'email'">
+        <if test="words != null">
+            <where>
+                <foreach collection="words" item="word">
+                    or email like '%${word}%'
+                </foreach>
+            </where>
+        </if>
+        </when>
+        <when test="select == 'contents'">
+        <if test="words != null">
+            <where>
+                <foreach collection="words" item="word">
+                    or contents like '%${word}%'
+                </foreach>
+            </where>
+        </if>
+        </when>
+        </choose>
+        and type=#{type}
 		order by no desc
 		limit #{startIndex}, #{size}
 	</select>
@@ -35,7 +82,54 @@
 		</select> <select id="findByEmail" resultMap="memberMap" parameterType="string"> 
 		<include refid="select1"/> from ex_memb where email=#{email} </select> -->
 	<select id="countAll" resultType="int" parameterType="map">
-		select count(*) from bluead_online where type=#{type}
+		select count(*) from bluead_online 
+        <choose>
+        <when test="select == 'all'">
+            <where>
+             or name like '%${word}%' 
+             or member_id like '%${word}%'
+              or email like '%${word}%'
+                or contents like '%${word}%'
+            </where>
+        </when>
+        <when test="select == 'name'">
+        <if test="words != null">
+            <where>
+                <foreach collection="words" item="word">
+                    or name like '%${word}%' 
+                </foreach>
+            </where>
+        </if>
+        </when>
+        <when test="select == 'member_id'">
+        <if test="words != null">
+            <where>
+                <foreach collection="words" item="word">
+                    or member_id like '%${word}%'
+                </foreach>
+            </where>
+        </if>
+        </when>
+        <when test="select == 'email'">
+        <if test="words != null">
+            <where>
+                <foreach collection="words" item="word">
+                    or email like '%${word}%'
+                </foreach>
+            </where>
+        </if>
+        </when>
+        <when test="select == 'contents'">
+        <if test="words != null">
+            <where>
+                <foreach collection="words" item="word">
+                    or contents like '%${word}%'
+                </foreach>
+            </where>
+        </if>
+        </when>
+        </choose>
+        and type=#{type}
 	</select>
 
 	<!-- <insert id="insert" parameterType="member" useGeneratedKeys="true" 

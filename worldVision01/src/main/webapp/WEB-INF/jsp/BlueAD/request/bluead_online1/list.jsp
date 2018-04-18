@@ -109,24 +109,22 @@
 </table>
 <br>
 <!---- 아래는 검색 ----->
+<form action="list">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-<form method="post" action="<?=$PHP_SELF?>">
-<input type="hidden" name="bbs_id" value="<?=$bbs_id?>">
-<input type="hidden" name="type" value="<?=$type?>">
  <tr>
   <td align="center">
-   <select name="key">
-     <option value="1"<? if($key=="1") echo" selected"; ?>>이름</option>
-     <option value="2"<? if($key=="2") echo" selected"; ?>>회원ID</option>
-     <option value="3"<? if($key=="3") echo" selected"; ?>>이메일</option>
-     <option value="4"<? if($key=="4") echo" selected"; ?>>문의내용</option>
+   <select name="select">
+     <option selected value="name">이름</option>
+     <option value="member_id">회원ID</option>
+     <option value="email">이메일</option>
+     <option value="contents">문의내용</option>
    </select>
-   <input type="text" size="20" maxlength="30" name="keyword" value="<?= $keyword ?>" onFocus="this.select()">
-   <input type="image" src="${contextPath}/images/BlueAD/admin/btn_search.gif" align="absmiddle" onFocus="this.blur();">
+   <input type="text" size="20" maxlength="30" name="words" onFocus="this.select()">
+   <button type="submit" style="background-color: white; border:0px"><img src="${contextPath}/images/BlueAD/admin/btn_search.gif" align="absmiddle" onFocus="this.blur();"/></button>
   </td>
  </tr>
-</form>
 </table>
+</form>
   <!-- -------------------------------bottom ----------------------------------------------------->
 </div>
 <script>
@@ -170,8 +168,13 @@
 <script type="text/javascript">
     var totalData = '<c:out value="${totalCount}"/>';    // 총 데이터 수
     var dataPerPage = '<c:out value="${pageSize}"/>';    // 한 페이지에 나타낼 데이터 수
+    var lastPageNo = '<c:out value="${lastPageNo}"/>';
+    var select = '<c:out value="${select}"/>';
+    var words = '<c:out value="${words}"/>';
     var pageCount = 10;        // 한 화면에 나타낼 페이지 수
     function paging(totalData, dataPerPage, pageCount, currentPage){
+        console.log("(카테고리)select: " + select);
+        console.log("(검색어)words: " + words);
         console.log("(전체데이터개수)totalData: " + totalData);
         console.log("(한 페이지에 나타낼 데잍터 수)dataPerPage: " + dataPerPage);
         console.log("(보이는 페이지 개수무조건 열개!)pageCount: " + pageCount);
@@ -189,7 +192,7 @@
         if(last > totalPage)
             last = totalPage;
         var first = last - (pageCount-1);    // 화면에 보여질 첫번째 페이지 번호
-        if(first < 1) {first=1;last=currentPage;}
+        if(first < 1) {first=1;last=lastPageNo;}
         var afterNext = last+1;
         var beforePrev = first-1;
         console.log("(총 페이지 수)totalPage:" + totalPage);        
@@ -201,25 +204,25 @@
         console.log("-------------------------------------")
         var html = "";
         if(beforePrev > 0) {
-            html += "<a href=list?pn=" + beforePrev + " id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_on.gif' border='0'></a> ";
+            html += "<a href='list?pn=" + beforePrev + "&select="+ select +"&words="+ words +"' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_on.gif' border='0'></a> ";
         }else {
             html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_off.gif' border='0'> ";
         }
         if(currentPage > 1) {
-            html += "<a href=list?pn=" + prev + " id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev_on.gif' border='0'></a>&nbsp; ";
+            html += "<a href='list?pn=" + prev + "&select="+ select +"&words="+ words + "' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev_on.gif' border='0'></a>&nbsp; ";
         } else {
             html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev_off.gif' border='0'>&nbsp; ";
         }
         for(var i=first; i <= last; i++){
-            html += "<b><a href='list?pn="+ i + "' id=" + i + " class='bbs_link_page'>" + i + "</a></b> ";
+            html += "<b><a href='list?pn="+ i + "&select="+ select +"&words="+ words + "' id=" + i + " class='bbs_link_page'>" + i + "</a></b> ";
         }
         if(currentPage < totalPage) {
-            html += "&nbsp;<a href=list?pn=" + next + " id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next_on.gif' border='0'></a> ";
+            html += "&nbsp;<a href='list?pn=" + next + "&select="+ select +"&words="+ words + "' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next_on.gif' border='0'></a> ";
         } else {
             html += "&nbsp;<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next_off.gif' border='0'> ";
         }
         if(last < totalPage) {
-            html += "<a href=list?pn=" + afterNext + " id='afterNext'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next10_on.gif' border='0'></a>";
+            html += "<a href='list?pn=" + afterNext + "&select="+ select +"&words="+ words + "' id='afterNext'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next10_on.gif' border='0'></a>";
         } else {
             html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next10_off.gif' border='0'> ";
         }
