@@ -47,7 +47,7 @@
     <td>
       <table border="0" cellspacing="1" cellpadding="0" width="100%" align="center" bgcolor="#cad4e3">
         <tbody><tr height="25" align="center">
-          <td width="40" class="field_b"><input type="checkbox" name="allChk" onclick="Allchange(this)" style="cursor:hand"></td>
+          <td width="40" class="field_b"><input type="checkbox" name="allChk" onclick="Allchange(this)" style="cursor:pointer"></td>
           <td width="50" class="field_b">번호</td>
           <td class="field_b">이름 (아이디)</td>
                     <td width="150" class="field_b">이메일</td>
@@ -58,7 +58,7 @@
         <!-- -----------리스트 ------------------- -->
         <c:forEach items="${list}" var="online" varStatus="status">
         <tr height="30" bgcolor="#FFFFFF" onmouseover="this.style.background=&quot;#f5f5f5&quot;" onmouseout="this.style.background=&quot;#ffffff&quot;" style="background: rgb(255, 255, 255);">
-          <td align="center"><input type="checkbox" name="check[]" value="${online.no}" style="cursor:pointer"></td>
+          <td align="center"><input type="checkbox" id="check" name="check[]" class="checkSelect" value="${online.no}" style="cursor:pointer"></td>
           <td align="center">${online.no}</td>
           <td align="center" onclick="#" style="cursor:pointer"><b>${online.name}<c:if test="${!empty online.member_id}">(${online.member_id})</c:if> </b> </td>
                     <td align="center" onclick="#" style="cursor:pointer">${online.email}</td>
@@ -138,8 +138,18 @@
 
 
         if(!confirm('선택하신 데이터를 모두 삭제 하시겠습니까?\n\n삭제후 복구는 불가능 합니다.')) return false;
-        
-        document.del_form.submit();
+        /* delete */
+        var send_array = Array();
+        var send_cnt = 0;
+        var chkbox = $(".checkSelect");
+
+        for(i=0;i<chkbox.length;i++) {
+            if (chkbox[i].checked == true){
+                send_array[send_cnt] = chkbox[i].value;
+                send_cnt++;
+            }
+        }
+        window.location = "delete?no=" + send_array;
     }
 
     function Allchange(f) {

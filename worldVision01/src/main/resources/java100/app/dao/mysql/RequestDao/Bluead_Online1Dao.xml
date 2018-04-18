@@ -140,7 +140,7 @@
 		<delete id="delete" parameterType="map">
 		<if test="numbers != null"> 
 		  <foreach collection="numbers" item="number">
-		delete from bluead_online where no=#{number} 
+		delete from bluead_online where no=${number}; 
 		  </foreach>
         </if>
         </delete> 
