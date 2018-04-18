@@ -167,8 +167,6 @@
     var totalData = '<c:out value="${totalCount}"/>';    // 총 데이터 수
     var dataPerPage = '<c:out value="${pageSize}"/>';    // 한 페이지에 나타낼 데이터 수
     var pageCount = 10;        // 한 화면에 나타낼 페이지 수
-    var type = '<c:out value="${type}"/>';
-    console.log("type: " + type)
     function paging(totalData, dataPerPage, pageCount, currentPage){
         console.log("(전체데이터개수)totalData: " + totalData);
         console.log("(한 페이지에 나타낼 데잍터 수)dataPerPage: " + dataPerPage);
@@ -187,6 +185,7 @@
         if(last > totalPage)
             last = totalPage;
         var first = last - (pageCount-1);    // 화면에 보여질 첫번째 페이지 번호
+        if(first < 1) {first=1;last=currentPage;}
         var afterNext = last+1;
         var beforePrev = first-1;
         console.log("(총 페이지 수)totalPage:" + totalPage);        
