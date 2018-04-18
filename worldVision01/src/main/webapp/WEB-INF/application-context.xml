@@ -23,7 +23,7 @@
     <!-- mybatis의 SQL 실행 객체 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations" value="classpath*:java100/app/dao/mysql/*Dao.xml"/>
+        <property name="mapperLocations" value="classpath*:java100/app/dao/mysql/*/*Dao.xml"/>
         <property name="typeAliasesPackage" value="java100.app.domain"/> 
     </bean>    
     
