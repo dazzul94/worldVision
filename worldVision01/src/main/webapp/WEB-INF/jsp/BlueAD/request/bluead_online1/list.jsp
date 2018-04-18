@@ -43,14 +43,6 @@
   </tr>
 </tbody></table>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-<form name="del_form" method="post" action="./check_delete.php">
-<input type="hidden" name="bbs_id" value="online">
-<input type="hidden" name="page" value="2">
-<input type="hidden" name="key" value="">
-<input type="hidden" name="keyword" value="">
-<input type="hidden" name="mode" value="ALLdel">
-<input type="hidden" name="type" value="1">
-</form>
   <tbody><tr>    
     <td>
       <table border="0" cellspacing="1" cellpadding="0" width="100%" align="center" bgcolor="#cad4e3">
@@ -130,7 +122,6 @@
 <script>
     var obj = document.getElementsByName('check[]');
     function setNo() {
-        var cnt = 0;
         var b = false;
 
         for(var i=0; i<obj.length; i++) {
