@@ -7,7 +7,7 @@
 <html>
 <head>
 <title>메뉴</title>
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css?ver=1">
 <script language="javascript">
 <!--
 function go_chk(url,no,tot) {
@@ -33,25 +33,25 @@ document.onfocusin=autoBlur;
           <td>
             <table width="180" border="0" cellspacing="0" cellpadding="0">
 							              <tbody><tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community01&amp;bbs_admin=chk',0,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../bluead_online1/list"> 입단신청</a></td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../bluead_online1/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 입단신청</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no1" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community03&amp;bbs_admin=chk',1,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../bluead_online2/list"> 합창단후원신청</a></td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../bluead_online2/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 합창단후원신청</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no2" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community04&amp;bbs_admin=chk',2,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../bluead_online3/list"> 음반구입신청</a></td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../bluead_online3/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 음반구입신청</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no3" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community05&amp;bbs_admin=chk',3,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../bluead_online4/list"> 각종증명서신청</a></td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../bluead_online4/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 각종증명서신청</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>

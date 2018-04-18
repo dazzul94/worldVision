@@ -7,8 +7,8 @@
 <html>
 <head>
 <title></title>
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css?ver=1">
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css?ver=1">
 <link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css">
 <script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
 

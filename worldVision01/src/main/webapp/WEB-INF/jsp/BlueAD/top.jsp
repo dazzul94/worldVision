@@ -7,7 +7,7 @@
 <html>
 <head>
 <title></title>
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css?ver=1">
 <script language="javascript">
 <!--
 function go_chk(left_url, main_url){    
