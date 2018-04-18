@@ -1,4 +1,4 @@
-package java100.app.web.BlueAD.OnlineController;
+package java100.app.web.BlueAD.RequestController;
 
 import java.util.HashMap;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java100.app.service.OnlineService.Bluead_OnlineService;
+import java100.app.service.RequestService.Bluead_OnlineService;
 
 @Controller
 @RequestMapping("/bluead_online")
@@ -98,7 +98,7 @@ public class Bluead_OnlineController {
     */
     @RequestMapping("form")
     public String form() throws Exception {
-        return "BlueAD/bluead_member/form";
+        return "BlueAD/bluead_online/form";
         
     }
    /* 

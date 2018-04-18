@@ -1,4 +1,4 @@
-package java100.app.service.impl.OnlineImpl;
+package java100.app.service.impl.RequestImpl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,9 +8,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java100.app.dao.OnlineDao.Bluead_OnlineDao;
-import java100.app.domain.Online.Bluead_Online;
-import java100.app.service.OnlineService.Bluead_OnlineService;
+import java100.app.dao.RequestDao.Bluead_OnlineDao;
+import java100.app.domain.Request.Bluead_Online;
+import java100.app.service.RequestService.Bluead_OnlineService;
 
 @Service
 public class Bluead_OnlineServiceImpl implements Bluead_OnlineService {

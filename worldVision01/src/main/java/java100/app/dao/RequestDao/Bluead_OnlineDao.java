@@ -1,9 +1,9 @@
-package java100.app.dao.OnlineDao;
+package java100.app.dao.RequestDao;
 
 import java.util.List;
 import java.util.Map;
 
-import java100.app.domain.Online.Bluead_Online;
+import java100.app.domain.Request.Bluead_Online;
 
 public interface Bluead_OnlineDao {
     List<Bluead_Online> findAll(Map<String,Object> params);

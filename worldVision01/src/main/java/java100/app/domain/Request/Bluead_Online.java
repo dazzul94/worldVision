@@ -1,4 +1,4 @@
-package java100.app.domain.Online;
+package java100.app.domain.Request;
 
 import java.sql.Date;
 
