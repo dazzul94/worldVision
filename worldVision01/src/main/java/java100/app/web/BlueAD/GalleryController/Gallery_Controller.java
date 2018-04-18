@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java100.app.service.GalleryService.GalleryService;
 
 @Controller
-@RequestMapping("/gallery")
+@RequestMapping("/gallery/gallery01")
 public class Gallery_Controller {
     
     @Autowired GalleryService galleryService;
@@ -72,14 +72,14 @@ public class Gallery_Controller {
         
         model.addAttribute("list", galleryService.list(pageNo, pageSize, options));
         
-        return "BlueAD/gallery/list";
+        return "BlueAD/gallery/gallery01/list";
     }
     
     @RequestMapping("{no}")
     public String view(@PathVariable int no, Model model) throws Exception {
         
         model.addAttribute("gallery", galleryService.get(no));
-        return "BlueAD/gallery/view";
+        return "BlueAD/gallery/gallery01/view";
     }
 /*    
     @RequestMapping("add")
@@ -91,7 +91,7 @@ public class Gallery_Controller {
     */
     @RequestMapping("form")
     public String form() throws Exception {
-        return "BlueAD/gallery/form";
+        return "BlueAD/gallery/gallery01/form";
         
     }
    /* 

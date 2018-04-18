@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java100.app.service.GalleryService.Gallery02Service;
 
 @Controller
-@RequestMapping("/gallery02")
+@RequestMapping("/gallery/gallery02")
 public class Gallery02_Controller {
     
     @Autowired Gallery02Service gallery02Service;
     
     static Logger logger = Logger.getLogger(Gallery02_Controller.class);
     
-    @RequestMapping("list02")
+    @RequestMapping("list")
     public String list(
             @RequestParam(value="pn", defaultValue="1") int pageNo,
             @RequestParam(value="ps", defaultValue="10") int pageSize,
@@ -72,14 +72,14 @@ public class Gallery02_Controller {
         
         model.addAttribute("list", gallery02Service.list(pageNo, pageSize, options));
         
-        return "BlueAD/gallery/list02";
+        return "BlueAD/gallery/gallery02/list";
     }
     
     @RequestMapping("{no}")
     public String view(@PathVariable int no, Model model) throws Exception {
         
         model.addAttribute("gallery02", gallery02Service.get(no));
-        return "BlueAD/gallery/view";
+        return "BlueAD/gallery/gallery02/view";
     }
 /*    
     @RequestMapping("add")
@@ -91,7 +91,7 @@ public class Gallery02_Controller {
     */
     @RequestMapping("form")
     public String form() throws Exception {
-        return "BlueAD/gallery/form";
+        return "BlueAD/gallery/gallery02/form";
         
     }
    /* 

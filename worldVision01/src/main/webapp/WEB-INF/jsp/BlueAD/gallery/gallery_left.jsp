@@ -33,13 +33,13 @@ document.onfocusin=autoBlur;
           <td>
             <table width="180" border="0" cellspacing="0" cellpadding="0">
 							              <tbody><tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community01&amp;bbs_admin=chk',0,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../gallery/list"> 음악감상실</a></td>
+                <td height="24" class="left_mn" id="td_no0" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community01&amp;bbs_admin=chk',0,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../gallery01/list"> 음악감상실</a></td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no1" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community03&amp;bbs_admin=chk',1,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../gallery02/list02"> 영상갤러리</a></td>
+                <td height="24" class="left_mn" id="td_no1" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community03&amp;bbs_admin=chk',1,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../gallery02/list"> 영상갤러리</a></td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
@@ -51,7 +51,7 @@ document.onfocusin=autoBlur;
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no3" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community05&amp;bbs_admin=chk',3,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../gallery04/list04"> 포스터/이미지</a></td>
+                <td height="24" class="left_mn" id="td_no3" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community05&amp;bbs_admin=chk',3,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../gallery04/list"> 포스터/이미지</a></td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
