@@ -13,8 +13,6 @@
 <script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
 
 </head>
-
-<body>
 <div id="header">
 <jsp:include page="../../top.jsp"/>
 </div>
@@ -24,7 +22,7 @@
 <div id="content">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
-    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 입단신청</td>
+    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 합창단후원신청</td>
   </tr>
   <tr>
     <td height="4" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
@@ -33,7 +31,6 @@
     <td height="20"></td>
   </tr>
 </tbody></table>
-
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tbody><tr>    
     <td align="right" style="font-size:10Px;font-family:verdana;">
@@ -43,14 +40,13 @@
   </tr>
 </tbody></table>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-<form name="del_form" method="post" action="./check_delete.php">
+<form name="del_form" method="post" action="./check_delete.php"></form>
 <input type="hidden" name="bbs_id" value="online">
-<input type="hidden" name="page" value="2">
+<input type="hidden" name="page" value="1">
 <input type="hidden" name="key" value="">
 <input type="hidden" name="keyword" value="">
 <input type="hidden" name="mode" value="ALLdel">
-<input type="hidden" name="type" value="1">
-</form>
+<input type="hidden" name="type" value="2">
   <tbody><tr>    
     <td>
       <table border="0" cellspacing="1" cellpadding="0" width="100%" align="center" bgcolor="#cad4e3">
@@ -58,6 +54,8 @@
           <td width="40" class="field_b"><input type="checkbox" name="allChk" onclick="Allchange(this)" style="cursor:hand"></td>
           <td width="50" class="field_b">번호</td>
           <td class="field_b">이름 (아이디)</td>
+                    <td width="120" class="field_b">후원종류</td>
+          <td width="120" class="field_b">후원금액</td>
                     <td width="150" class="field_b">이메일</td>
           <td width="120" class="field_b">연락처</td>
           <td width="100" class="field_b">상담상태</td>
@@ -69,17 +67,18 @@
           <td align="center"><input type="checkbox" name="check[]" value="${online.no}" style="cursor:pointer"></td>
           <td align="center">${online.no}</td>
           <td align="center" onclick="#" style="cursor:pointer"><b>${online.name}<c:if test="${!empty online.member_id}">(${online.member_id})</c:if> </b> </td>
+                  <td align="center">정기후원</td>
+          <td align="center">2 만원</td>
                     <td align="center" onclick="#" style="cursor:pointer">${online.email}</td>
           <td align="center" onclick="#" style="cursor:pointer">${online.tel1}-${online.tel2}-${online.tel3}</td>
           <td align="center"><select onchange="location.href('/BlueAD/admin/online/list.php?mode=CHK_Change&amp;no=1493&amp;page=2&amp;bbs_id=online&amp;type=1');"><option value="N" style="color:red">접수대기</option><option value="Y" style="color:blue" selected="">처리완료</option></select></td>
           <td align="center" onclick="location.href('view.php?no=1493&amp;page=2&amp;bbs_id=online&amp;type=1')" style="cursor:pointer">${online.wdate}</td>
         </tr>
         </c:forEach>
-        <!-- -----------리스트 ------------------- -->
+         <!-- -----------리스트 ------------------- -->
       </tbody></table>
     </td>
   </tr>
-  
   <!-- -----------------------------bottom ------------------------------------->
   <!-- 목록, 선택삭제 -->
   <tr>
@@ -105,29 +104,26 @@
     </td>
   </tr>
   
-</tbody>
-</table>
+</tbody></table>
 <br>
-<!---- 아래는 검색 ----->
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-<form method="post" action="<?=$PHP_SELF?>">
-<input type="hidden" name="bbs_id" value="<?=$bbs_id?>">
-<input type="hidden" name="type" value="<?=$type?>">
- <tr>
+<form method="post" action="/BlueAD/admin/online/list.php"></form>
+<input type="hidden" name="bbs_id" value="online">
+<input type="hidden" name="type" value="2">
+ <tbody><tr>
   <td align="center">
    <select name="key">
-     <option value="1"<? if($key=="1") echo" selected"; ?>>이름</option>
-     <option value="2"<? if($key=="2") echo" selected"; ?>>회원ID</option>
-     <option value="3"<? if($key=="3") echo" selected"; ?>>이메일</option>
-     <option value="4"<? if($key=="4") echo" selected"; ?>>문의내용</option>
+     <option value="1">이름</option>
+     <option value="2">회원ID</option>
+     <option value="3">이메일</option>
+     <option value="4">문의내용</option>
    </select>
-   <input type="text" size="20" maxlength="30" name="keyword" value="<?= $keyword ?>" onFocus="this.select()">
-   <input type="image" src="${contextPath}/images/BlueAD/admin/btn_search.gif" align="absmiddle" onFocus="this.blur();">
+   <input type="text" size="20" maxlength="30" name="keyword" value="" onfocus="this.select()">
+   <input type="image" src="/BlueAD/admin/images/btn_search.gif" align="absmiddle" onfocus="this.blur();">
   </td>
  </tr>
-</form>
-</table>
-  <!-- -------------------------------bottom ----------------------------------------------------->
+
+</tbody></table>
 </div>
 <script>
     var obj = document.getElementsByName('check[]');
