@@ -75,7 +75,7 @@ public class About_Controller {
         return "BlueAD/about/list";
     }
     
-    @RequestMapping("list2")
+    @RequestMapping("abroadList")
     public String list2(
             @RequestParam(value="pn", defaultValue="1") int pageNo,
             @RequestParam(value="ps", defaultValue="20") int pageSize,
@@ -127,7 +127,7 @@ public class About_Controller {
         
         model.addAttribute("list", aboutService.list2(pageNo, pageSize, options));
         
-        return "BlueAD/about/list2";
+        return "BlueAD/about/abroadList";
     }
     @RequestMapping("{no}")
     public String view(@PathVariable int no, Model model) throws Exception {

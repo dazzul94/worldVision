@@ -70,7 +70,7 @@ else {
 <!--국내 국외 토탈.페이지 -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
 	<tr>
-		<td height=30><a href='list'><span >국내</span></a> | <a href='list2'><span >국외</span></a></td>
+		<td height=30><a href='list'><span >국내</span></a> | <a href='abroadList'><span >국외</span></a></td>
 	</tr>
   <tr>    
     <td align="right" style="font-size:10Px;font-family:verdana;">		

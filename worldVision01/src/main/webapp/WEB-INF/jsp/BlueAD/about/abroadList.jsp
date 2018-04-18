@@ -69,11 +69,11 @@ else {
 
 <!--국내 국외 토탈.페이지 -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-	<tr>
-		<td height=30><a href='./list.php?bbs_id=history&cate=1'><span >국내</span></a> | <a href='./list.php?bbs_id=history&cate=2'><span >국외</span></a></td>
-	</tr>
+    <tr>
+        <td height=30><a href='list'><span >국내</span></a> | <a href='abroadList'><span >국외</span></a></td>
+    </tr>
   <tr>    
-    <td align="right" style="font-size:10Px;font-family:verdana;">		
+    <td align="right" style="font-size:10Px;font-family:verdana;">      
      total:<font color="red"> <?= $total_num ?></font>&nbsp;&nbsp;
      page:<font color="red"> <?= $paging->curPage ?></font>/<font color="red"><?= $paging->totalPage ?></font>
    </td>
