@@ -8,19 +8,19 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java100.app.dao.RequestDao.Bluead_OnlineDao;
-import java100.app.domain.Request.Bluead_Online;
-import java100.app.service.RequestService.Bluead_OnlineService;
+import java100.app.dao.RequestDao.Bluead_Online1Dao;
+import java100.app.domain.Request.Bluead_Online1;
+import java100.app.service.RequestService.Bluead_Online1Service;
 
 @Service
-public class Bluead_OnlineServiceImpl implements Bluead_OnlineService {
+public class Bluead_Online1ServiceImpl implements Bluead_Online1Service {
 
-    @Autowired Bluead_OnlineDao bluead_onlineDao;
+    @Autowired Bluead_Online1Dao bluead_onlineDao;
     
-    static Logger logger = Logger.getLogger(Bluead_OnlineServiceImpl.class); 
+    static Logger logger = Logger.getLogger(Bluead_Online1ServiceImpl.class); 
     
     @Override
-    public List<Bluead_Online> list(int pageNo, int pageSize, Map<String, Object> options) {
+    public List<Bluead_Online1> list(int pageNo, int pageSize, Map<String, Object> options) {
         	
         logger.debug("Bluead_OnlineServiceImpl.list()..... 호출됨!");
         
@@ -36,7 +36,7 @@ public class Bluead_OnlineServiceImpl implements Bluead_OnlineService {
     }
 
     @Override
-    public Bluead_Online get(int no) {
+    public Bluead_Online1 get(int no) {
         return bluead_onlineDao.findByNo(no);
     }
     

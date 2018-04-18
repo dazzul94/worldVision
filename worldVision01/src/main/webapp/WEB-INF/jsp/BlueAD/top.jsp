@@ -77,7 +77,7 @@ function TodayFunc() {
                         <td width="10%" align="center" id="td_no3" onClick='window.location="${contextPath}/BlueAD/gallery/list"' style="cursor:pointer" class="top_mn">
                             <img src="${contextPath}/images/BlueAD/admin/top_mn3_on.gif" align="absmiddle"> GALLERY
                         </td>
-                        <td width="10%" align="center" id="td_no4" onClick='window.location="${contextPath}/BlueAD/bluead_online/list"' style="cursor:pointer" class="top_mn">
+                        <td width="10%" align="center" id="td_no4" onClick='window.location="${contextPath}/BlueAD/request/bluead_online1/list"' style="cursor:pointer" class="top_mn">
                             <img src="${contextPath}/images/BlueAD/admin/top_mn4_on.gif" align="absmiddle"> REQUEST
                         </td>
                         <td width="10%" align="center" id="td_no5" onClick='window.location="${contextPath}/BlueAD/community/list"' style="cursor:pointer" class="top_mn">

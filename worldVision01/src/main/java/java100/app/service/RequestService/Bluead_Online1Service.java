@@ -3,7 +3,7 @@ package java100.app.service.RequestService;
 import java.util.List;
 import java.util.Map;
 
-import java100.app.domain.Request.Bluead_Online;
+import java100.app.domain.Request.Bluead_Online1;
 
 
 
@@ -16,9 +16,9 @@ import java100.app.domain.Request.Bluead_Online;
 // 담당하기 때문에 인터페이스에 선언하는 메서드 이름도 
 // 가능한 업무 용어를 사용한다.
 //
-public interface Bluead_OnlineService {
-    List<Bluead_Online> list(int pageNo, int pageSize, Map<String,Object> options);
-    Bluead_Online get(int no);
+public interface Bluead_Online1Service {
+    List<Bluead_Online1> list(int pageNo, int pageSize, Map<String,Object> options);
+    Bluead_Online1 get(int no);
 /*    Member get(String email, String password);
     Member get(String email);*/
     int getTotalCount(Map<String, Object> options);

@@ -16,10 +16,10 @@
 
 <body>
 <div id="header">
-<jsp:include page="../top.jsp"/>
+<jsp:include page="../../top.jsp"/>
 </div>
 <div id="navigation">
-<jsp:include page="../left.jsp"/>
+<jsp:include page="../../left.jsp"/>
 </div>
 <div id="content">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">

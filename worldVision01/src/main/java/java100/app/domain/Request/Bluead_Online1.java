@@ -2,7 +2,7 @@ package java100.app.domain.Request;
 
 import java.sql.Date;
 
-public class Bluead_Online {
+public class Bluead_Online1 {
     int no;
     String type;
     String member_id; 

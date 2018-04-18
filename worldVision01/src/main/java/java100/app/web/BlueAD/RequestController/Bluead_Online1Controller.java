@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java100.app.service.RequestService.Bluead_OnlineService;
+import java100.app.service.RequestService.Bluead_Online1Service;
 
 @Controller
-@RequestMapping("/bluead_online")
-public class Bluead_OnlineController {
+@RequestMapping("/request/bluead_online1")
+public class Bluead_Online1Controller {
     
-    @Autowired Bluead_OnlineService bluead_onlineService;
+    @Autowired Bluead_Online1Service bluead_onlineService;
     
-    static Logger logger = Logger.getLogger(Bluead_OnlineController.class);
+    static Logger logger = Logger.getLogger(Bluead_Online1Controller.class);
     
     @RequestMapping("list")
     public String list(
@@ -79,14 +79,14 @@ public class Bluead_OnlineController {
         
         model.addAttribute("list", bluead_onlineService.list(pageNo, pageSize, options));
         
-        return "BlueAD/bluead_online/list";
+        return "BlueAD/request/bluead_online1/list";
     }
     
     @RequestMapping("{no}")
     public String view(@PathVariable int no, Model model) throws Exception {
         
         model.addAttribute("bluead_online", bluead_onlineService.get(no));
-        return "BlueAD/bluead_online/view";
+        return "BlueAD/request/bluead_online1/view";
     }
 /*    
     @RequestMapping("add")
@@ -98,7 +98,7 @@ public class Bluead_OnlineController {
     */
     @RequestMapping("form")
     public String form() throws Exception {
-        return "BlueAD/bluead_online/form";
+        return "BlueAD/request/bluead_online1/form";
         
     }
    /* 
