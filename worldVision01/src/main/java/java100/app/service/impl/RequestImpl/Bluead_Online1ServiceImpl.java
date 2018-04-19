@@ -73,8 +73,11 @@ public class Bluead_Online1ServiceImpl implements Bluead_Online1Service {
     }
 */
     @Override
-    public int delete(HashMap<String, Object> numbers) {
-        return bluead_onlineDao.delete(numbers);
+    public int deleteAll(HashMap<String, Object> numbers) {
+        return bluead_onlineDao.deleteAll(numbers);
     }
-
+    @Override
+    public int delete(int no) {
+        return bluead_onlineDao.delete(no);
+    }
 }
