@@ -61,7 +61,6 @@ public class Bluead_MemberServiceImpl implements Bluead_MemberService {
     public int getTotalCount(Map<String, Object> options) {
         return bluead_memberDao.countAll(options);
     }
-
 /*    @Override
     public int add(Member member) {
         return bluead_memberDao.insert(member);

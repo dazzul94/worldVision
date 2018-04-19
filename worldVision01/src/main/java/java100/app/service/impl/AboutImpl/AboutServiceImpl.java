@@ -79,7 +79,10 @@ public class AboutServiceImpl implements AboutService {
     public int getTotalCount(Map<String,Object> options) {
         return aboutDao.countAll(options);
     }
-
+    @Override
+    public int getTotalCount2(Map<String,Object> options) {
+        return aboutDao.countAll2(options);
+    }
 /*    @Override
     public int add(Member member) {
         return bluead_memberDao.insert(member);

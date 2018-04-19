@@ -106,7 +106,6 @@ else {
        
        <!-- 반복문 시작 -->
        <c:forEach items="${list}" var="about" varStatus="status">
-        <c:if test="${about.cate eq 1}"><!-- 국내 국외 조건 -->
         
           <tr height="30" bgcolor="#FFFFFF" onMouseOver="this.style.background='#f5f5f5'" onMouseOut="this.style.background='#FFFFFF'">
             <td align="center"><input type="checkbox" name="check[]" value="<?= $row[no] ?>" style="cursor:hand" ></td>
@@ -117,7 +116,6 @@ else {
 					${about.contents }</td>
             <td align="center">${about.wdate}</td>
           </tr>
-           </c:if><!-- 국내 국외 조건문 끝 -->
            </c:forEach> <!--  반복문 끝 -->
       </table>
       <!--  목록 버튼 , 선택삭제 버튼 -->
@@ -174,7 +172,7 @@ else {
     var lastPageNo = '<c:out value="${lastPageNo}"/>';
     var select = '<c:out value="${select}"/>';
     var words = '<c:out value="${words}"/>';
-    var pageCount = 1;        // 한 화면에 나타낼 페이지 수
+    var pageCount = 10;        // 한 화면에 나타낼 페이지 수
     function paging(totalData, dataPerPage, pageCount, currentPage){
         console.log("(카테고리)select: " + select);
         console.log("(검색어)words: " + words);
