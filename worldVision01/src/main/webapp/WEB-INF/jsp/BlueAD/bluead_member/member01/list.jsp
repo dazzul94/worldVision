@@ -89,6 +89,7 @@
   </tr>
  </c:forEach> 
 </table> 
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>
     <td valign="middle" width="100"><input type="image" src="${contextPath}/images/BlueAD/admin/btn_list.gif" onfocus="this.blur();" onClick="location.href='list.php'"></td>

@@ -78,6 +78,7 @@
 	<select id="countAll" resultType="int" parameterType="map">
 		select count(*) from
 		bluead_member
+
 		
 		<choose>
 			<when test="select == 'all'">
@@ -109,7 +110,6 @@
 			</when>
 		</choose>
 	</select>
-
 	<!-- <insert id="insert" parameterType="member" useGeneratedKeys="true" 
 		keyColumn="no" keyProperty="no"> insert into ex_memb(name,email,pwd,regdt) 
 		values(#{name},#{email},password(#{password}),now()) </insert> <update id="update" 
