@@ -129,6 +129,7 @@
 function really(no){
     if (confirm("정말 삭제하시겠습니까??") == true){    //확인
     	    window.location = "delete?no=" + no;
+    	    window.alert("삭제되었습니다");
     }else{   //취소
         return;
     }
