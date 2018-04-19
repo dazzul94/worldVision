@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
 <link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css">
+<script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
 </head>
 
 <body>
@@ -162,6 +163,9 @@
   </tr> 
 </form>
 </table>
+
+
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td colspan="3" height="25"></td>
@@ -169,24 +173,26 @@
   <tr>
     <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_left.gif"></td>
     <td align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_bg.gif">
-      <table border="0" cellspacing="0" cellpadding="0">
-        <form name="search_form" method="get" action="board.php">
-        <input type="hidden" name="bbs_id" value="<?= $bbs_id ?>">
+
+      
+      <!-- 검색 -->
+        <form action="list">
+              <table border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td>
           <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_t.gif" align="absmiddle">
-          <select name="key" class="txtarea">
-            <option value="bbs_subject" <? if($key == "bbs_subject") echo"selected"; ?>>제목</option>
-            <option value="bbs_content" <? if($key == "bbs_content") echo"selected"; ?>>내용</option>
-            <option value="bbs_name" <? if($key == "bbs_name") echo"selected"; ?>>글쓴이</option>
+          <select name="select" class="txtarea">
+            <option value="bbs_subject">제목</option>
+            <option value="bbs_content">내용</option>
+            <option value="bbs_name">글쓴이</option>
           </select>
-          <input type="text" size="50" maxlength="30" name="keyword" value="<?= $keyword ?>" class="bbs_input_search">
-          <input type="image" src="<?= __BBS_SKIN_DIR__ ?>/images/bluead_search.gif" align="absmiddle">
-          <!--a href="</?= $search_cancel_link ?>"><img src="</?= __BBS_SKIN_DIR__ ?>/images/search_cancel.gif" align="absmiddle"></a-->
+          <input type="text" size="50" maxlength="30" name="words" class="bbs_input_search">
+     <button type="submit" style="background-color: white; border:0px"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_search.gif" align="absmiddle"/></button>
           </td>
         </tr>
+          </table>
         </form>
-      </table>
+    
     </td>
     <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_right.gif"></td>
   </tr>
@@ -195,5 +201,7 @@
   </tr>
 </table>
 </div>
+
+
 </body>
 </html>

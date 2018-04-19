@@ -58,8 +58,8 @@ public class Bluead_WvBoardServiceImpl implements Bluead_WvBoardService {
     
     
     @Override
-    public int getTotalCount() {
-        return bluead_wvboardDao.countAll();
+    public int getTotalCount(Map<String,Object> options) {
+        return bluead_wvboardDao.countAll(options);
     }
 
 /*    @Override

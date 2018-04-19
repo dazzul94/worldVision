@@ -14,56 +14,65 @@
 
 	<sql id="select1">
 		select
-		* 
+		*
 	</sql>
 
-	<select id="findAll" resultMap="bluead_WvBoardMap" parameterType="map">
+	<select id="findAll" resultMap="bluead_WvBoardMap"
+		parameterType="map">
 		<include refid="select1" />
 		from bluead_wv_board
-
-		<if test="words != null">
-			<where>
-				name in
-				<foreach collection="words" item="word" open="(" close=")"
-					separator=",">
-					#{word}
-				</foreach>
-				or email in
-				<foreach collection="words" item="word" open="(" close=")"
-					separator=",">
-					#{word}
-				</foreach>
-			</where>
-		</if>
-
-		<!-- 정렬 조건에 따라 SQL문을 변경한다. -->
-		order by
+		
 		<choose>
-			<when test="orderColumn == 'member_id' and align == 'asc'">
-				member_id asc
+			<when test="select == 'all'">
+				<where> <!-- 제목, 내용, 글쓴이 -->
+					or bbs_subject like '%${word}%'
+					or bbs_content like '%${word}%'
+						or bbs_name like '%${word}%'
+				</where>
 			</when>
-			<when test="orderColumn == 'member_id' and align == 'desc'">
-				member_id desc
-			</when>
-			<when test="orderColumn == 'member_id' and align == 'asc'">
-				member_id asc
-			</when>
-			<when test="orderColumn == 'member_id' and align == 'desc'">
-				member_id desc
-			</when>
-			<when test="orderColumn == 'member_id' and align == 'desc'">
-				member_id desc
-			</when>
-			<otherwise>
-				bbs_no desc
-			</otherwise>
-		</choose>
+				
+					
 
-		<!-- 페이지징 처리 -->
+			<when test="select == 'bbs_subject'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_subject like '%${word}%'
+							
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+			<when test="select == 'bbs_content'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_content like '%${word}%'
+							
+						</foreach>
+					</where>
+				</if>
+			</when>
+			
+			
+			<when test="select == 'bbs_name'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_name like '%${word}%'
+							
+						</foreach>
+					</where>
+				</if>
+			</when>
+		</choose>
+		order by bbs_no desc
 		limit #{startIndex}, #{size}
 	</select>
 
-	<select id="findByNo" resultMap="bluead_WvBoardMap" parameterType="int">
+	<select id="findByNo" resultMap="bluead_WvBoardMap"
+		parameterType="int">
 		<include refid="select1" />
 		from bluead_wv_board
 		where bbs_no=#{value}
@@ -73,8 +82,54 @@
 		<include refid="select1"/> from ex_memb where email=#{email} and pwd=password(#{password}) 
 		</select> <select id="findByEmail" resultMap="memberMap" parameterType="string"> 
 		<include refid="select1"/> from ex_memb where email=#{email} </select> -->
-	<select id="countAll" resultType="int">
+	<select id="countAll" resultType="int" parameterType="map">
 		select count(*) from bluead_wv_board
+
+	<choose>
+			<when test="select == 'all'">
+				<where> <!-- 제목, 내용, 글쓴이 -->
+					or bbs_subject like '%${word}%'
+					or bbs_content like '%${word}%'
+						or bbs_name like '%${word}%'
+				</where>
+			</when>
+				
+					
+
+			<when test="select == 'bbs_subject'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_subject like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+			<when test="select == 'bbs_content'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_content like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+			
+			
+			<when test="select == 'bbs_name'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_name like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+		</choose>
 	</select>
 
 	<!-- <insert id="insert" parameterType="member" useGeneratedKeys="true" 
