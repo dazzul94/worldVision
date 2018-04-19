@@ -25,6 +25,7 @@ public class About_Controller {
             @RequestParam(value="pn", defaultValue="1") int pageNo,
             @RequestParam(value="ps", defaultValue="20") int pageSize,
             @RequestParam(value="words", required=false) String[] words,
+            @RequestParam(value="select", defaultValue="all") String select,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
             Model model) throws Exception {
@@ -54,21 +55,28 @@ public class About_Controller {
         System.out.printf("pageNo=%d, pageSize=%d\n", pageNo, pageSize);
         
         HashMap<String,Object> options = new HashMap<>();
+    	if (select != null) {
+			options.put("select", select);
+			model.addAttribute("select", select);
+		}
         if (words != null && words[0].length() > 0) {
             options.put("words", words);
+            model.addAttribute("words", words[0]);
         }
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
-        int totalCount = aboutService.getTotalCount();
+        int totalCount = aboutService.getTotalCount(options);
         int lastPageNo = totalCount / pageSize;
         if ((totalCount % pageSize) > 0) {
             lastPageNo++;
         }
         
         // view 컴포넌트가 사용할 값을 Model에 담는다.
-        model.addAttribute("pageNo", pageNo);
-        model.addAttribute("lastPageNo", lastPageNo);
+        model.addAttribute("totalCount", totalCount);
+		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("lastPageNo", lastPageNo);
+		model.addAttribute("pageSize", pageSize);
         
         model.addAttribute("list", aboutService.list(pageNo, pageSize, options));
         
@@ -79,6 +87,7 @@ public class About_Controller {
     public String list2(
             @RequestParam(value="pn", defaultValue="1") int pageNo,
             @RequestParam(value="ps", defaultValue="20") int pageSize,
+            @RequestParam(value = "select", defaultValue = "all") String select,
             @RequestParam(value="words", required=false) String[] words,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
@@ -109,21 +118,28 @@ public class About_Controller {
         System.out.printf("pageNo=%d, pageSize=%d\n", pageNo, pageSize);
         
         HashMap<String,Object> options = new HashMap<>();
+        if (select != null) {
+			options.put("select", select);
+			model.addAttribute("select", select);
+		}
         if (words != null && words[0].length() > 0) {
             options.put("words", words);
+            model.addAttribute("words", words[0]);
         }
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
-        int totalCount = aboutService.getTotalCount();
+        int totalCount = aboutService.getTotalCount(options);
         int lastPageNo = totalCount / pageSize;
         if ((totalCount % pageSize) > 0) {
             lastPageNo++;
         }
         
         // view 컴포넌트가 사용할 값을 Model에 담는다.
-        model.addAttribute("pageNo", pageNo);
-        model.addAttribute("lastPageNo", lastPageNo);
+        model.addAttribute("totalCount", totalCount);
+		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("lastPageNo", lastPageNo);
+		model.addAttribute("pageSize", pageSize);
         
         model.addAttribute("list", aboutService.list2(pageNo, pageSize, options));
         

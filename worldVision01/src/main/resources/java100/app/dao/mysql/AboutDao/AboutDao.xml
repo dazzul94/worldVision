@@ -21,94 +21,59 @@
 		<include refid="select1" />
 		from bluead_history
 
-		<if test="words != null">
-			<where>
-				dates in
-				<foreach collection="words" item="word" open="(" close=")"
-					separator=",">
-					#{word}
-				</foreach>
-				or bbs_email in
-				<foreach collection="words" item="word" open="(" close=")"
-					separator=",">
-					#{word}
-				</foreach>
-			</where>
-		</if>
-
-		<!-- 정렬 조건에 따라 SQL문을 변경한다. -->
-		order by
 		<choose>
-			<when test="orderColumn == 'date' and align == 'asc'">
-				date asc
-			</when>
-			<when test="orderColumn == 'date' and align == 'desc'">
-				date desc
-			</when>
-			<when test="orderColumn == 'date' and align == 'asc'">
-				date asc
-			</when>
-			<when test="orderColumn == 'date' and align == 'desc'">
-				date desc
-			</when>
-			<when test="orderColumn == 'date' and align == 'desc'">
-				date desc
-			</when>
-			<otherwise>
-				no desc
-			</otherwise>
-		</choose>
+			<when test="select == 'all'">
+				<where> <!-- 이름, 아이디 -->
+					or contents like '%${word}%'
 
-		<!-- 페이지징 처리 -->
+				</where>
+			</when>
+
+			<when test="select == 'contents'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or contents like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+		</choose>
+		order by no desc
 		limit #{startIndex}, #{size}
+
 	</select>
-	
-	
+
+
 	<!-- 국외 -->
 	<select id="findAll2" resultMap="about" parameterType="map">
 		<include refid="select1" />
 		from bluead_history
-
-		<if test="words != null">
-			<where>
-				nos in
-				<foreach collection="words" item="word" open="(" close=")"
-					separator=",">
-					#{word}
-				</foreach>
-				or bbs_email in
-				<foreach collection="words" item="word" open="(" close=")"
-					separator=",">
-					#{word}
-				</foreach>
-			</where>
-		</if>
-
-		<!-- 정렬 조건에 따라 SQL문을 변경한다. -->
-		order by
 		<choose>
-			<when test="orderColumn == 'no' and align == 'asc'">
-				no asc
-			</when>
-			<when test="orderColumn == 'no' and align == 'desc'">
-				no desc
-			</when>
-			<when test="orderColumn == 'no' and align == 'asc'">
-				no asc
-			</when>
-			<when test="orderColumn == 'no' and align == 'desc'">
-				no desc
-			</when>
-			<when test="orderColumn == 'no' and align == 'desc'">
-				no desc
-			</when>
-			<otherwise>
-				no desc
-			</otherwise>
-		</choose>
+			<when test="select == 'all'">
+				<where> <!-- 내용 -->
+					or contents like '%${word}%'
 
-		<!-- 페이지징 처리 -->
+				</where>
+			</when>
+
+			<when test="select == 'contents'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or contents like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+		</choose>
+		order by no desc
 		limit #{startIndex}, #{size}
+
 	</select>
 	<select id="findByNo" resultMap="about" parameterType="int">
 		<include refid="select1" />
@@ -121,8 +86,29 @@
 		</select> <select id="findByEmail" resultMap="memberMap" parameterType="string"> 
 		<include refid="select1"/> from ex_memb where email=#{email} </select> -->
 	<select id="countAll" resultType="int">
-		select count(*) from
-		bluead_wv_gallery01
+		select count(*)
+		from bluead_history
+
+		<choose>
+			<when test="select == 'all'">
+				<where> <!-- 이름, 아이디 -->
+					or contents like '%${word}%'
+
+				</where>
+			</when>
+
+			<when test="select == 'contents'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or contents like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+		</choose>
 	</select>
 
 	<!-- <insert id="insert" parameterType="member" useGeneratedKeys="true" 

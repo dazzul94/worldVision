@@ -76,8 +76,8 @@ public class AboutServiceImpl implements AboutService {
     
     
     @Override
-    public int getTotalCount() {
-        return aboutDao.countAll();
+    public int getTotalCount(Map<String,Object> options) {
+        return aboutDao.countAll(options);
     }
 
 /*    @Override

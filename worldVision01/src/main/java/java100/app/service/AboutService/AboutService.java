@@ -22,7 +22,7 @@ public interface AboutService {
     About get(int no);
 /*    Member get(String email, String password);
     Member get(String email);*/
-    int getTotalCount();
+    int getTotalCount(Map<String,Object> options);
    /* int add(Member member);
     int update(Member member);
     int delete(int no);*/
