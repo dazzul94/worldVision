@@ -24,6 +24,7 @@ public class Bluead_WvBoardController {
     public String list(
             @RequestParam(value="pn", defaultValue="1") int pageNo,
             @RequestParam(value="ps", defaultValue="10") int pageSize,
+            @RequestParam(value="select",defaultValue="all")String select,//추가
             @RequestParam(value="words", required=false) String[] words,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
@@ -54,13 +55,19 @@ public class Bluead_WvBoardController {
         System.out.printf("pageNo=%d, pageSize=%d\n", pageNo, pageSize);
         
         HashMap<String,Object> options = new HashMap<>();
+        if (select != null){   //추가 
+        	options.put("select", select);
+        	model.addAttribute("select",select); //
+        }
         if (words != null && words[0].length() > 0) {
+        	System.out.println(words[0]);
             options.put("words", words);
+            model.addAttribute("words", words[0]); //추가 페이지 넘겨도 검색 조건 
         }
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
-        int totalCount = bluead_wvboardService.getTotalCount();
+        int totalCount = bluead_wvboardService.getTotalCount(options);// 파라미터에 추가
         int lastPageNo = totalCount / pageSize;
         if ((totalCount % pageSize) > 0) {
             lastPageNo++;
@@ -70,6 +77,8 @@ public class Bluead_WvBoardController {
         model.addAttribute("pageNo", pageNo);
         model.addAttribute("lastPageNo", lastPageNo);
         
+		model.addAttribute("totalCount", totalCount);//
+		model.addAttribute("pageSize", pageSize);//
         model.addAttribute("list", bluead_wvboardService.list(pageNo, pageSize, options));
         
         return "BlueAD/bluead_wvboard/list";
