@@ -65,7 +65,7 @@
         <c:forEach items="${list}" var="online" varStatus="status">
         <tr height="30" bgcolor="#FFFFFF" onmouseover="this.style.background=&quot;#f5f5f5&quot;" onmouseout="this.style.background=&quot;#ffffff&quot;" style="background: rgb(255, 255, 255);">
           <td align="center"><input type="checkbox" name="check[]" value="${online.no}" style="cursor:pointer"></td>
-          <td align="center">${online.no}</td>
+          <td align="center">${totalCount-status.index}</td>
           <td align="center" onclick="#" style="cursor:pointer"><b>${online.name}<c:if test="${!empty online.member_id}">(${online.member_id})</c:if> </b> </td>
                   <td align="center">${online.tpe2_opt1}</td>
           <td align="center"><c:if test="${!empty online.tpe2_opt2}">${online.tpe2_opt2} 만원</c:if></td>
