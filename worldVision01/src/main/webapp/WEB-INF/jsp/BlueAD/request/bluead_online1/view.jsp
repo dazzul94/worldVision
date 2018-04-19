@@ -22,6 +22,7 @@
 <jsp:include page="../request_left.jsp"/>
 </div>
 <div id="content">
+<c:if test="${not empty bluead_online}">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
     <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 입단신청</td>
@@ -37,56 +38,56 @@
 <table width="100%" align="center" bgcolor="#cad4e3" border="0" cellspacing="1" cellpadding="0">
   <tbody><tr>
     <td width="100" height="35" class="field_b_pad_p">성명</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>송예나</b></td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_online.name}</b></td>
   </tr>
     <tr>
     <td width="100" height="35" class="field_b_pad">희망지역</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>강남반</b></td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_online.tpe1_opt1}</b></td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">입단신청경로</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>사전인지</b></td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_online.online_location}</b></td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">성별</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>여자</b></td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_online.tpe1_opt2}</b></td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">학년</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>4학년</b></td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_online.tpe1_opt3}</b></td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">부모님 성함</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>박송이</b></td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_online.tpe1_opt4}</b></td>
   </tr>
 
       <tr>
     <td width="100" height="35" class="field_b_pad">일반전화</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff">--</td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff">${bluead_online.tel1}-${bluead_online.tel2}-${bluead_online.tel3}</td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad_p">핸드폰</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>010-6397-1534</b></td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_online.htel1}-${bluead_online.htel2}-${bluead_online.htel3}</b></td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">이메일</td>
-    <td style="padding: 10px;" bgcolor="#ffffff">songshines@naver.com</td>
+    <td style="padding: 10px;" bgcolor="#ffffff">${bluead_online.email}</td>
   </tr>
   <tr height="40">
     <td width="100" height="35" class="field_b_pad">주소</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff">138 - 240<br>서울 송파구 신천동 11-4 푸르지오 월드마크</td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff">${bluead_online.zip1} - ${bluead_online.zip2}<br>${bluead_online.address1} ${bluead_online.address2}</td>
   </tr>
     <tr>
     <td width="100" height="35" class="field_b_pad">비고</td>
-    <td style="padding: 10px;" bgcolor="#ffffff">송유나, 송예나 쌍둥이 자매입니다. 초4이구요. 오디션 문의드립니다. ^^</td>
+    <td style="padding: 10px;" bgcolor="#ffffff">${bluead_online.contents}</td>
    </tr>   
   <tr>
     <td height="35" class="field_b_pad_p">상담상태</td>
-    <td style="padding: 10px;" bgcolor="#ffffff"><b>상담완료</b></td>
+    <td style="padding: 10px;" bgcolor="#ffffff"><b>?!??</b></td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">등록일</td>
-    <td style="padding: 10px;" bgcolor="#ffffff">2018/04/13</td>
+    <td style="padding: 10px;" bgcolor="#ffffff">${bluead_online.wdate}</td>
   </tr>
 </tbody></table>
 <!-- view -->
@@ -94,8 +95,8 @@
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr height="40">
     <td height="50" align="center" valign="bottom">
-      <input align="absmiddle" onclick="location.href='list.php?&amp;bbs_id=online&amp;type=1&amp;key=&amp;keyword=&amp;page=1'" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_list.gif">
-            <input align="absmiddle" onclick="go_del('query.php?mode=delete&amp;no=1549&amp;bbs_id=online&amp;type=1&amp;key=&amp;keyword=&amp;page=1');" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_del.gif">
+      <input align="absmiddle" onclick="window.location='list'" type="image" src="${contextPath}/images/BlueAD/admin/btn_list.gif">
+            <input align="absmiddle"  onclick="really(${bluead_online.no})" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_del.gif">
     </td>
   </tr>
 </tbody></table>
@@ -122,6 +123,16 @@
   
 </tbody></table>
 <!-- 메모 -->
+</c:if>
 </div>
+<script type="text/javascript">
+function really(no){
+    if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+    	    window.location = "delete?no=" + no;
+    }else{   //취소
+        return;
+    }
+}
+</script>
 </body>
 </html>

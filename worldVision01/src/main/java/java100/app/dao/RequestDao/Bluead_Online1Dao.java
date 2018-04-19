@@ -15,7 +15,8 @@ public interface Bluead_Online1Dao {
    /* int insert(Member member);
     int update(Member member);
     */
-    int delete(HashMap<String, Object> numbers);
+    int delete(int no);
+    int deleteAll(HashMap<String, Object> numbers);
 }
 
 

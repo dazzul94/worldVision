@@ -117,8 +117,8 @@ public class Bluead_Online1Controller {
         return "redirect:list";
     }
 */
-    @RequestMapping("delete")
-    public String delete(HttpServletRequest request, String no) throws Exception {
+    @RequestMapping("deleteAll")
+    public String deleteAll(HttpServletRequest request, String no) throws Exception {
 
         String[] splitNo = no.split(",");
         int[] realNo = new int[splitNo.length];;
@@ -130,11 +130,17 @@ public class Bluead_Online1Controller {
         if (realNo != null) {
             numbers.put("numbers", realNo);
         }
-        bluead_onlineService.delete(numbers);
+        bluead_onlineService.deleteAll(numbers);
        /* System.out.println((String)request.getHeader("Referer"));
         String decodeResult = URLDecoder.decode((String)request.getHeader("Referer"), "UTF-8");
         System.out.println(decodeResult);*/
         return "redirect:" +  (String)request.getHeader("Referer");
+    }
+     @RequestMapping("delete")
+    public String delete(int no) throws Exception {
+
+         bluead_onlineService.delete(no);
+        return "redirect:list";
     }
 }
 
