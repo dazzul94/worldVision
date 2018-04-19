@@ -1,6 +1,7 @@
 package java100.app.web.BlueAD.MemberController;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,16 +25,18 @@ public class Bluead_MemberController {
     public String list(
             @RequestParam(value="pn", defaultValue="1") int pageNo,
             @RequestParam(value="ps", defaultValue="20") int pageSize,
+            @RequestParam(value = "select", defaultValue="all") String select,
             @RequestParam(value="words", required=false) String[] words,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
+            @RequestParam(value="type", defaultValue="1") String type,
             Model model) throws Exception {
         
         
         logger.fatal("fatal.....");
         logger.error("error.....");
         logger.warn("warn.....");
-        logger.info("info.....");
+        logger.info("info.....");	
         logger.debug("debug.....");
         logger.trace("trace....");
         
@@ -54,21 +57,32 @@ public class Bluead_MemberController {
         System.out.printf("pageNo=%d, pageSize=%d\n", pageNo, pageSize);
         
         HashMap<String,Object> options = new HashMap<>();
+        if (select != null) {
+            options.put("select", select);
+            model.addAttribute("select", select);
+        }
+        if (type != null) {
+            options.put("type", type);
+            model.addAttribute("type", type);
+        }
         if (words != null && words[0].length() > 0) {
+        	System.out.println(words[0]);
             options.put("words", words);
         }
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
-        int totalCount = bluead_memberService.getTotalCount();
+        int totalCount = bluead_memberService.getTotalCount(options);
         int lastPageNo = totalCount / pageSize;
         if ((totalCount % pageSize) > 0) {
             lastPageNo++;
         }
         
         // view 컴포넌트가 사용할 값을 Model에 담는다.
+        model.addAttribute("totalCount", totalCount);
         model.addAttribute("pageNo", pageNo);
         model.addAttribute("lastPageNo", lastPageNo);
+        model.addAttribute("pageSize", pageSize);
         
         model.addAttribute("list", bluead_memberService.list(pageNo, pageSize, options));
         

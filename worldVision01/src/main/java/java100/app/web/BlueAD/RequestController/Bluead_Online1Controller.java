@@ -2,8 +2,6 @@ package java100.app.web.BlueAD.RequestController;
 
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -116,26 +114,13 @@ public class Bluead_Online1Controller {
     	bluead_memberService.update(member);
         return "redirect:list";
     }
-*/
-    @RequestMapping("delete")
-    public String delete(HttpServletRequest request, String no) throws Exception {
 
-        String[] splitNo = no.split(",");
-        int[] realNo = new int[splitNo.length];;
-        for (int i = 0; i < splitNo.length; i++) {
-            realNo[i] = Integer.parseInt(splitNo[i]);
-            System.out.println(realNo[i]);
-        }
-        HashMap<String,Object> numbers = new HashMap<>();
-        if (realNo != null) {
-            numbers.put("numbers", realNo);
-        }
-        bluead_onlineService.delete(numbers);
-       /* System.out.println((String)request.getHeader("Referer"));
-        String decodeResult = URLDecoder.decode((String)request.getHeader("Referer"), "UTF-8");
-        System.out.println(decodeResult);*/
-        return "redirect:" +  (String)request.getHeader("Referer");
-    }
+    @RequestMapping("delete")
+    public String delete(int no) throws Exception {
+
+    	bluead_memberService.delete(no);
+        return "redirect:list";
+    }*/
 }
 
 

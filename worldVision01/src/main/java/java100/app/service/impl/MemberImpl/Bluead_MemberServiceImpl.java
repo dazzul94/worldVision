@@ -58,8 +58,8 @@ public class Bluead_MemberServiceImpl implements Bluead_MemberService {
     
     
     @Override
-    public int getTotalCount() {
-        return bluead_memberDao.countAll();
+    public int getTotalCount(Map<String, Object> options) {
+        return bluead_memberDao.countAll(options);
     }
 
 /*    @Override
