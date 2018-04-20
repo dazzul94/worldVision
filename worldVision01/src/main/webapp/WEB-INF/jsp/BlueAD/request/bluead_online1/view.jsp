@@ -83,7 +83,7 @@
    </tr>   
   <tr>
     <td height="35" class="field_b_pad_p">상담상태</td>
-    <td style="padding: 10px;" bgcolor="#ffffff"><b>?!??</b></td>
+    <td style="padding: 10px;" bgcolor="#ffffff"><b><c:if test="${bluead_online.CHK eq 'Y'}">상담완료</c:if><c:if test="${bluead_online.CHK eq 'N'}"><font color="red">상담대기</font></c:if></b></td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">등록일</td>

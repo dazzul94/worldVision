@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java100.app.service.RequestService.Bluead_Online1Service;
+import java100.app.service.RequestService.Bluead_Online4Service;
 
 @Controller
-@RequestMapping("/request/bluead_online1")
-public class Bluead_Online1Controller {
+@RequestMapping("/request/bluead_online4")
+public class Bluead_Online4Controller {
     
-    @Autowired Bluead_Online1Service bluead_onlineService;
+    @Autowired Bluead_Online4Service bluead_online4Service;
     
-    static Logger logger = Logger.getLogger(Bluead_Online1Controller.class);
+    static Logger logger = Logger.getLogger(Bluead_Online4Controller.class);
     
     @RequestMapping("list")
     public String list(
@@ -30,7 +30,7 @@ public class Bluead_Online1Controller {
             @RequestParam(value="words", required=false) String[] words,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
-            @RequestParam(value="type", defaultValue="1") String type,
+            @RequestParam(value="type", defaultValue="4") String type,
             Model model) throws Exception {
         
         
@@ -73,7 +73,7 @@ public class Bluead_Online1Controller {
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
-        int totalCount = bluead_onlineService.getTotalCount(options);
+        int totalCount = bluead_online4Service.getTotalCount(options);
         int lastPageNo = totalCount / pageSize;
         if ((totalCount % pageSize) > 0) {
             lastPageNo++;
@@ -84,15 +84,17 @@ public class Bluead_Online1Controller {
         model.addAttribute("pageNo", pageNo);
         model.addAttribute("lastPageNo", lastPageNo);
         model.addAttribute("pageSize", pageSize);
-        model.addAttribute("list", bluead_onlineService.list(pageNo, pageSize, options));
-        return "BlueAD/request/bluead_online1/list";
+        
+        model.addAttribute("list", bluead_online4Service.list(pageNo, pageSize, options));
+        
+        return "BlueAD/request/bluead_online4/list";
     }
     
     @RequestMapping("{no}")
     public String view(@PathVariable int no, Model model) throws Exception {
         
-        model.addAttribute("bluead_online", bluead_onlineService.get(no));
-        return "BlueAD/request/bluead_online1/view";
+        model.addAttribute("bluead_online", bluead_online4Service.get(no));
+        return "BlueAD/request/bluead_online4/view";
     }
 /*    
     @RequestMapping("add")
@@ -104,7 +106,7 @@ public class Bluead_Online1Controller {
     */
     @RequestMapping("form")
     public String form() throws Exception {
-        return "BlueAD/request/bluead_online1/form";
+        return "BlueAD/request/bluead_online4/form";
         
     }
    /* 
@@ -118,7 +120,7 @@ public class Bluead_Online1Controller {
     @RequestMapping("delete")
     public String delete(int no) throws Exception {
 
-        bluead_onlineService.delete(no);
+        bluead_online4Service.delete(no);
         return "redirect:list";
     }
     @RequestMapping("deleteAll")
@@ -134,7 +136,7 @@ public class Bluead_Online1Controller {
         if (realNo != null) {
             numbers.put("numbers", realNo);
         }
-        bluead_onlineService.deleteAll(numbers);
+        bluead_online4Service.deleteAll(numbers);
        /* System.out.println((String)request.getHeader("Referer"));
         String decodeResult = URLDecoder.decode((String)request.getHeader("Referer"), "UTF-8");
         System.out.println(decodeResult);*/

@@ -64,7 +64,12 @@
           <td align="center"><c:if test="${!empty online.tpe2_opt2}">${online.tpe2_opt2} 만원</c:if></td>
                     <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.email}</td>
           <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.tel1}-${online.tel2}-${online.tel3}</td>
-          <td align="center"><select onchange="location.href('수정');"><option value="N" style="color:red">접수대기</option><option value="Y" style="color:blue" selected="">처리완료</option></select></td>
+          <td align="center">
+          <select onchange="#">
+          <option value="N" style="color:red" <c:if test="${online.CHK eq 'N'}">selected</c:if>>접수대기</option>
+          <option value="Y" style="color:blue" <c:if test="${online.CHK eq 'Y'}">selected</c:if>>처리완료</option>
+          </select>
+          </td>
           <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.wdate}</td>
         </tr>
         </c:forEach>
