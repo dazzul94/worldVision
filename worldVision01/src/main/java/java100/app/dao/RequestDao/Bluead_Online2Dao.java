@@ -1,5 +1,6 @@
 package java100.app.dao.RequestDao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +14,9 @@ public interface Bluead_Online2Dao {
     int countAll(Map<String, Object> options);
    /* int insert(Member member);
     int update(Member member);
-    int delete(int no);*/
+    */
+    int delete(int no);
+    int deleteAll(HashMap<String, Object> numbers);
 }
 
 

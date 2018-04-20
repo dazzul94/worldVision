@@ -132,7 +132,18 @@
 		parameterType="member"> update ex_memb set name=#{name}, email=#{email}, 
 		pwd=password(#{password}) where no=#{no} </update> <delete id="delete" parameterType="int"> 
 		delete from ex_memb where no=#{value} </delete> -->
-
+    <delete id="deleteAll" parameterType="map">
+        <if test="numbers != null"> 
+          <foreach collection="numbers" item="number">
+        delete from bluead_online where no=${number}; 
+          </foreach>
+        </if>
+        </delete> 
+        
+        <delete id="delete" parameterType="int">
+        delete from bluead_online
+        where no=#{value}
+    </delete>
 </mapper>  
 
 

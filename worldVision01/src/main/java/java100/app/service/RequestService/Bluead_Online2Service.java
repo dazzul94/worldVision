@@ -1,5 +1,6 @@
 package java100.app.service.RequestService;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,8 +24,9 @@ public interface Bluead_Online2Service {
     Member get(String email);*/
     int getTotalCount(Map<String, Object> options);
    /* int add(Member member);
-    int update(Member member);
-    int delete(int no);*/
+    int update(Member member);*/
+    int delete(int no);
+    int deleteAll(HashMap<String, Object> numbers);
 }
 
 

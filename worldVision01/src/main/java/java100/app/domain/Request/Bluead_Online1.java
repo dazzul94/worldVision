@@ -29,6 +29,10 @@ public class Bluead_Online1 {
     String tp2_cms5;
     String tp2_cms6;
     
+    String tp2_opt3;
+    String tp2_opt4;
+    
+    
     String tpe2_jumin1;
     String tpe2_jumin2;
     
@@ -48,6 +52,8 @@ public class Bluead_Online1 {
     String tpe3_opt4;
     
     String online_location;
+    
+    String bluead_onlinecol;
 
     public int getNo() {
         return no;
@@ -241,6 +247,22 @@ public class Bluead_Online1 {
         this.tp2_cms6 = tp2_cms6;
     }
 
+    public String getTp2_opt3() {
+        return tp2_opt3;
+    }
+
+    public void setTp2_opt3(String tp2_opt3) {
+        this.tp2_opt3 = tp2_opt3;
+    }
+
+    public String getTp2_opt4() {
+        return tp2_opt4;
+    }
+
+    public void setTp2_opt4(String tp2_opt4) {
+        this.tp2_opt4 = tp2_opt4;
+    }
+
     public String getTpe2_jumin1() {
         return tpe2_jumin1;
     }
@@ -361,19 +383,29 @@ public class Bluead_Online1 {
         this.online_location = online_location;
     }
 
+    public String getBluead_onlinecol() {
+        return bluead_onlinecol;
+    }
+
+    public void setBluead_onlinecol(String bluead_onlinecol) {
+        this.bluead_onlinecol = bluead_onlinecol;
+    }
+
     @Override
     public String toString() {
-        return "Bluead_Online [no=" + no + ", type=" + type + ", member_id=" + member_id + ", name=" + name + ", tel1="
+        return "Bluead_Online1 [no=" + no + ", type=" + type + ", member_id=" + member_id + ", name=" + name + ", tel1="
                 + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3 + ", htel1=" + htel1 + ", htel2=" + htel2 + ", htel3="
                 + htel3 + ", email=" + email + ", zip1=" + zip1 + ", zip2=" + zip2 + ", address1=" + address1
                 + ", address2=" + address2 + ", contents=" + contents + ", CHK=" + CHK + ", wdate=" + wdate
                 + ", tp2_cms1=" + tp2_cms1 + ", tp2_cms2=" + tp2_cms2 + ", tp2_cms3=" + tp2_cms3 + ", tp2_cms4="
-                + tp2_cms4 + ", tp2_cms5=" + tp2_cms5 + ", tp2_cms6=" + tp2_cms6 + ", tpe2_jumin1=" + tpe2_jumin1
-                + ", tpe2_jumin2=" + tpe2_jumin2 + ", tpe1_opt1=" + tpe1_opt1 + ", tpe1_opt2=" + tpe1_opt2
-                + ", tpe1_opt3=" + tpe1_opt3 + ", tpe1_opt4=" + tpe1_opt4 + ", tpe2_opt1=" + tpe2_opt1 + ", tpe2_opt2="
-                + tpe2_opt2 + ", tpe2_opt3=" + tpe2_opt3 + ", tpe2_opt4=" + tpe2_opt4 + ", tpe3_opt1=" + tpe3_opt1
-                + ", tpe3_opt2=" + tpe3_opt2 + ", tpe3_opt3=" + tpe3_opt3 + ", tpe3_opt4=" + tpe3_opt4
-                + ", online_location=" + online_location + "]";
+                + tp2_cms4 + ", tp2_cms5=" + tp2_cms5 + ", tp2_cms6=" + tp2_cms6 + ", tp2_opt3=" + tp2_opt3
+                + ", tp2_opt4=" + tp2_opt4 + ", tpe2_jumin1=" + tpe2_jumin1 + ", tpe2_jumin2=" + tpe2_jumin2
+                + ", tpe1_opt1=" + tpe1_opt1 + ", tpe1_opt2=" + tpe1_opt2 + ", tpe1_opt3=" + tpe1_opt3 + ", tpe1_opt4="
+                + tpe1_opt4 + ", tpe2_opt1=" + tpe2_opt1 + ", tpe2_opt2=" + tpe2_opt2 + ", tpe2_opt3=" + tpe2_opt3
+                + ", tpe2_opt4=" + tpe2_opt4 + ", tpe3_opt1=" + tpe3_opt1 + ", tpe3_opt2=" + tpe3_opt2 + ", tpe3_opt3="
+                + tpe3_opt3 + ", tpe3_opt4=" + tpe3_opt4 + ", online_location=" + online_location
+                + ", bluead_onlinecol=" + bluead_onlinecol + "]";
     }
+
     
 }
