@@ -65,7 +65,14 @@
           <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer"><b>${online.name}<c:if test="${!empty online.member_id}">(${online.member_id})</c:if> </b> </td>
                     <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.email}</td>
           <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.tel1}-${online.tel2}-${online.tel3}</td>
-          <td align="center"><select onchange="location.href('/BlueAD/admin/online/list.php?mode=CHK_Change&amp;no=1493&amp;page=2&amp;bbs_id=online&amp;type=1');"><option value="N" style="color:red">접수대기</option><option value="Y" style="color:blue" selected="">처리완료</option></select></td>
+          <td align="center">
+          <!-- select 업데이트 -->
+          <select onchange="#">
+          <option value="N" style="color:red">접수대기</option>
+          <option value="Y" style="color:blue" selected="">처리완료</option>
+          </select>
+          <!-- select 업데이트 -->
+          </td>
           <td align="center"onclick="window.location='${online.no}'" style="cursor:pointer">${online.wdate}</td>
         </tr>
         </c:forEach>

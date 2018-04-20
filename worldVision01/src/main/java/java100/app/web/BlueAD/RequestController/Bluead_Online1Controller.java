@@ -84,9 +84,11 @@ public class Bluead_Online1Controller {
         model.addAttribute("pageNo", pageNo);
         model.addAttribute("lastPageNo", lastPageNo);
         model.addAttribute("pageSize", pageSize);
-        
         model.addAttribute("list", bluead_onlineService.list(pageNo, pageSize, options));
-        
+        for (int i = 0; i < bluead_onlineService.list(pageNo, pageSize, options).size(); i++) {
+//            int thisNo = Integer.parseInt(bluead_onlineService.list(pageNo, pageSize, options).get(i).getNo());
+//            model.addAttribute(thisNo, bluead_onlineService.list(pageNo, pageSize, options).get(i).getCHK());
+        }
         return "BlueAD/request/bluead_online1/list";
     }
     
