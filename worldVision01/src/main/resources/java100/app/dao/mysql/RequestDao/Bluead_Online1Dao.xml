@@ -23,10 +23,7 @@
         <choose>
         <when test="select == 'all'">
             <where>
-               or name like '%${word}%' 
-             or member_id like '%${word}%'
-              or email like '%${word}%'
-                or contents like '%${word}%'
+               or name like '%%' 
             </where>
         </when>
         <when test="select == 'name'">
@@ -86,10 +83,7 @@
         <choose>
         <when test="select == 'all'">
             <where>
-             or name like '%${word}%' 
-             or member_id like '%${word}%'
-              or email like '%${word}%'
-                or contents like '%${word}%'
+             or name like '%%' 
             </where>
         </when>
         <when test="select == 'name'">
