@@ -25,6 +25,7 @@ public class Community_Controller {
             @RequestParam(value="pn", defaultValue="1") int pageNo,
             @RequestParam(value="ps", defaultValue="10") int pageSize,
             @RequestParam(value="words", required=false) String[] words,
+            @RequestParam(value="select",defaultValue="all") String select,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
             Model model) throws Exception {
@@ -54,21 +55,27 @@ public class Community_Controller {
         System.out.printf("pageNo=%d, pageSize=%d\n", pageNo, pageSize);
         
         HashMap<String,Object> options = new HashMap<>();
+        if (select != null) {
+			options.put("select", select);
+			model.addAttribute("select", select);
+		}
         if (words != null && words[0].length() > 0) {
             options.put("words", words);
         }
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
-        int totalCount = communityService.getTotalCount();
+        int totalCount = communityService.getTotalCount(options);
         int lastPageNo = totalCount / pageSize;
         if ((totalCount % pageSize) > 0) {
             lastPageNo++;
         }
         
         // view 컴포넌트가 사용할 값을 Model에 담는다.
-        model.addAttribute("pageNo", pageNo);
-        model.addAttribute("lastPageNo", lastPageNo);
+    	model.addAttribute("totalCount", totalCount);
+		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("lastPageNo", lastPageNo);
+		model.addAttribute("pageSize", pageSize);
         
         model.addAttribute("list", communityService.list(pageNo, pageSize, options));
         

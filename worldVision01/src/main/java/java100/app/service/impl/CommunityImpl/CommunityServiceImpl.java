@@ -60,8 +60,8 @@ public class CommunityServiceImpl implements CommunityService {
     
     
     @Override
-    public int getTotalCount() {
-        return communityDao.countAll();
+    public int getTotalCount(Map<String, Object> options) {
+        return communityDao.countAll(options);
     }
 
 /*    @Override
