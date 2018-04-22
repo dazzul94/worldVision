@@ -61,7 +61,7 @@
         <c:forEach items="${list}" var="online" varStatus="status">
         <tr height="30" bgcolor="#FFFFFF" onmouseover="this.style.background=&quot;#f5f5f5&quot;" onmouseout="this.style.background=&quot;#ffffff&quot;" style="background: rgb(255, 255, 255);">
           <td align="center"><input type="checkbox" id="check" name="check[]" class="checkSelect" value="${online.no}" style="cursor:pointer"></td>
-          <td align="center">${totalCount-status.index}</td>
+          <td align="center">${(totalCount - status.index) - ((pageNo - 1) * pageSize)}</td>
           <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer"><b>${online.name}<c:if test="${!empty online.member_id}">(${online.member_id})</c:if> </b> </td>
                     <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.email}</td>
           <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.tel1}-${online.tel2}-${online.tel3}</td>
