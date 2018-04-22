@@ -25,7 +25,7 @@
 <c:if test="${not empty bluead_online}">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
-    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 합창단후원신청</td>
+    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 각종증명서신청</td>
   </tr>
   <tr>
     <td height="4" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
@@ -37,25 +37,10 @@
 <!-- view -->
 <table width="100%" align="center" bgcolor="#cad4e3" border="0" cellspacing="1" cellpadding="0">
   <tbody><tr>
-    <td width="100" height="35" class="field_b_pad_p">후원종류</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_online.tpe2_opt1}</b></td>
-  </tr>
-  <tr>
-    <td width="100" height="35" class="field_b_pad">후원금액</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><c:if test="${!empty bluead_online.tpe2_opt2}">${bluead_online.tpe2_opt2} 만원</c:if></td>
-  </tr>
-</tbody></table>
-<br>
-<table width="100%" align="center" bgcolor="#cad4e3" border="0" cellspacing="1" cellpadding="0">
-  <tbody><tr>
     <td width="100" height="35" class="field_b_pad_p">성명</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_online.name}</b></td>
   </tr>
       <tr>
-    <td width="100" height="35" class="field_b_pad_p">생년월일</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_online.tpe2_jumin1}</b></td>
-  </tr>
-    <tr>
     <td width="100" height="35" class="field_b_pad">일반전화</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff">${bluead_online.tel1}-${bluead_online.tel2}-${bluead_online.tel3}</td>
   </tr>
@@ -70,41 +55,6 @@
   <tr height="40">
     <td width="100" height="35" class="field_b_pad">주소</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff">${bluead_online.zip1} - ${bluead_online.zip2}<br>${bluead_online.address1} ${bluead_online.address2}</td>
-  </tr>
-    <tr>
-    <td width="100" height="35" class="field_b_pad">CMS 신청안내</td>
-    <td style="padding: 10px;" bgcolor="#ffffff">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tbody><tr>
-          <td width="100" height="25">은행명</td>
-          <td>${bluead_online.tp2_cms1}</td>
-        </tr>
-        <tr>
-          <td height="25">계좌번호</td>
-          <td>${bluead_online.tp2_cms2}</td>
-        </tr>
-        <tr>
-          <td height="25">예금주</td>
-          <td>${bluead_online.tp2_cms3}</td>
-        </tr>
-        <tr>
-          <td height="25">예금주 생년월일</td>
-          <td>${bluead_online.tp2_cms4}</td>
-        </tr>
-        <tr>
-          <td height="25">이체일</td>
-          <td>${bluead_online.tp2_cms6}</td>
-        </tr>
-        </tbody></table>
-    </td>
-  </tr>
-  <tr>
-    <td width="100" height="35" class="field_b_pad">신청동기</td>
-    <td style="padding: 10px;" bgcolor="#ffffff">${bluead_online.tp2_opt3}</td>
-  </tr>
-  <tr>
-    <td width="100" height="35" class="field_b_pad">추천인</td>
-    <td style="padding: 10px;" bgcolor="#ffffff">${bluead_online.tp2_opt4}</td>
   </tr>
     <tr>
     <td width="100" height="35" class="field_b_pad">비고</td>

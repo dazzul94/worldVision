@@ -24,7 +24,7 @@
 <div id="content">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
-    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 입단신청</td>
+    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 각종증명서신청</td>
   </tr>
   <tr>
     <td height="4" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
@@ -44,12 +44,13 @@
 </tbody></table>
 
 
+        <!-- -----------리스트 ------------------- -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-  <tbody><tr>    
+    <tbody><tr>    
     <td>
       <table border="0" cellspacing="1" cellpadding="0" width="100%" align="center" bgcolor="#cad4e3">
         <tbody><tr height="25" align="center">
-          <td width="40" class="field_b"><input type="checkbox" name="allChk" onclick="Allchange(this)" style="cursor:pointer"></td>
+          <td width="40" class="field_b"><input name="allChk" style="cursor: hand;" onclick="Allchange(this)" type="checkbox"></td>
           <td width="50" class="field_b">번호</td>
           <td class="field_b">이름 (아이디)</td>
                     <td width="150" class="field_b">이메일</td>
@@ -57,23 +58,20 @@
           <td width="100" class="field_b">상담상태</td>
           <td width="100" class="field_b">등록일</td>
         </tr>
-        <!-- -----------리스트 ------------------- -->
         <c:forEach items="${list}" var="online" varStatus="status">
-        <tr height="30" bgcolor="#FFFFFF" onmouseover="this.style.background=&quot;#f5f5f5&quot;" onmouseout="this.style.background=&quot;#ffffff&quot;" style="background: rgb(255, 255, 255);">
-          <td align="center"><input type="checkbox" id="check" name="check[]" class="checkSelect" value="${online.no}" style="cursor:pointer"></td>
+        <tr height="30" onmouseover='this.style.background="#f5f5f5"' onmouseout='this.style.background="#ffffff"' bgcolor="#ffffff">
+          <td align="center"><input id="check" class="checkSelect" name="check[]" style="cursor:pointer;" type="checkbox" value="${online.no}"></td>
           <td align="center">${totalCount-status.index}</td>
-          <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer"><b>${online.name}<c:if test="${!empty online.member_id}">(${online.member_id})</c:if> </b> </td>
-                    <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.email}</td>
-          <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.tel1}-${online.tel2}-${online.tel3}</td>
+          <td align="center" style="cursor:pointer;" onclick="window.location='${online.no}'"><b>${online.name}<c:if test="${!empty online.member_id}">(${online.member_id})</c:if> </b> </td>
+                    <td align="center" style="cursor:pointer;" onclick="window.location='${online.no}'">${online.email}</td>
+          <td align="center" style="cursor:pointer"onclick="window.location='${online.no}'">${online.htel1}-${online.htel2}-${online.htel3}</td>
           <td align="center">
-          <!-- select 업데이트 -->
-          <select onchange="modify()">
+          <select onchange="#">
           <option value="N" style="color:red" <c:if test="${online.CHK eq 'N'}">selected</c:if>>접수대기</option>
           <option value="Y" style="color:blue" <c:if test="${online.CHK eq 'Y'}">selected</c:if>>처리완료</option>
           </select>
-          <!-- select 업데이트 -->
           </td>
-          <td align="center"onclick="window.location='${online.no}'" style="cursor:pointer">${online.wdate}</td>
+          <td align="center" style="cursor:pointer;" onclick="window.location='${online.no}'">${online.wdate}</td>
         </tr>
         </c:forEach>
         <!-- -----------리스트 ------------------- -->
