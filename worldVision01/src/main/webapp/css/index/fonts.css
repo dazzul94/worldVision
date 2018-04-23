@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 100;
+  src: url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Thin.woff2) format('woff2'),
+       url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Thin.woff) format('woff'),
+       url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Thin.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 300;
+  src: url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Light.woff2) format('woff2'),
+       url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Light.woff) format('woff'),
+       url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Light.otf) format('opentype');
+}
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 400;
+   src: url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Regular.woff2) format('woff2'),
+        url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Regular.woff) format('woff'),
+        url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Regular.otf) format('opentype');
+ }
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 500;
+   src: url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Medium.woff2) format('woff2'),
+        url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Medium.woff) format('woff'),
+        url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Medium.otf) format('opentype');
+ }
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 700;
+   src: url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Bold.woff2) format('woff2'),
+        url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Bold.woff) format('woff'),
+        url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Bold.otf) format('opentype');
+ }
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 900;
+   src: url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Black.woff2) format('woff2'),
+        url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Black.woff) format('woff'),
+        url(http://localhost:8080/worldVision01/font/index/NotoSansKR-Black.otf) format('opentype');
+ }
