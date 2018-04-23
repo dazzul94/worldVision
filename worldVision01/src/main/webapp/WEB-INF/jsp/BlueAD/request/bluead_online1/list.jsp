@@ -67,10 +67,13 @@
           <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.tel1}-${online.tel2}-${online.tel3}</td>
           <td align="center">
           <!-- select 업데이트 -->
-          <select onchange="modify()">
+          <form action="update" method='post' enctype="multipart/form-data">
+          <input name="no" type="hidden" value="${online.no}">
+          <select name="CHK" onchange="this.form.submit()">
           <option value="N" style="color:red" <c:if test="${online.CHK eq 'N'}">selected</c:if>>접수대기</option>
           <option value="Y" style="color:blue" <c:if test="${online.CHK eq 'Y'}">selected</c:if>>처리완료</option>
           </select>
+          </form>
           <!-- select 업데이트 -->
           </td>
           <td align="center"onclick="window.location='${online.no}'" style="cursor:pointer">${online.wdate}</td>

@@ -67,11 +67,11 @@ public class Bluead_Online1ServiceImpl implements Bluead_Online1Service {
         return bluead_memberDao.insert(member);
     }
 
-    @Override
-    public int update(Member member) {
-        return bluead_memberDao.update(member);
-    }
 */
+    @Override
+    public int update(Bluead_Online1 bluead_Online1) {
+        return bluead_onlineDao.update(bluead_Online1);
+    }
     @Override
     public int deleteAll(HashMap<String, Object> numbers) {
         return bluead_onlineDao.deleteAll(numbers);

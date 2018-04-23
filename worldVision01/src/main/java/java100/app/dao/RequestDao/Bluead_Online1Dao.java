@@ -13,8 +13,8 @@ public interface Bluead_Online1Dao {
     Member findByEmail(String email);*/
     int countAll(Map<String, Object> options);
    /* int insert(Member member);
-    int update(Member member);
     */
+    int update(Bluead_Online1 bluead_Online1);
     int delete(int no);
     int deleteAll(HashMap<String, Object> numbers);
 }

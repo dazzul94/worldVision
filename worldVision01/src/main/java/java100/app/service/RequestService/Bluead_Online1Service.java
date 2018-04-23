@@ -24,8 +24,8 @@ public interface Bluead_Online1Service {
     Member get(String email);*/
     int getTotalCount(Map<String, Object> options);
    /* int add(Member member);
-    int update(Member member);
     */
+    int update(Bluead_Online1 bluead_Online1);
     int delete(int no);
     int deleteAll(HashMap<String, Object> numbers);
 }
