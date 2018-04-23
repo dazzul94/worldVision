@@ -39,7 +39,10 @@ public class Bluead_Online2ServiceImpl implements Bluead_Online2Service {
     public Bluead_Online2 get(int no) {
         return bluead_online2Dao.findByNo(no);
     }
-    
+    @Override
+    public int update(Bluead_Online2 bluead_Online2) {
+        return bluead_online2Dao.update(bluead_Online2);
+    }
    /* @Override
     public Member get(String email, String password) {
         

@@ -73,6 +73,10 @@ public class Bluead_Online4ServiceImpl implements Bluead_Online4Service {
     }
 */
     @Override
+    public int update(Bluead_Online4 bluead_Online4) {
+        return bluead_online4Dao.update(bluead_Online4);
+    }
+    @Override
     public int deleteAll(HashMap<String, Object> numbers) {
         return bluead_online4Dao.deleteAll(numbers);
     }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java100.app.domain.Request.Bluead_Online4;
 import java100.app.service.RequestService.Bluead_Online4Service;
 
 @Controller
@@ -109,14 +110,12 @@ public class Bluead_Online4Controller {
         return "BlueAD/request/bluead_online4/form";
         
     }
-   /* 
     @RequestMapping("update")
-    public String update(Member member) throws Exception {
+    public String update(HttpServletRequest request, Bluead_Online4 bluead_Online4) throws Exception {
         
-    	bluead_memberService.update(member);
-        return "redirect:list";
+        bluead_online4Service.update(bluead_Online4);
+        return "redirect:" +  (String)request.getHeader("Referer");
     }
-*/
     @RequestMapping("delete")
     public String delete(int no) throws Exception {
 

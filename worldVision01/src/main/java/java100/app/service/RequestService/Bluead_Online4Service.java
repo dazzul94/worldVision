@@ -25,6 +25,7 @@ public interface Bluead_Online4Service {
     int getTotalCount(Map<String, Object> options);
    /* int add(Member member);
     int update(Member member);*/
+    int update(Bluead_Online4 bluead_Online4);
     int delete(int no);
     int deleteAll(HashMap<String, Object> numbers);
 }

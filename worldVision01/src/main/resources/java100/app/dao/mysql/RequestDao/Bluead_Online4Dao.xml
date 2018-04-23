@@ -144,6 +144,8 @@
         delete from bluead_online
         where no=#{value}
     </delete>
+    <update id="update" parameterType="bluead_Online4"> 
+        update bluead_online set CHK=#{CHK} where no=#{no} </update>
 </mapper>  
 
 
