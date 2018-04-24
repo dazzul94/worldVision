@@ -15,5 +15,3 @@
 *.DS_Store
 package-lock.json
 !build.gradle
-
-worldVision01/src/main/java/java100/app/web/index/NewFile.html
