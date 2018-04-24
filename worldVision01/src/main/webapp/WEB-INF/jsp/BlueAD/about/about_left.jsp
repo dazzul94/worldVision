@@ -7,22 +7,7 @@
 <html>
 <head>
 <title>메뉴</title>
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
-<script language="javascript">
-<!--
-function go_chk(url,no,tot) {
-  var obj = document.getElementById;
-  
-  parent.frames['main'].location.href=url;
-}
-
-function autoBlur(){
-  if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG")
-  document.body.focus();
-}
-document.onfocusin=autoBlur;
-//-->
-</script>
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css?ver=1">
 </head>
 <body class="top_left">
 <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
@@ -31,15 +16,14 @@ document.onfocusin=autoBlur;
       <table width="180" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td>
-             <table width="180" border="0" cellspacing="0" cellpadding="0">
-							              <tbody><tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community01&amp;bbs_admin=chk',0,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../about/list"> 연혁관리</a></td>
+            <table width="180" border="0" cellspacing="0" cellpadding="0">
+                                          <tbody><tr>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../about/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 연혁관리</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
-							              <tr>
-							            </tbody></table>
+                                        </tbody></table>
           </td>
         </tr>
         <tr>

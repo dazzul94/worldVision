@@ -4,38 +4,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
-<!-- <?
-session_start();
-
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/lib/class_db.php";
-$db = new DB();
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/fun/function.php";
-
-//게시판 체크
-Board_Chk($bbs_id);
-
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/lib/define.php";
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/lib/bbs_config.php";
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/lib/class_paging.php";
-
-//IP 필터링
-if($CFG_USE_IP_FILTERING == "Y") {
-  Filtering_IP($CFG_IP_FILTERING,__REMOTE_ADDR__);
-}
-
-if(!$mode) $mode = "list";
-
-if(!__ADMIN_ID__ || $bbs_admin != "chk") {
-  if($CFG_IFRAME == "N") {
-    include $_SERVER['DOCUMENT_ROOT']."/index/head.php";
-    include $_SERVER['DOCUMENT_ROOT']."/index/head_top.php";
-  }
-  if(trim($CFG_HEADER)) echo Tag_Allowed($CFG_HEADER,3);
-}
-else {
-    
-?>
- -->
 <html>
 <head>
 <title></title>
@@ -43,6 +11,7 @@ else {
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
 <link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css">
+<script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
 </head>
 
 <body>
@@ -68,36 +37,27 @@ else {
 </table>
 
 <!--국내 국외 토탈.페이지 -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"><tbody>
 	<tr>
 		<td height=30><a href='list'><span >국내</span></a> | <a href='abroadList'><span >국외</span></a></td>
 	</tr>
   <tr>    
-    <td align="right" style="font-size:10Px;font-family:verdana;">		
-     total:<font color="red"> <?= $total_num ?></font>&nbsp;&nbsp;
-     page:<font color="red"> <?= $paging->curPage ?></font>/<font color="red"><?= $paging->totalPage ?></font>
-   </td>
+    <td align="right" style="font-size:10Px;font-family:verdana;">
+      <font color="">total:</font><font color="red"> ${totalCount}</font>&nbsp;&nbsp;
+      <font color="">page:</font><font color="red"> ${pageNo}</font>/<font color="red"> ${lastPageNo}</font>
+    </td>
   </tr>
-</table>
+</tbody></table>
 
 
 <!-- 테이블 시작  -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
-<form name="del_form" method="post" action="check_delete.php">
-<input type="hidden" name="bbs_id" value="<?= $bbs_id ?>">
-<input type="hidden" name="page" value="<?= $page ?>">
-<input type="hidden" name="key" value="<?= $key ?>">
-<input type="hidden" name="keyword" value="<?= $en_keyword ?>">
-<input type="hidden" name="no" value="">
-<input type="hidden" name="del_form" value="del_form">
-<input type="hidden" name="cate" value="<?=$cate?>">
   <tr>
     <td>
       <table border="0" cellspacing="1" cellpadding="0" width="100%" align="center" bgcolor="#cad4e3">
         <tr height="25" align="center">
-          <td width="40" class="field_b"><input type="checkbox" name="allChk" onClick="Allchange(this)" style="cursor:hand" ></td>
+          <td width="40" class="field_b"><input type="checkbox" name="allChk" onClick="Allchange(this)" style="cursor:pointer" ></td>
           <td width="50" class="field_b">번호</td>
-          
           <td width="80" class="field_b">년도</td>
           <td width="80" class="field_b">월 / 일</td>
           <td class="field_b">내용</td>
@@ -106,13 +66,12 @@ else {
        
        <!-- 반복문 시작 -->
        <c:forEach items="${list}" var="about" varStatus="status">
-        
           <tr height="30" bgcolor="#FFFFFF" onMouseOver="this.style.background='#f5f5f5'" onMouseOut="this.style.background='#FFFFFF'">
-            <td align="center"><input type="checkbox" name="check[]" value="<?= $row[no] ?>" style="cursor:hand" ></td>
-            <td align="center">${about.no}</td>
+            <td align="center"><input type="checkbox" id="check" name="check[]" class="checkSelect" value="${about.no}" style="cursor:pointer"></td>
+            <td align="center">${(totalCount - status.index) - ((pageNo - 1) * pageSize)}</td>
             <td align="center">${about.year}</td>
             <td align="center">${about.month}.${about.date }</td>
-            <td onClick="location.href('write.php?bbs_id=<?= $bbs_id ?>&no=<?=$row[no]?>&mode=modify&page=<?= $page ?>&cate=<?=$cate?>&key=<?= $key ?>&keyword=<?= $en_keyword ?>&k_year=<?= $k_year ?>&k_month=<?= $k_month ?>&k_date=<?= $k_date ?>');" style="cursor:hand; padding:10px">
+            <td onclick="window.location='${about.no}'" style="cursor:pointer; padding:10px">
 					${about.contents }</td>
             <td align="center">${about.wdate}</td>
           </tr>
@@ -125,11 +84,11 @@ else {
         </tr>
         <tr>
           <td valign="middle" width="200">
-          <img src="${contextPath}/images/BlueAD/admin/btn_list.gif" style="cursor:hand" onClick="location.href='list.php?bbs_id=<?=$bbs_id?>&cate=<?=$cate?>'">
-          <img src="${contextPath}/images/BlueAD/admin/btn_seldel.gif" style="cursor:hand" onClick="setNo()">
+          <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/admin/btn_list.gif" style="cursor:pointer"></a>
+          <img src="${contextPath}/images/BlueAD/admin/btn_seldel.gif" style="cursor:pointer" onclick="setNo()">
         </td>
          <!------------------ paging ---------------------->
- <td width="300"></td>
+          <td width="300"></td>
           <td height="50" align="center">
           <div id="paging"></div>
           </td>
@@ -145,13 +104,10 @@ else {
       <!--  목록버튼 ,선택삭제 버튼 -->
     </td>
   </tr>
-</form>
 </table> <!--  테이블 끝 -->
 <!-- 검색 -->
 <form action="list">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-
-<%-- <input type="hidden" name="member_join_type" value="<?=$member_join_type?>"> --%>
   <tr>
     <td align="center">
       <select name="select">
@@ -166,6 +122,53 @@ else {
 
 
 </div>
+<script>
+    var obj = document.getElementsByName('check[]');
+    function setNo() {
+        var b = false;
+
+        for(var i=0; i<obj.length; i++) {
+            if(obj[i].checked == true) {
+                b = true;
+                break;
+            }
+        }
+          
+        if(b == false) {
+            alert("선택해 주세요");
+            return;
+        }
+
+
+        if(!confirm('선택하신 데이터를 모두 삭제 하시겠습니까?\n\n삭제후 복구는 불가능 합니다.')) return false;
+        /* delete */
+        var send_array = Array();
+        var send_cnt = 0;
+        var chkbox = $(".checkSelect");
+
+        for(i=0;i<chkbox.length;i++) {
+            if (chkbox[i].checked == true){
+                send_array[send_cnt] = chkbox[i].value;
+                send_cnt++;
+            }
+        }
+        window.location = "deleteAll?no=" + send_array;
+    }
+
+    function Allchange(f) {
+      if(f.checked == true) {
+        for(i = 0; i < obj.length; i++) {
+          obj[i].checked = true;
+        }
+      }
+      else {
+        for(i = 0; i < obj.length; i++) {
+          obj[i].checked = false;
+        }
+      }
+    }
+</script>
+
 <script type="text/javascript">
     var totalData = '<c:out value="${totalCount}"/>';    // 총 데이터 수
     var dataPerPage = '<c:out value="${pageSize}"/>';    // 한 페이지에 나타낼 데이터 수

@@ -97,5 +97,9 @@ public class AboutServiceImpl implements AboutService {
     public int delete(int no) {
         return bluead_memberDao.delete(no);
     }*/
+    @Override
+    public int deleteAll(HashMap<String, Object> numbers) {
+        return aboutDao.deleteAll(numbers);
+    }
 
 }

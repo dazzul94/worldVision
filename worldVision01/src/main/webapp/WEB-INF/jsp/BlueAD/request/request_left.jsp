@@ -8,21 +8,6 @@
 <head>
 <title>메뉴</title>
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css?ver=1">
-<script language="javascript">
-<!--
-function go_chk(url,no,tot) {
-  var obj = document.getElementById;
-  
-  parent.frames['main'].location.href=url;
-}
-
-function autoBlur(){
-  if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG")
-  document.body.focus();
-}
-document.onfocusin=autoBlur;
-//-->
-</script>
 </head>
 <body class="top_left">
 <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">

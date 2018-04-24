@@ -2,6 +2,8 @@ package java100.app.web.BlueAD.AboutController;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,7 @@ public class About_Controller {
             @RequestParam(value="select", defaultValue="all") String select,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
+            @RequestParam(value="cate", defaultValue="1") String cate,
             Model model) throws Exception {
         
         
@@ -63,6 +66,10 @@ public class About_Controller {
             options.put("words", words);
             model.addAttribute("words", words[0]);
         }
+        if (cate != null) {
+            options.put("cate", cate);
+            model.addAttribute("cate", cate);
+        }
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
@@ -91,6 +98,7 @@ public class About_Controller {
             @RequestParam(value="words", required=false) String[] words,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
+            @RequestParam(value="cate", defaultValue="2") String cate,
             Model model) throws Exception {
         
         
@@ -125,6 +133,10 @@ public class About_Controller {
         if (words != null && words[0].length() > 0) {
             options.put("words", words);
             model.addAttribute("words", words[0]);
+        }
+        if (cate != null) {
+            options.put("cate", cate);
+            model.addAttribute("cate", cate);
         }
         options.put("orderColumn", orderColumn);
         options.put("align", align);
@@ -178,6 +190,25 @@ public class About_Controller {
     	bluead_memberService.delete(no);
         return "redirect:list";
     }*/
+    @RequestMapping("deleteAll")
+    public String deleteAll(HttpServletRequest request, String no) throws Exception {
+        
+        String[] splitNo = no.split(",");
+        int[] realNo = new int[splitNo.length];;
+        for (int i = 0; i < splitNo.length; i++) {
+            realNo[i] = Integer.parseInt(splitNo[i]);
+            System.out.println(realNo[i]);
+        }
+        HashMap<String,Object> numbers = new HashMap<>();
+        if (realNo != null) {
+            numbers.put("numbers", realNo);
+        }
+        aboutService.deleteAll(numbers);
+       /* System.out.println((String)request.getHeader("Referer"));
+        String decodeResult = URLDecoder.decode((String)request.getHeader("Referer"), "UTF-8");
+        System.out.println(decodeResult);*/
+        return "redirect:" +  (String)request.getHeader("Referer");
+    }
 }
 
 

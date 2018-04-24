@@ -24,7 +24,7 @@
 		<choose>
 			<when test="select == 'all'">
 				<where> <!-- 이름, 아이디 -->
-					or contents like '%${word}%'
+					or contents like '%%'
 
 				</where>
 			</when>
@@ -41,6 +41,7 @@
 			</when>
 
 		</choose>
+		and cate=#{cate}
 		order by no desc
 		limit #{startIndex}, #{size}
 
@@ -54,7 +55,7 @@
 		<choose>
 			<when test="select == 'all'">
 				<where> <!-- 내용 -->
-					or contents like '%${word}%'
+					or contents like '%%'
 
 				</where>
 			</when>
@@ -71,6 +72,7 @@
 			</when>
 
 		</choose>
+		and cate=#{cate}
 		order by no desc
 		limit #{startIndex}, #{size}
 
@@ -90,50 +92,52 @@
 		from bluead_history
 
 		<choose>
-			<when test="select == 'all'">
-				<where> <!-- 이름, 아이디 -->
-					or contents like '%${word}%'
+            <when test="select == 'all'">
+                <where> <!-- 이름, 아이디 -->
+                    or contents like '%%'
 
-				</where>
-			</when>
+                </where>
+            </when>
 
-			<when test="select == 'contents'">
-				<if test="words != null">
-					<where>
-						<foreach collection="words" item="word">
-							or contents like
-							'%${word}%'
-						</foreach>
-					</where>
-				</if>
-			</when>
+            <when test="select == 'contents'">
+                <if test="words != null">
+                    <where>
+                        <foreach collection="words" item="word">
+                            or contents like
+                            '%${word}%'
+                        </foreach>
+                    </where>
+                </if>
+            </when>
 
-		</choose>
+        </choose>
+        and cate=#{cate}
 	</select>
 <select id="countAll2" resultType="int">
 		select count(*)
 		from bluead_history
 
 		<choose>
-			<when test="select == 'all'">
-				<where> <!-- 이름, 아이디 -->
-					or contents like '%${word}%'
+            <when test="select == 'all'">
+                <where> <!-- 이름, 아이디 -->
+                    or contents like '%%'
 
-				</where>
-			</when>
+                </where>
+            </when>
 
-			<when test="select == 'contents'">
-				<if test="words != null">
-					<where>
-						<foreach collection="words" item="word">
-							or contents like
-							'%${word}%'
-						</foreach>
-					</where>
-				</if>
-			</when>
+            <when test="select == 'contents'">
+                <if test="words != null">
+                    <where>
+                        <foreach collection="words" item="word">
+                            or contents like
+                            '%${word}%'
+                        </foreach>
+                    </where>
+                </if>
+            </when>
 
-		</choose>
+        </choose>
+        and cate=#{cate}
 	</select>
 	<!-- <insert id="insert" parameterType="member" useGeneratedKeys="true" 
 		keyColumn="no" keyProperty="no"> insert into ex_memb(name,email,pwd,regdt) 
@@ -141,7 +145,13 @@
 		parameterType="member"> update ex_memb set name=#{name}, email=#{email}, 
 		pwd=password(#{password}) where no=#{no} </update> <delete id="delete" parameterType="int"> 
 		delete from ex_memb where no=#{value} </delete> -->
-
+    <delete id="deleteAll" parameterType="map">
+        <if test="numbers != null"> 
+          <foreach collection="numbers" item="number">
+        delete from bluead_history where no=${number}; 
+          </foreach>
+        </if>
+        </delete> 
 </mapper>  
 
 
