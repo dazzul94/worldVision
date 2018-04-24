@@ -14,7 +14,8 @@ public interface AboutDao {
     Member findByEmail(String email);*/
     int countAll(Map<String, Object> options);
     int countAll2(Map<String, Object> options);
-   /* int insert(Member member);
+    int insert(About about);
+   /*
     int update(Member member);
     int delete(int no);*/
     int deleteAll(HashMap<String, Object> numbers);

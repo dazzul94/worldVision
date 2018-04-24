@@ -96,7 +96,7 @@
                       </td>
   <!------------- paging ------------------->
           <td align="right" width="200">
-          <img src="${contextPath}/images/BlueAD/admin/btn_write.gif" align="absmiddle" onClick="location.href='write.php?bbs_id=<?=$bbs_id?>&mode=write&cate=<?=$cate?>'" style="cursor:hand">
+          <img src="${contextPath}/images/BlueAD/admin/btn_write.gif" align="absmiddle" onClick="location.href='form'" style="cursor:pointer">
         </td>
         </tr>
       

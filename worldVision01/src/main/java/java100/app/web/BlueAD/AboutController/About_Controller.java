@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java100.app.domain.About.About;
 import java100.app.service.AboutService.AboutService;
 
 @Controller
@@ -25,7 +26,7 @@ public class About_Controller {
     @RequestMapping("list")
     public String list(
             @RequestParam(value="pn", defaultValue="1") int pageNo,
-            @RequestParam(value="ps", defaultValue="20") int pageSize,
+            @RequestParam(value="ps", defaultValue="10") int pageSize,
             @RequestParam(value="words", required=false) String[] words,
             @RequestParam(value="select", defaultValue="all") String select,
             @RequestParam(value="oc", required=false) String orderColumn,
@@ -48,8 +49,8 @@ public class About_Controller {
             pageNo = 1;
         }
         
-        if (pageSize < 20 || pageSize > 30) {
-            pageSize = 20;
+        if (pageSize < 10 || pageSize > 20) {
+            pageSize = 10;
         }
         
         // 코드의 실행 상태를 확인하기 위해
@@ -93,7 +94,7 @@ public class About_Controller {
     @RequestMapping("abroadList")
     public String list2(
             @RequestParam(value="pn", defaultValue="1") int pageNo,
-            @RequestParam(value="ps", defaultValue="20") int pageSize,
+            @RequestParam(value="ps", defaultValue="10") int pageSize,
             @RequestParam(value = "select", defaultValue = "all") String select,
             @RequestParam(value="words", required=false) String[] words,
             @RequestParam(value="oc", required=false) String orderColumn,
@@ -116,8 +117,8 @@ public class About_Controller {
             pageNo = 1;
         }
         
-        if (pageSize < 20 || pageSize > 30) {
-            pageSize = 20;
+        if (pageSize < 10 || pageSize > 20) {
+            pageSize = 10;
         }
         
         // 코드의 실행 상태를 확인하기 위해
@@ -163,17 +164,25 @@ public class About_Controller {
         model.addAttribute("about", aboutService.get(no));
         return "BlueAD/about/view";
     }
-/*    
     @RequestMapping("add")
-    public String add(Member member) throws Exception {
+    public String add(About about) throws Exception {
         
-    	bluead_memberService.add(member);
+        aboutService.add(about);
+        if (about.getCate() == 1) {
         return "redirect:list";
+        } else {
+            return "redirect:abroadList";
+        }
     }
-    */
+       
     @RequestMapping("form")
     public String form() throws Exception {
         return "BlueAD/about/form";
+        
+    }
+    @RequestMapping("abroadForm")
+    public String abroadForm() throws Exception {
+        return "BlueAD/about/abroadForm";
         
     }
    /* 
