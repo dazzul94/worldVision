@@ -120,135 +120,34 @@
         </div>
     </header>
     <!-- //header -->
-        <section id="container">
+    
+    <section id="container">
     	<article id="lnbWrap">
-        	<h2>GALLERY</h2>
+        	<h2>CONCERT</h2>
             <ul>
-            	<li><a href="gallery">사진</a></li>
-                <li><a href="gallery2">영상</a></li>
-                <li><a href="gallery3">포스터</a></li>
-                <li><a href="gallery4">음반</a></li>
+            	<li><a href="concert">연주일정</a></li>
+                <li><a href="concert2">초청연주</a></li>
+                <li><a href="concert3">기획연주</a></li>
+                <li><a href="concert4">미션연주</a></li>
+                <li><a href="concert5">해외연주</a></li>
+                
             </ul>
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; GALLERY &gt; <strong>사진갤러리</strong></p>
+        	<p class="page_nav">HOME &gt; CONCERT &gt; <strong>해외연주</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>사진갤러리<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>해외연주<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
+            	<p><img src="${contextPath }/images/index/concert_05_img1.jpg" alt=""/></p>
+              <p class="mt30">1961년 제1차 해외연주를 시작으로 55회 이상의 해외연주를 통해 미국, 독일, 핀란드, 헝가리 등 전세계 55개국 75여개 도시에서 1,500회 이상 연주를 했다. 해외연주는 월드비전 합창단의 소리를 전 세계에 알리는 것 뿐 아니라 한국의 문화 예술을 알리는 문화 외교사절의 역할을 감당하고 있다.</p>
             	
-            	
-                 <!-- S: board -->
-                 
-                    	
-                     
-                		<!-- gallery -->
-                        <div class="galleryWrap">
-                    
-                    <ul>
-                    	<li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                    </ul>
-                    </div>
-                        <!-- gallery -->
-               
-                	<div class="pagerWrap">
-                
-						<a href="#!"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
-						<a href="#!"><img src="${contextPath }/images/index/board/prevArr.png" alt="앞으로" /></a>
-						<a href="#!" class="on">1</a>
-						<a href="#!">2</a>
-						<a href="#!">3</a>
-						<a href="#!">4</a>
-						<a href="#!">5</a>
-						<a href="#!">6</a>
-						<a href="#!">7</a>
-						<a href="#!">8</a>
-						<a href="#!">9</a>
-						<a href="#!">10</a>
-						<a href="#!"><img src="${contextPath }/images/index/board/nextArr.png" alt="뒤로" /></a>
-						<a href="#!"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>
-			
-            		</div>
-                
-			
-            <!-- E: board -->
             </div><!--contentwrap-->
                 	
             </div>

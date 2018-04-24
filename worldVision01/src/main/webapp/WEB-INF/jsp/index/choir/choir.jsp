@@ -125,10 +125,10 @@
     	<article id="lnbWrap">
         	<h2>CHOIR</h2>
             <ul>
-            	<li><a href="#">소개</a></li>
-                <li><a href="#">연혁</a></li>
-                <li><a href="#">연주반</a></li>
-                <li><a href="#">지역반</a></li>
+            	<li><a href="choir">소개</a></li>
+                <li><a href="choir2">연혁</a></li>
+                <li><a href="choir3">연주반</a></li>
+                <li><a href="choir4">지역반</a></li>
             </ul>
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
@@ -142,27 +142,30 @@
             		<h3>합창단 소개<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
                 <script language="javascript">
-function tab_menu(val){
+function tab_menu(val, path){
 	var img = new Array('','about02_tap1_','about02_tap2_');
 	for(i = 1; i <= 2; i++) { //탭메뉴 갯수
 		if(i==val) {
 			document.getElementById("contents"+i).style.display = "";
-			document.getElementById("contents_img"+i).src = "../images/"+img[i]+"on.gif";
+			document.getElementById("contents_img"+i).src = path + "/images/index/"+img[i]+"on.gif";
 		}else {
 			document.getElementById("contents"+i).style.display = "none";
-			document.getElementById("contents_img"+i).src = "../images/"+img[i]+"off.gif";
+			document.getElementById("contents_img"+i).src = path + "/images/index/"+img[i]+"off.gif";
 		}
 	}
 }
 
 window.onload = function() {
-	tab_menu("1");
+	var offset=location.href.indexOf(location.host)+location.host.length;
+    var ctxPath=location.href.substring(offset,location.href.indexOf('/',offset+1));
+
+	tab_menu("1", ctxPath);
 }
 </script>
             	<div class="contentWrap">
                 	<ul class="tabul">
-                    	<li><img src="${contextPath }/images/index/about02_tap1_on.gif" style="cursor:pointer" id="contents_img1" onclick="tab_menu(1)"></li>
-                        <li><img src="${contextPath }/images/index/about02_tap2_off.gif" style="cursor:pointer" id="contents_img2" onclick="tab_menu(2)"></li>
+                    	<li><img src="${contextPath }/images/index/about02_tap1_on.gif" style="cursor:pointer" id="contents_img1" onclick="tab_menu(1, '${contextPath}')"></li>
+                        <li><img src="${contextPath }/images/index/about02_tap2_off.gif" style="cursor:pointer" id="contents_img2" onclick="tab_menu(2, '${contextPath}')"></li>
                     </ul>
                 
   
@@ -179,7 +182,7 @@ window.onload = function() {
         
         <div class="mt50">
        	 	<h3 class="wonh3">합창단 연주 소개</h3>  	
-        	<div class="floatL" style="width:280px"><img src="${contextPath }/images/index/images/about_k0220_img1.jpg"/></div>
+        	<div class="floatL" style="width:280px"><img src="${contextPath }/images/index/about_k0220_img1.jpg"/></div>
             <div class="floatR" style="width:420px">
             <h4 class="wonh4">기획연주</h4>
             <p>월드비전 합창단은 어린이와 청소년들의 문화발전을 위한 다양한 기획연주를 통해 새로운 장르와 퍼포먼스의 시도로 합창문화 발전에 기여하고 있다.</p>

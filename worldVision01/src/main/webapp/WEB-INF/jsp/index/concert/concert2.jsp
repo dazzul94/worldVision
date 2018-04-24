@@ -120,135 +120,51 @@
         </div>
     </header>
     <!-- //header -->
-        <section id="container">
+    
+    <section id="container">
     	<article id="lnbWrap">
-        	<h2>GALLERY</h2>
+        	<h2>CONCERT</h2>
             <ul>
-            	<li><a href="gallery">사진</a></li>
-                <li><a href="gallery2">영상</a></li>
-                <li><a href="gallery3">포스터</a></li>
-                <li><a href="gallery4">음반</a></li>
+            	<li><a href="concert">연주일정</a></li>
+                <li><a href="concert2">초청연주</a></li>
+                <li><a href="concert3">기획연주</a></li>
+                <li><a href="concert4">미션연주</a></li>
+                <li><a href="concert5">해외연주</a></li>
+                
             </ul>
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; GALLERY &gt; <strong>사진갤러리</strong></p>
+        	<p class="page_nav">HOME &gt; CONCERT &gt; <strong>초청연주</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>사진갤러리<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>초청연주<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
-            	
-            	
-                 <!-- S: board -->
-                 
-                    	
-                     
-                		<!-- gallery -->
-                        <div class="galleryWrap">
-                    
-                    <ul>
-                    	<li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
+            	<p><img src="${contextPath }/images/index/concert_06_img1.jpg" alt=""/></p>
+              <p class="mt30">국제회의. 정부 및 기엄 등의 행사에 초청되어 다양한 레퍼토리로 아름다운 합창의 소리와 퍼포먼스로 관객에게 감동을 선사하며 초청 기관의 성공적인 행사를 지원한다.</p>
+            	<div class="floatL mt50" style="width:370px;">
+           	    	<img src="${contextPath }/images/index/concert_06_img2.jpg" alt=""/> 
+                </div>
+                <div class="floatL mt50" style="width:360px;">
+           	    	<ul>
+                    	<li>- 사울 I.P.U 총회 연주</li>
+                    	<li>- 카터 미 미 대통령 방한시 연주</li>
+                    	<li>- 제15차 ANwOC 국제회의 연주</li>
+                    	<li>- 국제 총장회의 연주</li>
+                    	<li>- 2006 Digital Opportunity Forum 연주</li>
+                    	<li>- 한미연합사 초청연주</li>
+                    	<li>- 제5회 제천국제음악영화제 초청연주</li>
+                    	<li>- 2010~2013 정명훈 서울시향의 어린이날 음악선물</li>
+                    	<li>- 하이서울페스티벌</li>
+                    	<li>- G20 세르파 회의 축하공연</li>
+                    	<li>- 한일수교 50주년 기념식</li>
                     </ul>
-                    </div>
-                        <!-- gallery -->
-               
-                	<div class="pagerWrap">
-                
-						<a href="#!"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
-						<a href="#!"><img src="${contextPath }/images/index/board/prevArr.png" alt="앞으로" /></a>
-						<a href="#!" class="on">1</a>
-						<a href="#!">2</a>
-						<a href="#!">3</a>
-						<a href="#!">4</a>
-						<a href="#!">5</a>
-						<a href="#!">6</a>
-						<a href="#!">7</a>
-						<a href="#!">8</a>
-						<a href="#!">9</a>
-						<a href="#!">10</a>
-						<a href="#!"><img src="${contextPath }/images/index/board/nextArr.png" alt="뒤로" /></a>
-						<a href="#!"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>
-			
-            		</div>
-                
-			
-            <!-- E: board -->
+                </div>
             </div><!--contentwrap-->
                 	
             </div>

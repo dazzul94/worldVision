@@ -176,13 +176,13 @@
 	left: -32px;
 	width: 32px;
 	height: 61px;
-	background: url("http://localhost:8080/worldVision01/images/toggleBtn-on.gif") no-repeat;
+	background: url("http://localhost:8080/worldVision01/images/index/toggleBtn-on.gif") no-repeat;
 	text-indent: -9999px;
 	border:0;
 }
 
 #SP_toggleMenu_ver2 button.off {
-	background: url("http://localhost:8080/worldVision01/images/toggleBtn-off.gif") no-repeat;
+	background: url("http://localhost:8080/worldVision01/images/index/toggleBtn-off.gif") no-repeat;
 }
 
 #SP_toggleMenu_ver2 button:hover,#SP_toggleMenu_ver1 button.off{
@@ -208,7 +208,7 @@ h3.wonh3 {
 	
 	clear:both;margin: 0 0 10px 0;
     padding: 5px 0px 5px 20px;
-    background: url(http://localhost:8080/worldVision01/images/about03_icon.gif) no-repeat left 6px;
+    background: url(http://localhost:8080/worldVision01/images/index/about03_icon.gif) no-repeat left 6px;
     font-size:20px;
 	font-weight:500;
     color: #555;
@@ -353,9 +353,9 @@ box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.1);}
 
 #album_etc {border:solid 1px #dddddd;padding:30px;margin-bottom:50px;}
 
-.loginWrap {background:url(http://localhost:8080/worldVision01/images/member/bg_login.png) no-repeat;height:195px;padding:45px 30px 0 357px;width:731px;box-sizing:border-box;}
-.idSearchWrap {background:url(http://localhost:8080/worldVision01/images/member/bg_id.png) no-repeat;height:157px;padding:45px 20px 0 287px;width:731px;box-sizing:border-box;margin-bottom:50px;}
-.pwSearchWrap {background:url(http://localhost:8080/worldVision01/images/member/bg_pw.png) no-repeat;height:205px;padding:45px 20px 0 287px;width:731px;box-sizing:border-box;}
+.loginWrap {background:url(http://localhost:8080/worldVision01/images/index/member/bg_login.png) no-repeat;height:195px;padding:45px 30px 0 357px;width:731px;box-sizing:border-box;}
+.idSearchWrap {background:url(http://localhost:8080/worldVision01/images/index/member/bg_id.png) no-repeat;height:157px;padding:45px 20px 0 287px;width:731px;box-sizing:border-box;margin-bottom:50px;}
+.pwSearchWrap {background:url(http://localhost:8080/worldVision01/images/index/member/bg_pw.png) no-repeat;height:205px;padding:45px 20px 0 287px;width:731px;box-sizing:border-box;}
 .loginbox {border:3px solid #dddddd;padding:10px;position:relative;box-sizing:border-box;}
 .loginbox label {display:inline-block;width:90px;padding:6px 0 0px 0;}
 .loginbox input {width:150px;border:1px solid #d4d4d4;}

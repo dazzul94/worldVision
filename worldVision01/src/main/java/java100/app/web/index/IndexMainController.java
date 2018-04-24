@@ -59,10 +59,70 @@ public class IndexMainController {
 		return "concert/concert";
 	}
 	
+	@RequestMapping("concertView")
+	public String goConcertView() {
+		
+		return "concert/concert_view";
+	}
+	
+	@RequestMapping("concert2")
+	public String goConcert2() {
+		
+		return "concert/concert2";
+	}
+	
+	@RequestMapping("concert3")
+	public String goConcert3() {
+		
+		return "concert/concert3";
+	}
+	
+	@RequestMapping("concert4")
+	public String goConcert4() {
+		
+		return "concert/concert4";
+	}
+	
+	@RequestMapping("concert5")
+	public String goConcert5() {
+		
+		return "concert/concert5";
+	}
+	
 	@RequestMapping("gallery")
 	public String goGallery() {
 		
 		return "gallery/gallery";
+	}
+	
+	@RequestMapping("galleryView")
+	public String goGalleryView() {
+		
+		return "gallery/gallery_view";
+	}
+	
+	@RequestMapping("galleryWrite")
+	public String goGalleryWrite() {
+		
+		return "gallery/gallery_write";
+	}
+	
+	@RequestMapping("gallery2")
+	public String goGallery2() {
+		
+		return "gallery/gallery2";
+	}
+	
+	@RequestMapping("gallery3")
+	public String goGallery3() {
+		
+		return "gallery/gallery3";
+	}
+	
+	@RequestMapping("gallery4")
+	public String goGallery4() {
+		
+		return "gallery/gallery4";
 	}
 	
 	@RequestMapping("request")

@@ -144,110 +144,32 @@
            	<div class="contentWrap">
             	
             	
-                 <!-- S: board -->
-                 
-                    	
-                     
-                		<!-- gallery -->
-                        <div class="galleryWrap">
-                    
-                    <ul>
-                    	<li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                    </ul>
-                    </div>
-                        <!-- gallery -->
-               
-                	<div class="pagerWrap">
-                
-						<a href="#!"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
-						<a href="#!"><img src="${contextPath }/images/index/board/prevArr.png" alt="앞으로" /></a>
-						<a href="#!" class="on">1</a>
-						<a href="#!">2</a>
-						<a href="#!">3</a>
-						<a href="#!">4</a>
-						<a href="#!">5</a>
-						<a href="#!">6</a>
-						<a href="#!">7</a>
-						<a href="#!">8</a>
-						<a href="#!">9</a>
-						<a href="#!">10</a>
-						<a href="#!"><img src="${contextPath }/images/index/board/nextArr.png" alt="뒤로" /></a>
-						<a href="#!"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>
-			
-            		</div>
-                
-			
+                <!-- S: board -->
+                    <div class="writeLayout">
+				<table>
+					<tr>
+						<th>제목</th>
+						<td><input type="text" class="wid100"></td>
+						
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td><textarea class="textarea"> </textarea></td>
+						
+					</tr>
+					<tr>
+						<th>첨부파일</th>
+						<td><input type="file" />
+                          <p><img src="${contextPath }/images/index/board/icon_file.png"  alt=""/> 업로드 되어있던 파일.png <a href="#">[파일삭제]</a><br/>
+                      jpg, gif, png, doc 최대 2MB</p></td>
+						
+					</tr>
+				</table>
+				<div class="boardbtn">
+                	<a href="#">등록</a>
+                	<a href="#" class="gray">취소</a>
+                </div>
+			</div>
             <!-- E: board -->
             </div><!--contentwrap-->
                 	

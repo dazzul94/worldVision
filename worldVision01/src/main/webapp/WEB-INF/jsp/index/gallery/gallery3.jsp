@@ -138,96 +138,142 @@
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>사진갤러리<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>포스터/이미지<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
             	
             	
-                 <!-- S: board -->
-                 
+                <!-- S: board -->
+                    <div class="listLayout">
                     	
-                     
-                		<!-- gallery -->
-                        <div class="galleryWrap">
-                    
-                    <ul>
-                    	<li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="#">
-                           		<img src="${contextPath }/images/index/1.png" alt=""> 
-                                <p>2018. 04. 05. 부활절 음악예...</p>
-                            </a>
-                        </li>
-                    </ul>
-                    </div>
-                        <!-- gallery -->
-               
+                        
+                   	  <div class="listTop">
+                    		<p>총 <span>88</span> 건</p>
+                    		<div class="searchWrap">
+                    			<select>
+                    			  <option>제목</option>
+                    			  <option>내용</option>
+                    			  <option>제목 + 내용</option>
+                    			</select><input type="text"><button>검색</button>
+                    		</div>
+                        </div>
+				<table>
+					<tr>
+                    	<th>번호</th>
+						<th>곡명</th>
+                        <th>작성자</th>
+                        <th>등록일</th>
+                        <th>조회</th>
+					</tr>
+					<tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+					<tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+					<tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+                    <tr>
+                    	<td>1</td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
+                        <td>관리자</td>
+                        <td>2010-05-08</td>
+                        <td>335</td>
+					</tr>
+				</table>
+                
+                
                 	<div class="pagerWrap">
                 
 						<a href="#!"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
@@ -247,7 +293,7 @@
 			
             		</div>
                 
-			
+			</div>
             <!-- E: board -->
             </div><!--contentwrap-->
                 	
@@ -261,7 +307,7 @@
     	<div class="inner">
         	<h1><img src="${contextPath }/images/index/foot_logo.gif" alt=""/></h1>
             <div class="info">
-            	<p>기관:월드비전 음악원 │ 주소:(우 07638) 서울특별시 강서구 강서로 47마길 85(내발산동 711-11) 월드비전 음악원<br/>
+            <p>기관:월드비전 음악원 │ 주소:(우 07638) 서울특별시 강서구 강서로 47마길 85(내발산동 711-11) 월드비전 음악원<br/>
                 대표자:한상호 │ 사업자등록번호:109-82-09997 │ 대표전화:02-2662-1803 │ 팩스:02-2661-2568</p>
                 <p>COPYRIGHT 2010 WVCHOIR ALL RIGHTS RESERVED.</p>
             </div>
