@@ -104,7 +104,7 @@
   </tr>
 </table> <!--  테이블 끝 -->
 <!-- 검색 -->
-<form action="list">
+<form action="abroadList">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
 
 <%-- <input type="hidden" name="member_join_type" value="<?=$member_join_type?>"> --%>
