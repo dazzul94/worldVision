@@ -63,7 +63,10 @@ public class Bluead_MemberServiceImpl implements Bluead_MemberService {
 	public int update(Bluead_Member bluead_Member) {
 		return bluead_memberDao.update(bluead_Member);
 	}
-
+	@Override
+	public int add(Bluead_Member bluead_Member) {
+		return bluead_memberDao.insert(bluead_Member);
+	}
 	@Override
 	public int deleteAll(HashMap<String, Object> numbers) {
 		return bluead_memberDao.deleteAll(numbers);

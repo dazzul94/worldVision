@@ -23,6 +23,7 @@ public interface Bluead_MemberService {
     Bluead_Member get(int no);
     int getTotalCount(Map<String, Object> options);
     int update(Bluead_Member bluead_Member);
+    int add(Bluead_Member bluead_Member);
     int delete(int no);
     int deleteAll(HashMap<String, Object> numbers);
 }
