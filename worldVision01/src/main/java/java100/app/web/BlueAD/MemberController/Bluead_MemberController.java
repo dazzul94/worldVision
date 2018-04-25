@@ -142,4 +142,12 @@ public class Bluead_MemberController {
 	        System.out.println(decodeResult);*/
 	        return "redirect:" +  (String)request.getHeader("Referer");
 	    }
+	    
+	    @RequestMapping("add")
+	    public String add(HttpServletRequest request, Bluead_Member bluead_Member) throws Exception {
+	        
+	   	 bluead_memberService.update(bluead_Member);
+	        return "redirect:" +  (String)request.getHeader("Referer");
+	    }
+	    
 }

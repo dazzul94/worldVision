@@ -86,7 +86,7 @@ public class Community_Controller {
     public String view(@PathVariable int no, Model model) throws Exception {
         
         model.addAttribute("community", communityService.get(no));
-        return "BlueAD/community/view";
+        return "BlueAD/community/community01/view";
     }
 /*    
     @RequestMapping("add")

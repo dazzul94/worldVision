@@ -23,7 +23,6 @@
 </div>
 <div id="content">
 <c:if test="${not empty bluead_member}">
-<form action="update" method='post'>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
     <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 회원관리</td>
@@ -71,13 +70,13 @@
     <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_join_date}</b></td>
   </tr>
 </tbody></table>
-</form>
 <!-- view -->
 <!-- 목록,수정, 삭제 -->
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr height="40">
     <td height="50" align="center" valign="bottom">
       <input align="absmiddle" onclick="window.location='list'" type="image" src="${contextPath}/images/BlueAD/admin/btn_list.gif">
+       <input align="absmiddle" onclick="window.location='update'" type="image" src="${contextPath}/images/BlueAD/admin/btn_modify.gif">
             <input align="absmiddle"  onclick="really(${bluead_member.no})" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_del.gif">
     </td>
   </tr>

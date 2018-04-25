@@ -33,7 +33,8 @@
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or member_name like '%${word}%'
+							or member_name like
+							'%${word}%'
 						</foreach>
 					</where>
 				</if>
@@ -43,12 +44,13 @@
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or member_id like '%${word}%'
+							or member_id like
+							'%${word}%'
 						</foreach>
 					</where>
 				</if>
 			</when>
-			
+
 		</choose>
 		order by no desc
 		limit #{startIndex}, #{size}
@@ -60,12 +62,11 @@
 		from bluead_member
 		where no=#{value}
 	</select>
-
 	<select id="countAll" resultType="int" parameterType="map">
 		select count(*) from
 		bluead_member
 
-		
+
 		<choose>
 			<when test="select == 'all'">
 				<where> <!-- 이름, 아이디 -->
@@ -79,7 +80,8 @@
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or member_name like '%${word}%'
+							or member_name like
+							'%${word}%'
 						</foreach>
 					</where>
 				</if>
@@ -89,40 +91,40 @@
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or member_id like '%${word}%'
+							or member_id like
+							'%${word}%'
 						</foreach>
 					</where>
 				</if>
 			</when>
 		</choose>
 	</select>
-	
-	
+
+
 	<delete id="deleteAll" parameterType="map">
-		<if test="numbers != null"> 
-		  <foreach collection="numbers" item="number">
-		delete from bluead_member where no=${number}; 
-		  </foreach>
-        </if>
-        </delete> 
-        
-        <delete id="delete" parameterType="int">
-        delete from bluead_member
-        where no=#{value}
-    </delete>
-    
-        
-  <update id="update" parameterType="bluead_Member"> 
-        update bluead_member 
-        member_name =#{member_name},
-        member_id =#{member_id},
-        member_pass=#{member_pass},
-        member_reg_no2=#{member_reg_no2},
-        member_birth1=#{member_birth1},
-        member_birth2=#{member_birth2},
-        member_tel1=#{member_tel1},member_tel2=#{member_tel2},  member_tel3=#{member_tel3},
-       member_htel1=#{member_htel1},  member_htel2 =#{member_htel2}, member_htel3=#{member_htel3}
-        where no=#{no} </update>
+		<if test="numbers != null">
+			<foreach collection="numbers" item="number">
+				delete from bluead_member where no=${number};
+			</foreach>
+		</if>
+	</delete>
+
+	<delete id="delete" parameterType="int">
+		delete from bluead_member
+		where no=#{value}
+	</delete>
+
+
+	<update id="update" parameterType="bluead_Member">
+		update bluead_member set
+		member_name=#{member_name} where no=#{no}
+	</update>
+	
+	<!--  
+    <insert id="insert" parameterType="bluead_Member">
+        insert into bluead_member(member_birth1,member_birth2)
+        values(#{member_birth1},#{member_birth2})
+    </insert> -->
 </mapper>  
 
 

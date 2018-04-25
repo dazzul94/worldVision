@@ -6,26 +6,28 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 <title></title>
+<script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
-<link rel='stylesheet' href='${contextPath}/node_modules/bootstrap/dist/css/bootstrap.min.css'>
 <link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css">
 </head>
 
-<body>
+
+
+
 <body>
 <div id="header">
 <jsp:include page="../../top.jsp"/>
 </div>
 <div id="navigation">
-<jsp:include page="../../left.jsp"/>
+<jsp:include page="../community_left.jsp"/>
 </div>
 <div id="content">
-
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 월드 </font></td>
+    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 월드</font></td>
   </tr>
   <tr>
     <td height="1" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
@@ -54,205 +56,414 @@
 
 <script language="javascript" src="/BlueAD/js/new_win.js"></script>
 <link rel="stylesheet" type="text/css" href="skin/bbs/bluead_gray/style.css">
-<script language="javascript" src="/BlueAD/js/common_checking.js"></script>
 <script language="javascript">
 <!--
-var emailEx1 = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-function checkIt(bbs_admin,CFG_USE_FILTERING) {
-  var form=document.form; 
-  
-  if(form.bbs_email.value) {
-    if(!emailEx1.test(form.bbs_email.value)) {
-      alert('이메일 주소를 정확시 입력하세요!');
-      form.bbs_email.focus();
-      return;
+function post_del() {
+  if(confirm('삭제 하시겠습니까?')) document.form1.submit();
+  else return;
+}
+
+function post_del_eng() {
+  if(confirm('삭제 하시겠습니까?(eng)')) document.form1.submit();
+  else return;
+}
+
+
+function resize_check(){
+  var main_table_width = document.get_table_width.width;
+  var target_resize_num = document.target_resize.length;
+  for(i=0;i<target_resize_num;i++){
+    if(document.target_resize[i].width > main_table_width) {
+      document.target_resize[i].width = main_table_width;
     }
   }
-  if(textBox_chk('bbs_subject', '제목을') == false) return;
-  // if(textBox_chk('bbs_content', '내용을') == false) return;
- document.form.bbs_content.value = SubmitHTML(); 
-
- if(document.form.bbs_content.value == false) { 
-	alert('내용을 입력해 주세요.'); 
-	  gmFrame.focus(); 
-	  return;
-  } 
-
-  if(CFG_USE_FILTERING=="Y"){
-		if(bbs_admin!="chk"){
-			var cfg_filtering = form.CFG_FILTERING.value;
-			var filtering_txt = cfg_filtering.split('/');
-			var bbs_content = form.bbs_content.value;
-
-			for(i=0;i<filtering_txt.length;i++){
-				//alert(filtering_txt[i]);
-				var filter_index = bbs_content.indexOf(filtering_txt[i]);
-				if(filter_index!="-1"){
-					alert(filtering_txt[i] + "은(는) 사용할수 없는 단어 입니다.");
-					return;
-				}
-			}
-		}
-	}
-
-	
-	
-	editor_wr_ok();
-	form.submit();	
 }
 
-
-
-
+window.onload = resize_check;
 //-->
 </script>
-<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#cbcbcb">
+<script language="javascript" src="/BlueAD/js/common_checking.js"></script>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" bgcolor="#f3f3f3">
-      <table border="0" cellspacing="0" cellpadding="0" width="98%">
-      <form name="form" method="post" action="write_ok.php" enctype="multipart/form-data">
-      <input type="hidden" name="bbs_id" value="wv_community01">
-      <input type="hidden" name="bbs_no" value="307">
-      <input type="hidden" name="page" value="1">
-      <input type="hidden" name="key" value="">
-      <input type="hidden" name="keyword" value="">
-      <input type="hidden" name="fid" value="307">
-      <input type="hidden" name="thread" value="A">
-      <input type="hidden" name="act" value="modify">
-      <input type="hidden" name="CFG_FILTERING" value="성인/대출/광고/야동/양아치/세끼/꼴에/미친/새끼/똘아이/병신/씨발/씨바야/시발/좃까튼/조까튼/좃/꼴통/니나/미친X/젓가튼/젓같은/싸가지/4가지/개자식/개.새.끼/성추행">
-      <input type="hidden" name="bbs_admin" value="chk">
-              <tr>
-          <td width="100" height="30" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write_name.gif"></td>
-          <td class="bbs_padding_left">
-          <input type="text" name="bbs_name" size="20" class="bbs_input" value="관리자">          </td>
+    <td width="100%" height="29" align="center" colspan="6">
+    
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="4"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_left.gif"></td>
+          <td width="70" height="29" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_sbj.gif"></td>
+          <td background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif" style="padding-left:10"><span class="bbs_normal">${community.bbs_subject } </span></td>
+          <td width="4"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_right.gif"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="27" align="center" colspan="6">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="70" height="27" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_name.gif"></td>
+          <td style="padding-left:10">
+            <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><img src="${contextPath}/images/BlueAD/skin/bbs/1198130437.gif" align="absmiddle"></a>          </td>
+          <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_date.gif"></td>
+          <td width="120" align="center"><span class="bbs_normal">2016-09-19 17:13</span></td>
+          <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_hit.gif"></td>
+          <td width="45" align="center"><span class="bbs_normal">120</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+  <td height="1" colspan="6" bgcolor="#e6e6e6"></td>
+  </tr>
+	  <tr>
+    <td height="27" align="center" colspan="6">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="70" height="27" align="center"><span class="bbs_normal"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_file2.gif"></span></td>
+          <td colspan="3" style="padding-left:10"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/hwp.gif" align="absmiddle">&nbsp;<a href="download.php?bbs_id=wv_community01&bbs_no=307&bbs_admin=chk&file_no=2" class="bbs_link">2017년도_연주반_승단대상자_사전교육_커뮤니티용.hwp</a>&nbsp;<span class="bbs_normal">(0.02M)</span></td>
+          <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_down.gif"></td>
+          <td width="45" align="center"><span class="bbs_normal">48</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="1" colspan="6" bgcolor="#e6e6e6"></td>
+  </tr>
+	  <tr>
+    <td colspan="6" style="padding:10px">
+      <table border="0" cellspacing="0" cellpadding="0" width="100%" height="1">        <tr>
+          <td><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/t.gif" border="0" width="100%" height="1" name="get_table_width"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/t.gif" border="0" name="target_resize" width="1" height="1"></td>
         </tr>
         <tr>
-          <td height="1" colspan="2" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_line.gif"></td>
-        </tr>
-        <tr>
-          <td height="30" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write_mail.gif"></td>
-          <td class="bbs_padding_left">
-          <input type="text" name="bbs_email" size="35" class="bbs_input" value="wvchoir@wvchoir.or.kr">          <span class="txt_s">자주 사용하는 이메일을 기입해주세요.</span></td>
-        </tr>
-        <tr>
-          <td height="1" colspan="2" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_line.gif"></td>
-        </tr>
-        <tr>
-          <td height="30" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write_sbj.gif"></td>
-          <td class="bbs_padding_left">
-            <input type="text" name="bbs_subject" size="50" class="bbs_input" value="2017년도 연주반 승단 대상자 사전교육">
-            <input type="checkbox" name="bbs_notice" value="Y" ><span class="txt_s">공지글
-          (체크하시면 항상 최상위에 등록되어 있습니다.)</span>           </td>
-        </tr>
-        <tr>
-          <td height="1" colspan="2" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_line.gif"></td>
-        </tr>
-              <tr>
-          <td height="30" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write_cnt.gif"></td>
-          <td class="bbs_padding_all">
-            <table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
-                            <tr>
-                <td>
-                  <script language='javascript' src='./editor/languages/euc-kr/java.lang.js'></script>
-<script language="javascript">
-<!--
-var _editor_url = "./editor";
-var _contentValue = "bbs_content";
-var _contentName = "form";
-var _i_uploaded = "";
-var _m_uploaded = "";
-
-function editor_wr_ok(){
-	document.form.bbs_content.value = SubmitHTML();
-	document.form.submit();
-}
-//-->
-</script>
-		<TABLE BORDER="1" WIDTH=100% cellspacing="0" bordercolor="#EFEFEF" bordercolordark="white" bordercolorlight="#DBDBDB">
-			<TR>
-				<TD>
-					<table align="center" border="0" cellpadding="1" cellspacing="3" width="100%">
-						<tr>
-							<td bgcolor="#EFEFEF">
-							<script language="javascript">
-							<!--
-							document.write('<table border="0" cellpadding="5" cellspacing="0" width="100%"><tr><td height="2"></td></tr><tr><td><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td height="20"><img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/edit_4.gif" border="0" align="absmiddle" ONCLICK="newDoc()" TITLE="' + editor_lang[0] + '"> <img style="cursor:hand;" src="' + _editor_url + '/img/edit_1.gif" border="0" align="absmiddle" ONCLICK="htmlfalse(\'cut\')" TITLE="' + editor_lang[1] + '"> <img style="cursor:hand;" src="' + _editor_url + '/img/edit_2.gif" border="0" align="absmiddle" ONCLICK="htmlfalse(\'copy\')" TITLE="' + editor_lang[2] + '"> <img style="cursor:hand;" src="' + _editor_url + '/img/edit_3.gif" border="0" align="absmiddle" ONCLICK="htmlfalse(\'paste\')" TITLE="' + editor_lang[3] + '"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/edit_5.gif" border="0" align="absmiddle" ONCLICK="htmlfalse(\'outdent\')" TITLE="' + editor_lang[4] + '"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/edit_6.gif" border="0" align="absmiddle" ONCLICK="htmlfalse(\'indent\')" TITLE="' + editor_lang[5] + '"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/edit_7.gif" border="0" align="absmiddle" NCLICK="htmlfalse(\'superscript\')" TITLE="' + editor_lang[6] + '"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/edit_8.gif" border="0" align="absmiddle" ONCLICK="htmlfalse(\'subscript\')" TITLE="' + editor_lang[7] + '"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/edit_9.gif" border="0" align="absmiddle" ONCLICK="htmlfalse(\'undo\')" TITLE="' + editor_lang[8] + '"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/edit_10.gif" border="0" align="absmiddle" ONCLICK="htmlfalse(\'redo\')" TITLE="' + editor_lang[9] + '"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_5.gif" border="0" TITLE="' + editor_lang[10] + '" ONCLICK="htmlfalse(\'justifyleft\')" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_6.gif" border="0" TITLE="' + editor_lang[11] + '" ONCLICK="htmlfalse(\'justifycenter\')" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_7.gif" border="0" TITLE="' + editor_lang[12] + '" ONCLICK="htmlfalse(\'justifyright\')" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_10.gif" border="0" TITLE="' + editor_lang[13] + '" ONCLICK="htmlfalse(\'insertorderedlist\')" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_11.gif" border="0" TITLE="' + editor_lang[14] + '" ONCLICK="htmlfalse(\'insertunorderedlist\')" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_18.gif" align="absmiddle" border="0" oNCLICK="htmlfalse(\'inserthorizontalrule\');" title="' + editor_lang[15] + '"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/edit_11.gif" border="0" TITLE="' + editor_lang[16] + '" ONCLICK="createHTML(\'fontname\',4);" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/edit_12.gif" border="0" TITLE="' + editor_lang[17] + '" ONCLICK="createHTML(\'fontsize\',7);" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_1.gif" name="item_1" border="0" TITLE="' + editor_lang[18] + '" ONCLICK="htmlfalse(\'bold\');" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_2.gif" border="0" TITLE="' + editor_lang[19] + '" ONCLICK="htmlfalse(\'italic\')" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_3.gif" border="0" TITLE="' + editor_lang[20] + '" ONCLICK="htmlfalse(\'strikethrough\')" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_4.gif" border="0" TITLE="' + editor_lang[21] + '" ONCLICK="htmlfalse(\'underline\')" align="absmiddle"></td></tr><tr><td height="20"><img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_8.gif" border="0" TITLE="' + editor_lang[22] + '" onclick="createHTML(\'forecolor\',5);" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_9.gif" border="0" TITLE="' + editor_lang[23] + '" onclick="createHTML(\'hilitecolor\',6);" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_12.gif" border="0" TITLE="' + editor_lang[24] + '" ONCLICK="createHTML(\'CreateLink\',8);" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_16.gif" border="0" onclick="createHTML(\'\',1);" align=absmiddle title="' + editor_lang[25] + '"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_19.gif" align="absmiddle" border="0" title="' + editor_lang[26] + '" onclick="createHTML(\'\',2);"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_20.gif" align="absmiddle" border="0" title="' + editor_lang[27] + '" onclick="createHTML(\'InsertImage\',3);"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_13.gif" border="0" TITLE="' + editor_lang[28] + '" onclick="file_upload(0,\'upfile\');" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_14.gif" border="0" TITLE="' + editor_lang[29] + '" onclick="file_upload(1,\'media\');" align="absmiddle"> <span id="zoomin" style="position:absolute;"></span> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_17.gif" border="0" TITLE="' + editor_lang[30] + '" onclick="editor_html();" align="absmiddle"> <img style="cursor:hand;cursor:pointer;" src="' + _editor_url + '/img/item_21.gif" border="0" TITLE="' + editor_lang[31] + '" onclick="editor_view();" align="absmiddle"></td></tr><tr><td height="2"></td></tr></table></td></tr></table>');
-							//-->
-							</script>
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<iframe id="gmEditor" WIDTH="100%" HEIGHT="200" scrolling="auto" border=1 frameborder=0 framespacing=0 hspace=0 marginheight=0 marginwidth=0 vspace=0></iframe>
-							<textarea cols=0 rows=0 style="display:none;" wrap='physical' name="bbs_content">&lt;head&gt;&lt;style&gt;body{font-family: Tahoma,Verdana,Arial;font-size: 11px;color: #555555;margin: 0px}td{font-size :11px; font-family: Tahoma,Verdana,Arial;}p{margin-top:1px;margin-bottom:1px;}&lt;/style&gt;
-
-&lt;style&gt;body{font-family: Tahoma,Verdana,Arial;font-size: 11px;color: #555555;margin: 0px}td{font-size :11px; font-family: Tahoma,Verdana,Arial;}p{margin-top:1px;margin-bottom:1px;}&lt;/style&gt;
-
-
-&lt;/head&gt;&lt;body&gt;&lt;p&gt;안녕하세요&lt;/p&gt;&lt;p&gt;2017년도 연주반 승단 대상자 사전교육과 관련하여 자세한 사항은 첨부파일을 참조해주시기 바랍니다.&lt;/p&gt;&lt;p&gt;** 9월 24일 오리엔테이션은 취소되었습니다. 10월 1일 교육 첫날 오리엔테이션을 겸하게 되었으니 착오 없으시길 바랍니다.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;감사합니다.&lt;/p&gt;&lt;p&gt;월드비전 음악원 드림.&lt;/p&gt;
-&lt;/body&gt;</textarea>
-							<input type="hidden" name="editor_url" id="editor_url" value="./editor">
-							<input type="hidden" name="editor_stom" id="editor_stom" value="euc-kr">
-							<script language="javascript" src='./editor/gmEditor.js'></script>
-							</td>
-						</tr>
-					</table>
-				</TD>
-			</TR>
-		</TABLE>
-                        <!-- <textarea name="bbs_content" id="bbs_content" rows="20" style="width:100%" class="bbs_textarea"><head><style>body{font-family: Tahoma,Verdana,Arial;font-size: 11px;color: #555555;margin: 0px}td{font-size :11px; font-family: Tahoma,Verdana,Arial;}p{margin-top:1px;margin-bottom:1px;}</style>
+          <td>
+                        <span class="bbs_normal"><head><style>body{font-family: Tahoma,Verdana,Arial;font-size: 11px;color: #555555;margin: 0px}td{font-size :11px; font-family: Tahoma,Verdana,Arial;}p{margin-top:1px;margin-bottom:1px;}</style>
 
 <style>body{font-family: Tahoma,Verdana,Arial;font-size: 11px;color: #555555;margin: 0px}td{font-size :11px; font-family: Tahoma,Verdana,Arial;}p{margin-top:1px;margin-bottom:1px;}</style>
 
 
 </head><body><p>안녕하세요</p><p>2017년도 연주반 승단 대상자 사전교육과 관련하여 자세한 사항은 첨부파일을 참조해주시기 바랍니다.</p><p>** 9월 24일 오리엔테이션은 취소되었습니다. 10월 1일 교육 첫날 오리엔테이션을 겸하게 되었으니 착오 없으시길 바랍니다.</p><p><br></p><p>감사합니다.</p><p>월드비전 음악원 드림.</p>
-</body></textarea> -->
-                </td>
-              </tr>
-            </table>
+</body></span>
           </td>
         </tr>
-        <tr>
-          <td height="1" colspan="2" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_line.gif"></td>
-        </tr>
+      </table>
+    </td>
+  </tr>
+    <tr>
+    <td height="15" colspan="6" class="bbs_padding_right" align="right"><span class="bbs_small_1">IP : 106.253.62.231</span></td>
+  </tr>
+    <tr>
+    <td height="5"></td>
+  </tr>
+  <tr>
+    <td height="1" bgcolor="#e6e6e6"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form1" method="post" action="write_ok.php">
+<input type="hidden" name="bbs_id" value="wv_community01">
+<input type="hidden" name="bbs_no" value="307">
+<input type="hidden" name="page" value="1">
+<input type="hidden" name="key" value="">
+<input type="hidden" name="keyword" value="">
+<input type="hidden" name="bbs_admin" value="chk">
+<input type="hidden" name="act" value="delete">
+  <tr>
+    <td height="40" width="70">
+      <a href="board.php?bbs_id=wv_community01&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list.gif" align="absmiddle" border="0"></a>
+    </td>
+    <td align="right">
+    <a href="board.php?bbs_id=wv_community01&mode=write&act=modify&bbs_no=307&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_modify.gif" align="absmiddle" border="0"></a>
+<a href="javascript:post_del()"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_del.gif" align="absmiddle" border="0"></a>
+<a href="board.php?bbs_id=wv_community01&mode=write&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0"></a>
+    </td>
+  </tr>
+</form>
+</table>
+<script language="JavaScript">
+function checkIt() {
+	var form=document.form;
+		if(textBox_chk('comm_content', '내용을') == false) return;
+	form.submit();
+	}
+
+function checkIt2(frm) {
+	if(frm.comm_content.value==""){
+		alert("내용을 입력하세요");
+		frm.comm_content.focus();
+		return false;
+	}
+	return true;
+}
+
+function comm_del(comm_no) {
+	var form=document.form_comm_del;
+	if(confirm('삭제 하시겠습니까?')) {
+		form.comm_no.value=comm_no;
+		form.submit();
+	}
+	return;
+}
+
+var old='';
+function reply_com(no){
+
+	submenu = document.getElementById('re'+no).style
+
+	if(old!=submenu){
+	if(old!=''){old.display = 'none';}
+	submenu.display = 'block';
+	old = submenu;
+	}
+	else
+	{
+	submenu.display = 'none';
+	old='';
+	}
+}
+</script>
+<br>
+<table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#dedede">
+  <tr>
+	  <td bgcolor="#FFFFFF">
+			<table width="100%" border="0" cellpadding="10" cellspacing="0" bgcolor="#f5f5f5">
+			  <tr>
+				  <td>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <form action="comment_ok.php" method="post" name="form" id="form">
+                <input type="hidden" name="bbs_id" value="wv_community01">
+<input type="hidden" name="bbs_no" value="307">
+<input type="hidden" name="page" value="1">
+<input type="hidden" name="key" value="">
+<input type="hidden" name="keyword" value="">
+<input type="hidden" name="bbs_admin" value="chk">
+                <input type="hidden" name="comm_emot" value="1">
+                <tr>
+                  <td align="center"  bgcolor="#ffffff"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_reply_icon.gif" style="background-repeat:no-repeat; background-position:top left">
+                    <tr>
+                      <td height="30" align="center">&nbsp;</td>
+                      <td align="right" style="padding-top:5">
+                      &nbsp;					</td>
+                      <td align="center">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td width="80" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cmnt_title.gif"></td>
+                      <td style="padding:0 0 10 0"><textarea id="comm_content" name="comm_content" rows="3" style="width:100%" class="txtarea"></textarea></td>
+                      <td width="70" align="center"><a href="javascript:checkIt();"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cmnt_ok.gif" align="absmiddle" border="0" /></a></td>
+                    </tr>
+                  </table>
+                 </td>
+                </tr>
+              </form>
+            </table>
+            			<!-- board.php?bbs_id=wv_gallery03&mode=write&act=reply&bbs_no=1174&page=1&key=&keyword=&bbs_admin=chk -->
+            <br><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                        <form name="form_comm_del" method="post" action="comment_ok.php">
+            <input type="hidden" name="bbs_id" value="wv_community01">
+<input type="hidden" name="bbs_no" value="307">
+<input type="hidden" name="page" value="1">
+<input type="hidden" name="key" value="">
+<input type="hidden" name="keyword" value="">
+<input type="hidden" name="bbs_admin" value="chk">
+            <input type="hidden" name="comm_no" value="">
+                                        <tr>
+                <td height="1" bgcolor="#e6e6e6"></td>
+              </tr>
               <tr>
-          <td height="30" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write_file1.gif"></td>
-          <td class="bbs_padding_side">
-            <input type="file" name="bbs_file[]" style="width:100%" class="bbs_input">          </td>
-        </tr>
-        <tr>
-          <td height="1" colspan="2" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_line.gif"></td>
-        </tr>
+                <td bgcolor="#f1f1f1">
+					                  <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                      <td width="80" height="20" bgcolor="#f9f9f9" style="padding-left:10"><b>지예슬</b></td>
+                      <td bgcolor="#f9f9f9" style="padding:10"><span class="txt_s">
+                        감사합니다. -분당반 지서윤 입니다.                      </span></span></td>
+                      <td width="100" align="right" bgcolor="#f9f9f9" class="t" >
+                      <span class="txt_s"><font color="#999999">2016-09-21</font></span>&nbsp;&nbsp;
+                        <a href="javascript:comm_del(415956);"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cmtdel.gif" align="absmiddle" border="0" alt="코멘트 삭제"></a>&nbsp;<a href="javascript:reply_com(415956);"><img src="/index/images/bluead_r.gif" align="absmiddle" border="0" alt="코멘트 덧글"></a>                        </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+			                </form>
+              			
+			  <tr style="display:none" id="re415956">
+				<td bgcolor="#f1f1f1">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<form action="comment_ok.php" method="post" name="form415956" id="form415956" onsubmit="return checkIt2(this);">
+						<input type="hidden" name="bbs_id" value="wv_community01">
+<input type="hidden" name="bbs_no" value="307">
+<input type="hidden" name="page" value="1">
+<input type="hidden" name="key" value="">
+<input type="hidden" name="keyword" value="">
+<input type="hidden" name="bbs_admin" value="chk">
+
+						<input type="hidden" name="comm_emot" value="1">
+						<input type="hidden" name="comm_no" value="415956">
+						<input type="hidden" name="comm_mode" value="reply">
+						<input type="hidden" name="fid" value="415956">
+						<input type="hidden" name="thread" value="A">
+						<tr>
+							<td align="center"  bgcolor="#ffffff">
+								<table width="100%" border="0" cellpadding="0" cellspacing="0" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_reply_icon.gif" style="background-repeat:no-repeat; background-position:top left">
+									<tr>
+										<td height="30" align="center">&nbsp;</td>
+										<td align="right" style="padding-top:5">
+											&nbsp;					</td>
+										<td align="center">&nbsp;</td>
+									</tr>
+									<tr>
+										<td width="80" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cmnt_title.gif"></td>
+										<td style="padding:0 0 10 0"><textarea id="comm_content" name="comm_content" rows="3" style="width:100%" class="txtarea"></textarea></td>
+										<td width="70" align="center"><input type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cmnt_ok.gif" align="absmiddle" border="0" /></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						</form>
+					</table>
+				</td>
+			  </tr>
+
+
+                            <tr>
+                <td height="15" class="t" align="right"><span class="txt_es">IP : 210.97.37.238</span></td>
+              </tr>
+                                          <tr>
+                <td height="1" bgcolor="#e6e6e6"></td>
+              </tr>
               <tr>
-          <td height="30" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write_file2.gif"></td>
-          <td class="bbs_padding_side">
-            <input type="file" name="bbs_file[]" style="width:100%" class="bbs_input"><br><span class="bbs_normal">[2017년도_연주반_승단대상자_사전교육_커뮤니티용.hwp] 파일이 등록되어 있습니다.<input type="checkbox" name="del_file[]" value="2" class="input_no_border"> 삭제</span>          </td>
-        </tr>
-        <tr>
-          <td height="1" colspan="2" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_line.gif"></td>
-        </tr>
+                <td bgcolor="#f1f1f1">
+					                  <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                      <td width="80" height="20" bgcolor="#f9f9f9" style="padding-left:10"><b>관리자</b></td>
+                      <td bgcolor="#f9f9f9" style="padding:10"><span class="txt_s">
+                        9월 24일 오리엔테이션이 있을 예정이었으나 10월 1일 교육 첫날 오리엔테이션을 겸하게 되었습니다. 착오 없으시길 바랍니다.                      </span></span></td>
+                      <td width="100" align="right" bgcolor="#f9f9f9" class="t" >
+                      <span class="txt_s"><font color="#999999">2016-09-20</font></span>&nbsp;&nbsp;
+                        <a href="javascript:comm_del(415955);"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cmtdel.gif" align="absmiddle" border="0" alt="코멘트 삭제"></a>&nbsp;<a href="javascript:reply_com(415955);"><img src="/index/images/bluead_r.gif" align="absmiddle" border="0" alt="코멘트 덧글"></a>                        </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+			                </form>
+              			
+			  <tr style="display:none" id="re415955">
+				<td bgcolor="#f1f1f1">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<form action="comment_ok.php" method="post" name="form415955" id="form415955" onsubmit="return checkIt2(this);">
+						<input type="hidden" name="bbs_id" value="wv_community01">
+<input type="hidden" name="bbs_no" value="307">
+<input type="hidden" name="page" value="1">
+<input type="hidden" name="key" value="">
+<input type="hidden" name="keyword" value="">
+<input type="hidden" name="bbs_admin" value="chk">
+
+						<input type="hidden" name="comm_emot" value="1">
+						<input type="hidden" name="comm_no" value="415955">
+						<input type="hidden" name="comm_mode" value="reply">
+						<input type="hidden" name="fid" value="415955">
+						<input type="hidden" name="thread" value="A">
+						<tr>
+							<td align="center"  bgcolor="#ffffff">
+								<table width="100%" border="0" cellpadding="0" cellspacing="0" background="skin/bbs/bluead_gray/images/bluead_reply_icon.gif" style="background-repeat:no-repeat; background-position:top left">
+									<tr>
+										<td height="30" align="center">&nbsp;</td>
+										<td align="right" style="padding-top:5">
+											&nbsp;					</td>
+										<td align="center">&nbsp;</td>
+									</tr>
+									<tr>
+										<td width="80" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cmnt_title.gif"></td>
+										<td style="padding:0 0 10 0"><textarea id="comm_content" name="comm_content" rows="3" style="width:100%" class="txtarea"></textarea></td>
+										<td width="70" align="center"><input type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cmnt_ok.gif" align="absmiddle" border="0" /></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						</form>
+					</table>
+				</td>
+			  </tr>
+
+
+                            <tr>
+                <td height="15" class="t" align="right"><span class="txt_es">IP : 106.253.62.231</span></td>
+              </tr>
+                                          <tr>
+                <td height="1" bgcolor="#e6e6e6"></td>
+              </tr>
               <tr>
-          <td height="30" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write_file3.gif"></td>
-          <td class="bbs_padding_side">
-            <input type="file" name="bbs_file[]" style="width:100%" class="bbs_input">          </td>
+                <td bgcolor="#f1f1f1">
+					                  <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                      <td width="80" height="20" bgcolor="#f9f9f9" style="padding-left:10"><b>안서연</b></td>
+                      <td bgcolor="#f9f9f9" style="padding:10"><span class="txt_s">
+                        감사합니다 확인했습니다 -강남반안서진-                      </span></span></td>
+                      <td width="100" align="right" bgcolor="#f9f9f9" class="t" >
+                      <span class="txt_s"><font color="#999999">2016-09-20</font></span>&nbsp;&nbsp;
+                        <a href="javascript:comm_del(415954);"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cmtdel.gif" align="absmiddle" border="0" alt="코멘트 삭제"></a>&nbsp;<a href="javascript:reply_com(415954);"><img src="/index/images/bluead_r.gif" align="absmiddle" border="0" alt="코멘트 덧글"></a>                        </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+			                </form>
+              			
+			  <tr style="display:none" id="re415954">
+				<td bgcolor="#f1f1f1">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<form action="comment_ok.php" method="post" name="form415954" id="form415954" onsubmit="return checkIt2(this);">
+						<input type="hidden" name="bbs_id" value="wv_community01">
+<input type="hidden" name="bbs_no" value="307">
+<input type="hidden" name="page" value="1">
+<input type="hidden" name="key" value="">
+<input type="hidden" name="keyword" value="">
+<input type="hidden" name="bbs_admin" value="chk">
+
+						<input type="hidden" name="comm_emot" value="1">
+						<input type="hidden" name="comm_no" value="415954">
+						<input type="hidden" name="comm_mode" value="reply">
+						<input type="hidden" name="fid" value="415954">
+						<input type="hidden" name="thread" value="A">
+						<tr>
+							<td align="center"  bgcolor="#ffffff">
+								<table width="100%" border="0" cellpadding="0" cellspacing="0" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_reply_icon.gif" style="background-repeat:no-repeat; background-position:top left">
+									<tr>
+										<td height="30" align="center">&nbsp;</td>
+										<td align="right" style="padding-top:5">
+											&nbsp;					</td>
+										<td align="center">&nbsp;</td>
+									</tr>
+									<tr>
+										<td width="80" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cmnt_title.gif"></td>
+										<td style="padding:0 0 10 0"><textarea id="comm_content" name="comm_content" rows="3" style="width:100%" class="txtarea"></textarea></td>
+										<td width="70" align="center"><input type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cmnt_ok.gif" align="absmiddle" border="0" /></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						</form>
+					</table>
+				</td>
+			  </tr>
+
+
+                            <tr>
+                <td height="15" class="t" align="right"><span class="txt_es">IP : 1.224.2.47</span></td>
+              </tr>
+                                          <tr>
+                <td height="1" bgcolor="#e6e6e6"></td>
+              </tr>
+              
+            </table>
+						          </td>
         </tr>
-        <tr>
-          <td height="1" colspan="2" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_line.gif"></td>
-        </tr>
-            </form>
       </table>
     </td>
   </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
-  <tr height="50">
-    <td align="center">
-      <a href="javascript:checkIt('chk','Y');"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif" align="absmiddle" border="0"></a>&nbsp;
-      <a href="board.php?bbs_id=wv_community01&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cancel.gif" align="absmiddle" border="0"></a>
-    </td>
-  </tr>
-
-</table>
+<br><br>
 </div>
 </body>
 </html>
