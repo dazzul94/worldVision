@@ -39,22 +39,25 @@
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>    
-    <td style="padding:2;"><select onchange="location.href='<?=$PHP_SELF?>?member_join_type='+this.value">
-	  <option value="select">:: 전체보기 ::</option>
-        <option value="member_join_type">후원자</option>
-        <option value="2" style="color:blue;"<?if($member_join_type=="2"){echo " selected";}?>>기타</option>
-		<option value="3" style="color:green;"<?if($member_join_type=="3"){echo " selected";}?>>합창단 교사/직원</option>
-		<option value="5" style="color:#660000;"<?if($member_join_type=="5"){echo " selected";}?>>단원/자모</option>
-		<option value="10" style="color:red;"<?if($member_join_type=="10"){echo " selected";}?>>동문</option>
+    <td style="padding:2;">
+    <select id="member_join_type" onchange="location.href=this.value">
+	  	<option value="all" selected>:: 전체보기 ::</option>
+        <option value="list?join_type = 1">후원자</option>
+        <option value="2" style="color:blue;">기타</option>
+		<option value="3" style="color:green;">합창단 교사/직원</option>
+		<option value="5" style="color:#660000;">단원/자모</option>
+		<option value="10" style="color:red;">동문</option>
 	</select></td>
-	<td align="right" style="font-size:10Px;font-family:verdana;">
-      total:<font color="red"> <?= $total_num ?>
-      </font>&nbsp;&nbsp;
-      page:<font color="red"> <?= $paging->curPage ?>
-      </font>/<font color="red"><?= $paging->totalPage ?>
-      </font>    </td>
+	</tr>
+<!--  dd -->
+  <tbody><tr>    
+    <td align="right" style="font-size:10Px;font-family:verdana;">
+      <font color="">total:</font><font color="red"> ${totalCount}</font>&nbsp;&nbsp;
+      <font color="">page:</font><font color="red"> ${pageNo}</font>/<font color="red"> ${lastPageNo}</font>
+    </td>
   </tr>
-</table>
+  
+</tbody></table>
 <table border="0" cellspacing="1" cellpadding="4" width="100%" bgcolor="#cad4e3">
   <tr height="25" align="center">
     <td width="50" class="field_b">번호</td>    
@@ -71,20 +74,31 @@
    
    <c:forEach items="${list}" var="member" varStatus="status">
   <tr bgcolor="#ffffff" height="30" onMouseOver=this.style.background="#f5f5f5" onMouseOut=this.style.background="#ffffff">
-    <td align="center" style="cursor:hand" onclick="location.href('view.jsp?no=<?= $row["no"] >${member.no}</td>
-    <td align="center" style="cursor:hand" onclick="location.href('view.jsp?member_name=<?= $row["member_name"]>${member.member_name}</td>
-    <td align="center" style="cursor:hand" onclick="location.href('view.php?member_id=<?= $row["member_id"] >${member.member_id}</td>
-    <td align="center" style="cursor:hand" onclick="location.href('view.php?member_address=<?= $row["member_address1"]- >${member.member_address1}${member.member_address2}</td>
-    <td align="center" style="cursor:hand" onclick="location.href('view.php?no=<?= $row["member_tel1"]-["member_tel2"] >${member.member_tel1}-${member.member_tel2}-${member.member_tel3}</td>
-     <td align="center" style="cursor:hand" onclick="location.href('view.php?no=<?= $row["member_join_date"] >${member.member_join_date}</td>
+    <td align="center" onclick="window.location='${member.no}'" style="cursor:pointer">${(totalCount - status.index) - ((pageNo - 1) * pageSize)}</td>
+    <td align="center" onclick="window.location='${member.no}'" style="cursor:pointer">${member.member_name}</td>
+    <td align="center" onclick="window.location='${member.no}'" style="cursor:pointer">${member.member_id}</td>
+    <td align="center" onclick="window.location='${member.no}'" style="cursor:pointer" >${member.member_address1}${member.member_address2}</td>
+    <td align="center" onclick="window.location='${member.no}'" style="cursor:pointer" >${member.member_tel1}-${member.member_tel2}-${member.member_tel3}</td>
+     <td align="center" onclick="window.location='${member.no}'" style="cursor:pointer">${member.member_join_date}</td>
  <td align="center">
-      <select name="level" onChange="chn_lev(this.value,'<?=$PHP_SELF?>?no=<?= $row["no"] ?>&page=<?=$page?>&key=<?=$key?>&keyword=<?=$keyword?>&member_join_type=<?=$member_join_type?>');">
+ 
+ <!--  select박스  -->
+      <select name="level" id="ctg" onChange="javascript:myListener(this);">
         <option value="member_join_type">후원자</option>
-        <option value="2" style="color:blue;"<?if($row["member_join_type"]=="2"){echo " selected";}?>>기타</option>
-		<option value="3" style="color:green;"<?if($row["member_join_type"]=="3"){echo " selected";}?>>합창단 교사/직원</option>
-		<option value="5" style="color:#660000;"<?if($row["member_join_type"]=="5"){echo " selected";}?>>단원/자모</option>
-		<option value="10" style="color:red;"<?if($row["member_join_type"]=="10"){echo " selected";}?>>동문</option>
+        <option value="2" style="color:blue;">기타</option><!-- 2 -->
+		<option value="3" style="color:green;">합창단 교사/직원</option>
+		<option value="5" style="color:#660000;">단원/자모</option>
+		<option value="10" style="color:red;">동문</option>
       </select>
+    <script>
+    document.getElementByName("level").value 
+
+   /*  function myListener(obj) {
+        alert(obj.value); // 선택된 option의 value가 출력된다!
+    } */
+</script>
+
+      <!-- // -->
     </td>  
   </tr>
  </c:forEach> 
@@ -209,6 +223,18 @@
     $("document").ready(function(){        
         paging(totalData, dataPerPage, pageCount, '<c:out value="${pageNo}"/>');
         
+    });
+</script>
+<script type="text/javascript">
+    $(function(){
+      // bind change event to select
+      $('#member_join_type').on('change', function () {
+          var url = $(this).val(); // get selected value(list?join_type = 1)
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+      });
     });
 </script>
 </body>

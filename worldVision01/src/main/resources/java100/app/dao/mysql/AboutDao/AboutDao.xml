@@ -154,6 +154,19 @@
           </foreach>
         </if>
         </delete> 
+        
+        <delete id="delete" parameterType="int">
+        delete from bluead_history
+        where no=#{value}
+    </delete>
+    <update id="update" parameterType="about"> 
+        update bluead_history set 
+        year=#{year}, 
+        month=#{month}, 
+        date=#{date}, 
+        contents=#{contents} 
+        where no=#{no} 
+        </update>
 </mapper>  
 
 

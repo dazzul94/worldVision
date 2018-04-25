@@ -129,6 +129,7 @@ else {
                                            
     }
     
+    
     $("document").ready(function(){        
         paging(totalData, dataPerPage, pageCount, '<c:out value="${pageNo}"/>');
         

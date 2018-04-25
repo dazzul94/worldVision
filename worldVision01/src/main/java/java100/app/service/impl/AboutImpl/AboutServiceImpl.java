@@ -57,24 +57,6 @@ public class AboutServiceImpl implements AboutService {
     public About get(int no) {
         return aboutDao.findByNo(no);
     }
-    
-   /* @Override
-    public Member get(String email, String password) {
-        
-        HashMap<String,Object> params = new HashMap<>();
-        params.put("email", email);
-        params.put("password", password);
-        
-        return bluead_memberDao.findByEmailAndPassword(params);
-    }
-    
-    @Override
-    public Member get(String email) {
-        
-        return bluead_memberDao.findByEmail(email);
-    }*/
-    
-    
     @Override
     public int getTotalCount(Map<String,Object> options) {
         return aboutDao.countAll(options);
@@ -87,16 +69,15 @@ public class AboutServiceImpl implements AboutService {
     public int add(About about) {
         return aboutDao.insert(about);
     }
-   /* 
     @Override
-    public int update(Member member) {
-        return bluead_memberDao.update(member);
+    public int update(About about) {
+        return aboutDao.update(about);
     }
 
     @Override
     public int delete(int no) {
-        return bluead_memberDao.delete(no);
-    }*/
+        return aboutDao.delete(no);
+    }
     @Override
     public int deleteAll(HashMap<String, Object> numbers) {
         return aboutDao.deleteAll(numbers);

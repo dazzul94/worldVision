@@ -45,7 +45,7 @@
           <td width="100" height="30" class="field_b_pad">년 / 월 / 일</td>
           <td class="pad_left" bgcolor="#ffffff">
            <select name="year">
-           <option value="" selected="">선택</option>
+           <option value="">선택</option>
                                                      <option value="1962">1962</option>
                                                          <option value="1963">1963</option>
                                                          <option value="1964">1964</option>
@@ -103,12 +103,10 @@
                                                          <option value="2016">2016</option>
                                                          <option value="2017">2017</option>
                                                          <option value="2018">2018</option>
-                                                         <option value="2019">2019</option>
-                                                         <option value="2020">2020</option>
                                    </select> 
            년 &nbsp;&nbsp;
            <select name="month">
-             <option value="" selected="">선택</option>
+             <option value="">선택</option>
              <option value="01">01</option>
              <option value="02">02</option>
              <option value="03">03</option>
@@ -123,7 +121,7 @@
              <option value="12">12</option>
            </select> 월 &nbsp;&nbsp;
            <select name="date">
-             <option value="" selected="">선택</option>
+             <option value="">선택</option>
              <option value="01">01</option>
              <option value="02">02</option>
              <option value="03">03</option>
@@ -171,7 +169,7 @@
         <tbody><tr>
           <td height="50" align="center" valign="bottom">
                         <input onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_ok.gif">
-            <img style="cursor: hand;" onclick="location.href='list.php?bbs_id=history&amp;page=&amp;cate=1&amp;key=&amp;keyword='" src="${contextPath}/images/BlueAD/admin/btn_list.gif">
+            <img style="cursor: pointer;" onclick="location.href='list?pn=1'" src="${contextPath}/images/BlueAD/admin/btn_list.gif">
                       </td>
         </tr>
       </tbody></table>

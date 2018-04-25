@@ -26,9 +26,8 @@ public interface AboutService {
     int getTotalCount(Map<String,Object> options);
     int getTotalCount2(Map<String,Object> options);
     int add(About about);
-    /*
-    int update(Member member);
-    int delete(int no);*/
+    int update(About about);
+    int delete(int no);
     int deleteAll(HashMap<String, Object> numbers);
 }
 

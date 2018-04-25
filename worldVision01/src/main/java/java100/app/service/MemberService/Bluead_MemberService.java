@@ -1,9 +1,11 @@
 package java100.app.service.MemberService;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import java100.app.domain.Member.Bluead_Member;
+import java100.app.domain.Request.Bluead_Online1;
 
 
 
@@ -19,12 +21,10 @@ import java100.app.domain.Member.Bluead_Member;
 public interface Bluead_MemberService {
     List<Bluead_Member> list(int pageNo, int pageSize, Map<String,Object> options);
     Bluead_Member get(int no);
-/*    Member get(String email, String password);
-    Member get(String email);*/
     int getTotalCount(Map<String, Object> options);
-   /* int add(Member member);
-    int update(Member member);
-    int delete(int no);*/
+    int update(Bluead_Member bluead_Member);
+    int delete(int no);
+    int deleteAll(HashMap<String, Object> numbers);
 }
 
 

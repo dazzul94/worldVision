@@ -15,9 +15,8 @@ public interface AboutDao {
     int countAll(Map<String, Object> options);
     int countAll2(Map<String, Object> options);
     int insert(About about);
-   /*
-    int update(Member member);
-    int delete(int no);*/
+    int update(About about);
+    int delete(int no);
     int deleteAll(HashMap<String, Object> numbers);
 }
 

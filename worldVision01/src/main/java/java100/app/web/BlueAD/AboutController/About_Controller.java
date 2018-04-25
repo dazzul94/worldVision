@@ -185,20 +185,20 @@ public class About_Controller {
         return "BlueAD/about/abroadForm";
         
     }
-   /* 
+    
     @RequestMapping("update")
-    public String update(Member member) throws Exception {
+    public String update(HttpServletRequest request, About about) throws Exception {
         
-    	bluead_memberService.update(member);
+        aboutService.update(about);
         return "redirect:list";
     }
 
     @RequestMapping("delete")
     public String delete(int no) throws Exception {
 
-    	bluead_memberService.delete(no);
+        aboutService.delete(no);
         return "redirect:list";
-    }*/
+    }
     @RequestMapping("deleteAll")
     public String deleteAll(HttpServletRequest request, String no) throws Exception {
         
