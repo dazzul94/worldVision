@@ -199,7 +199,7 @@ function tab_menu(val, path){
                     	<img src="${contextPath }/images/index/about03_tap1_on.gif" style="cursor:pointer" id="contents_img1" onclick="tab_menu(1, '${contextPath}')">
                     	<img src="${contextPath }/images/index/about03_tap2_off.gif" style="cursor:pointer;margin-top:4px;" id="contents_img2" onclick="tab_menu(2, '${contextPath}')">
                     </div> 
-                    
+        <!--              
                     <div class="history_wrap">
                     	<table width="100%" border="0" cellspacing="0" cellpadding="0" id="contents1">
 			              <tbody><tr>
@@ -434,7 +434,45 @@ function tab_menu(val, path){
                                       </tbody></table>
                     </div>
                     
-                    
+                    -->
+                    <div class="history_wrap">
+                    	<table width="100%" border="0" cellspacing="0" cellpadding="0" id="contents1">
+			              <tbody>
+			              <c:forEach items="${hList1}" var="history">
+			              
+			              <tr>
+                <td width="80">
+                  <img src="${contextPath }/images/index/${history.getYear() }.gif">        </td>
+                <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tbody><tr>
+                    <td width="50" class="date">${history.getMonth() }. </td>
+                    <td class="his_pad">${history.getContents() }</td>
+                  </tr>
+                     </tbody></table>        </td>
+              </tr>
+                    </c:forEach>
+                    </tbody></table>
+                    </div>
+                    <div class="history_wrap">
+                    	<table width="100%" border="0" cellspacing="0" cellpadding="0" id="contents2">
+			              <tbody>
+			              <c:forEach items="${hList2}" var="history">
+			              
+			              <tr>
+                <td width="80">
+                  <img src="${contextPath }/images/index/${history.getYear() }.gif">        </td>
+                <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tbody><tr>
+                    <td width="50" class="date">${history.getMonth() }. </td>
+                    <td class="his_pad">${history.getContents() }</td>
+                  </tr>
+                     </tbody></table>        </td>
+              </tr>
+                    </c:forEach>
+                    </tbody></table>
+                    </div>
                     
        				<div class="clear mb30"></div>
          			<h3 class="wonh3">해외연주 활동</h3> 

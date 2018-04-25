@@ -1,10 +1,16 @@
 package java100.app.web.index;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IndexMainController {
+	
+	@Autowired
+	private IndexDAO dao;
+	
 	@RequestMapping("/")
 	public String goMain() {
 		
@@ -36,8 +42,18 @@ public class IndexMainController {
 	}
 	
 	@RequestMapping("choir2")
-	public String goChoir2() {
+	public String goChoir2(Model model) {
+		History[] hList1 = dao.getHistory1();
+		History[] hList2 = dao.getHistory2();
 		
+		model.addAttribute("hList1", hList1);
+		model.addAttribute("hList2", hList2);
+		for(History h: hList1) {
+			System.out.println(h);
+		}
+		for(History h: hList2) {
+			System.out.println(h);
+		}
 		return "choir/choir2";				
 	}
 	
@@ -131,9 +147,51 @@ public class IndexMainController {
 		return "request/request";
 	}
 	
+	@RequestMapping("request2")
+	public String goRequest2() {
+		
+		return "request/request2";
+	}
+	
+	@RequestMapping("request3")
+	public String goRequest3() {
+		
+		return "request/request3";
+	}
+	
+	@RequestMapping("request4")
+	public String goRequest4() {
+		
+		return "request/request4";
+	}
+	
 	@RequestMapping("board")
 	public String goBoard() {
 		
 		return "board/board";
+	}
+	
+	@RequestMapping("boardView")
+	public String goBoardView() {
+		
+		return "board/board_view";
+	}
+	
+	@RequestMapping("boardWrite")
+	public String goBoardWrite() {
+		
+		return "board/board_write";
+	}
+	
+	@RequestMapping("board2")
+	public String goBoard2() {
+		
+		return "board/board2";
+	}
+	
+	@RequestMapping("board3")
+	public String goBoard3() {
+		
+		return "board/board3";
 	}
 }
