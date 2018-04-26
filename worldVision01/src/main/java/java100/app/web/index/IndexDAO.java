@@ -14,8 +14,7 @@ public class IndexDAO {
 	@Autowired
 	private JdbcTemplate jTmp;
 	
-	public History[] getHistory1() {
-		String sql = "SELECT contents, year, month, cate FROM bluead_history WHERE cate = '1' ORDER BY year DESC, month DESC";
+	public History[] getHistory(String sql) {	
 		RowMapper<History> mapper = new RowMapper<History>() {
 			@Override
 			public History mapRow(ResultSet rs, int idx) 
@@ -32,22 +31,24 @@ public class IndexDAO {
 		return list.toArray(new History[0]);
 	}
 	
-	public History[] getHistory2() {
-		String sql = "SELECT contents, year, month, cate FROM bluead_history WHERE cate = '2' ORDER BY year DESC, month DESC";
-		RowMapper<History> mapper = new RowMapper<History>() {
+	public Board[] getBoard(String sql) {
+		
+		RowMapper<Board> mapper = new RowMapper<Board>() {
 			@Override
-			public History mapRow(ResultSet rs, int idx) 
+			public Board mapRow(ResultSet rs, int idx) 
 					throws SQLException {				
-				return new History(
-					rs.getString("contents"),
-					rs.getString("year"),
-					rs.getString("month"),
-					rs.getInt("cate")
+				return new Board(
+					rs.getInt("bbs_no"),
+					rs.getString("bbs_name"),
+					rs.getString("bbs_subject"),
+					rs.getString("bbs_content"),
+					rs.getInt("bbs_hit"),
+					rs.getString("bbs_date")
 				);
 			}				
 		};		
-		List<History> list = jTmp.query(sql, mapper);		
-		return list.toArray(new History[0]);
+		List<Board> list = jTmp.query(sql, mapper);		
+		return list.toArray(new Board[0]);
 	}
 	
 }

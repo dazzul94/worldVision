@@ -112,6 +112,10 @@
 			$("nav.menu>ul>li").removeClass("on");
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
+		
+		function goList(cPage){
+			location.href = "gallery2?cPage=" + cPage;
+		}
 	</script>
     		<div class="tnb">
             	<a href="#">로그인</a>
@@ -149,27 +153,20 @@
 					<table>
 					<tr>
 						<th>제목</th>
-						<td colspan="3" class="subject">용감한 형제, 김사무엘 탈락에 "속상해 하지마…내 눈에는 네가 1등"</td>
+						<td colspan="3" class="subject">${result.getBbs_subject() }</td>
 					</tr>
                     <tr>
 						<th>등록일</th>
-						<td>2017-06-16</td>
+						<td>${result.getBbs_date().substring(0, 4)}-${result.getBbs_date().substring(4, 6)}-${result.getBbs_date().substring(6, 8)}</td>
 						<th>작성자</th>
-						<td>월드비전</td>
+						<td>${result.getBbs_name() }</td>
 					</tr>
                     <tr>
 						<th>첨부파일</th>
 						<td colspan="3"><img src="${contextPath }/images/index/board/icon_file.png" alt=""/> <a href="#">filename.png</a></td>
 					</tr>
 					<tr>
-						<td colspan="4" class="content">바일 플라스틱케이스의 외면 UV 코팅을 스핀들 Type으로 도장 구현 도료의 남용과 불량을 최소화 한 환경 및 품질을 고려한 도장 system
-바일 플라스틱케이스의 외면 UV 코팅을 스핀들 Type으로 도장 구현 도료의 남용과 불량을 최소화 한 환경 및 품질을 고려한 도장 system
-바일 플라스틱케이스의 외면 UV 코팅을 스핀들 Type으로 도장 구현 도료의 남용과 불량을 최소화 한 환경 및 품질을 고려한 도장 system 바일 플라스틱케이스의 외면 UV 코팅을 스
-핀들 Type으로 도장 구현 도료의 남용과 불량을 최소화 한 환경 및 품질을 고려한 도장 system
-바일 플라스틱케이스의 외면 UV 코팅을 스핀들 Type으로 도장 구현 도료의 남용과 불량을 최소화 한 환경 및 품질을 고려한 도장 system
-바일 플라스틱케이스의 외면 UV 코팅을 스핀들 Type으로 도장 구현 도료의 남용과 불량을 최소화 한 환경 및 품질을 고려한 도장 system
-바일 플라스틱케이스의 외면 UV 코팅을 스핀들 Type으로 도장 구현 도료의 남용과 불량을 최소화 한 환경 및 품질을 고려한 도장 system 바일 플라스틱케이스의 외면 UV 코팅을 스
-핀들 Type으로 도장 구현 도료의 남용과 불량을 최소화 한 환경 및 품질을 고려한 도장 system</td>
+						<td colspan="4" class="content">${result.getBbs_content() }</td>
 					</tr>
 				</table>
                 
@@ -201,7 +198,7 @@
             <div class="boardbtn text_right">
             	<a href="#">수정</a>
                 <a href="#">삭제</a>
-                <a href="#" class="gray">목록</a>
+                <a href="#" class="gray" onclick="goList('${cPage}')" return false;>목록</a>
             </div>
             
             
