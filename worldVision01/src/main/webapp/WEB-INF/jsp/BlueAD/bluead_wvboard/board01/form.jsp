@@ -12,8 +12,6 @@
 <body>
 <div class='container'>
 
-<jsp:include page="../../header.jsp"/>
-
 <h1>회원 등록 결과</h1>
 <form action="add" method='post'>
 <div class='form-group row'>
@@ -41,11 +39,8 @@
 </div>
 </form>
 
-<jsp:include page="../../footer.jsp"/>
-
 </div>
 
-<jsp:include page="../../jslib.jsp"/>
 
 </body>
 </html>

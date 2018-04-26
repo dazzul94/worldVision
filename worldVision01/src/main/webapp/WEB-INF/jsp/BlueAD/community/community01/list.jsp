@@ -213,7 +213,7 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <!-- <? if(__ADMIN_ID__ && $bbs_admin == "chk") { ?> -->
-<form name="del_form" method="post" action="check_delete.php">
+ <form action="update" method='post' enctype="multipart/form-data">
 <input type="hidden" name="bbs_id" value="<?= $bbs_id ?>">
 <input type="hidden" name="page" value="<?= $page ?>">
 <input type="hidden" name="key" value="<?= $key ?>">
@@ -223,7 +223,7 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td width="4" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_left.gif"></td>
-        <td width="35" height="29" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><input type="checkbox" name="allChk" onClick="Allchange(this)" style="cursor:hand; background-color:#f6f5f1"></td>
+        <td width="35" height="29" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><input type="checkbox" name="allChk" onclick="Allchange(this)" style="cursor:pointer"></td>
         <td width="40" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_no.gif"></td>
         <td width="1" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_line.gif"></td>
         <td align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><span class="bbs_normal"><b><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_subject.gif"></b></span></td>
@@ -263,10 +263,10 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
       <!-- ----------------공지리스트 --------------------->
        <!-- ----------------------------리스트---------------------------- -->
 <c:forEach items="${list}" var="community" varStatus="status">
-      <tr height="30">
-        <td align="center"></td>
-                <td align="center"><input type="checkbox" name="bbs_no[]" value="133" style="cursor:hand"></td>
-                <td align="center"><span class="bbs_normal">${community.bbs_no }</span>
+      <tr height="30"bgcolor="#FFFFFF" onmouseover="this.style.background=&quot;#f5f5f5&quot;" onmouseout="this.style.background=&quot;#ffffff&quot;" style="background: rgb(255, 255, 255);">
+      <td align="center"></td> 
+                <td align="center"><input type="checkbox" id="check" name="check[]" class="checkSelect" value="${online.no}" style="cursor:pointer"></td>
+                          <td align="center">${(totalCount - status.index) - ((pageNo - 1) * pageSize)}</td>
 </td>
         <td align="center"></td>
                 <td>
@@ -289,14 +289,17 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
       </c:forEach>
              <!-- ----------------------------리스트---------------------------- -->
       </table>
-      
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+       <!-- 목록, 선택삭제 -->
+  <tr>
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tbody>
         <tr>
-          <td height="35" valign="middle" width="150">
-          <!-- 목록 버튼 -->  <a href="list"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list.gif" align="absmiddle" border="0"></a>
-           <!-- 선택 --> <a href="javascript:All_del();"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list_sel.gif" align="absmiddle" border="0"></a><? } ?>
+          <td valign="middle" width="300">
+            <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list.gif" style="cursor:pointer"></a>
+            <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list_sel.gif" style="cursor:pointer" onclick="setNo()">
           </td>
-          
+  <!-- 목록, 선택삭제 -->
           
          <!------------------ paging ---------------------->
           <td width="195"></td>

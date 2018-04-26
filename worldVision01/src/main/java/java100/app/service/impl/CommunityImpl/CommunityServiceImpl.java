@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java100.app.dao.CommunityDao.CommunityDao;
 import java100.app.domain.Community.Community;
+import java100.app.domain.Request.Bluead_Online1;
 import java100.app.service.CommunityService.CommunityService;
 
 
@@ -42,41 +43,23 @@ public class CommunityServiceImpl implements CommunityService {
         return communityDao.findByNo(no);
     }
     
-   /* @Override
-    public Member get(String email, String password) {
-        
-        HashMap<String,Object> params = new HashMap<>();
-        params.put("email", email);
-        params.put("password", password);
-        
-        return bluead_memberDao.findByEmailAndPassword(params);
-    }
-    
-    @Override
-    public Member get(String email) {
-        
-        return bluead_memberDao.findByEmail(email);
-    }*/
-    
     
     @Override
     public int getTotalCount(Map<String, Object> options) {
         return communityDao.countAll(options);
     }
 
-/*    @Override
-    public int add(Member member) {
-        return bluead_memberDao.insert(member);
-    }
 
     @Override
-    public int update(Member member) {
-        return bluead_memberDao.update(member);
+    public int update(Community community) {
+        return communityDao.update(community);
     }
-
+    @Override
+    public int deleteAll(HashMap<String, Object> numbers) {
+        return communityDao.deleteAll(numbers);
+    }
     @Override
     public int delete(int no) {
-        return bluead_memberDao.delete(no);
-    }*/
-
+        return communityDao.delete(no);
+    }
 }

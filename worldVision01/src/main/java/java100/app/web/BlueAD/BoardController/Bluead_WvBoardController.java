@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java100.app.service.BoardService.Bluead_WvBoardService;
 
 @Controller
-@RequestMapping("/bluead_wvboard")
+@RequestMapping("/bluead_wvboard/board01")
 public class Bluead_WvBoardController {
     
     @Autowired Bluead_WvBoardService bluead_wvboardService;
@@ -81,42 +81,20 @@ public class Bluead_WvBoardController {
 		model.addAttribute("pageSize", pageSize);//
         model.addAttribute("list", bluead_wvboardService.list(pageNo, pageSize, options));
         
-        return "BlueAD/bluead_wvboard/list";
+        return "BlueAD/bluead_wvboard/board01/list";
     }
     
     @RequestMapping("{no}")
     public String view(@PathVariable int no, Model model) throws Exception {
         
         model.addAttribute("bluead_wvboard", bluead_wvboardService.get(no));
-        return "BlueAD/bluead_wvboard/view";
+        return "BlueAD/bluead_wvboard/board01/view";
     }
-/*    
-    @RequestMapping("add")
-    public String add(Member member) throws Exception {
-        
-    	bluead_memberService.add(member);
-        return "redirect:list";
-    }
-    */
     @RequestMapping("form")
     public String form() throws Exception {
-        return "BlueAD/bluead_wvboard/form";
+        return "BlueAD/bluead_wvboard/board01/form";
         
     }
-   /* 
-    @RequestMapping("update")
-    public String update(Member member) throws Exception {
-        
-    	bluead_memberService.update(member);
-        return "redirect:list";
-    }
-
-    @RequestMapping("delete")
-    public String delete(int no) throws Exception {
-
-    	bluead_memberService.delete(no);
-        return "redirect:list";
-    }*/
 }
 
 

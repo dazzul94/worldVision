@@ -1,11 +1,11 @@
 package java100.app.service.CommunityService;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import java100.app.domain.Community.Community;
-
-
+import java100.app.domain.Request.Bluead_Online1;
 
 // => "역할"을 강조할 때는 "객체(object)"라는 말보다는 
 //    "컴포넌트(component)"라는 말을 사용한다.
@@ -17,17 +17,15 @@ import java100.app.domain.Community.Community;
 // 가능한 업무 용어를 사용한다.
 //
 public interface CommunityService {
-    List<Community> list(int pageNo, int pageSize, Map<String,Object> options);
-    Community get(int no);
-/*    Member get(String email, String password);
-    Member get(String email);*/
-    int getTotalCount(Map<String,Object> options);
-   /* int add(Member member);
-    int update(Member member);
-    int delete(int no);*/
+	List<Community> list(int pageNo, int pageSize, Map<String, Object> options);
+
+	Community get(int no);
+
+	int getTotalCount(Map<String, Object> options);
+
+	int update(Community community);
+
+	int delete(int no);
+
+	int deleteAll(HashMap<String, Object> numbers);
 }
-
-
-
-
-
