@@ -7,22 +7,7 @@
 <html>
 <head>
 <title>메뉴</title>
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
-<script language="javascript">
-<!--
-function go_chk(url,no,tot) {
-  var obj = document.getElementById;
-  
-  parent.frames['main'].location.href=url;
-}
-
-function autoBlur(){
-  if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG")
-  document.body.focus();
-}
-document.onfocusin=autoBlur;
-//-->
-</script>
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css?ver=1">
 </head>
 <body class="top_left">
 <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
@@ -33,25 +18,25 @@ document.onfocusin=autoBlur;
           <td>
             <table width="180" border="0" cellspacing="0" cellpadding="0">
 							              <tbody><tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community01&amp;bbs_admin=chk',0,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../community01/list"> 연주반</a></td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community01/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 연주반</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no1" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community03&amp;bbs_admin=chk',1,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../community03/list"> 강서반 외</a></td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community03/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 강서반</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no2" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community04&amp;bbs_admin=chk',2,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../community04/list"> 갤러리</a></td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community04/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 갤러리</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no3" onclick="go_chk('/BlueAD/board.php?bbs_id=wv_community05&amp;bbs_admin=chk',3,1);" style="cursor:hand"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"> <a href="../community05/list"> 비전싱어즈</a></td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community05/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 비전싱어즈</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
