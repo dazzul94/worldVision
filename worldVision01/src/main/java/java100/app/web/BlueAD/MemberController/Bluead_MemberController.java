@@ -18,7 +18,7 @@ import java100.app.domain.Request.Bluead_Online1;
 import java100.app.service.MemberService.Bluead_MemberService;
 
 @Controller
-@RequestMapping("/bluead_member")
+@RequestMapping("/bluead_member/member01")
 public class Bluead_MemberController {
 
 	@Autowired
@@ -103,7 +103,7 @@ public class Bluead_MemberController {
 		model.addAttribute("bluead_member", bluead_memberService.get(no));
 		return "BlueAD/bluead_member/member01/view";
 	}
-
+	
 	
 	@RequestMapping("form")
 	public String form() throws Exception {
@@ -149,5 +149,7 @@ public class Bluead_MemberController {
 	   	 bluead_memberService.update(bluead_Member);
 	        return "redirect:" +  (String)request.getHeader("Referer");
 	    }
+	    
+	   
 	    
 }

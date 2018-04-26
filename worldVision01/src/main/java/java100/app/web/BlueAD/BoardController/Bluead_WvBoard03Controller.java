@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java100.app.service.BoardService.Bluead_WvBoardService;
+import java100.app.service.BoardService.Bluead_WvBoard03Service;
 
 @Controller
-@RequestMapping("/bluead_wvboard/board01")
-public class Bluead_WvBoardController {
+@RequestMapping("/bluead_wvboard/board03")
+public class Bluead_WvBoard03Controller {
     
-    @Autowired Bluead_WvBoardService bluead_wvboardService;
+    @Autowired Bluead_WvBoard03Service bluead_wvboard03Service;
     
-    static Logger logger = Logger.getLogger(Bluead_WvBoardController.class);
+    static Logger logger = Logger.getLogger(Bluead_WvBoard03Controller.class);
     
     @RequestMapping("list")
     public String list(
@@ -67,7 +67,7 @@ public class Bluead_WvBoardController {
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
-        int totalCount = bluead_wvboardService.getTotalCount(options);// 파라미터에 추가
+        int totalCount = bluead_wvboard03Service.getTotalCount(options);// 파라미터에 추가
         int lastPageNo = totalCount / pageSize;
         if ((totalCount % pageSize) > 0) {
             lastPageNo++;
@@ -79,20 +79,20 @@ public class Bluead_WvBoardController {
         
 		model.addAttribute("totalCount", totalCount);//
 		model.addAttribute("pageSize", pageSize);//
-        model.addAttribute("list", bluead_wvboardService.list(pageNo, pageSize, options));
+        model.addAttribute("list", bluead_wvboard03Service.list(pageNo, pageSize, options));
         
-        return "BlueAD/bluead_wvboard/board01/list";
+        return "BlueAD/bluead_wvboard/board02/list";
     }
     
     @RequestMapping("{no}")
     public String view(@PathVariable int no, Model model) throws Exception {
         
-        model.addAttribute("bluead_wvboard", bluead_wvboardService.get(no));
-        return "BlueAD/bluead_wvboard/board01/view";
+        model.addAttribute("bluead_wvboard03", bluead_wvboard03Service.get(no));
+        return "BlueAD/bluead_wvboard/board03/view";
     }
     @RequestMapping("form")
     public String form() throws Exception {
-        return "BlueAD/bluead_wvboard/board01/form";
+        return "BlueAD/bluead_wvboard/board03/form";
         
     }
 }

@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- DAO 객체를 자동으로 생성하려면, namespace의 값이 인터페이스 이름과 같아야 한다. -->
-<mapper namespace="java100.app.dao.CommunityDao.Community03Dao">
+<mapper namespace="java100.app.dao.BoardDao.Bluead_WvBoard03Dao">
 
-	<resultMap type="community03" id="community03">
+	<resultMap type="bluead_WvBoard03" id="bluead_WvBoardMap">
 		<id column="bbs_no" property="bbs_no" />
 		<!-- 컬럼 이름과 프로퍼티 이름이 같아서 생략! -->
 		<!-- <result column="name" property="name"/> <result column="email" property="email"/> -->
@@ -14,27 +14,31 @@
 
 	<sql id="select1">
 		select
-		* 
+		*
 	</sql>
 
-	<select id="findAll" resultMap="community03" parameterType="map">
+	<select id="findAll" resultMap="bluead_WvBoardMap"
+		parameterType="map">
 		<include refid="select1" />
-		from bluead_wv_community03
-
+		from bluead_wv_board
+		
 		<choose>
 			<when test="select == 'all'">
-				<where> <!-- 제목,내용,글쓴이 -->
+				<where> <!-- 제목, 내용, 글쓴이 -->
 					or bbs_subject like '%${word}%'
 					or bbs_content like '%${word}%'
-					or bbs_name like '%${word}%'
+						or bbs_name like '%${word}%'
 				</where>
 			</when>
+				
+					
 
 			<when test="select == 'bbs_subject'">
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
 							or bbs_subject like '%${word}%'
+							
 						</foreach>
 					</where>
 				</if>
@@ -45,16 +49,19 @@
 					<where>
 						<foreach collection="words" item="word">
 							or bbs_content like '%${word}%'
+							
 						</foreach>
 					</where>
 				</if>
 			</when>
+			
 			
 			<when test="select == 'bbs_name'">
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
 							or bbs_name like '%${word}%'
+							
 						</foreach>
 					</where>
 				</if>
@@ -64,9 +71,10 @@
 		limit #{startIndex}, #{size}
 	</select>
 
-	<select id="findByNo" resultMap="community03" parameterType="int">
+	<select id="findByNo" resultMap="bluead_WvBoardMap"
+		parameterType="int">
 		<include refid="select1" />
-		from bluead_wv_community03
+		from bluead_wv_board
 		where bbs_no=#{value}
 	</select>
 
@@ -74,22 +82,26 @@
 		<include refid="select1"/> from ex_memb where email=#{email} and pwd=password(#{password}) 
 		</select> <select id="findByEmail" resultMap="memberMap" parameterType="string"> 
 		<include refid="select1"/> from ex_memb where email=#{email} </select> -->
-	<select id="countAll" resultType="int">
-		select count(*) from bluead_wv_community03
-		<choose>
+	<select id="countAll" resultType="int" parameterType="map">
+		select count(*) from bluead_wv_board
+
+	<choose>
 			<when test="select == 'all'">
-				<where> <!-- 제목,내용,글쓴이 -->
+				<where> <!-- 제목, 내용, 글쓴이 -->
 					or bbs_subject like '%${word}%'
 					or bbs_content like '%${word}%'
-					or bbs_name like '%${word}%'
+						or bbs_name like '%${word}%'
 				</where>
 			</when>
+				
+					
 
 			<when test="select == 'bbs_subject'">
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or bbs_subject like '%${word}%'
+							or bbs_subject like
+							'%${word}%'
 						</foreach>
 					</where>
 				</if>
@@ -99,17 +111,20 @@
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or bbs_content like '%${word}%'
+							or bbs_content like
+							'%${word}%'
 						</foreach>
 					</where>
 				</if>
 			</when>
 			
+			
 			<when test="select == 'bbs_name'">
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or bbs_name like '%${word}%'
+							or bbs_name like
+							'%${word}%'
 						</foreach>
 					</where>
 				</if>

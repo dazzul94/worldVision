@@ -20,7 +20,7 @@
 <jsp:include page="../../top.jsp"/>
 </div>
 <div id="navigation">
-<jsp:include page="../../left.jsp"/>
+<jsp:include page="../member_left.jsp"/>
 </div>
 <div id="content">
 <!--  회원관리 이미지 -->

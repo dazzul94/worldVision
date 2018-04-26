@@ -2,6 +2,8 @@ package java100.app.web.BlueAD.CommunityController;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java100.app.domain.Community.Community;
 import java100.app.service.CommunityService.CommunityService;
 
 @Controller
@@ -90,9 +93,9 @@ public class Community_Controller {
     }
 /*    
     @RequestMapping("add")
-    public String add(Member member) throws Exception {
+    public String add(Member member) throws{
         
-    	bluead_memberService.add(member);
+    	bluead_memberService.add(memb Exception er);
         return "redirect:list";
     }
     */
@@ -101,26 +104,37 @@ public class Community_Controller {
         return "BlueAD/community/form";
         
     }
-   /* 
     @RequestMapping("update")
-    public String update(Member member) throws Exception {
+    public String update(HttpServletRequest request, Community community) throws Exception {
         
-    	bluead_memberService.update(member);
-        return "redirect:list";
+    	communityService.update(community);
+        return "redirect:" +  (String)request.getHeader("Referer");
     }
 
     @RequestMapping("delete")
     public String delete(int no) throws Exception {
 
-    	bluead_memberService.delete(no);
+    	communityService.delete(no);
         return "redirect:list";
-    }*/
+    }
+    @RequestMapping("deleteAll")
+    public String deleteAll(HttpServletRequest request, String no) throws Exception {
+        
+        String[] splitNo = no.split(",");
+        int[] realNo = new int[splitNo.length];;
+        for (int i = 0; i < splitNo.length; i++) {
+            realNo[i] = Integer.parseInt(splitNo[i]);
+            System.out.println(realNo[i]);
+        }
+        HashMap<String,Object> numbers = new HashMap<>();
+        if (realNo != null) {
+            numbers.put("numbers", realNo);
+        }
+        communityService.deleteAll(numbers);
+       /* System.out.println((String)request.getHeader("Referer"));
+        String decodeResult = URLDecoder.decode((String)request.getHeader("Referer"), "UTF-8");
+        System.out.println(decodeResult);*/
+        return "redirect:" +  (String)request.getHeader("Referer");
+    }
 }
-
-
-
-
-
-
-
 

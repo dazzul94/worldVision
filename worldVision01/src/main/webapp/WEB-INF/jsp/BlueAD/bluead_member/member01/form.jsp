@@ -19,11 +19,10 @@
 <jsp:include page="../../top.jsp"/>
 </div>
 <div id="navigation">
-<jsp:include page="../../left.jsp"/>
+<jsp:include page="../member_left.jsp"/>
 </div>
 <div id="content">
-<c:if test="${not empty bluead_member}">
-<form action="update" method='post'>
+<h1> 확인</h1>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
     <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 회원관리</td>
@@ -36,86 +35,55 @@
   </tr>
 </tbody></table>
 <!-- view -->
+
 <table width="100%" align="center" bgcolor="#cad4e3" border="0" cellspacing="1" cellpadding="0">
   <tbody><tr>
-    <td width="100" height="35" class="field_b_pad_p">이름</td>
+    <td width="100" height="35" class="field_b_pad">이름</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_name}</b></td>
   </tr>
     <tr>
-    <td width="100" height="35" class="field_b_pad_p">아이디</td>
+    <td width="100" height="35" class="field_b_pad">아이디</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_id}</b></td>
   </tr>
   <tr>
+    <td width="100" height="35" class="field_b_pad">비밀번호</td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><input type="text" name="member_birth1"></td>
+  </tr>
+  <tr>
+    <td width="100" height="35" class="field_b_pad">주민번호</td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"></td>
+  </tr>
+  <tr>
     <td width="100" height="35" class="field_b_pad">생년월일</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_birth1}&nbsp;${bluead_member.member_birth2}</b></td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><input type="text" name="member_birth1">-<input type="text" name="member_birth1">-<input type="text" name="member_birth1"></td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">전화번호</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_tel1}-${bluead_member.member_tel2}-${bluead_member.member_tel3}</b></td>
-  </tr>
-  <tr>
-    <td width="100" height="35" class="field_b_pad_p">휴대전화</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_htel1} -${bluead_member.member_htel2}-${bluead_member.member_htel3}</b></td>
-  </tr>
-  <tr>
-    <td width="100" height="35" class="field_b_pad">주소</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_address2}<br>${bluead_member.member_address1}</b></td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><input type="text" name="member_birth1">-<input type="text" name="member_birth1">-<input type="text" name="member_birth1"></td>
   </tr>
 
       <tr>
-    <td width="100" height="35" class="field_b_pad">이메일</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff">${bluead_member.member_email}</td>
+    <td width="100" height="35" class="field_b_pad">주소</td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><input type="text" name="member_birth1">${bluead_member.member_email}</td>
   </tr>
   <tr>
-    <td width="100" height="35" class="field_b_pad">등록일</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_join_date}</b></td>
+    <td width="100" height="35" class="field_b_pad">이메일</td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><input type="text" name="member_birth1"><b>${bluead_member.member_join_date}</b></td>
   </tr>
 </tbody></table>
-</form>
+
 <!-- view -->
-<!-- 목록,수정, 삭제 -->
+
+<!-- 목록,확인 -->
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr height="40">
     <td height="50" align="center" valign="bottom">
       <input align="absmiddle" onclick="window.location='list'" type="image" src="${contextPath}/images/BlueAD/admin/btn_list.gif">
-            <input align="absmiddle"  onclick="really(${bluead_member.no})" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_del.gif">
+            <input align="absmiddle"  onclick="window.location='list'" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_ok.gif">
     </td>
   </tr>
 </tbody></table>
-<!-- 목록, 삭제 -->
-<!-- 메모 -->
-<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
-  <tbody><tr>
-    <td height="25"><img align="absmiddle" src="${contextPath}/images/BlueAD/admin/blet.gif"><strong> 간단메모 </strong></td>
-  </tr>
-</tbody></table>
-<table width="100%" align="center" bgcolor="#e6e6e6" border="0" cellspacing="1" cellpadding="0">
-  <form name="form" action="view.php" method="post"></form>
-  <input name="bbs_id" type="hidden" value="online">
-  <input name="no" type="hidden" value="1549">
-  <input name="mode" type="hidden" value="write">
-  <input name="key" type="hidden" value="">
-  <input name="keyword" type="hidden" value="">
-  <input name="type" type="hidden" value="1">
-  <tbody><tr>
-    <td width="100" style="padding-left: 15px; cursor: hand;" onclick="textarea_size('content',5)" bgcolor="#f5f5f5">간단메모 ▼</td>
-    <td style="padding: 10px;" bgcolor="#ffffff"><textarea name="content" style="width: 100%;" rows="3"></textarea></td>
-    <td width="70" align="center" bgcolor="#f5f5f5"><input align="absmiddle" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_cmnt.gif"></td>
-  </tr>
-  
-</tbody></table>
-<!-- 메모 -->
-</c:if>
+<!-- 목록, 확인 -->
 </div>
-<script type="text/javascript">
-function really(no){
-    if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-    	    window.location = "delete?no=" + no;
-    	    window.alert("삭제되었습니다");
-    }else{   //취소
-        return;
-    }
-}
-</script>
 </body>
 </html>

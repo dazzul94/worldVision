@@ -1,4 +1,4 @@
-package java100.app.service.impl.CommunityImpl;
+package java100.app.service.impl.BoardImpl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,23 +8,21 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java100.app.dao.CommunityDao.Community03Dao;
-import java100.app.domain.Community.Community03;
-import java100.app.service.CommunityService.Community03Service;
-
-
-
+import java100.app.dao.BoardDao.Bluead_WvBoard02Dao;
+import java100.app.domain.Board.Bluead_WvBoard02;
+import java100.app.service.BoardService.Bluead_WvBoard02Service;
+ 
 @Service
-public class Community03ServiceImpl implements Community03Service {
+public class Bluead_WvBoard02ServiceImpl implements Bluead_WvBoard02Service {
 
-    @Autowired Community03Dao community03Dao;
+    @Autowired Bluead_WvBoard02Dao bluead_wvboard02Dao;
     
-    static Logger logger = Logger.getLogger(Community03ServiceImpl.class); 
+    static Logger logger = Logger.getLogger(Bluead_WvBoard02ServiceImpl.class); 
     
     @Override
-    public List<Community03> list(int pageNo, int pageSize, Map<String, Object> options) {
+    public List<Bluead_WvBoard02> list(int pageNo, int pageSize, Map<String, Object> options) {
         	
-        logger.debug("Bluead_MemberService.list()..... 호출됨!");
+        logger.debug("Bluead_WvBoard02ServiceImpl.list()..... 호출됨!");
         
         HashMap<String,Object> params = new HashMap<>();
         params.put("startIndex", (pageNo - 1) * pageSize);
@@ -34,12 +32,12 @@ public class Community03ServiceImpl implements Community03Service {
             params.putAll(options);
         }
         
-        return community03Dao.findAll(params);
+        return bluead_wvboard02Dao.findAll(params);
     }
 
     @Override
-    public Community03 get(int no) {
-        return community03Dao.findByNo(no);
+    public Bluead_WvBoard02 get(int no) {
+        return bluead_wvboard02Dao.findByNo(no);
     }
     
    /* @Override
@@ -60,8 +58,8 @@ public class Community03ServiceImpl implements Community03Service {
     
     
     @Override
-    public int getTotalCount(Map<String, Object> options) {
-        return community03Dao.countAll(options);
+    public int getTotalCount(Map<String,Object> options) {
+        return bluead_wvboard02Dao.countAll(options);
     }
 
 /*    @Override

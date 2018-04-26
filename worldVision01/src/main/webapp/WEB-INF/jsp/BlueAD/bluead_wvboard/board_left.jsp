@@ -18,29 +18,24 @@
           <td>
             <table width="180" border="0" cellspacing="0" cellpadding="0">
 							              <tbody><tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community01/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 연주반</td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../board01/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 자유게시판</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community03/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 강서반</td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../board02/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 보도자료</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community04/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 갤러리</td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../board03/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 웹진</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community05/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 비전싱어즈</td>
-              </tr>
-              <tr>
-                <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
-              </tr>
 							            </tbody></table>
           </td>
         </tr>

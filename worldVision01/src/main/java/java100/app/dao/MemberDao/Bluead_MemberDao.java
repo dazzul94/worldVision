@@ -10,7 +10,6 @@ public interface Bluead_MemberDao {
 	List<Bluead_Member> findAll(Map<String, Object> params);
 
 	Bluead_Member findByNo(int no);
-
 	int countAll(Map<String, Object> options);
 
 	int update(Bluead_Member bluead_Member);

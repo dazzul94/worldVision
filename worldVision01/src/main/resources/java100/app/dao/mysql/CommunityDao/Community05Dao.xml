@@ -21,51 +21,52 @@
 		<include refid="select1" />
 		from bluead_wv_community05
 
-		 <if test="words != null">
-			<where>
-				bbs_names in
-				<foreach collection="words" item="word" open="(" close=")"
-					separator=",">
-					#{word}
-				</foreach>
-				or bbs_email in
-				<foreach collection="words" item="word" open="(" close=")"
-					separator=",">
-					#{word}
-				</foreach>
-			</where>
-		</if>
-
-		<!-- 정렬 조건에 따라 SQL문을 변경한다.-->
-		order by
+	
 		<choose>
-			<when test="orderColumn == 'bbs_name' and align == 'asc'">
-				bbs_name asc
+			<when test="select == 'all'">
+				<where> <!-- 제목,내용,글쓴이 -->
+					or bbs_subject like '%${word}%'
+					or bbs_content like '%${word}%'
+					or bbs_name like '%${word}%'
+				</where>
 			</when>
-			<when test="orderColumn == 'bbs_name' and align == 'desc'">
-				bbs_name desc
+
+			<when test="select == 'bbs_subject'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_subject like '%${word}%'
+						</foreach>
+					</where>
+				</if>
 			</when>
-			<when test="orderColumn == 'bbs_name' and align == 'asc'">
-				bbs_name asc
+
+			<when test="select == 'bbs_content'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_content like '%${word}%'
+						</foreach>
+					</where>
+				</if>
 			</when>
-			<when test="orderColumn == 'bbs_name' and align == 'desc'">
-				bbs_name desc
+			
+			<when test="select == 'bbs_name'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_name like '%${word}%'
+						</foreach>
+					</where>
+				</if>
 			</when>
-			<when test="orderColumn == 'bbs_name' and align == 'desc'">
-				bbs_name desc
-			</when>
-			<otherwise>
-				bbs_no desc
-			</otherwise>
 		</choose>
-
-	<!-- 	페이지징 처리 -->
-		limit #{startIndex}, #{size} 
+		order by bbs_no desc
+		limit #{startIndex}, #{size}
 	</select>
-
 	<select id="findByNo" resultMap="community05" parameterType="int">
 		<include refid="select1" />
-		from bluead_wv_community05;
+		from bluead_wv_community05
 		where bbs_no=#{value}
 	</select>
 
@@ -74,8 +75,48 @@
 		</select> <select id="findByEmail" resultMap="memberMap" parameterType="string"> 
 		<include refid="select1"/> from ex_memb where email=#{email} </select> -->
 	<select id="countAll" resultType="int">
-		select count(*) from bluead_wv_community05;
+		select count(*) from bluead_wv_community05
+			<choose>
+			<when test="select == 'all'">
+				<where> <!-- 제목,내용,글쓴이 -->
+					or bbs_subject like '%${word}%'
+					or bbs_content like '%${word}%'
+					or bbs_name like '%${word}%'
+				</where>
+			</when>
+
+			<when test="select == 'bbs_subject'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_subject like '%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+			<when test="select == 'bbs_content'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_content like '%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+			
+			<when test="select == 'bbs_name'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_name like '%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+		</choose>
 	</select>
+		
 
 	<!-- <insert id="insert" parameterType="member" useGeneratedKeys="true" 
 		keyColumn="no" keyProperty="no"> insert into ex_memb(name,email,pwd,regdt) 
