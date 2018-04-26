@@ -22,12 +22,12 @@
 <jsp:include page="../../top.jsp"/>
 </div>
 <div id="navigation">
-<jsp:include page="../community03_left.jsp"/>
+<jsp:include page="../community_left.jsp"/>
 </div>
 <div id="content">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 월드</font></td>
+    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 강서반</font></td>
   </tr>
   <tr>
     <td height="1" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
@@ -59,7 +59,7 @@
         <tr>
           <td width="70" height="27" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_name.gif"></td>
           <td style="padding-left:10">
-            <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><img src="${contextPath}/images/BlueAD/skin/bbs/1198130437.gif" align="absmiddle"></a>          </td>
+            <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><span class="bbs_normal">${community03.bbs_name }</span></a>          </td>
           <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_date.gif"></td>
           <td width="120" align="center"><span class="bbs_normal">${community03.bbs_date }</span></td>
           <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_hit.gif"></td>
@@ -72,17 +72,6 @@
   <td height="1" colspan="6" bgcolor="#e6e6e6"></td>
   </tr>
 	  <tr>
-    <td height="27" align="center" colspan="6">
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="70" height="27" align="center"><span class="bbs_normal"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_file2.gif"></span></td>
-          <!-- 파일 다운 ㄴㄴ  -->
-          <td colspan="3" style="padding-left:10"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/hwp.gif" align="absmiddle">&nbsp;<a href="download.php?bbs_id=wv_community03&bbs_no=307&bbs_admin=chk&file_no=2" class="bbs_link">${community03.bbs_file1 }</a>&nbsp;<span class="bbs_normal">(0.02M)</span></td>
-          <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_down.gif"></td>
-          <td width="45" align="center"><span class="bbs_normal">${community03.bbs_down1_hit }</span></td>
-        </tr>
-      </table>
-    </td>
   </tr>
   
   <!-- 내용 -->

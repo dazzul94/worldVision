@@ -25,6 +25,7 @@ public class Community05_Controller {
             @RequestParam(value="pn", defaultValue="1") int pageNo,
             @RequestParam(value="ps", defaultValue="10") int pageSize,
             @RequestParam(value="words", required=false) String[] words,
+            @RequestParam(value="select",defaultValue="all") String select,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
             Model model) throws Exception {
@@ -60,15 +61,19 @@ public class Community05_Controller {
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
-        int totalCount = community05Service.getTotalCount();
+        int totalCount = community05Service.getTotalCount(options);
         int lastPageNo = totalCount / pageSize;
         if ((totalCount % pageSize) > 0) {
             lastPageNo++;
         }
         
         // view 컴포넌트가 사용할 값을 Model에 담는다.
-        model.addAttribute("pageNo", pageNo);
-        model.addAttribute("lastPageNo", lastPageNo);
+        // view 컴포넌트가 사용할 값을 Model에 담는다.
+    	model.addAttribute("totalCount", totalCount);
+		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("lastPageNo", lastPageNo);
+		model.addAttribute("pageSize", pageSize);
+        
         
         model.addAttribute("list", community05Service.list(pageNo, pageSize, options));
         

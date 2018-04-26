@@ -66,7 +66,7 @@
 
 	<select id="findByNo" resultMap="community03" parameterType="int">
 		<include refid="select1" />
-		from bluead_wv_community03;
+		from bluead_wv_community03
 		where bbs_no=#{value}
 	</select>
 

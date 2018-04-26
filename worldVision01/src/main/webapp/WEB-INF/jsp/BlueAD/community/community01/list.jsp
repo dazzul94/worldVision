@@ -197,29 +197,20 @@ if($is_category == true)                $colspan++;
 if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
 ?>
  -->
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
-  <tr>
+<!--  dd -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+   <tr>
     <td>
       <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/newhot.gif">
     </td>
     <td width="270" align="right" style="padding-right:3">
-    <span style="height:15;padding:1pt;font-size:10Px;font-family:verdana;">
-      total:<font color="red"><?= $total_num ?></font>&nbsp;&nbsp;
-      page:<font color="red"><?= $paging->curPage ?></font>
-      /<font color="red"><?= $paging->totalPage ?></font>
-    </span> &nbsp;
-    <!-- <?
-    //RSS Feed
-    if($CFG_USE_RSS == "Y" && $CFG_LEV_VIEW == 0) {
-    ?>
-     -->
-    <a href="/BlueAD/rss.php?bbs_id=<?= $bbs_id ?>" target="_blank"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/rss.gif" alt="RSS Feed" align="absmiddle"></a>
+    <td align="right" style="font-size:10Px;font-family:verdana;">
+      <font color="">total:</font><font color="red"> ${totalCount}</font>&nbsp;&nbsp;
+      <font color="">page:</font><font color="red"> ${pageNo}</font>/<font color="red"> ${lastPageNo}</font>
     </td>
   </tr>
-  <tr>
-    <td height="3" colspan="2"></td>
-  </tr>
-</table>
+</tbody></table>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <!-- <? if(__ADMIN_ID__ && $bbs_admin == "chk") { ?> -->
 <form name="del_form" method="post" action="check_delete.php">
@@ -329,7 +320,8 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
     <td colspan="3" height="25"></td>
   </tr>
   <tr>
-    <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_left.gif"></td>
+   
+   <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_left.gif"></td>
     <td align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_bg.gif">
     
       

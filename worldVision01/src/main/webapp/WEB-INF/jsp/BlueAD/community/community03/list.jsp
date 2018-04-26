@@ -126,7 +126,7 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
       ?>
        --> 
        <!--  카테고리 -->
-       <select name="scate" class="bbs_select" onchange="location.href='board.php?bbs_id=wv_community03&amp;scate='+this.value+'&amp;bbs_admin=chk'">
+       <select name="scate" class="bbs_select" onchange="location.href='board.php?bbs_id=wv_community0303&amp;scate='+this.value+'&amp;bbs_admin=chk'">
         <option value="">전체</option>
         <option value="강서반">강서반</option>
 <option value="강남반">강남반</option>
@@ -136,34 +136,17 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
 <option value="분당반">분당반</option>
 <option value="비전싱어즈">비전싱어즈</option>
       </select>
-						<!-- <?
-        for($i=0; $i < count($cfg_category_arr); $i++) {
-          if($cfg_category_arr[$i] == $scate) echo"<option value=\"".$cfg_category_arr[$i]."\" selected>".$cfg_category_arr[$i]."</option>\n";
-          else                                echo"<option value=\"".$cfg_category_arr[$i]."\">".$cfg_category_arr[$i]."</option>\n";
-        }
-        ?>
-         -->
-				</select> <img
-					src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/newhot.gif">
-				</td>
-				<td width="270" align="right" style="padding-right: 3"><span
-					style="height: 15; padding: 1pt; font-size: 10Px; font-family: verdana;">
-						total:<font color="red"> <?= $total_num ?>
-					</font>&nbsp;&nbsp; page:<font color="red"> <?= $paging->curPage ?>
-					</font> /<font color="red"> <?= $paging->totalPage ?>
-					</font>
-				</span> &nbsp; <!-- <?
-    //RSS Feed
-    if($CFG_USE_RSS == "Y" && $CFG_LEV_VIEW == 0) {
-    ?>
-     --> <a href="/BlueAD/rss.php?bbs_id=<?= $bbs_id ?>" target="_blank"><img
-						src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/rss.gif"
-						alt="RSS Feed" align="absmiddle"></a></td>
-			</tr>
-			<tr>
-				<td height="3" colspan="2"></td>
-			</tr>
-		</table>
+		<!--  dd -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody><tr>    
+      <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/newhot.gif">
+    <td align="right" style="font-size:10Px;font-family:verdana;">
+      <font color="">total:</font><font color="red"> ${totalCount}</font>&nbsp;&nbsp;
+      <font color="">page:</font><font color="red"> ${pageNo}</font>/<font color="red"> ${lastPageNo}</font>
+    </td>
+  </tr>
+</tbody></table>
+
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<!-- <? if(__ADMIN_ID__ && $bbs_admin == "chk") { ?> -->
 			<form name="del_form" method="post" action="check_delete.php">
@@ -219,8 +202,8 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
 									src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_right.gif"></td>
 							</tr>
 							<!-- -----------------공지리스트 --------------------------->
-							<c:forEach items="${list}" var="community" varStatus="status">
-								<c:if test="${community.bbs_notice eq 'Y'}">
+							<c:forEach items="${list}" var="community03" varStatus="status">
+								<c:if test="${community03.bbs_notice eq 'Y'}">
 									<tr height="30">
 										<td align="center" bgcolor="#f1f1f1"></td>
 										<td align="center" bgcolor="#f1f1f1">&nbsp;</td>
@@ -229,7 +212,7 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
 											border="0" align="absmiddle"></td>
 										<td align="center" bgcolor="#f1f1f1"></td>
 										<td bgcolor="#f1f1f1">&nbsp;&nbsp;&nbsp;<span
-											class="bbs_normal">${community.bbs_subject }</span></td>
+											class="bbs_normal">${community03.bbs_subject }</span></td>
 										<td align="center" bgcolor="#f1f1f1"></td>
 										<td align="center" bgcolor="#f1f1f1"><a
 											href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty"
@@ -238,10 +221,10 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
 												align="absmiddle"></a></td>
 										<td bgcolor="#f1f1f1"></td>
 										<td align="center" bgcolor="#f1f1f1"><span
-											class="bbs_normal">${community.bbs_date}</span></td>
+											class="bbs_normal">${community03.bbs_date}</span></td>
 										<td align="center" bgcolor="#f1f1f1"></td>
 										<td align="center" bgcolor="#f1f1f1"><span
-											class="bbs_normal">${community.bbs_hit}</span></td>
+											class="bbs_normal">${community03.bbs_hit}</span></td>
 									</tr>
 									<tr>
 										<td bgcolor="#e6e6e6"></td>
@@ -251,27 +234,27 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
 							</c:forEach>
 							<!-- ----------------공지리스트끝 --------------------->
 							<!-- ----------------------------리스트 시작---------------------------- -->
-							<c:forEach items="${list}" var="community" varStatus="status">
+							<c:forEach items="${list}" var="community03" varStatus="status">
 								<tr height="30">
 									<td align="center"></td>
 									<td align="center"><input type="checkbox" name="bbs_no[]"
 										value="133" style="cursor: hand"></td>
-									<td align="center"><span class="bbs_normal">${community.bbs_no }</span>
+									<td align="center"><span class="bbs_normal">${community03.bbs_no }</span>
 									</td>
 									<td align="center"></td>
-									<td>&nbsp;&nbsp;&nbsp;<a href="${community.bbs_no }"
-										class="bbs_link">${community.bbs_category} </a>
+									<td>&nbsp;&nbsp;&nbsp;<a href="${community03.bbs_no }"
+										class="bbs_link">${community03.bbs_category} </a>
 
 									</td>
 									<!-- <td></td> -->
-									<td>&nbsp;&nbsp;&nbsp;<a href="${community.bbs_no }"
-										class="bbs_link">${community.bbs_subject }</a></td>
+									<td>&nbsp;&nbsp;&nbsp;<a href="${community03.bbs_no }"
+										class="bbs_link">${community03.bbs_subject }</a></td>
 									<td align="center"></td>
-									<td align="center"><span class="bbs_normal">${community.bbs_name}</span></td>
+									<td align="center"><span class="bbs_normal">${community03.bbs_name}</span></td>
 									<td align="center"></td>
-									<td align="center"><span class="bbs_normal">${community.bbs_date }</span></td>
+									<td align="center"><span class="bbs_normal">${community03.bbs_date }</span></td>
 									<td align="center"></td>
-									<td align="center"><span class="bbs_normal">${community.bbs_hit }</span></td>
+									<td align="center"><span class="bbs_normal">${community03.bbs_hit }</span></td>
 									<td align="center"></td>
 								</tr>
 								<tr>
@@ -288,7 +271,6 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
           <!-- 목록 버튼 -->  <a href="list"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list.gif" align="absmiddle" border="0"></a>
            <!-- 선택 --> <a href="javascript:All_del();"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list_sel.gif" align="absmiddle" border="0"></a><? } ?>
           </td>
-          
           
          <!------------------ paging ---------------------->
           <td width="195"></td>
