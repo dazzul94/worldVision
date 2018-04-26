@@ -35,7 +35,7 @@ if(!__ADMIN_ID__ || $bbs_admin != "chk") {
 else {
     
 ?>
- -->
+ --><!--  검색 아직안됨 -->
 <html>
 <head>
 <title></title>
@@ -144,7 +144,7 @@ else {
 <div id="content">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 월드</font></td>
+    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 비전싱어즈</font></td>
   </tr>
   <tr>
     <td height="1" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
@@ -245,23 +245,23 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
         <td width="4" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_right.gif"></td>
       </tr>
       <!-- -----------------공지리스트 --------------------------->
-      <c:forEach items="${list}" var="community" varStatus="status">
-      <c:if test="${community.bbs_notice eq 'Y'}">
+      <c:forEach items="${list}" var="community05" varStatus="status">
+      <c:if test="${community05.bbs_notice eq 'Y'}">
       <tr height="30">
         <td align="center" bgcolor="#f1f1f1"></td>
         <td align="center" bgcolor="#f1f1f1">&nbsp;</td>
         <td align="center" bgcolor="#f1f1f1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/icon_notice.gif" border="0" align="absmiddle"></td>
         <td align="center" bgcolor="#f1f1f1"></td>
-        <td bgcolor="#f1f1f1">&nbsp;&nbsp;&nbsp;<span class="bbs_normal">${community.bbs_subject }</span></td>
+        <td bgcolor="#f1f1f1">&nbsp;&nbsp;&nbsp;<span class="bbs_normal">${community05.bbs_subject }</span></td>
          <td align="center" bgcolor="#f1f1f1"></td>
         <td align="center" bgcolor="#f1f1f1">
           <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><img src="${contextPath}/images/BlueAD/skin/bbs/1198130437.gif" align="absmiddle"></a>        
         </td>
         <td bgcolor="#f1f1f1"></td>
-        <td align="center" bgcolor="#f1f1f1"><span class="bbs_normal">${community.bbs_date}</span>
+        <td align="center" bgcolor="#f1f1f1"><span class="bbs_normal">${community05.bbs_date}</span>
         </td>
         <td align="center" bgcolor="#f1f1f1"></td>
-        <td align="center" bgcolor="#f1f1f1"><span class="bbs_normal">${community.bbs_hit}</span></td>
+        <td align="center" bgcolor="#f1f1f1"><span class="bbs_normal">${community05.bbs_hit}</span></td>
       </tr>
      <tr>
         <td bgcolor="#e6e6e6"></td>
@@ -271,24 +271,24 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
       </c:forEach>
       <!-- ----------------공지리스트 --------------------->
        <!-- ----------------------------리스트---------------------------- -->
-<c:forEach items="${list}" var="community" varStatus="status">
+<c:forEach items="${list}" var="community05" varStatus="status">
       <tr height="30">
         <td align="center"></td>
                 <td align="center"><input type="checkbox" name="bbs_no[]" value="133" style="cursor:hand"></td>
-                <td align="center"><span class="bbs_normal">${community.bbs_no }</span>
+                <td align="center"><span class="bbs_normal">${community05.bbs_no }</span>
 </td>
         <td align="center"></td>
                 <td>
-          &nbsp;&nbsp;&nbsp;<a href="${community.bbs_no }" class="bbs_link">${community.bbs_subject} </a>
+          &nbsp;&nbsp;&nbsp;<a href="${community05.bbs_no }" class="bbs_link">${community05.bbs_subject} </a>
                                          
         </td>
         <td></td>
         <td align="center">
-          <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><!-- <img src="./upload/1198130437.gif" align="absmiddle"> --></a>  ${community.bbs_name }   </td>
+          <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><!-- <img src="./upload/1198130437.gif" align="absmiddle"> --></a>  ${community05.bbs_name }   </td>
         <td align="center"></td>
-        <td align="center"><span class="bbs_normal">${community.bbs_date }</span></td>
+        <td align="center"><span class="bbs_normal">${community05.bbs_date }</span></td>
         <td align="center"></td>
-        <td align="center"><span class="bbs_normal">${community.bbs_hit }</span></td>
+        <td align="center"><span class="bbs_normal">${community05.bbs_hit }</span></td>
         <td align="center"></td>
       </tr>
       <tr>
