@@ -1,0 +1,106 @@
+package java100.app.web.BlueAD.BoardController;
+
+import java.util.HashMap;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java100.app.service.BoardService.Bluead_WvBoard03Service;
+
+@Controller
+@RequestMapping("/bluead_wvboard/board03")
+public class Bluead_WvBoard03Controller {
+    
+    @Autowired Bluead_WvBoard03Service bluead_wvboard03Service;
+    
+    static Logger logger = Logger.getLogger(Bluead_WvBoard03Controller.class);
+    
+    @RequestMapping("list")
+    public String list(
+            @RequestParam(value="pn", defaultValue="1") int pageNo,
+            @RequestParam(value="ps", defaultValue="10") int pageSize,
+            @RequestParam(value="select",defaultValue="all")String select,//추가
+            @RequestParam(value="words", required=false) String[] words,
+            @RequestParam(value="oc", required=false) String orderColumn,
+            @RequestParam(value="al", required=false) String align,
+            Model model) throws Exception {
+        
+        
+        logger.fatal("fatal.....");
+        logger.error("error.....");
+        logger.warn("warn.....");
+        logger.info("info.....");
+        logger.debug("debug.....");
+        logger.trace("trace....");
+        
+        
+        // UI 제어와 관련된 코드는 이렇게 페이지 컨트롤러에 두어야 한다.
+        //
+        if (pageNo < 1) {
+            pageNo = 1;
+        }
+        
+        if (pageSize < 10 || pageSize > 30) {
+            pageSize = 10;
+        }
+        
+        // 코드의 실행 상태를 확인하기 위해
+        // 코드 중간에 변수의 값을 출력할 때가 있다.
+        // 보통 다음과 같이 출력문을 작성한다.
+        System.out.printf("pageNo=%d, pageSize=%d\n", pageNo, pageSize);
+        
+        HashMap<String,Object> options = new HashMap<>();
+        if (select != null){   //추가 
+        	options.put("select", select);
+        	model.addAttribute("select",select); //
+        }
+        if (words != null && words[0].length() > 0) {
+        	System.out.println(words[0]);
+            options.put("words", words);
+            model.addAttribute("words", words[0]); //추가 페이지 넘겨도 검색 조건 
+        }
+        options.put("orderColumn", orderColumn);
+        options.put("align", align);
+        
+        int totalCount = bluead_wvboard03Service.getTotalCount(options);// 파라미터에 추가
+        int lastPageNo = totalCount / pageSize;
+        if ((totalCount % pageSize) > 0) {
+            lastPageNo++;
+        }
+        
+        // view 컴포넌트가 사용할 값을 Model에 담는다.
+        model.addAttribute("pageNo", pageNo);
+        model.addAttribute("lastPageNo", lastPageNo);
+        
+		model.addAttribute("totalCount", totalCount);//
+		model.addAttribute("pageSize", pageSize);//
+        model.addAttribute("list", bluead_wvboard03Service.list(pageNo, pageSize, options));
+        
+        return "BlueAD/bluead_wvboard/board02/list";
+    }
+    
+    @RequestMapping("{no}")
+    public String view(@PathVariable int no, Model model) throws Exception {
+        
+        model.addAttribute("bluead_wvboard03", bluead_wvboard03Service.get(no));
+        return "BlueAD/bluead_wvboard/board03/view";
+    }
+    @RequestMapping("form")
+    public String form() throws Exception {
+        return "BlueAD/bluead_wvboard/board03/form";
+        
+    }
+}
+
+
+
+
+
+
+
+
