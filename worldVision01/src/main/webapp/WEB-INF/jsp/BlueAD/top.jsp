@@ -86,7 +86,7 @@ function TodayFunc() {
                         <td width="10%" align="center" id="td_no6" onClick='window.location="${contextPath}/BlueAD/bluead_wvboard/list"' style="cursor:pointer" class="top_mn">
                             <img src="${contextPath}/images/BlueAD/admin/top_mn6_on.gif" align="absmiddle"> BOARD
                         </td>
-                        <td width="10%" align="center" id="td_no7" onclick='window.location="${contextPath}/BlueAD/bluead_member/list"' style="cursor:pointer" class="top_mn">
+                        <td width="10%" align="center" id="td_no7" onclick='window.location="${contextPath}/BlueAD/bluead_member/member01/list"' style="cursor:pointer" class="top_mn">
                             <img src="${contextPath}/images/BlueAD/admin/top_mn7_on.gif" align="absmiddle"> MEMBER
                         </td>
 <!-------------------------------------------- 관리자항목 ---------------------------------------->

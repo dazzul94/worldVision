@@ -18,7 +18,7 @@ import java100.app.domain.Request.Bluead_Online1;
 import java100.app.service.MemberService.Bluead_MemberService;
 
 @Controller
-@RequestMapping("/bluead_member")
+@RequestMapping("/bluead_member/member01")
 public class Bluead_MemberController {
 
 	@Autowired
