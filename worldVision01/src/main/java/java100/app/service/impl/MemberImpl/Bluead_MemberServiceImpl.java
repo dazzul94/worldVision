@@ -40,7 +40,6 @@ public class Bluead_MemberServiceImpl implements Bluead_MemberService {
 	public Bluead_Member get(int no) {
 		return bluead_memberDao.findByNo(no);
 	}
-
 	/*
 	 * @Override public Member get(String email, String password) {
 	 * 

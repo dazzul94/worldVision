@@ -62,6 +62,9 @@
 		from bluead_member
 		where no=#{value}
 	</select>
+	
+	
+	
 	<select id="countAll" resultType="int" parameterType="map">
 		select count(*) from
 		bluead_member
