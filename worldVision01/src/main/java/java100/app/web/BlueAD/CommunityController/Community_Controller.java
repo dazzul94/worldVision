@@ -90,9 +90,9 @@ public class Community_Controller {
     }
 /*    
     @RequestMapping("add")
-    public String add(Member member) throws Exception {
+    public String add(Member member) throws{
         
-    	bluead_memberService.add(member);
+    	bluead_memberService.add(memb Exception er);
         return "redirect:list";
     }
     */
