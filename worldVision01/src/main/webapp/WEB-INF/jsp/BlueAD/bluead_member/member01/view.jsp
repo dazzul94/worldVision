@@ -76,7 +76,7 @@
   <tbody><tr height="40">
     <td height="50" align="center" valign="bottom">
       <input align="absmiddle" onclick="window.location='list'" type="image" src="${contextPath}/images/BlueAD/admin/btn_list.gif">
-       <input align="absmiddle" onclick="window.location='form'" type="image" src="${contextPath}/images/BlueAD/admin/btn_modify.gif">
+       <input align="absmiddle" onclick="window.location='viewUpdate'" type="image" src="${contextPath}/images/BlueAD/admin/btn_modify.gif">
             <input align="absmiddle"  onclick="really(${bluead_member.no})" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_del.gif">
     </td>
   </tr>

@@ -40,21 +40,6 @@ public class Bluead_WvBoardServiceImpl implements Bluead_WvBoardService {
         return bluead_wvboardDao.findByNo(no);
     }
     
-   /* @Override
-    public Member get(String email, String password) {
-        
-        HashMap<String,Object> params = new HashMap<>();
-        params.put("email", email);
-        params.put("password", password);
-        
-        return bluead_memberDao.findByEmailAndPassword(params);
-    }
-    
-    @Override
-    public Member get(String email) {
-        
-        return bluead_memberDao.findByEmail(email);
-    }*/
     
     
     @Override
