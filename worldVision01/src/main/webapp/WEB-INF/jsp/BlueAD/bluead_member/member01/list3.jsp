@@ -82,18 +82,18 @@
      <td align="center" onclick="window.location='${member.no}'" style="cursor:pointer">${member.member_join_date}</td>
  <td align="center">
      <!-- -----------리스트 ------------------- -->
- <!--  select박스  -->
-       
-        <form action="update" method='post' enctype="multipart/form-data">
-         <input name="no" type="hidden" value="${member.no}">
-         <select name="member_join_type" onchange="this.form.submit()">
-        <option value="1"style="color:black"<c:if test="${member.member_join_type eq '1'}">selected</c:if>>후원자</option>
-        <option value="2" style="color:blue"<c:if test="${member.member_join_type eq '2'}">selected</c:if>>기타</option><!-- 2 -->
-		<option value="3" style="color:green"<c:if test="${member.member_join_type eq '3'}">selected</c:if>>합창단 교사/직원</option>
-		<option value="5" style="color:#660000"<c:if test="${member.member_join_type eq '5'}">selected</c:if>>단원/자모</option>
-		<option value="10" style="color:red"<c:if test="${member.member_join_type eq '10'}">selected</c:if>>동문</option>
-      </select>
-      </form>
+<!-- select 업데이트 -->
+          <form action="update" method='post' enctype="multipart/form-data">
+          <input name="no" type="hidden" value="${member.no}">
+          <select name="CHK" onchange="this.form.submit()">
+          <option value="N" style="color:red" <c:if test="${member.CHK eq 'N'}">selected</c:if>>후원자</option>
+          <option value="Y" style="color:blue" <c:if test="${member.CHK eq 'Y'}">selected</c:if>>기타</option>
+          <option value="Y" style="color:green" <c:if test="${member.CHK eq 'Y'}">selected</c:if>>합창단 교사/직원</option>
+          <option value="Y" style="color:black" <c:if test="${member.CHK eq 'Y'}">selected</c:if>>단원/자모</option>
+          <option value="Y" style="color:blue" <c:if test="${member.CHK eq 'Y'}">selected</c:if>>동문</option>
+          </select>
+          </form>
+          <!-- select 업데이트 -->
     <script>
     document.getElementByName("level").value 
 

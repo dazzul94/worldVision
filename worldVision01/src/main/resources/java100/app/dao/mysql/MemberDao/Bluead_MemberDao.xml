@@ -119,15 +119,10 @@
 
 
 	<update id="update" parameterType="bluead_Member">
-		update bluead_member set
-		member_name=#{member_name} where no=#{no}
+		 update bluead_member set member_join_type=#{member_join_type}
+		  where no=#{no} 
 	</update>
 	
-	<!--  
-    <insert id="insert" parameterType="bluead_Member">
-        insert into bluead_member(member_birth1,member_birth2)
-        values(#{member_birth1},#{member_birth2})
-    </insert> -->
 </mapper>  
 
 

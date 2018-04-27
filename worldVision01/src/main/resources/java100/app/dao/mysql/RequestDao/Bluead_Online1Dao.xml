@@ -142,7 +142,8 @@
         where no=#{value}
     </delete>
     <update id="update" parameterType="bluead_Online1"> 
-        update bluead_online set CHK=#{CHK} where no=#{no} </update>
+        update bluead_online set CHK=#{CHK} where no=#{no} 
+        </update>
 </mapper>  
 
 
