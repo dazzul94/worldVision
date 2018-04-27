@@ -66,6 +66,9 @@
                     <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.email}</td>
           <td align="center" onclick="window.location='${online.no}'" style="cursor:pointer">${online.tel1}-${online.tel2}-${online.tel3}</td>
           <td align="center">
+          
+          
+          
           <!-- select 업데이트 -->
           <form action="update" method='post' enctype="multipart/form-data">
           <input name="no" type="hidden" value="${online.no}">

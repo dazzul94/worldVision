@@ -135,14 +135,14 @@
 	<delete id="deleteAll" parameterType="map">
 		<if test="numbers != null"> 
 		  <foreach collection="numbers" item="number">
-		delete from bluead_wv_board where no=${number}; 
+		delete from bluead_wv_board where bbs_no=${number}; 
 		  </foreach>
         </if>
         </delete> 
         
         <delete id="delete" parameterType="int">
         delete from bluead_wv_board
-        where no=#{value}
+        where bbs_no=#{value}
     </delete>
 </mapper>  
 

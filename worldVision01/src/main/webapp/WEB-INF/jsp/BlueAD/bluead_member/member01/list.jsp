@@ -94,8 +94,11 @@
 		<option value="10" style="color:red"<c:if test="${member.member_join_type eq '10'}">selected</c:if>>동문</option>
       </select>
       </form>
+      
+      
+      <!--  ...... ?_? -->
     <script>
-    document.getElementByName("level").value 
+    document.getElementByName("level").list 
 
    /*  function myListener(obj) {
         alert(obj.value); // 선택된 option의 value가 출력된다!
