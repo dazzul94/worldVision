@@ -30,7 +30,9 @@ public interface Bluead_MemberService {
 	int delete(int no);
 
 	int deleteAll(HashMap<String, Object> numbers);
-	int viewUpdate(Bluead_Member bluead_Member);
+/*	int viewUpdate(Bluead_Member bluead_Member);*/
+
+	Bluead_Member vup(int no);
 
 
 }

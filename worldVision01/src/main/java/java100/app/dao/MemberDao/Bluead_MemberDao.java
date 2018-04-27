@@ -20,8 +20,9 @@ public interface Bluead_MemberDao {
 
 	int deleteAll(HashMap<String, Object> numbers);
 
-	Bluead_Member findByNoView(int no);
+	Bluead_Member findByNo2(int no);
 
-	int viewUpdate(Bluead_Member bluead_Member);
+
+	/*int viewUpdate(Bluead_Member bluead_Member);*/
 
 }

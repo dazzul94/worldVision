@@ -63,6 +63,12 @@
 		where no=#{value}
 	</select>
 	
+	<select id="findByNo2" resultMap="bluead_MemberMap"
+		parameterType="int">
+		<include refid="select1" />
+		from bluead_member
+		where no=#{value}
+	</select>
 	<select id="countAll" resultType="int" parameterType="map">
 		select count(*) from
 		bluead_member
@@ -121,10 +127,10 @@
 		  where no=#{no} 
 	</update>
 	
-	 <update id="viewUpdate" parameterType="bluead_Member">
+	<!--  <update id="viewUpdate" parameterType="bluead_Member">
 		 update bluead_member set member_name=#{member_name}
 		  where no=#{no} 
-	</update> 
+	</update>  -->
 </mapper>  
 
 

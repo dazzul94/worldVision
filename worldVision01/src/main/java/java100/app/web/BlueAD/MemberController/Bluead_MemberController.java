@@ -1,7 +1,6 @@
 package java100.app.web.BlueAD.MemberController;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java100.app.domain.Member.Bluead_Member;
-import java100.app.domain.Request.Bluead_Online1;
 import java100.app.service.MemberService.Bluead_MemberService;
 
 @Controller
@@ -104,12 +102,12 @@ public class Bluead_MemberController {
 	}
 
 	@RequestMapping("viewUpdate")
-	public String viewUpdate(HttpServletRequest request, Bluead_Member bluead_Member) throws Exception {
-
-		bluead_memberService.viewUpdate(bluead_Member);
+	public String viewUpdate(@PathVariable int no, Model model) throws Exception {
+		System.out.println(no);
+		model.addAttribute("bluead_member", bluead_memberService.vup(no));
 		return "BlueAD/bluead_member/member01/viewUpdate";
 	}
-	
+
 	@RequestMapping("form")
 	public String form() throws Exception {
 		return "BlueAD/bluead_member/member01/form";
@@ -122,7 +120,7 @@ public class Bluead_MemberController {
 		bluead_memberService.update(bluead_Member);
 		return "redirect:" + (String) request.getHeader("Referer");
 	}
-	
+
 	@RequestMapping("delete")
 	public String delete(int no) throws Exception {
 

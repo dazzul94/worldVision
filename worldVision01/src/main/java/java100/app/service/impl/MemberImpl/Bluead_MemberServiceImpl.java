@@ -64,10 +64,16 @@ public class Bluead_MemberServiceImpl implements Bluead_MemberService {
 	public int delete(int no) {
 		return bluead_memberDao.delete(no);
 	}
-	@Override
+/*	@Override
 	public int viewUpdate(Bluead_Member bluead_Member) {
 		return bluead_memberDao.viewUpdate(bluead_Member);
 	}
+*/
+	@Override
+	public Bluead_Member vup(int no) {
+		return bluead_memberDao.findByNo2(no);
+		}
+	
 
 
 }

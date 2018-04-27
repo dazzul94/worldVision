@@ -35,14 +35,14 @@
   </tr>
 </tbody></table>
 <!-- view -->
+ <form action='view' method='post'>
 <table width="100%" align="center" bgcolor="#cad4e3" border="0" cellspacing="1" cellpadding="0">
   <tbody>
   <tr>
+    <tr>
     <td width="100" height="35" class="field_b_pad">이름</td>
-    <td>
-       <input class='form-control' readonly id='bbs_name' type='text' 
-                name='bbs_name' value='${bluead_member.bbs_name}'>
-    </td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_name}</b></td>
+  </tr>
   </tr>
     <tr>
     <td width="100" height="35" class="field_b_pad">아이디</td>
@@ -75,7 +75,7 @@
   </tr>
 </tbody></table>
 <!-- view -->
-
+</form>
 <!-- 목록,확인 -->
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr height="40">
