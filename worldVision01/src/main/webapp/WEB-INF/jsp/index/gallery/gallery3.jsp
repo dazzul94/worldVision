@@ -132,8 +132,8 @@
 		}
 	}
 	
-	function goView(bbs_no){
-		location.href = "galleryView?no=" + bbs_no;
+	function goView(bbs_no, cPage){
+		location.href = "galleryView?no=" + bbs_no + "&str=포스터/이미지&gdbName=gallery04" + "&cPage=" + cPage;
 	}
 	</script>
     		<div class="tnb">
@@ -155,7 +155,7 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; GALLERY &gt; <strong>사진갤러리</strong></p>
+        	<p class="page_nav">HOME &gt; GALLERY &gt; <strong>포스터/이미지</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
@@ -299,7 +299,7 @@
 					<c:forEach items="${bList }" var="board">
 						<tr>
                     	<td>${board.getBbs_no() }</td>
-                        <td class="subject"><a href="#" onclick="goView('${board.getBbs_no()}')" return false;>${board.getBbs_subject() }</a></td>
+                        <td class="subject"><a href="#" onclick="goView('${board.getBbs_no()}', '${cPage }')" return false;>${board.getBbs_subject() }</a></td>
                         <td>${board.getBbs_name() }</td>
                         <td>${board.getBbs_date().substring(0, 4) }-${board.getBbs_date().substring(4, 6) }-${board.getBbs_date().substring(6, 8) }</td>
                         <td>${board.getBbs_hit() }</td>

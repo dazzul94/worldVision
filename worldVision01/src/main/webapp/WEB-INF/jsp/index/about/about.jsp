@@ -132,7 +132,7 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; ABOUT &gt; <strong>기관소개</strong></p>
+        	<p class="page_nav">HOME &gt; ABOUT &gt; <strong>조직도</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->

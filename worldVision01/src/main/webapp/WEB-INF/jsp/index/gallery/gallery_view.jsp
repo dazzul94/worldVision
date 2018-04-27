@@ -113,8 +113,19 @@
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
 		
-		function goList(cPage){
-			location.href = "gallery2?cPage=" + cPage;
+		function goList(cPage, dbName, search, cateSelect, sText){
+			var no = "";
+			if(dbName == "gallery04"){
+				no = "3";
+			}else if(dbName == "gallery02"){
+				no = "2";
+			}
+			if(search == null){
+				location.href = "gallery" + no + "?cPage=" + cPage;
+			}else{
+				location.href = "gallery" + no + "?cPage=" + cPage + "&search=" + search 
+				+ "&cateSelect=" + cateSelect + "&sText=" + sText;
+			}
 		}
 	</script>
     		<div class="tnb">
@@ -136,13 +147,13 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; GALLERY &gt; <strong>사진갤러리</strong></p>
+        	<p class="page_nav">HOME &gt; GALLERY &gt; <strong>${str }</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>사진갤러리<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>${str }<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
@@ -161,10 +172,12 @@
 						<th>작성자</th>
 						<td>${result.getBbs_name() }</td>
 					</tr>
+					<c:if test="${gNo != 2 }">
                     <tr>
 						<th>첨부파일</th>
 						<td colspan="3"><img src="${contextPath }/images/index/board/icon_file.png" alt=""/> <a href="#">filename.png</a></td>
 					</tr>
+					</c:if>
 					<tr>
 						<td colspan="4" class="content">${result.getBbs_content() }</td>
 					</tr>
@@ -198,7 +211,7 @@
             <div class="boardbtn text_right">
             	<a href="#">수정</a>
                 <a href="#">삭제</a>
-                <a href="#" class="gray" onclick="goList('${cPage}')" return false;>목록</a>
+                <a href="#" class="gray" onclick="goList('${cPage}', '${dbName }', '${search }', '${cateSelect}', '${sText }')" return false;>목록</a>
             </div>
             
             

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="java.lang.Math" %>
+<%@ page import="java.net.URLEncoder" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -114,26 +114,69 @@
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
 		
-		function prevPage(cPage){
-			if(cPage != 1){
-				cPage--;
-				location.href = "gallery2?cPage=" + cPage;
+		function prevPage(cPage, search, cateSelect, sText){
+			if(search == null){
+				if(cPage != 1){
+					cPage--;
+					location.href = "gallery2?cPage=" + cPage;
+				}else{
+					alert("이전 페이지가 없습니다.");
+				}	
 			}else{
-				alert("이전 페이지가 없습니다.");
+				if(cPage != 1){
+					cPage--;
+					location.href = "gallery2?cPage=" + cPage + "&search=" + search 
+							+ "&cateSelect=" + cateSelect + "&sText=" + sText;
+				}else{
+					alert("이전 페이지가 없습니다.");
+				}
 			}
+			
 		}
 		
-		function nextPage(cPage, maxPage){
-			if(cPage != maxPage){
-				cPage++;
-				location.href = "gallery2?cPage=" + cPage;
+		function nextPage(cPage, maxPage, search, cateSelect, sText){
+			if(search == null){
+				if(cPage != maxPage){
+					cPage++;
+					location.href = "gallery2?cPage=" + cPage;
+				}else{
+					alert("다음 페이지가 없습니다.");
+				}	
 			}else{
-				alert("다음 페이지가 없습니다.");
+				if(cPage != maxPage){
+					cPage++;
+					location.href = "gallery2?cPage=" + cPage + "&search=" + search 
+					+ "&cateSelect=" + cateSelect + "&sText=" + sText;
+				}else{
+					alert("다음 페이지가 없습니다.");
+				}
 			}
+			
 		}
 		
-		function goView(bbs_no, cPage){
-			location.href = "galleryView?no=" + bbs_no + "&cPage=" + cPage;
+		function goView(bbs_no, cPage, search, cateSelect, sText){
+			if(search == null){
+				location.href = "galleryView?no=" + bbs_no + "&cPage=" + cPage+ "&str=영상갤러리&dbName=gallery02";
+			}else{
+				location.href = "galleryView?no=" + bbs_no + "&cPage=" + cPage 
+						+ "&str=영상갤러리&dbName=gallery02&search=" + search 
+						+ "&cateSelect=" + cateSelect + "&sText=" + sText;
+			}
+			
+		}
+		
+		function goSearch(){
+			var value = $("#serText").val();
+			var select = $("#serSelect option:selected").val();
+			var num = "";
+			if(select == "제목"){
+				num = "1"
+			}else if(select == "내용"){
+				num = "2";
+			}else{
+				num = "3";
+			}
+			location.href = "gallery2?search=1&cateSelect=" + num + "&sText=" + value;
 		}
 		
 	</script>
@@ -156,7 +199,7 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; GALLERY &gt; <strong>사진갤러리</strong></p>
+        	<p class="page_nav">HOME &gt; GALLERY &gt; <strong>영상갤러리</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
@@ -175,11 +218,11 @@
                    	  <div class="listTop">
                     		<p>총 <span>${bCount }</span> 건</p>
                     		<div class="searchWrap">
-                    			<select>
+                    			<select id="serSelect">
                     			  <option>제목</option>
                     			  <option>내용</option>
                     			  <option>제목 + 내용</option>
-                    			</select><input type="text"><button>검색</button>
+                    			</select><input type="text" id="serText"><button onclick = "goSearch()">검색</button>
                     		</div>
                         </div>
 				<table>
@@ -300,15 +343,16 @@
 					<c:forEach items="${bList }" var="board">
 						<tr>
                     	<td>${board.getBbs_no() }</td>
-                        <td class="subject"><a href="#" onclick="goView('${board.getBbs_no()}', '${cPage }')" return false;>${board.getBbs_subject() }</a></td>
+                        <td class="subject"><a href="#" onclick="goView('${board.getBbs_no()}', '${cPage }', '${search }', '${cateSelect}', '${sText }')" return false;>${board.getBbs_subject() }</a></td>
                         <td>${board.getBbs_name() }</td>
                         <td>${board.getBbs_date().substring(0, 4) }-${board.getBbs_date().substring(4, 6) }-${board.getBbs_date().substring(6, 8) }</td>
                         <td>${board.getBbs_hit() }</td>
 					</tr>
 					</c:forEach>
 				</table>
-                
-                
+                	
+                	<c:choose>
+                	<c:when test="${search == null }">	
                 	<div class="pagerWrap">
                 
 						<a href="gallery2?cPage=1"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
@@ -339,6 +383,28 @@
 						<a href="gallery2?cPage=${maxPage}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>
 			
             		</div>
+            		</c:when>
+            		<c:otherwise>
+            		<div class="pagerWrap">
+                
+						<a href="gallery2?cPage=1&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
+						<a href="#" onclick="prevPage('${cPage}', '${search }', '${cateSelect}', '${sText }')" return false;><img src="${contextPath }/images/index/board/prevArr.png" alt="앞으로" /></a>
+						<c:forEach begin="1" end="${maxPage }" step="1" var="i">
+							<c:choose>
+								<c:when test="${cPage == i }">
+									<a href="gallery2?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}" class="on">${i }</a>
+								</c:when>
+								<c:otherwise>
+									<a href="gallery2?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}">${i }</a>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<a href="#" onclick="nextPage('${cPage}', '${maxPage }', '${search }', '${cateSelect}', '${sText }')" return false;><img src="${contextPath }/images/index/board/nextArr.png" alt="뒤로" /></a>
+						<a href="gallery2?cPage=${maxPage}&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>
+			
+            		</div>
+            		</c:otherwise>
+            		</c:choose>
                 
 			</div>
             <!-- E: board -->
