@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -7,10 +7,11 @@
 <html>
 <head>
 <title></title>
-<script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css?ver=1">
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css?ver=1">
 <link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css">
+<script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
+
 </head>
 
 <body>
@@ -22,56 +23,34 @@
 </div>
 <div id="content">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 자유게시판 </font></td>
+  <tbody><tr>
+    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 입단신청</td>
   </tr>
   <tr>
-    <td height="1" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
+    <td height="4" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
   </tr>
   <tr>
     <td height="20"></td>
   </tr>
-</table>
- 
-<!-- lightbox(좌,우) -->
-
-<script src="${contextPath}/js/BlueAD/lightbox/prototype.js" type="text/javascript"></script>
-<script src="${contextPath}/js/BlueAD/lightbox/scriptaculous.js?load=effects" type="text/javascript"></script>
-<script src="${contextPath}/js/BlueAD/lightbox/lightbox.js" type="text/javascript"></script>
-  <!--  뉴 핫 total, page,rss-->
+</tbody></table>
+<!--  dd -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-   <tr>
-    <td>
+  <tbody><tr>    
+   <td>
       <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/newhot.gif">
     </td>
-    <td width="270" align="right" style="padding-right:3">
     <td align="right" style="font-size:10Px;font-family:verdana;">
       <font color="">total:</font><font color="red"> ${totalCount}</font>&nbsp;&nbsp;
       <font color="">page:</font><font color="red"> ${pageNo}</font>/<font color="red"> ${lastPageNo}</font>
-     <a href="/BlueAD/rss.php?bbs_id=<?= $bbs_id ?>" target="_blank"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/rss.gif" alt="RSS Feed" align="absmiddle"></a>
     </td>
   </tr>
 </tbody></table>
-    <!-- <?
-    //RSS Feed
-    if($CFG_USE_RSS == "Y" && $CFG_LEV_VIEW == 0) {
-    ?>
-     -->
-    <!--  뉴 핫 total, page,rss끝 -->
-    
-    
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<!-- <? if(__ADMIN_ID__ && $bbs_admin == "chk") { ?> -->
-<form name="del_form" method="post" action="check_delete.php">
-<input type="hidden" name="bbs_id" value="<?= $bbs_id ?>">
-<input type="hidden" name="page" value="<?= $page ?>">
-<input type="hidden" name="key" value="<?= $key ?>">
-<input type="hidden" name="keyword" value="<?= $en_keyword ?>">
-  <tr>
-    <td>  
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+<td>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="4" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_left.gif"></td>
+        <td width="1" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_left.gif"></td>
         <td width="35" height="29" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><input type="checkbox" name="allChk" onClick="Allchange(this)" style="cursor:hand; background-color:#f6f5f1"></td>
         <td width="40" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_no.gif"></td>
         <td width="1" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_line.gif"></td>
@@ -84,7 +63,7 @@
         <td width="45" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_hit.gif"></td>
         <td width="4" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_right.gif"></td>
       </tr>
-      <!-- -----------------공지리스트 --------------------------->
+         <!-- -----------------공지리스트 --------------------------->
       <c:forEach items="${list}" var="board" varStatus="status">
       <c:if test="${board.bbs_notice eq 'Y'}">
       <tr height="30">
@@ -134,46 +113,48 @@
         <td colspan="13" bgcolor="#e6e6e6" height="1"></td>
       </tr>
       </c:forEach>
-          
+           </tbody></table>
     </td>
-  </tr> 
-</table>
-</form>
-      
-             <!-- ----------------------------리스트---------------------------- -->
-      </table>
-      
-     <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  </tr>
+  <!-- 목록, 선택삭제 -->
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tbody>
         <tr>
-          <td height="35" valign="middle" width="150">
-          <!-- 목록 버튼 -->  <a href="list"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list.gif" align="absmiddle" border="0"></a>
-           <!-- 선택 --> <a href="javascript:All_del();"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list_sel.gif" align="absmiddle" border="0"></a><? } ?>
+    <td valign="middle" width="300">
+            <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list.gif" style="cursor:pointer"></a>
+           <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list_sel.gif"  style="cursor:pointer" onclick="setNo()">
           </td>
- <!------------------ paging ---------------------->
-          <td width="195"></td>
-          <td height="50" align="center">
-          <div id="paging"></div>
+  <!-- 목록, 선택삭제 -->
+  <!------------------ paging ---------------------->
+    <!--  <td width="165"></td>  -->
+          <td  height="30" align="center">
+          <div id="paging" ></div>
           </td>
           <td align="right" width="300">
+          <!--  쓰기  -->
+           <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0">
+         </a>
                       </td>
-                         <!------------- paging ------------------->
+  <!------------- paging ------------------->
         </tr>
+      </tbody>
       </table>
-      <br>
-  
+ 
+</td>  
+<br>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+ <!-- 검색 -->
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td colspan="3" height="25"></td>
   </tr>
   <tr>
     <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_left.gif"/></td>
     <td align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_bg.gif">
-
-      
-      <!-- 검색 -->
+ 
         <form action="list">
-              <table border="0" cellspacing="0" cellpadding="0">
+              <table align="center" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td>
           <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_t.gif" align="absmiddle">
@@ -188,7 +169,7 @@
         </tr>
           </table>
         </form>
-    
+         
     </td>
     <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_right.gif"></td>
   </tr>
@@ -196,7 +177,55 @@
     <td colspan="3" height="25"></td>
   </tr>
 </table>
+  <!-- -------------------------------bottom ----------------------------------------------------->
 </div>
+<script>
+    var obj = document.getElementsByName('check[]');
+    function setNo() {
+        var b = false;
+
+        for(var i=0; i<obj.length; i++) {
+            if(obj[i].checked == true) {
+                b = true;
+                break;
+            }
+        }
+          
+        if(b == false) {
+            alert("선택해 주세요");
+            return;
+        }
+
+
+        if(!confirm('선택하신 데이터를 모두 삭제 하시겠습니까?\n\n삭제후 복구는 불가능 합니다.')) return false;
+        /* delete */
+        var send_array = Array();
+        var send_cnt = 0;
+        var chkbox = $(".checkSelect");
+
+        for(i=0;i<chkbox.length;i++) {
+            if (chkbox[i].checked == true){
+                send_array[send_cnt] = chkbox[i].value;
+                send_cnt++;
+            }
+        }
+        window.location = "deleteAll?no=" + send_array;
+    }
+
+    function Allchange(f) {
+      if(f.checked == true) {
+        for(i = 0; i < obj.length; i++) {
+          obj[i].checked = true;
+        }
+      }
+      else {
+        for(i = 0; i < obj.length; i++) {
+          obj[i].checked = false;
+        }
+      }
+    }
+</script>
+
 <script type="text/javascript">
     var totalData = '<c:out value="${totalCount}"/>';    // 총 데이터 수
     var dataPerPage = '<c:out value="${pageSize}"/>';    // 한 페이지에 나타낼 데이터 수
@@ -283,6 +312,5 @@
         
     });
 </script>
-
 </body>
 </html>
