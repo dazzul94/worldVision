@@ -129,13 +129,18 @@
           <div id="paging" ></div>
           </td>
           <td align="right" width="300">
+          <!--  쓰기  -->
+           <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0">
+         </a>
                       </td>
   <!------------- paging ------------------->
         </tr>
       </tbody>
       </table>
+ 
 </td>  
 <br>
+
  <!-- 검색 -->
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
