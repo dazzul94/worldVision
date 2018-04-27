@@ -20,7 +20,7 @@
 	<select id="findAll" resultMap="bluead_WvBoardMap"
 		parameterType="map">
 		<include refid="select1" />
-		from bluead_wv_board
+		from bluead_wv_webzine
 		
 		<choose>
 			<when test="select == 'all'">
@@ -74,7 +74,7 @@
 	<select id="findByNo" resultMap="bluead_WvBoardMap"
 		parameterType="int">
 		<include refid="select1" />
-		from bluead_wv_board
+		from bluead_wv_webzine
 		where bbs_no=#{value}
 	</select>
 
@@ -83,7 +83,7 @@
 		</select> <select id="findByEmail" resultMap="memberMap" parameterType="string"> 
 		<include refid="select1"/> from ex_memb where email=#{email} </select> -->
 	<select id="countAll" resultType="int" parameterType="map">
-		select count(*) from bluead_wv_board
+		select count(*) from bluead_wv_webzine
 
 	<choose>
 			<when test="select == 'all'">

@@ -45,7 +45,7 @@
           <td width="4"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_left.gif"></td>
         
           <td width="70" height="29" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_sbj.gif"></td>
-          <td background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif" style="padding-left:10"><span class="bbs_normal">${bluead_wvboard.bbs_subject } </span></td>
+          <td background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif" style="padding-left:10"><span class="bbs_normal">${bluead_wvboard03.bbs_subject } </span></td>
           <td width="4"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_right.gif"></td>
         </tr>
       </table>
@@ -59,11 +59,11 @@
         <tr>
           <td width="70" height="27" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_name.gif"></td>
           <td style="padding-left:10">
-            <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><span class="bbs_normal">${bluead_wvboard.bbs_name }</span></td>
+            <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><span class="bbs_normal">${bluead_wvboard03.bbs_name }</span></td>
           <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_date.gif"></td>
-          <td width="120" align="center"><span class="bbs_normal">${bluead_wvboard.bbs_date }</span></td>
+          <td width="120" align="center"><span class="bbs_normal">${bluead_wvboard03.bbs_date }</span></td>
           <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_hit.gif"></td>
-          <td width="45" align="center"><span class="bbs_normal">${bluead_wvboard.bbs_hit }</span></td>
+          <td width="45" align="center"><span class="bbs_normal">${bluead_wvboard03.bbs_hit }</span></td>
         </tr>
       </table>
     </td>
@@ -71,24 +71,8 @@
   <tr>
   <td height="1" colspan="6" bgcolor="#e6e6e6"></td>
   </tr>
-	  <tr>
-    <td height="27" align="center" colspan="6">
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="70" height="27" align="center"><span class="bbs_normal"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_file1.gif"></span></td>
-          <!-- 파일 다운 ㄴㄴ  -->
-          <td colspan="3" style="padding-left:10"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/hwp.gif" align="absmiddle">&nbsp;<a href="download.php?bbs_id=wv_community01&bbs_no=307&bbs_admin=chk&file_no=2" class="bbs_link">${community.bbs_file1 }</a>&nbsp;<span class="bbs_normal">(0.02M)</span></td>
-          <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_down.gif"></td>
-          <td width="45" align="center"><span class="bbs_normal">${bluead_wvboard.bbs_down1_hit }</span></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
   <!-- 내용 -->
   
-    <tr>
-    <td height="1" colspan="6" bgcolor="#e6e6e6"></td>
-  </tr>
 	  <tr>
     <td colspan="6" style="padding:10px">
       <table border="0" cellspacing="0" cellpadding="0" width="100%" height="1">        <tr>
@@ -102,7 +86,9 @@
 
 
 </head><body>
-${bluead_wvboard.bbs_content }
+${bluead_wvboard03.bbs_content }
+${bluead_wvboard03.bbs_icon }
+${bluead_wvboard03.bbs_thumb1 }
 </body></span>
           </td>
         </tr>
@@ -110,7 +96,7 @@ ${bluead_wvboard.bbs_content }
     </td>
   </tr>
    <tr>
-    <td height="15" colspan="6" class="bbs_padding_right" align="right"><span class="bbs_small_1">${bluead_wvboard.bbs_ip }</span></td>
+    <td height="15" colspan="6" class="bbs_padding_right" align="right"><span class="bbs_small_1">${bluead_wvboard03.bbs_ip }</span></td>
   </tr>
     <tr>
     <td height="5"></td>
@@ -135,7 +121,6 @@ ${bluead_wvboard.bbs_content }
     </td>
     <!--  답글 , 수정, 삭제, 쓰기 -->
     <td align="right">
-      <a href="board.php?bbs_id=wv_board&amp;mode=write&amp;act=reply&amp;bbs_no=133&amp;page=1&amp;key=&amp;keyword=&amp;bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_reply.gif" align="absmiddle" border="0"></a>
      <a href="board.php?bbs_id=wv_community01&mode=write&act=modify&bbs_no=307&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_modify.gif" align="absmiddle" border="0"></a>
 <a href="javascript:post_del()"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_del.gif" align="absmiddle" border="0"></a>
 <a href="board.php?bbs_id=wv_community01&mode=write&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0"></a>
