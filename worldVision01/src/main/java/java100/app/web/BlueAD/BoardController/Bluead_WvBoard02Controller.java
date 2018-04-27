@@ -15,11 +15,11 @@ import java100.app.service.BoardService.Bluead_WvBoardService;
 
 @Controller
 @RequestMapping("/bluead_wvboard/board02")
-public class Bluead_WvBoardController02 {
+public class Bluead_WvBoard02Controller {
     
     @Autowired Bluead_WvBoard02Service bluead_wvboard02Service;
     
-    static Logger logger = Logger.getLogger(Bluead_WvBoardController02.class);
+    static Logger logger = Logger.getLogger(Bluead_WvBoard02Controller.class);
     
     @RequestMapping("list")
     public String list(

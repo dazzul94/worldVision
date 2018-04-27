@@ -62,11 +62,14 @@
     
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <!-- <? if(__ADMIN_ID__ && $bbs_admin == "chk") { ?> -->
-<form name="del_form" method="post" action="check_delete.php">
-<input type="hidden" name="bbs_id" value="<?= $bbs_id ?>">
-<input type="hidden" name="page" value="<?= $page ?>">
-<input type="hidden" name="key" value="<?= $key ?>">
-<input type="hidden" name="keyword" value="<?= $en_keyword ?>">
+<form name="del_form" method="post" action="./check_delete.php">
+<input type="hidden" name="bbs_id" value="board">
+<input type="hidden" name="page" value="2">
+<input type="hidden" name="key" value="">
+<input type="hidden" name="keyword" value="">
+<input type="hidden" name="mode" value="ALLdel">
+<input type="hidden" name="type" value="1">
+</form>
   <tr>
     <td>  
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -146,7 +149,7 @@
      <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td height="35" valign="middle" width="150">
-          <!-- 목록 버튼 -->  <a href="list"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list.gif" align="absmiddle" border="0"></a>
+          <!-- 목록 버튼 -->  <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list.gif" align="absmiddle" border="0"></a>
            <!-- 선택 --> <a href="javascript:All_del();"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list_sel.gif" align="absmiddle" border="0"></a><? } ?>
           </td>
  <!------------------ paging ---------------------->
