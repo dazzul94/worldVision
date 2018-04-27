@@ -40,21 +40,6 @@ public class Bluead_WvBoardServiceImpl implements Bluead_WvBoardService {
         return bluead_wvboardDao.findByNo(no);
     }
     
-   /* @Override
-    public Member get(String email, String password) {
-        
-        HashMap<String,Object> params = new HashMap<>();
-        params.put("email", email);
-        params.put("password", password);
-        
-        return bluead_memberDao.findByEmailAndPassword(params);
-    }
-    
-    @Override
-    public Member get(String email) {
-        
-        return bluead_memberDao.findByEmail(email);
-    }*/
     
     
     @Override
@@ -62,19 +47,13 @@ public class Bluead_WvBoardServiceImpl implements Bluead_WvBoardService {
         return bluead_wvboardDao.countAll(options);
     }
 
-/*    @Override
-    public int add(Member member) {
-        return bluead_memberDao.insert(member);
-    }
-
     @Override
-    public int update(Member member) {
-        return bluead_memberDao.update(member);
+    public int deleteAll(HashMap<String, Object> numbers) {
+        return bluead_wvboardDao.deleteAll(numbers);
     }
-
     @Override
     public int delete(int no) {
-        return bluead_memberDao.delete(no);
-    }*/
+        return bluead_wvboardDao.delete(no);
+    }
 
 }

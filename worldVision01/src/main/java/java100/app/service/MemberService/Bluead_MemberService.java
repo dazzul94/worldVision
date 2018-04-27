@@ -7,8 +7,6 @@ import java.util.Map;
 import java100.app.domain.Member.Bluead_Member;
 import java100.app.domain.Request.Bluead_Online1;
 
-
-
 // => "역할"을 강조할 때는 "객체(object)"라는 말보다는 
 //    "컴포넌트(component)"라는 말을 사용한다.
 // => "객체"는 말 그대로 한 개의 클래스를 가리키는 것이라면,
@@ -19,16 +17,22 @@ import java100.app.domain.Request.Bluead_Online1;
 // 가능한 업무 용어를 사용한다.
 //
 public interface Bluead_MemberService {
-    List<Bluead_Member> list(int pageNo, int pageSize, Map<String,Object> options);
-    Bluead_Member get(int no);
-    int getTotalCount(Map<String, Object> options);
-    int update(Bluead_Member bluead_Member);
-    int add(Bluead_Member bluead_Member);
-    int delete(int no);
-    int deleteAll(HashMap<String, Object> numbers);
+	List<Bluead_Member> list(int pageNo, int pageSize, Map<String, Object> options);
+
+	Bluead_Member get(int no);
+
+	int getTotalCount(Map<String, Object> options);
+
+	int update(Bluead_Member bluead_Member);
+
+	int add(Bluead_Member bluead_Member);
+
+	int delete(int no);
+
+	int deleteAll(HashMap<String, Object> numbers);
+/*	int viewUpdate(Bluead_Member bluead_Member);*/
+
+	Bluead_Member vup(int no);
+
+
 }
-
-
-
-
-

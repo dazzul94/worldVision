@@ -1,7 +1,6 @@
 package java100.app.web.BlueAD.MemberController;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java100.app.domain.Member.Bluead_Member;
-import java100.app.domain.Request.Bluead_Online1;
 import java100.app.service.MemberService.Bluead_MemberService;
 
 @Controller
@@ -30,7 +28,6 @@ public class Bluead_MemberController {
 	public String list(@RequestParam(value = "pn", defaultValue = "1") int pageNo,
 			@RequestParam(value = "ps", defaultValue = "20") int pageSize,
 			@RequestParam(value = "select", defaultValue = "all") String select,
-			
 			@RequestParam(value = "member_join_type", defaultValue = "all") String member_join_type,
 			@RequestParam(value = "words", required = false) String[] words,
 			@RequestParam(value = "oc", required = false) String orderColumn,
@@ -75,7 +72,7 @@ public class Bluead_MemberController {
 		if (words != null && words[0].length() > 0) {
 			System.out.println(words[0]);
 			options.put("words", words);
-			model.addAttribute("words", words[0]);//페이지 넘겨도 검색조건 가져오기
+			model.addAttribute("words", words[0]);// 페이지 넘겨도 검색조건 가져오기
 		}
 		options.put("orderColumn", orderColumn);
 		options.put("align", align);
@@ -103,53 +100,63 @@ public class Bluead_MemberController {
 		model.addAttribute("bluead_member", bluead_memberService.get(no));
 		return "BlueAD/bluead_member/member01/view";
 	}
-	
-	
+
+	@RequestMapping("viewUpdate")
+	public String viewUpdate(@PathVariable int no, Model model) throws Exception {
+		System.out.println(no);
+		model.addAttribute("bluead_member", bluead_memberService.vup(no));
+		return "BlueAD/bluead_member/member01/viewUpdate";
+	}
+
 	@RequestMapping("form")
 	public String form() throws Exception {
 		return "BlueAD/bluead_member/member01/form";
 
 	}
-	 @RequestMapping("update")
-	    public String update(HttpServletRequest request, Bluead_Member bluead_Member) throws Exception {
-	        
-		 bluead_memberService.update(bluead_Member);
-	        return "redirect:" +  (String)request.getHeader("Referer");
-	    }
 
-	    @RequestMapping("delete")
-	    public String delete(int no) throws Exception {
+	@RequestMapping("update")
+	public String update(HttpServletRequest request, Bluead_Member bluead_Member) throws Exception {
 
-	    	bluead_memberService.delete(no);
-	        return "redirect:list";
-	    }
-	    @RequestMapping("deleteAll")
-	    public String deleteAll(HttpServletRequest request, String no) throws Exception {
-	        
-	        String[] splitNo = no.split(",");
-	        int[] realNo = new int[splitNo.length];;
-	        for (int i = 0; i < splitNo.length; i++) {
-	            realNo[i] = Integer.parseInt(splitNo[i]);
-	            System.out.println(realNo[i]);
-	        }
-	        HashMap<String,Object> numbers = new HashMap<>();
-	        if (realNo != null) {
-	            numbers.put("numbers", realNo);
-	        }
-	        bluead_memberService.deleteAll(numbers);
-	       /* System.out.println((String)request.getHeader("Referer"));
-	        String decodeResult = URLDecoder.decode((String)request.getHeader("Referer"), "UTF-8");
-	        System.out.println(decodeResult);*/
-	        return "redirect:" +  (String)request.getHeader("Referer");
-	    }
-	    
-	    @RequestMapping("add")
-	    public String add(HttpServletRequest request, Bluead_Member bluead_Member) throws Exception {
-	        
-	   	 bluead_memberService.update(bluead_Member);
-	        return "redirect:" +  (String)request.getHeader("Referer");
-	    }
-	    
-	   
-	    
+		bluead_memberService.update(bluead_Member);
+		return "redirect:" + (String) request.getHeader("Referer");
+	}
+
+	@RequestMapping("delete")
+	public String delete(int no) throws Exception {
+
+		bluead_memberService.delete(no);
+		return "redirect:list";
+	}
+
+	@RequestMapping("deleteAll")
+	public String deleteAll(HttpServletRequest request, String no) throws Exception {
+
+		String[] splitNo = no.split(",");
+		int[] realNo = new int[splitNo.length];
+		;
+		for (int i = 0; i < splitNo.length; i++) {
+			realNo[i] = Integer.parseInt(splitNo[i]);
+			System.out.println(realNo[i]);
+		}
+		HashMap<String, Object> numbers = new HashMap<>();
+		if (realNo != null) {
+			numbers.put("numbers", realNo);
+		}
+		bluead_memberService.deleteAll(numbers);
+		/*
+		 * System.out.println((String)request.getHeader("Referer")); String
+		 * decodeResult =
+		 * URLDecoder.decode((String)request.getHeader("Referer"), "UTF-8");
+		 * System.out.println(decodeResult);
+		 */
+		return "redirect:" + (String) request.getHeader("Referer");
+	}
+
+	@RequestMapping("add")
+	public String add(HttpServletRequest request, Bluead_Member bluead_Member) throws Exception {
+
+		bluead_memberService.update(bluead_Member);
+		return "redirect:" + (String) request.getHeader("Referer");
+	}
+
 }

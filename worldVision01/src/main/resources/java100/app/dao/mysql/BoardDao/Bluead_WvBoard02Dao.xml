@@ -20,7 +20,7 @@
 	<select id="findAll" resultMap="bluead_WvBoardMap"
 		parameterType="map">
 		<include refid="select1" />
-		from bluead_wv_board
+		from bluead_wv_data
 		
 		<choose>
 			<when test="select == 'all'">
@@ -74,7 +74,7 @@
 	<select id="findByNo" resultMap="bluead_WvBoardMap"
 		parameterType="int">
 		<include refid="select1" />
-		from bluead_wv_board
+		from bluead_wv_data
 		where bbs_no=#{value}
 	</select>
 
@@ -132,12 +132,6 @@
 		</choose>
 	</select>
 
-	<!-- <insert id="insert" parameterType="member" useGeneratedKeys="true" 
-		keyColumn="no" keyProperty="no"> insert into ex_memb(name,email,pwd,regdt) 
-		values(#{name},#{email},password(#{password}),now()) </insert> <update id="update" 
-		parameterType="member"> update ex_memb set name=#{name}, email=#{email}, 
-		pwd=password(#{password}) where no=#{no} </update> <delete id="delete" parameterType="int"> 
-		delete from ex_memb where no=#{value} </delete> -->
 
 </mapper>  
 

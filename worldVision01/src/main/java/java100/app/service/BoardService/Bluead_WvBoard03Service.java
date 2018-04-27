@@ -19,12 +19,8 @@ import java100.app.domain.Board.Bluead_WvBoard03;
 public interface Bluead_WvBoard03Service {
     List<Bluead_WvBoard03> list(int pageNo, int pageSize, Map<String,Object> options);
     Bluead_WvBoard03 get(int no);
-/*    Member get(String email, String password);
-    Member get(String email);*/
     int getTotalCount(Map<String,Object> options);
-   /* int add(Member member);
-    int update(Member member);
-    int delete(int no);*/
+    int delete(int no);
 }
 
 

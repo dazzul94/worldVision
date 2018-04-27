@@ -63,8 +63,12 @@
 		where no=#{value}
 	</select>
 	
-	
-	
+	<select id="findByNo2" resultMap="bluead_MemberMap"
+		parameterType="int">
+		<include refid="select1" />
+		from bluead_member
+		where no=#{value}
+	</select>
 	<select id="countAll" resultType="int" parameterType="map">
 		select count(*) from
 		bluead_member
@@ -119,15 +123,14 @@
 
 
 	<update id="update" parameterType="bluead_Member">
-		update bluead_member set
-		member_name=#{member_name} where no=#{no}
+		 update bluead_member set member_join_type=#{member_join_type}
+		  where no=#{no} 
 	</update>
 	
-	<!--  
-    <insert id="insert" parameterType="bluead_Member">
-        insert into bluead_member(member_birth1,member_birth2)
-        values(#{member_birth1},#{member_birth2})
-    </insert> -->
+	<!--  <update id="viewUpdate" parameterType="bluead_Member">
+		 update bluead_member set member_name=#{member_name}
+		  where no=#{no} 
+	</update>  -->
 </mapper>  
 
 

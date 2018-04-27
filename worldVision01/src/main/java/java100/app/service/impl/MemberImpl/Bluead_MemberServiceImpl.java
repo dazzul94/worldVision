@@ -40,18 +40,6 @@ public class Bluead_MemberServiceImpl implements Bluead_MemberService {
 	public Bluead_Member get(int no) {
 		return bluead_memberDao.findByNo(no);
 	}
-	/*
-	 * @Override public Member get(String email, String password) {
-	 * 
-	 * HashMap<String,Object> params = new HashMap<>(); params.put("email",
-	 * email); params.put("password", password);
-	 * 
-	 * return bluead_memberDao.findByEmailAndPassword(params); }
-	 * 
-	 * @Override public Member get(String email) {
-	 * 
-	 * return bluead_memberDao.findByEmail(email); }
-	 */
 
 	@Override
 	public int getTotalCount(Map<String, Object> options) {
@@ -66,6 +54,7 @@ public class Bluead_MemberServiceImpl implements Bluead_MemberService {
 	public int add(Bluead_Member bluead_Member) {
 		return bluead_memberDao.insert(bluead_Member);
 	}
+
 	@Override
 	public int deleteAll(HashMap<String, Object> numbers) {
 		return bluead_memberDao.deleteAll(numbers);
@@ -75,5 +64,16 @@ public class Bluead_MemberServiceImpl implements Bluead_MemberService {
 	public int delete(int no) {
 		return bluead_memberDao.delete(no);
 	}
+/*	@Override
+	public int viewUpdate(Bluead_Member bluead_Member) {
+		return bluead_memberDao.viewUpdate(bluead_Member);
+	}
+*/
+	@Override
+	public Bluead_Member vup(int no) {
+		return bluead_memberDao.findByNo2(no);
+		}
+	
+
 
 }

@@ -95,6 +95,12 @@ public class Bluead_WvBoard03Controller {
         return "BlueAD/bluead_wvboard/board03/form";
         
     }
+    @RequestMapping("delete")
+    public String delete(int no) throws Exception {
+
+    	bluead_wvboard03Service.delete(no);
+        return "redirect:list";
+    }
 }
 
 

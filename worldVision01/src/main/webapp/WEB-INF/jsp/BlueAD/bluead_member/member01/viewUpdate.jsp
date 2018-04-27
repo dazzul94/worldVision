@@ -22,7 +22,7 @@
 <jsp:include page="../member_left.jsp"/>
 </div>
 <div id="content">
-<h1> 확인</h1>
+<h1> 확인viewupdate</h1>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
     <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 회원관리</td>
@@ -35,11 +35,14 @@
   </tr>
 </tbody></table>
 <!-- view -->
-
+ <form action='view' method='post'>
 <table width="100%" align="center" bgcolor="#cad4e3" border="0" cellspacing="1" cellpadding="0">
-  <tbody><tr>
+  <tbody>
+  <tr>
+    <tr>
     <td width="100" height="35" class="field_b_pad">이름</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_name}</b></td>
+  </tr>
   </tr>
     <tr>
     <td width="100" height="35" class="field_b_pad">아이디</td>
@@ -71,9 +74,8 @@
     <td style="padding-left: 10px;" bgcolor="#ffffff"><input type="text" name="member_birth1"><b>${bluead_member.member_join_date}</b></td>
   </tr>
 </tbody></table>
-
 <!-- view -->
-
+</form>
 <!-- 목록,확인 -->
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr height="40">
