@@ -36,6 +36,9 @@
 <!--  dd -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tbody><tr>    
+   <td>
+      <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/newhot.gif">
+    </td>
     <td align="right" style="font-size:10Px;font-family:verdana;">
       <font color="">total:</font><font color="red"> ${totalCount}</font>&nbsp;&nbsp;
       <font color="">page:</font><font color="red"> ${pageNo}</font>/<font color="red"> ${lastPageNo}</font>
