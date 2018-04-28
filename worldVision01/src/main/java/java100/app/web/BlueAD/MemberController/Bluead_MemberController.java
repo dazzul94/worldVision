@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java100.app.domain.Member.Bluead_Member;
@@ -101,8 +102,9 @@ public class Bluead_MemberController {
 		return "BlueAD/bluead_member/member01/view";
 	}
 
-	@RequestMapping("viewUpdate")
-	public String viewUpdate(@PathVariable int no, Model model) throws Exception {
+	@RequestMapping(value="viewUpdate", method=RequestMethod.GET)
+	public String viewUpdate(@RequestParam(value = "no", defaultValue = "0") int no, Model model) throws Exception {
+		System.out.println("☆★☆★☆★☆★☆★☆★☆viewUpdate★☆★☆★☆★☆★☆★☆★");
 		System.out.println(no);
 		model.addAttribute("bluead_member", bluead_memberService.vup(no));
 		return "BlueAD/bluead_member/member01/viewUpdate";
