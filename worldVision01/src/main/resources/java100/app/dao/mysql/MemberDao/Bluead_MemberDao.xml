@@ -20,12 +20,13 @@
 	<select id="findAll" resultMap="bluead_MemberMap" parameterType="map">
 		<include refid="select1" />
 		from bluead_member
-		where 1=1
-		<if test = "memberJoinType != null and memberJoinType != ''">
-			<if test="memberJoinType != 'all'">
-			    and member_join_type = #{memberJoinType}
-			</if>    
+		<!-- 
+		<if test = "member_join_type != null and member_join_type != ''">
+		    <where>
+			and member_join_type = #{member_join_type}
+			</where>
 		</if>
+		 -->
 		<choose>
 			<when test="select == 'all'">
 				<where> <!-- 이름, 아이디 -->
