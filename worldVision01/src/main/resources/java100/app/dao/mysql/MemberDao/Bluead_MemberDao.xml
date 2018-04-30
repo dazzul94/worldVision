@@ -133,11 +133,11 @@
 		 update bluead_member set member_join_type=#{member_join_type}
 		  where no=#{no} 
 	</update>
-	
-	<!--  <update id="viewUpdate" parameterType="bluead_Member">
-		 update bluead_member set member_name=#{member_name}
+	<!-- 
+	 <select id="findByNo2" parameterType="bluead_Member">
+		 update bluead_member set member_name=#{member_name},member_htel1=#{member_htel1}
 		  where no=#{no} 
-	</update>  -->
+	</select>   -->
 </mapper>  
 
 
