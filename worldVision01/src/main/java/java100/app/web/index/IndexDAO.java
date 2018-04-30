@@ -50,5 +50,24 @@ public class IndexDAO {
 		List<Board> list = jTmp.query(sql, mapper);		
 		return list.toArray(new Board[0]);
 	}
+	public Comment[] getComment(String sql) {	
+		RowMapper<Comment> mapper = new RowMapper<Comment>() {
+			@Override
+			public Comment mapRow(ResultSet rs, int idx) 
+					throws SQLException {				
+				return new Comment(
+					rs.getInt("comm_no"),
+					rs.getString("comm_bbs_id"),
+					rs.getString("comm_name"),
+					rs.getString("comm_content"),
+					rs.getString("comm_pass"),
+					rs.getString("comm_date")
+				);
+			}				
+		};		
+		List<Comment> list = jTmp.query(sql, mapper);		
+		return list.toArray(new Comment[0]);
+	}
+	
 	
 }

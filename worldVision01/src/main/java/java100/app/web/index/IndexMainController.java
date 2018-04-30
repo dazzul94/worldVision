@@ -122,10 +122,16 @@ public class IndexMainController {
 		String sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_" + dbName + " WHERE bbs_no = " + request.getParameter("no");
 		Board[] list = dao.getBoard(sql);
+		String cSql = "SELECT comm_no, comm_bbs_id, comm_name, comm_content, comm_pass, comm_date "
+				+ "FROM bluead_comment WHERE comm_bbs_id = 'wv_board'" + 
+				" ORDER BY comm_no DESC";
+		Comment[] cList = dao.getComment(cSql);
+		
 		model.addAttribute("result", list[0]);
 		model.addAttribute("cPage", request.getParameter("cPage"));
 		model.addAttribute("str", str);
 		model.addAttribute("dbName", dbName);
+		model.addAttribute("cList", cList);
 		if(request.getParameter("search") != null) {
 			model.addAttribute("search", request.getParameter("search"));
 			model.addAttribute("cateSelect", request.getParameter("cateSelect"));
