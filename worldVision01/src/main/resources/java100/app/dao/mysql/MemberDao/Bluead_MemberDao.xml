@@ -20,14 +20,14 @@
 	<select id="findAll" resultMap="bluead_MemberMap" parameterType="map">
 		<include refid="select1" />
 		from bluead_member
-		<!-- 
-		<if test = "member_join_type != null and member_join_type != ''">
-		    <where>
-			and member_join_type = #{member_join_type}
-			</where>
-		</if>
-		 -->
 		<choose>
+		    <when test="member_join_type != null and member_join_type != ''">
+		        
+		        <where>
+		            and member_join_type =#{member_join_type}
+		            
+		        </where>
+		    </when>
 			<when test="select == 'all'">
 				<where> <!-- 이름, 아이디 -->
 					or member_name like '%${word}%'
@@ -130,7 +130,8 @@
 
 
 	<update id="update" parameterType="bluead_Member">
-		 update bluead_member set member_join_type=#{member_join_type}
+		 update bluead_member set 
+		 member_join_type=#{member_join_type}
 		  where no=#{no} 
 	</update>
 	<!-- 

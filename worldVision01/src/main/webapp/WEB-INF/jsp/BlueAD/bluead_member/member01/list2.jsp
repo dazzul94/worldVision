@@ -40,9 +40,9 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>    
     <td style="padding:2;">
-    <select id="member_join_type" onchange="location.href=this.value">
-	  	<option value="all" selected>:: 전체보기 ::</option>
-        <option value="list?join_type = 1">후원자</option>
+    <select id="memberJoinType" onChange="changeMemberJoinType()">
+	  	<option value="" selected>:: 전체보기 ::</option>
+        <option value="1">후원자</option>
         <option value="2" style="color:blue;">기타</option>
 		<option value="3" style="color:green;">합창단 교사/직원</option>
 		<option value="5" style="color:#660000;">단원/자모</option>
@@ -82,20 +82,23 @@
      <td align="center" onclick="window.location='${member.no}'" style="cursor:pointer">${member.member_join_date}</td>
  <td align="center">
      <!-- -----------리스트 ------------------- -->
-<!-- select 업데이트 -->
-          <form action="update" method='post' enctype="multipart/form-data">
-          <input name="no" type="hidden" value="${member.no}">
-          <select name="CHK" onchange="this.form.submit()">
-          <option value="N" style="color:red" <c:if test="${member.CHK eq 'N'}">selected</c:if>>후원자</option>
-          <option value="Y" style="color:blue" <c:if test="${member.CHK eq 'Y'}">selected</c:if>>기타</option>
-          <option value="Y" style="color:green" <c:if test="${member.CHK eq 'Y'}">selected</c:if>>합창단 교사/직원</option>
-          <option value="Y" style="color:black" <c:if test="${member.CHK eq 'Y'}">selected</c:if>>단원/자모</option>
-          <option value="Y" style="color:blue" <c:if test="${member.CHK eq 'Y'}">selected</c:if>>동문</option>
-          </select>
-          </form>
-          <!-- select 업데이트 -->
+ <!--  select박스  -->
+       
+        <form action="update" method='post' enctype="multipart/form-data">
+         <input name="no" type="hidden" value="${member.no}">
+         <select name="member_join_type" onchange="this.form.submit()">
+        <option value="1"style="color:black"<c:if test="${member.member_join_type eq '1'}">selected</c:if>>후원자</option>
+        <option value="2" style="color:blue"<c:if test="${member.member_join_type eq '2'}">selected</c:if>>기타</option><!-- 2 -->
+		<option value="3" style="color:green"<c:if test="${member.member_join_type eq '3'}">selected</c:if>>합창단 교사/직원</option>
+		<option value="5" style="color:#660000"<c:if test="${member.member_join_type eq '5'}">selected</c:if>>단원/자모</option>
+		<option value="10" style="color:red"<c:if test="${member.member_join_type eq '10'}">selected</c:if>>동문</option>
+      </select>
+      </form>
+      
+      
+      <!--  ...... ?_? -->
     <script>
-    document.getElementByName("level").value 
+    document.getElementByName("level").list 
 
    /*  function myListener(obj) {
         alert(obj.value); // 선택된 option의 value가 출력된다!
@@ -227,19 +230,19 @@
     $("document").ready(function(){        
         paging(totalData, dataPerPage, pageCount, '<c:out value="${pageNo}"/>');
         
+        var memberJoinType = '<c:out value="${member_join_type}"/>';
+        
+        if (memberJoinType.length > 0) {
+        	$('#memberJoinType').val(memberJoinType);	
+        }
+        
+        
     });
-</script>
-<script type="text/javascript">
-    $(function(){
-      // bind change event to select
-      $('#member_join_type').on('change', function () {
-          var url = $(this).val(); // get selected value(list?join_type = 1)
-          if (url) { // require a URL
-              window.location = url; // redirect
-          }
-          return false;
-      });
-    });
+    /*리스트 합창단과의 관계 선택시 이벤트 */
+    function changeMemberJoinType() {
+    	var memberJoinType = $('#memberJoinType').val();
+    	location.href = "${contextPath}/BlueAD/bluead_member/member01/list?member_join_type=" + memberJoinType;
+    }
 </script>
 </body>
 </html>

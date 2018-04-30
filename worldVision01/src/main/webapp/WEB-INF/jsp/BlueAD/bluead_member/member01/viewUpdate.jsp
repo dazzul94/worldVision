@@ -35,10 +35,10 @@
   </tr>
 </tbody></table>
 <!-- view -->
- <form action='viewUpdate' method='post'>
+ <c:if test="${not empty bluead_member}">
+ <form action='update' method='post'>
 <table width="100%" align="center" bgcolor="#cad4e3" border="0" cellspacing="1" cellpadding="0">
   <tbody>
-  <tr>
     <tr>
     <td width="100" height="35" class="field_b_pad">이름</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_name}</b></td>
@@ -58,8 +58,12 @@
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">생년월일</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><input type="hidden" name="member_birth1" value="${bluead_member.member_birth1}">
-                                <input type="text" name="member_birth1" value="${bluead_member.member_birth1}"></td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"><input type="hidden"  name="member_birth1" value="${bluead_member.member_birth1}">
+                                <input type="text" name="member_birth1" readonly="readonly"value="${bluead_member.member_birth1}"> 
+                                 <input type="radio" name="member_birth2"  value="양력">
+                              양력 
+                              <input type="radio" name="member_birth2" value="음력">
+                              음력 </td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">전화번호</td>
@@ -97,18 +101,39 @@
                                 <input type="text" size="30" name="member_id" value="${bluead_member.member_email}"></td>
   </tr>
 </tbody></table>
+<c:set var="member_birth2" value="${bluead_member.member_birth2}"/>
 <!-- view -->
 </form>
+ </c:if>
 <!-- 목록,확인 -->
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr height="40">
     <td height="50" align="center" valign="bottom">
       <input align="absmiddle" onclick="window.location='list'" type="image" src="${contextPath}/images/BlueAD/admin/btn_list.gif">
-            <input align="absmiddle"  onclick="window.location='list'" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_ok.gif">
+          <input align="absmiddle" onclick="viewUpdate(${bluead_member.no})" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_ok.gif"> 
     </td>
   </tr>
 </tbody></table>
 <!-- 목록, 확인 -->
 </div>
 </body>
+<script type="text/javascript">
+var member_birth2 = '<c:out value="${member_birth2}"/>';
+
+window.onload = function () {
+if (member_birth2 == '양력') {
+$("input:radio[name='member_birth2']:radio[value='양력']").prop("checked",true);
+} else {
+	$("input:radio[name='member_birth2']:radio[value='음력']").prop("checked",true);
+	}
+}
+function viewUpdate(no){
+
+    if (confirm("수정 되었습니다")){    //확인
+    	location.href = "${contextPath}/BlueAD/bluead_member/member01/list";
+    }else{   //취소
+        return;
+    }
+}
+</script>
 </html>
