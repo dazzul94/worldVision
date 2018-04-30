@@ -1,5 +1,6 @@
 package java100.app.service.BoardService;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +22,7 @@ public interface Bluead_WvBoard03Service {
     Bluead_WvBoard03 get(int no);
     int getTotalCount(Map<String,Object> options);
     int delete(int no);
+    int deleteAll(HashMap<String, Object> numbers);
 }
 
 

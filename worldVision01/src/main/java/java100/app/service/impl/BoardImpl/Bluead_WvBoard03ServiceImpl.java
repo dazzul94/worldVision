@@ -51,4 +51,8 @@ public class Bluead_WvBoard03ServiceImpl implements Bluead_WvBoard03Service {
     public int delete(int no) {
         return bluead_wvboard03Dao.delete(no);
     }
+    @Override
+    public int deleteAll(HashMap<String, Object> numbers) {
+        return bluead_wvboard03Dao.deleteAll(numbers);
+    }
 }

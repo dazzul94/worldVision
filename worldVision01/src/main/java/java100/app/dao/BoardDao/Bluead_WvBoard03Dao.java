@@ -1,5 +1,6 @@
 package java100.app.dao.BoardDao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ public interface Bluead_WvBoard03Dao {
     Bluead_WvBoard03 findByNo(int no);
     int countAll(Map<String, Object> options);
     int delete(int no);
+    int deleteAll(HashMap<String, Object> numbers);
 }
 
 
