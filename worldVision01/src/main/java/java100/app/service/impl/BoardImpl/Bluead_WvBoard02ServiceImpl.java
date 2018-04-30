@@ -40,41 +40,19 @@ public class Bluead_WvBoard02ServiceImpl implements Bluead_WvBoard02Service {
         return bluead_wvboard02Dao.findByNo(no);
     }
     
-   /* @Override
-    public Member get(String email, String password) {
-        
-        HashMap<String,Object> params = new HashMap<>();
-        params.put("email", email);
-        params.put("password", password);
-        
-        return bluead_memberDao.findByEmailAndPassword(params);
-    }
-    
     @Override
-    public Member get(String email) {
-        
-        return bluead_memberDao.findByEmail(email);
-    }*/
-    
+    public int deleteAll(HashMap<String, Object> numbers) {
+        return bluead_wvboard02Dao.deleteAll(numbers);
+    }
+    @Override
+    public int delete(int no) {
+        return bluead_wvboard02Dao.delete(no);
+    }
     
     @Override
     public int getTotalCount(Map<String,Object> options) {
         return bluead_wvboard02Dao.countAll(options);
     }
 
-/*    @Override
-    public int add(Member member) {
-        return bluead_memberDao.insert(member);
-    }
-
-    @Override
-    public int update(Member member) {
-        return bluead_memberDao.update(member);
-    }
-
-    @Override
-    public int delete(int no) {
-        return bluead_memberDao.delete(no);
-    }*/
 
 }
