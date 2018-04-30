@@ -73,7 +73,10 @@ public class Bluead_MemberServiceImpl implements Bluead_MemberService {
 	public Bluead_Member vup(int no) {
 		return bluead_memberDao.findByNo2(no);
 		}
-	
+	@Override
+	public int update2(Bluead_Member bluead_Member) {
+		return bluead_memberDao.update2(bluead_Member);
+	}
 
 
 }

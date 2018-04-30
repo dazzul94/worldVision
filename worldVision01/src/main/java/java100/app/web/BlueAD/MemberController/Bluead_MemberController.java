@@ -119,6 +119,11 @@ public class Bluead_MemberController {
 		bluead_memberService.update(bluead_Member);
 		return "redirect:" + (String) request.getHeader("Referer");
 	}
+	@RequestMapping("update2")
+	public String update2(HttpServletRequest request, Bluead_Member bluead_Member) throws Exception {
+		bluead_memberService.update2(bluead_Member);
+		return "redirect:list";
+	}
 
 	@RequestMapping("delete")
 	public String delete(int no) throws Exception {

@@ -22,7 +22,7 @@
 <jsp:include page="../member_left.jsp"/>
 </div>
 <div id="content">
-
+ <form action='update2' method='post'>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr>
     <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 회원관리</td>
@@ -35,10 +35,13 @@
   </tr>
 </tbody></table>
 <!-- view -->
- <c:if test="${not empty bluead_member}">
- <form action='update' method='post'>
+
 <table width="100%" align="center" bgcolor="#cad4e3" border="0" cellspacing="1" cellpadding="0">
-  <tbody>
+  <tbody> 
+     <tr>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"> <input type="hidden" name="no" value="${bluead_member.no}"></td>
+  </tr>
+  
     <tr>
     <td width="100" height="35" class="field_b_pad">이름</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff"><b>${bluead_member.member_name}</b></td>
@@ -58,7 +61,7 @@
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">생년월일</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><input type="hidden"  name="member_birth1" value="${bluead_member.member_birth1}">
+    <td style="padding-left: 10px;" bgcolor="#ffffff">
                                 <input type="text" name="member_birth1" readonly="readonly"value="${bluead_member.member_birth1}"> 
                                  <input type="radio" name="member_birth2"  value="양력">
                               양력 
@@ -68,52 +71,46 @@
   <tr>
     <td width="100" height="35" class="field_b_pad">전화번호</td>
     <td  style="padding-left: 10px;"  bgcolor="#ffffff">
-    <input type="hidden" name="member_tel1" value="${bluead_member.member_tel1}">
                                 <input type="text"size="10" name="member_tel1" value="${bluead_member.member_tel1}">-
-                                <input type="hidden" name="member_tel2" value="${bluead_member.member_tel2}">
                                 <input type="text"size="10" name="member_tel2" value="${bluead_member.member_tel2}">-
-                                <input type="hidden" name="member_tel3" value="${bluead_member.member_tel3}">
                                 <input type="text" size="10"name="member_tel3" value="${bluead_member.member_tel3}"></td>
                                
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">휴대전화</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"><input type="hidden" name="member_htel1" value="${bluead_member.member_htel1}">
+    <td style="padding-left: 10px;" bgcolor="#ffffff">
                                 <input type="text" size="10" name="member_htel1" value="${bluead_member.member_htel1}">-
-                                <input type="hidden" name="member_htel2" value="${bluead_member.member_htel2}">
                                 <input type="text" size="10" name="member_htel2" value="${bluead_member.member_htel2}">-
-                                <input type="hidden" name="member_htel3" value="${bluead_member.member_htel3}">
                                 <input type="text"size="10"  name="member_htel3" value="${bluead_member.member_htel3}"></td>
   </tr>
 
       <tr>
-    <td width="100" height="35" class="field_b_pad">주소</td>
+    <td width="150" height="75" class="field_b_pad">주소</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff"> 
-                                <input type="hidden" name="member_address1" value="${bluead_member.member_address1}">
-                                <input type="text"size="50" name="member_address1" value="${bluead_member.member_address1}">
-                                <input type="hidden" name="member_address2" value="${bluead_member.member_address2}">
+     							<input type="text"size="10" name="member_zip1" value="${bluead_member.member_zip1}">-<input type="text"size="10" name="member_zip2" value="${bluead_member.member_zip2}"><br>
+                                <input type="text"size="50" name="member_address1" value="${bluead_member.member_address1}"><br>
                                 <input type="text" size="50"name="member_address2" value="${bluead_member.member_address2}">
                                </td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">이메일</td>
-    <td style="padding-left: 10px;" bgcolor="#ffffff"> <input type="hidden" name="member_email" value="${bluead_member.member_email}">
-                                <input type="text" size="30" name="member_id" value="${bluead_member.member_email}"></td>
+    <td style="padding-left: 10px;" bgcolor="#ffffff"> 
+                                <input type="text" size="30" name="member_email" value="${bluead_member.member_email}"></td>
   </tr>
 </tbody></table>
 <c:set var="member_birth2" value="${bluead_member.member_birth2}"/>
 <!-- view -->
-</form>
- </c:if>
+
 <!-- 목록,확인 -->
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
   <tbody><tr height="40">
     <td height="50" align="center" valign="bottom">
       <input align="absmiddle" onclick="window.location='list'" type="image" src="${contextPath}/images/BlueAD/admin/btn_list.gif">
-          <input align="absmiddle" onclick="viewUpdate(${bluead_member.no})" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_ok.gif"> 
+           <input align="absmiddle" onclick="window.location='list'" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/admin/btn_ok.gif">  
     </td>
   </tr>
 </tbody></table>
+</form>
 <!-- 목록, 확인 -->
 </div>
 </body>
@@ -127,13 +124,13 @@ $("input:radio[name='member_birth2']:radio[value='양력']").prop("checked",true
 	$("input:radio[name='member_birth2']:radio[value='음력']").prop("checked",true);
 	}
 }
-function viewUpdate(no){
+ function viewUpdate(no){
 
     if (confirm("수정 되었습니다")){    //확인
     	location.href = "${contextPath}/BlueAD/bluead_member/member01/list";
     }else{   //취소
         return;
-    }
+    } 
 }
 </script>
 </html>

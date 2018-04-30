@@ -34,5 +34,7 @@ public interface Bluead_MemberService {
 
 	Bluead_Member vup(int no);
 
+	int update2(Bluead_Member bluead_Member);
+
 
 }
