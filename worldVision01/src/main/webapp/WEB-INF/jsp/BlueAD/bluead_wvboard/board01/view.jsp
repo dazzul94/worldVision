@@ -136,8 +136,8 @@ ${bluead_wvboard.bbs_content }
     <!--  답글 , 수정, 삭제, 쓰기 -->
     <td align="right">
       <a href="board.php?bbs_id=wv_board&amp;mode=write&amp;act=reply&amp;bbs_no=133&amp;page=1&amp;key=&amp;keyword=&amp;bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_reply.gif" align="absmiddle" border="0"></a>
-     <a href="board.php?bbs_id=wv_community01&mode=write&act=modify&bbs_no=307&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_modify.gif" align="absmiddle" border="0"></a>
-<a href="javascript:post_del()"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_del.gif" align="absmiddle" border="0"></a>
+    <!-- 수정 --> <a href="viewUpdate"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_modify.gif" align="absmiddle" border="0"></a>
+<a href='delete?no=${bluead_wvboard.bbs_no}'><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_del.gif" align="absmiddle" border="0"></a>
 <a href="board.php?bbs_id=wv_community01&mode=write&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0"></a>
     </td>
   </tr>

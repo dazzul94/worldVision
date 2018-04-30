@@ -131,10 +131,17 @@
 			</when>
 		</choose>
 	</select>
-
+<delete id="deleteAll" parameterType="map">
+		<if test="numbers != null"> 
+		  <foreach collection="numbers" item="number">
+		delete from bluead_wv_webzine where bbs_no=${number}; 
+		  </foreach>
+        </if>
+        </delete> 
+        
  <delete id="delete" parameterType="int">
-        delete from bluead_online
-        where no=#{value}
+        delete from bluead_wv_webzine
+        where bbs_no=#{value}
     </delete>
 </mapper>  
 

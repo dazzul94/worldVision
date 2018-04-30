@@ -21,13 +21,13 @@
 		<include refid="select1" />
 		from bluead_member
 		<choose>
-			<when test="member_join_type != null and member_join_type != ''">
-
-				<where>
-					and member_join_type =#{member_join_type}
-
-				</where>
-			</when>
+		    <when test="member_join_type != null and member_join_type != ''">
+		        
+		        <where>
+		            and member_join_type =#{member_join_type}
+		            
+		        </where>
+		    </when>
 			<when test="select == 'all'">
 				<where> <!-- 이름, 아이디 -->
 					or member_name like '%${word}%'
@@ -69,7 +69,7 @@
 		from bluead_member
 		where no=#{value}
 	</select>
-
+	
 	<select id="findByNo2" resultMap="bluead_MemberMap"
 		parameterType="int">
 		<include refid="select1" />
@@ -118,8 +118,7 @@
 	<delete id="deleteAll" parameterType="map">
 		<if test="numbers != null">
 			<foreach collection="numbers" item="number">
-				delete from bluead_member
-				where no=${number};
+				delete from bluead_member where no=${number};
 			</foreach>
 		</if>
 	</delete>
@@ -131,31 +130,15 @@
 
 
 	<update id="update" parameterType="bluead_Member">
-		update bluead_member set
-		member_join_type=#{member_join_type}
-		where no=#{no}
+		 update bluead_member set 
+		 member_join_type=#{member_join_type}
+		  where no=#{no} 
 	</update>
-
-
-	<update id="update2" parameterType="bluead_Member">
-		update bluead_member set
-		member_zip1=#{member_zip1},
-		member_zip2=#{member_zip2},
-		member_address1=#{member_address1},
-		member_address2=#{member_address2},
-		member_tel1=#{member_tel1},
-		member_tel2=#{member_tel2}, 
-		member_tel3=#{member_tel3},
-		member_htel1=#{member_htel1},
-		member_htel2=#{member_htel2},
-		member_htel3=#{member_htel3},
-		member_email=#{member_email}
-		where no=#{no}
-	</update>
-
-	<!-- <select id="findByNo2" parameterType="bluead_Member"> update bluead_member 
-		set member_name=#{member_name},member_htel1=#{member_htel1} where no=#{no} 
-		</select> -->
+	<!-- 
+	 <select id="findByNo2" parameterType="bluead_Member">
+		 update bluead_member set member_name=#{member_name},member_htel1=#{member_htel1}
+		  where no=#{no} 
+	</select>   -->
 </mapper>  
 
 

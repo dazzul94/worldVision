@@ -22,6 +22,9 @@ public interface Bluead_MemberDao {
 
 	Bluead_Member findByNo2(int no);
 
+	int update2(Bluead_Member bluead_Member);
+
+
 
 	/*int viewUpdate(Bluead_Member bluead_Member);*/
 

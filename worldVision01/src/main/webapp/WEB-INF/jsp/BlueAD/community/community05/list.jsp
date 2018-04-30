@@ -163,7 +163,7 @@
             <option value="bbs_content">내용</option>
             <option value="bbs_name">글쓴이</option>
           </select>
-          <input type="text" size="50" maxlength="30" name="words" class="bbs_input_search">
+          <input type="text" size="50" maxlength="30" name="words"onFocus="this.select()">
      <button type="submit" style="background-color: white; border:0px"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_search.gif" align="absmiddle"/></button>
           </td>
         </tr>

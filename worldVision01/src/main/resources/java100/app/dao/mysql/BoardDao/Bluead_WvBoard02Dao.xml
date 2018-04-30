@@ -83,7 +83,7 @@
 		</select> <select id="findByEmail" resultMap="memberMap" parameterType="string"> 
 		<include refid="select1"/> from ex_memb where email=#{email} </select> -->
 	<select id="countAll" resultType="int" parameterType="map">
-		select count(*) from bluead_wv_board
+		select count(*) from bluead_wv_data
 
 	<choose>
 			<when test="select == 'all'">
@@ -132,7 +132,18 @@
 		</choose>
 	</select>
 
-
+	<delete id="deleteAll" parameterType="map">
+		<if test="numbers != null"> 
+		  <foreach collection="numbers" item="number">
+		delete from bluead_wv_data where bbs_no=${number}; 
+		  </foreach>
+        </if>
+        </delete> 
+        
+        <delete id="delete" parameterType="int">
+        delete from bluead_wv_data
+        where bbs_no=#{value}
+    </delete>
 </mapper>  
 
 

@@ -103,7 +103,7 @@ public class Bluead_MemberController {
 	}
 
 	@RequestMapping(value="viewUpdate", method=RequestMethod.GET)
-	public String viewUpdate(@RequestParam(value = "no", defaultValue = "0") int no, Model model) throws Exception {
+	public String viewUpdate(@RequestParam(value = "no", defaultValue = "0") int no, Model model,Bluead_Member bluead_Member) throws Exception {
 		model.addAttribute("bluead_member", bluead_memberService.vup(no));
 		return "BlueAD/bluead_member/member01/viewUpdate";
 	}
@@ -116,9 +116,13 @@ public class Bluead_MemberController {
 
 	@RequestMapping("update")
 	public String update(HttpServletRequest request, Bluead_Member bluead_Member) throws Exception {
-
 		bluead_memberService.update(bluead_Member);
 		return "redirect:" + (String) request.getHeader("Referer");
+	}
+	@RequestMapping("update2")
+	public String update2(HttpServletRequest request, Bluead_Member bluead_Member) throws Exception {
+		bluead_memberService.update2(bluead_Member);
+		return "redirect:list";
 	}
 
 	@RequestMapping("delete")

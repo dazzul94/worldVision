@@ -1,5 +1,6 @@
 package java100.app.service.BoardService;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,12 +21,10 @@ import java100.app.domain.Board.Bluead_WvBoard02;
 public interface Bluead_WvBoard02Service {
     List<Bluead_WvBoard02> list(int pageNo, int pageSize, Map<String,Object> options);
     Bluead_WvBoard02 get(int no);
-/*    Member get(String email, String password);
-    Member get(String email);*/
     int getTotalCount(Map<String,Object> options);
-   /* int add(Member member);
-    int update(Member member);
-    int delete(int no);*/
+    int delete(int no);
+    int deleteAll(HashMap<String, Object> numbers);
+    
 }
 
 
