@@ -123,8 +123,8 @@ public class IndexMainController {
 				+ "FROM bluead_wv_" + dbName + " WHERE bbs_no = " + request.getParameter("no");
 		Board[] list = dao.getBoard(sql);
 		String cSql = "SELECT comm_no, comm_bbs_id, comm_name, comm_content, comm_pass, comm_date "
-				+ "FROM bluead_comment WHERE comm_bbs_id = 'wv_board'" + 
-				" ORDER BY comm_no DESC";
+				+ "FROM bluead_comment WHERE comm_bbs_id = 'wv_" + dbName + 
+				"' && comm_bbs_no = " + request.getParameter("no") + " ORDER BY comm_no DESC";
 		Comment[] cList = dao.getComment(cSql);
 		
 		model.addAttribute("result", list[0]);
@@ -354,5 +354,34 @@ public class IndexMainController {
 		return "board/board3";
 	}
 	
+	@RequestMapping("login")
+	public String goLogin() {
+		
+		return "member/login";
+	}
 	
+	@RequestMapping("join")
+	public String gojoin() {
+		
+		return "member/join";
+	}
+	
+	@RequestMapping("join2")
+	public String gojoin2() {
+		
+		return "member/join2";
+	}
+	
+	@RequestMapping("findId")
+	public String goFind() {
+		
+		return "member/findid";
+	}
+	
+	@RequestMapping("doJoin")
+	public String doJoin(Member member) {
+		dao.insertMember(member);
+		
+		return "member/login";
+	}
 }

@@ -3,6 +3,7 @@ package java100.app.web.index;
 public class Comment {
 	private int comm_no;
 	private String comm_bbs_id;
+	private int comm_bbs_no;
 	private String comm_name;
 	private String comm_content;
 	private String comm_pass;
@@ -37,6 +38,14 @@ public class Comment {
 
 	public void setComm_bbs_id(String comm_bbs_id) {
 		this.comm_bbs_id = comm_bbs_id;
+	}
+	
+	public int getComm_bbs_no() {
+		return comm_bbs_no;
+	}
+
+	public void setComm_bbs_no(int comm_bbs_no) {
+		this.comm_bbs_no = comm_bbs_no;
 	}
 
 	public String getComm_name() {

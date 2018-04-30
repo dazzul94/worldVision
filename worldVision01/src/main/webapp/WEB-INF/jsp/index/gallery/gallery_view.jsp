@@ -189,7 +189,7 @@
                 </div>
                 
                 <div class="commentViewWrap">
-                <!--  
+ 				<!--  
                 	<div class="inner">
                     	<div>
                         	<p><strong>김민선</strong>2017-06-14  오후 7:03:59 </p>
@@ -207,11 +207,11 @@
                         	독보적인 댄스 실력의 무엘이..
                         </div>
                     </div>
-                    -->
+ 					-->
                     <c:forEach items="${cList }" var="comment">
 	                    <div class="inner">
 	                    	<div>
-	                        	<p><strong>${comment.getComm_name() }</strong>2017-06-14  오후 7:03:59 </p>
+	                        	<p><strong>${comment.getComm_name() }</strong>${comment.getComm_date().substring(0, 4) }-${comment.getComm_date().substring(4, 6) }-${comment.getComm_date().substring(6, 8) } </p>
 	               				${comment.getComm_content() }
 	                        </div>
 	                    </div>

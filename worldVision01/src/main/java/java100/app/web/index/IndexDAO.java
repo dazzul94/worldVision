@@ -69,5 +69,16 @@ public class IndexDAO {
 		return list.toArray(new Comment[0]);
 	}
 	
-	
+	public int insertMember(Member member) {
+		String sql = "INSERT INTO bluead_member (member_id, member_nick, member_pass, member_name, member_reg_no1, "
+				+ "member_reg_no2, member_birth1, member_birth2, member_email, member_zip1, member_zip2, "
+				+ "member_address1, member_address2, member_tel1, member_tel2, member_tel3, member_htel1,"
+				+ "member_htel2, member_htel3) VALUES (?, ?, ?, ?, ?, ? ,? ,? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		return jTmp.update(sql, member.getMember_id(), member.getMember_nick(), member.getMember_pass(), 
+				member.getMember_name(), member.getMember_reg_no1(), member.getMember_reg_no2(), member.getMember_birth1(),
+				member.getMember_birth2(), member.getMember_email(), member.getMember_zip1(), member.getMember_zip2(),
+				member.getMember_address1(), member.getMember_address2(), member.getMember_tel1(), member.getMember_tel2(),
+				member.getMember_tel3(), member.getMember_htel1(), member.getMember_htel2(), member.getMember_htel3());	
+	}
 }

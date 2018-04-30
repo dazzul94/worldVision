@@ -5,5 +5,5 @@ SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date FROM bluead
 SELECT bbs_subject, bbs_content FROM bluead_wv_webzine WHERE bbs_subject like '%월드%' or bbs_content like '%월드%' ORDER BY bbs_no DESC LIMIT 0, 2
 SELECT comm_no, comm_bbs_id, comm_name, comm_content, comm_pass, comm_date 
 FROM bluead_comment 
-WHERE comm_bbs_id = 'wv_gallery02' 
+WHERE comm_bbs_id = 'wv_gallery02' && comm_bbs_no = 20
 ORDER BY comm_no DESC;
