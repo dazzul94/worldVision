@@ -45,9 +45,8 @@
     </td>
   </tr>
 </tbody></table>
+<!--  dd -->
 
-<tr>
-<td>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td width="1" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_left.gif"></td>
@@ -91,10 +90,11 @@
       <!-- ----------------공지리스트 --------------------->
        <!-- ----------------------------리스트---------------------------- -->
     <c:forEach items="${list}" var="board" varStatus="status">
-      <tr height="30">
-        <td align="center"></td>
-        <td align="center"><input type="checkbox" name="bbs_no[]" value="${board.bbs_no}" style="cursor:hand"></td>
-        <td align="center"><span class="bbs_normal">${board.bbs_no}</span></td>
+     <tr height="30" bgcolor="#FFFFFF" onmouseover="this.style.background=&quot;#f5f5f5&quot;" onmouseout="this.style.background=&quot;#ffffff&quot;" style="background: rgb(255, 255, 255);">
+        <td align="center">
+        <!-- 전체 선택  -->
+        <td align="center"><input type="checkbox" id="check" name="check[]"  class="checkSelect"value="${board.bbs_no}" style="cursor:pointer"></td>
+          <td align="center">${(totalCount - status.index) - ((pageNo - 1) * pageSize)}</td>
         <td align="center"></td>
         <td>&nbsp;&nbsp;&nbsp;<a href="${board.bbs_no}" class="bbs_link">${board.bbs_subject} </a>
         </td>
@@ -114,10 +114,7 @@
       </tr>
       </c:forEach>
            </tbody></table>
-    </td>
-  </tr>
   <!-- 목록, 선택삭제 -->
-    <td>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
         <tbody>
         <tr>

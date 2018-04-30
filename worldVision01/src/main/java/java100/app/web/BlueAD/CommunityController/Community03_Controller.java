@@ -61,6 +61,7 @@ public class Community03_Controller {
 		}
         if (words != null && words[0].length() > 0) {
             options.put("words", words);
+            model.addAttribute("words", words[0]);
         }
         options.put("orderColumn", orderColumn);
         options.put("align", align);
