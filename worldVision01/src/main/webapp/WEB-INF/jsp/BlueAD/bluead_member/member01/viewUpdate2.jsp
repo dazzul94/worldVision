@@ -35,7 +35,7 @@
   </tr>
 </tbody></table>
 <!-- view -->
- <form action='viewUpdate' method='post'>
+ <form action='view' method='post'>
 <table width="100%" align="center" bgcolor="#cad4e3" border="0" cellspacing="1" cellpadding="0">
   <tbody>
   <tr>
@@ -65,36 +65,36 @@
     <td width="100" height="35" class="field_b_pad">전화번호</td>
     <td  style="padding-left: 10px;"  bgcolor="#ffffff">
     <input type="hidden" name="member_tel1" value="${bluead_member.member_tel1}">
-                                <input type="text"size="10" name="member_tel1" value="${bluead_member.member_tel1}">-
+                                <input type="text" name="member_tel1" value="${bluead_member.member_tel1}">-
                                 <input type="hidden" name="member_tel2" value="${bluead_member.member_tel2}">
-                                <input type="text"size="10" name="member_tel2" value="${bluead_member.member_tel2}">-
+                                <input type="text" name="member_tel2" value="${bluead_member.member_tel2}">-
                                 <input type="hidden" name="member_tel3" value="${bluead_member.member_tel3}">
-                                <input type="text" size="10"name="member_tel3" value="${bluead_member.member_tel3}"></td>
+                                <input type="text" name="member_tel3" value="${bluead_member.member_tel3}"></td>
                                
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">휴대전화</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff"><input type="hidden" name="member_htel1" value="${bluead_member.member_htel1}">
-                                <input type="text" size="10" name="member_htel1" value="${bluead_member.member_htel1}">-
-                                <input type="hidden" name="member_htel2" value="${bluead_member.member_htel2}">
-                                <input type="text" size="10" name="member_htel2" value="${bluead_member.member_htel2}">-
-                                <input type="hidden" name="member_htel3" value="${bluead_member.member_htel3}">
-                                <input type="text"size="10"  name="member_htel3" value="${bluead_member.member_htel3}"></td>
+                                <input type="text" name="member_htel1" value="${bluead_member.member_htel1}">-
+                                <input type="hidden" name="member_htel2" value="${bluead_member.member_htel1}">
+                                <input type="text" name="member_htel2" value="${bluead_member.member_htel1}">-
+                                <input type="hidden" name="member_htel3" value="${bluead_member.member_htel1}">
+                                <input type="text" name="member_htel3" value="${bluead_member.member_htel1}"></td>
   </tr>
 
       <tr>
     <td width="100" height="35" class="field_b_pad">주소</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff"> 
                                 <input type="hidden" name="member_address1" value="${bluead_member.member_address1}">
-                                <input type="text"size="50" name="member_address1" value="${bluead_member.member_address1}">
+                                <input type="text" name="member_address1" value="${bluead_member.member_address1}">
                                 <input type="hidden" name="member_address2" value="${bluead_member.member_address2}">
-                                <input type="text" size="50"name="member_address2" value="${bluead_member.member_address2}">
+                                <input type="text" name="member_address2" value="${bluead_member.member_address2}">
                                </td>
   </tr>
   <tr>
     <td width="100" height="35" class="field_b_pad">이메일</td>
     <td style="padding-left: 10px;" bgcolor="#ffffff"> <input type="hidden" name="member_email" value="${bluead_member.member_email}">
-                                <input type="text" size="30" name="member_id" value="${bluead_member.member_email}"></td>
+                                <input type="text" name="member_id" value="${bluead_member.member_email}"></td>
   </tr>
 </tbody></table>
 <!-- view -->

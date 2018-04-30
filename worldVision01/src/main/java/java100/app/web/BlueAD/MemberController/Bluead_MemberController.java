@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java100.app.domain.Member.Bluead_Member;
@@ -28,7 +29,7 @@ public class Bluead_MemberController {
 	public String list(@RequestParam(value = "pn", defaultValue = "1") int pageNo,
 			@RequestParam(value = "ps", defaultValue = "20") int pageSize,
 			@RequestParam(value = "select", defaultValue = "all") String select,
-			@RequestParam(value = "member_join_type", defaultValue = "all") String member_join_type,
+			@RequestParam(value = "member_join_type", defaultValue = "") String member_join_type,
 			@RequestParam(value = "words", required = false) String[] words,
 			@RequestParam(value = "oc", required = false) String orderColumn,
 			@RequestParam(value = "al", required = false) String align,
@@ -90,7 +91,7 @@ public class Bluead_MemberController {
 		model.addAttribute("pageSize", pageSize);
 
 		model.addAttribute("list", bluead_memberService.list(pageNo, pageSize, options));
-
+		
 		return "BlueAD/bluead_member/member01/list";
 	}
 
@@ -101,9 +102,8 @@ public class Bluead_MemberController {
 		return "BlueAD/bluead_member/member01/view";
 	}
 
-	@RequestMapping("viewUpdate")
-	public String viewUpdate(@PathVariable int no, Model model) throws Exception {
-		System.out.println(no);
+	@RequestMapping(value="viewUpdate", method=RequestMethod.GET)
+	public String viewUpdate(@RequestParam(value = "no", defaultValue = "0") int no, Model model) throws Exception {
 		model.addAttribute("bluead_member", bluead_memberService.vup(no));
 		return "BlueAD/bluead_member/member01/viewUpdate";
 	}

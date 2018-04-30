@@ -119,10 +119,9 @@ function really(no){
 </script>
 <script type="text/javascript">
 function viewUpdate(no){
-    if (confirm("수정하겠습니까 ??") == true){    //확인
-    	location.href = ;
 
-    	    window.alert(no);
+    if (confirm("수정하겠습니까 ?")){    //확인
+    	location.href = "${contextPath}/BlueAD/bluead_member/member01/viewUpdate?no="+no;
     }else{   //취소
         return;
     }

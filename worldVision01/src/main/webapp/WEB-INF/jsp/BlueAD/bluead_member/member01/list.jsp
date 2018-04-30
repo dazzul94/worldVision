@@ -40,9 +40,9 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>    
     <td style="padding:2;">
-    <select id="member_join_type" onchange="location.href=this.value">
-	  	<option value="all" selected>:: 전체보기 ::</option>
-        <option value="list?join_type = 1">후원자</option>
+    <select id="memberJoinType" onChange="changeMemberJoinType()">
+	  	<option value="" selected>:: 전체보기 ::</option>
+        <option value="1">후원자</option>
         <option value="2" style="color:blue;">기타</option>
 		<option value="3" style="color:green;">합창단 교사/직원</option>
 		<option value="5" style="color:#660000;">단원/자모</option>
@@ -230,19 +230,19 @@
     $("document").ready(function(){        
         paging(totalData, dataPerPage, pageCount, '<c:out value="${pageNo}"/>');
         
+        var memberJoinType = '<c:out value="${member_join_type}"/>';
+        
+        if (memberJoinType.length > 0) {
+        	$('#memberJoinType').val(memberJoinType);	
+        }
+        
+        
     });
-</script>
-<script type="text/javascript">
-    $(function(){
-      // bind change event to select
-      $('#member_join_type').on('change', function () {
-          var url = $(this).val(); // get selected value(list?join_type = 1)
-          if (url) { // require a URL
-              window.location = url; // redirect
-          }
-          return false;
-      });
-    });
+    /*리스트 합창단과의 관계 선택시 이벤트 */
+    function changeMemberJoinType() {
+    	var memberJoinType = $('#memberJoinType').val();
+    	location.href = "${contextPath}/BlueAD/bluead_member/member01/list?member_join_type=" + memberJoinType;
+    }
 </script>
 </body>
 </html>
