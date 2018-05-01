@@ -135,7 +135,7 @@
 		});
 	</script>
     		<div class="tnb">
-            	<a href="#">로그인</a>
+            	<a href="login">로그인</a>
             </div>
     		<p><a href="http://www.worldvision.or.kr" target="_blank"><img src="${contextPath}/images/index/logo_button_world.gif" alt=""/></a></p>
         </div>

@@ -7,3 +7,4 @@ SELECT comm_no, comm_bbs_id, comm_name, comm_content, comm_pass, comm_date
 FROM bluead_comment 
 WHERE comm_bbs_id = 'wv_gallery02' && comm_bbs_no = 20
 ORDER BY comm_no DESC;
+SELECT * FROM bluead_member WHERE member_id = 'gong';

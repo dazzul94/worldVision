@@ -113,31 +113,72 @@
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
 		
-		function prevPage(cPage){
-			if(cPage != 1){
-				cPage--;
-				location.href = "board2?cPage=" + cPage;
+		function prevPage(cPage, search, cateSelect, sText){
+			if(search == null){
+				if(cPage != 1){
+					cPage--;
+					location.href = "board2?cPage=" + cPage;
+				}else{
+					alert("이전 페이지가 없습니다.");
+				}	
 			}else{
-				alert("이전 페이지가 없습니다.");
+				if(cPage != 1){
+					cPage--;
+					location.href = "board2?cPage=" + cPage + "&search=" + search 
+							+ "&cateSelect=" + cateSelect + "&sText=" + sText;
+				}else{
+					alert("이전 페이지가 없습니다.");
+				}
+			}
+			
+		}
+		
+		function nextPage(cPage, maxPage, search, cateSelect, sText){
+			if(search == null){
+				if(cPage != maxPage){
+					cPage++;
+					location.href = "board2?cPage=" + cPage;
+				}else{
+					alert("다음 페이지가 없습니다.");
+				}	
+			}else{
+				if(cPage != maxPage){
+					cPage++;
+					location.href = "board2?cPage=" + cPage + "&search=" + search 
+					+ "&cateSelect=" + cateSelect + "&sText=" + sText;
+				}else{
+					alert("다음 페이지가 없습니다.");
+				}
+			}
+			
+		}
+		
+		function goView(bbs_no, cPage, search, cateSelect, sText){
+			if(search == null){
+				location.href = "boardView?no=" + bbs_no + "&cPage=" + cPage+ "&str=보도자료&dbName=data";
+			}else{
+				location.href = "boardView?no=" + bbs_no + "&cPage=" + cPage 
+						+ "&str=보도자료&dbName=data&search=" + search 
+						+ "&cateSelect=" + cateSelect + "&sText=" + sText;
 			}
 		}
 		
-		function nextPage(cPage, maxPage){
-			if(cPage != maxPage){
-				cPage++;
-				location.href = "board2?cPage=" + cPage;
+		function goSearch(){
+			var value = $("#serText").val();
+			var select = $("#serSelect option:selected").val();
+			var num = "";
+			if(select == "제목"){
+				num = "1"
+			}else if(select == "내용"){
+				num = "2";
 			}else{
-				alert("다음 페이지가 없습니다.");
+				num = "3";
 			}
+			location.href = "board2?search=1&cateSelect=" + num + "&sText=" + value;
 		}
-		
-		function goView(bbs_no, cPage){
-			location.href = "boardView?no=" + bbs_no + "&str=보도자료&dbName=data&cPage=" + cPage;
-		}
-		
 	</script>
     		<div class="tnb">
-            	<a href="#">로그인</a>
+            	<a href="login">로그인</a>
             </div>
     		<p><a href="http://www.worldvision.or.kr" target="_blank"><img src="${contextPath }/images/index/logo_button_world.gif" alt=""/></a></p>
         </div>
@@ -174,11 +215,11 @@
                    	  <div class="listTop">
                     		<p>총 <span>${bCount }</span> 건</p>
                     		<div class="searchWrap">
-                    			<select>
+                    			<select id="serSelect">
                     			  <option>제목</option>
                     			  <option>내용</option>
                     			  <option>제목 + 내용</option>
-                    			</select><input type="text"><button>검색</button>
+                    			</select><input type="text" id="serText"><button onclick = "goSearch()">검색</button>
                     		</div>
                         </div>
 				<table>
@@ -299,7 +340,7 @@
 					<c:forEach items="${bList }" var="board">
 						<tr>
                     	<td>${board.getBbs_no() }</td>
-                        <td class="subject"><a href="#" onclick="goView('${board.getBbs_no()}', '${cPage }')" return false;>${board.getBbs_subject() }</a></td>
+                        <td class="subject"><a href="#" onclick="goView('${board.getBbs_no()}', '${cPage }', '${search }', '${cateSelect}', '${sText }')" return false;>${board.getBbs_subject() }</a></td>
                         <td>${board.getBbs_name() }</td>
                         <td>${board.getBbs_date().substring(0, 4) }-${board.getBbs_date().substring(4, 6) }-${board.getBbs_date().substring(6, 8) }</td>
                         <td>${board.getBbs_hit() }</td>
@@ -308,8 +349,9 @@
 					
 				</table>
                 
-                
-                	<div class="pagerWrap">
+                <c:choose>
+                	<c:when test="${search == null }">	
+					<div class="pagerWrap">
                 
 						<a href="board2?cPage=1"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
 						<a href="#" onclick="prevPage('${cPage}')" return false;><img src="${contextPath }/images/index/board/prevArr.png" alt="앞으로" /></a>
@@ -339,7 +381,29 @@
 						<a href="board2?cPage=${maxPage}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>
 			
             		</div>
+                	</c:when>
+            		<c:otherwise>
+            		<div class="pagerWrap">
                 
+						<a href="board2?cPage=1&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
+						<a href="#" onclick="prevPage('${cPage}', '${search }', '${cateSelect}', '${sText }')" return false;><img src="${contextPath }/images/index/board/prevArr.png" alt="앞으로" /></a>
+
+						<c:forEach begin="1" end="${maxPage }" step="1" var="i">
+							<c:choose>
+								<c:when test="${cPage == i }">
+									<a href="board2?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}" class="on">${i }</a>
+								</c:when>
+								<c:otherwise>
+									<a href="board2?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}">${i }</a>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<a href="#" onclick="nextPage('${cPage}', '${maxPage }', '${search }', '${cateSelect}', '${sText }')" return false;><img src="${contextPath }/images/index/board/nextArr.png" alt="뒤로" /></a>
+						<a href="board2?cPage=${maxPage}&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>
+			
+            		</div>
+            		</c:otherwise>
+            		</c:choose>
 			</div>
             <!-- E: board -->
             </div><!--contentwrap-->

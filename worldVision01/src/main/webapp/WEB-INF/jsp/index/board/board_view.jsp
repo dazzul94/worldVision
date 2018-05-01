@@ -113,14 +113,19 @@
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
 		
-		function goList(cPage, dbName){
+		function goList(cPage, dbName, search, cateSelect, sText){
 			var no = "";
 			if(dbName == "data"){
-					no = "2";
+				no = "2";
 			}else if(dbName == "webzine"){
-					no = "3"
+				no = "3";
 			}
-			location.href = "board" + no + "?cPage=" + cPage;
+			if(search == null){
+				location.href = "board" + no + "?cPage=" + cPage;
+			}else{
+				location.href = "board" + no + "?cPage=" + cPage + "&search=" + search 
+				+ "&cateSelect=" + cateSelect + "&sText=" + sText;
+			}
 		}
 	</script>
     		<div class="tnb">
@@ -185,6 +190,7 @@
                 </div>
                 
                 <div class="commentViewWrap">
+                <!-- 
                 	<div class="inner">
                     	<div>
                         	<p><strong>김민선</strong>2017-06-14  오후 7:03:59 </p>
@@ -202,12 +208,21 @@
                         	독보적인 댄스 실력의 무엘이..
                         </div>
                     </div>
+                     -->
+                    <c:forEach items="${cList }" var="comment">
+	                    <div class="inner">
+	                    	<div>
+	                        	<p><strong>${comment.getComm_name() }</strong>${comment.getComm_date().substring(0, 4) }-${comment.getComm_date().substring(4, 6) }-${comment.getComm_date().substring(6, 8) } </p>
+	               				${comment.getComm_content() }
+	                        </div>
+	                    </div>
+                    </c:forEach>
                 </div>
             	<!-- E : Comment -->
             <div class="boardbtn text_right">
             	<a href="#">수정</a>
                 <a href="#">삭제</a>
-                 <a href="#" class="gray" onclick="goList('${cPage}', '${gNo }')" return false;>목록</a>
+                 <a href="#" class="gray" onclick="goList('${cPage}', '${dbName }', '${search }', '${cateSelect}', '${sText }')" return false;>목록</a>
             </div>
             
             

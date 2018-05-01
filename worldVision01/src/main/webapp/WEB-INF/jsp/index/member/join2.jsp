@@ -154,7 +154,7 @@
 					<tbody>
                     <tr>
 						<th><strong class="orange_f">*</strong> 이름</th>
-						<td>김민선<input type="hidden" value="김민선" name="member_name" /></td>
+						<td>${name }<input type="hidden" value="${name }" name="member_name" /></td>
 					</tr>
                     <tr>
 						<th><strong class="orange_f">*</strong> 아이디</th>

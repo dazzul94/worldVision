@@ -112,6 +112,11 @@
 			$("nav.menu>ul>li").removeClass("on");
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
+		
+		function goNext(){
+			var name = document.getElementById('name').value;
+			location.href = "join2?name=" + name;
+		}
 	</script>
     		<div class="tnb">
             	<a href="#">아이디/비번찾기</a>
@@ -142,7 +147,7 @@
            	  <h3 class="wonh3">실명확인</h3>
               <div class="joinbox">
                             	<p><label><img src="${contextPath }/images/index/member/fd1.gif" alt=""/></label>
-                                <input type="text" class="tel"></p>
+                                <input type="text" class="tel" id="name"></p>
                                 
                                 <p><label><img src="${contextPath }/images/index/member/fd3.gif" alt=""/></label>
                                 <input type="text"></p>
@@ -257,7 +262,7 @@
                 
                 
                 <div class="clear boardbtn mt50 text_center">
-            	<a href="join2">다음단계</a>
+            	<a href="#" onclick="goNext()" return false;>다음단계</a>
             </div>
                 <!-- join -->
             </div><!--contentwrap-->
