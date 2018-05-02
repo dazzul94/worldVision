@@ -142,9 +142,9 @@
             	<!-- LOGIN -->
            	  <div class="idSearchWrap">
            		<div class="idbox">
-                            	<label><img src="${contextPath }/images/index/member/find_email.gif" salt=""/></label>
+                            	<label><img src="${contextPath }/images/index/member/find_name.gif" alt=""/></label>
                                 <input type="text"> <span>실명으로 공백없이 정확히 입력해주세요.</span><br/>
-                                <label><img src="${contextPath }/images/index/member/find_name.gif" alt=""/></label>
+                                <label><img src="${contextPath }/images/index/member/find_email.gif" alt=""/></label>
                                 <input type="text"> <span>가입시 입력하신 사항을 정확히 입력해주세요.</span>
                                 
                                 <input type="button" class="okbtn" value="아이디 찾기">
@@ -161,9 +161,9 @@
                                 <label><img src="${contextPath }/images/index/member/find_id.gif"  alt=""/></label>
                                 <input type="text"> 
                                 <span>가입된 아이디를 정확히 입력해주세요.</span><br/>
-                                <label><img src="${contextPath }/images/index/find_email.gif" alt=""/></label>
+                                <label><img src="${contextPath }/images/index/member/find_email.gif" alt=""/></label>
                                 <input type="text">  <a href="#" class="btn_normal">인증번호받기</a><br/>
-                                <label><img src="${contextPath }/images/index/member/find_name.gif" alt=""/></label>
+                                <label><img src="${contextPath }/images/index/member/find_email2.gif" alt=""/></label>
                                 <input type="text"> <span>가입시 입력하신 사항을 정확히 입력해주세요.</span>
                                 
                                 <input type="button" class="okbtn" value="비밀번호 찾기">

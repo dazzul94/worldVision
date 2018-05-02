@@ -154,7 +154,7 @@
                             <a href="join"><img src="${contextPath }/images/index/member/btn_join.gif" alt=""/></a></p>
                             
                             <p class="mtb5"><img src="${contextPath }/images/index/member/login_mnt2.gif" alt=""/>
-                            <a href="#"><img src="${contextPath }/images/index/member/btn_find.gif" alt=""/></a></p>
+                            <a href="findId"><img src="${contextPath }/images/index/member/btn_find.gif" alt=""/></a></p>
               </div>
                 <!-- LOGIN -->
             </div><!--contentwrap-->

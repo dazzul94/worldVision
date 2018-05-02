@@ -352,8 +352,15 @@
                 <c:choose>
                 	<c:when test="${search == null }">	
 					<div class="pagerWrap">
-                
-						<a href="board2?cPage=1"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
+                		<c:choose>
+                		<c:when test="${startPage != 1 }">
+							<a href="board2?cPage=${startPage - 10 }"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
+						</c:when>
+						<c:otherwise>
+							<img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" />
+						</c:otherwise>
+						</c:choose>
+
 						<a href="#" onclick="prevPage('${cPage}')" return false;><img src="${contextPath }/images/index/board/prevArr.png" alt="앞으로" /></a>
 						<!--  
 						<a href="#!" class="on">1</a>
@@ -367,7 +374,7 @@
 						<a href="#!">9</a>
 						<a href="#!">10</a>
 						-->
-						<c:forEach begin="1" end="${maxPage }" step="1" var="i">
+						<c:forEach begin="${startPage }" end="${endPage }" step="1" var="i">
 							<c:choose>
 								<c:when test="${cPage == i }">
 									<a href="board2?cPage=${i }" class="on">${i }</a>
@@ -378,17 +385,30 @@
 							</c:choose>
 						</c:forEach>
 						<a href="#" onclick="nextPage('${cPage}', '${maxPage }')" return false;><img src="${contextPath }/images/index/board/nextArr.png" alt="뒤로" /></a>
-						<a href="board2?cPage=${maxPage}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>
-			
+						
+						<c:choose>
+                		<c:when test="${startPage+10 < maxPage }">
+							<a href="board2?cPage=${startPage + 10}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>	
+						</c:when>
+						<c:otherwise>
+							<img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" />
+						</c:otherwise>
+						</c:choose>			
             		</div>
                 	</c:when>
             		<c:otherwise>
             		<div class="pagerWrap">
-                
-						<a href="board2?cPage=1&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
+            			<c:choose>
+                		<c:when test="${startPage != 1 }">
+							<a href="board2?cPage=${startPage - 10 }&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
+						</c:when>
+						<c:otherwise>
+							<img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" />
+						</c:otherwise>
+						</c:choose>
 						<a href="#" onclick="prevPage('${cPage}', '${search }', '${cateSelect}', '${sText }')" return false;><img src="${contextPath }/images/index/board/prevArr.png" alt="앞으로" /></a>
 
-						<c:forEach begin="1" end="${maxPage }" step="1" var="i">
+						<c:forEach begin="${startPage }" end="${endPage }" step="1" var="i">
 							<c:choose>
 								<c:when test="${cPage == i }">
 									<a href="board2?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}" class="on">${i }</a>
@@ -399,8 +419,15 @@
 							</c:choose>
 						</c:forEach>
 						<a href="#" onclick="nextPage('${cPage}', '${maxPage }', '${search }', '${cateSelect}', '${sText }')" return false;><img src="${contextPath }/images/index/board/nextArr.png" alt="뒤로" /></a>
-						<a href="board2?cPage=${maxPage}&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>
-			
+						
+						<c:choose>
+                		<c:when test="${startPage+10 < maxPage }">
+							<a href="board2?cPage=${startPage + 10}&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>	
+						</c:when>
+						<c:otherwise>
+							<img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" />
+						</c:otherwise>
+						</c:choose>				
             		</div>
             		</c:otherwise>
             		</c:choose>

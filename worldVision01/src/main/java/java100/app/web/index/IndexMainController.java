@@ -163,6 +163,9 @@ public class IndexMainController {
 		}else {
 			cPage = Integer.parseInt(str_pNum);
 		}
+		int perPageCount = 10;
+		int startPage = ((cPage - 1) / perPageCount) * perPageCount + 1;
+		int endPage = startPage + perPageCount - 1;
 		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_gallery02 ORDER BY bbs_no DESC";
 
@@ -180,6 +183,9 @@ public class IndexMainController {
 		}
 		int bCount = dao.getBoard(sql).length;
 		int maxPage = bCount / 12 + 1;
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
 		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_gallery02 "
 				+ "ORDER BY bbs_no DESC LIMIT " + (cPage-1)*perPage + "," + perPage;
@@ -196,6 +202,8 @@ public class IndexMainController {
 		model.addAttribute("bCount", bCount);
 		model.addAttribute("cPage", cPage);
 		model.addAttribute("maxPage", maxPage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
 		
 		return "gallery/gallery2";
 	}
@@ -216,6 +224,9 @@ public class IndexMainController {
 		}else {
 			cPage = Integer.parseInt(str_pNum);
 		}
+		int perPageCount = 10;
+		int startPage = ((cPage - 1) / perPageCount) * perPageCount + 1;
+		int endPage = startPage + perPageCount - 1;
 		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_gallery04 ORDER BY bbs_no DESC";
 
@@ -233,6 +244,9 @@ public class IndexMainController {
 		}
 		int bCount = dao.getBoard(sql).length;
 		int maxPage = bCount / 12 + 1;
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
 		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_gallery04 "
 				+ "ORDER BY bbs_no DESC LIMIT " + (cPage-1)*perPage + "," + perPage;
@@ -249,6 +263,9 @@ public class IndexMainController {
 		model.addAttribute("bCount", bCount);
 		model.addAttribute("cPage", cPage);
 		model.addAttribute("maxPage", maxPage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		
 		return "gallery/gallery3";
 	}
 	
@@ -298,6 +315,9 @@ public class IndexMainController {
 		}else {
 			cPage = Integer.parseInt(str_pNum);
 		}
+		int perPageCount = 10;
+		int startPage = ((cPage - 1) / perPageCount) * perPageCount + 1;
+		int endPage = startPage + perPageCount - 1;
 		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_community01 ORDER BY bbs_no DESC";
 
@@ -315,6 +335,9 @@ public class IndexMainController {
 		}
 		int bCount = dao.getBoard(sql).length;
 		int maxPage = bCount / 12 + 1;
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
 		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_community01 "
 				+ "ORDER BY bbs_no DESC LIMIT " + (cPage-1)*perPage + "," + perPage;
@@ -331,6 +354,8 @@ public class IndexMainController {
 		model.addAttribute("bCount", bCount);
 		model.addAttribute("cPage", cPage);
 		model.addAttribute("maxPage", maxPage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
 		
 		return "board/board";
 	}
@@ -356,6 +381,7 @@ public class IndexMainController {
 			model.addAttribute("search", request.getParameter("search"));
 			model.addAttribute("cateSelect", request.getParameter("cateSelect"));
 			model.addAttribute("sText", request.getParameter("sText"));
+			
 		}
 		return "board/board_view";
 	}
@@ -377,11 +403,16 @@ public class IndexMainController {
 		
 		int cPage = 0;
 		int perPage = 12;
+		
 		if(str_pNum == null) {
 			cPage = 1;
 		}else {
 			cPage = Integer.parseInt(str_pNum);
 		}
+		int perPageCount = 10;
+		int startPage = ((cPage - 1) / perPageCount) * perPageCount + 1;
+		int endPage = startPage + perPageCount - 1;
+		
 		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_data ORDER BY bbs_no DESC";
 
@@ -399,6 +430,9 @@ public class IndexMainController {
 		}
 		int bCount = dao.getBoard(sql).length;
 		int maxPage = bCount / 12 + 1;
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
 		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_data "
 				+ "ORDER BY bbs_no DESC LIMIT " + (cPage-1)*perPage + "," + perPage;
@@ -415,6 +449,8 @@ public class IndexMainController {
 		model.addAttribute("bCount", bCount);
 		model.addAttribute("cPage", cPage);
 		model.addAttribute("maxPage", maxPage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
 		
 		return "board/board2";
 	}
@@ -430,11 +466,17 @@ public class IndexMainController {
 		
 		int cPage = 0;
 		int perPage = 12;
+		int perPageCount = 10;
+		
 		if(str_pNum == null) {
 			cPage = 1;
 		}else {
 			cPage = Integer.parseInt(str_pNum);
 		}
+		
+		int startPage = ((cPage - 1) / perPageCount) * perPageCount + 1;
+		int endPage = startPage + perPageCount - 1;
+				
 		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_webzine ORDER BY bbs_no DESC";
 
@@ -452,6 +494,11 @@ public class IndexMainController {
 		}
 		int bCount = dao.getBoard(sql).length;
 		int maxPage = bCount / 12 + 1;
+		
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
+		
 		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_webzine "
 				+ "ORDER BY bbs_no DESC LIMIT " + (cPage-1)*perPage + "," + perPage;
@@ -468,13 +515,16 @@ public class IndexMainController {
 		model.addAttribute("bCount", bCount);
 		model.addAttribute("cPage", cPage);
 		model.addAttribute("maxPage", maxPage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
 		
 		return "board/board3";
 	}
 	
 	@RequestMapping("login")
 	public String goLogin() {
-		
 		return "member/login";
 	}
 	
@@ -492,7 +542,12 @@ public class IndexMainController {
 	}
 	
 	@RequestMapping("findId")
-	public String goFind() {
+	public String goFind(Model model, HttpServletRequest request) {
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String sql = "SELECT member_id FROM bluead_member WHERE member_name = '" + name + "' && member_email = '" + email + "'";
+		String id = dao.getFindId(sql);
+		model.addAttribute("findId", id);
 		
 		return "member/findid";
 	}
@@ -501,6 +556,6 @@ public class IndexMainController {
 	public String doJoin(Member member) {
 		dao.insertMember(member);
 		
-		return "member/login";
+		return "redirect:/member/login";
 	}
 }

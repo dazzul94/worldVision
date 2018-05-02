@@ -8,3 +8,4 @@ FROM bluead_comment
 WHERE comm_bbs_id = 'wv_gallery02' && comm_bbs_no = 20
 ORDER BY comm_no DESC;
 SELECT * FROM bluead_member WHERE member_id = 'gong';
+
