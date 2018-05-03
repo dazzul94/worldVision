@@ -74,7 +74,7 @@ public class IndexDAO {
 		String sql = "INSERT INTO bluead_member (member_id, member_nick, member_pass, member_name, member_reg_no1, "
 				+ "member_reg_no2, member_birth1, member_birth2, member_email, member_zip1, member_zip2, "
 				+ "member_address1, member_address2, member_tel1, member_tel2, member_tel3, member_htel1,"
-				+ "member_htel2, member_htel3) VALUES (?, ?, PASSWORD(?), ?, ?, ? ,? ,? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "member_htel2, member_htel3) VALUES (?, ?, OLD_PASSWORD(?), ?, ?, ? ,? ,? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		return jTmp.update(sql, member.getMember_id(), member.getMember_nick(), member.getMember_pass(), 
 				member.getMember_name(), member.getMember_reg_no1(), member.getMember_reg_no2(), member.getMember_birth1(),
@@ -95,6 +95,40 @@ public class IndexDAO {
 		};		
 
 		return jTmp.query(sql, mapper).get(0).getMember_id();
+	}
+	
+	public boolean checkId(String id) {
+		String sql = "SELECT member_id FROM bluead_member WHERE member_id = '" + id + "'";
+		
+		RowMapper<Member> mapper = new RowMapper<Member>() {
+			@Override
+			public Member mapRow(ResultSet rs, int idx) 
+					throws SQLException {				
+				return new Member(
+					rs.getString("member_id")
+				);
+			}				
+		};		
+		
+		return jTmp.query(sql, mapper).size() != 0;
+	}
+	
+	public boolean checkPass(String id, String pass) {
+		
+		String sql = "SELECT member_id, member_pass FROM bluead_member "
+				+ "WHERE member_id='" + id + "' && member_pass = OLD_PASSWORD('" + pass + "')";
+		RowMapper<Member> mapper = new RowMapper<Member>() {
+			@Override
+			public Member mapRow(ResultSet rs, int idx) 
+					throws SQLException {				
+				return new Member(
+					rs.getString("member_id"),
+					rs.getString("member_pass")
+				);
+			}				
+		};		
+		
+		return jTmp.query(sql, mapper).size() != 0;
 	}
 	
 //	public String encrypt(String planText) {

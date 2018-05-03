@@ -30,6 +30,12 @@ public class Member {
 		super();
 		this.member_id = member_id;
 	}
+	
+	public Member(String member_id, String member_pass) {
+		super();
+		this.member_id = member_id;
+		this.member_pass = member_pass;
+	}
 
 	public Member(int no, String member_id, String member_nick, String member_pass, String member_name,
 			String member_reg_no, String member_reg_no2, String member_birth, String memeber_birth2,

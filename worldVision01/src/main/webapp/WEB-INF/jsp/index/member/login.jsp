@@ -113,6 +113,12 @@
 			$("nav.menu>ul>li").removeClass("on");
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
+		
+		function doLogin(){
+			var form = $("#form");
+			form.submit();
+		}
+		
 	</script>
     		<div class="tnb">
             	<a href="login">로그인</a>
@@ -142,12 +148,14 @@
             	<!-- LOGIN -->
            	  <div class="loginWrap">
            		<div class="loginbox">
+           				<form method="post" id="form" action="doLogin">
                             	<label><img src="${contextPath }/images/index/member/login_id.gif" alt=""/></label>
-                                <input type="text">
+                                <input type="text" name = "id">
                                 <label><img src="${contextPath }/images/index/member/login_pw.gif"  alt=""/></label>
-                                <input type="text">
+                                <input type="password" name = "pass">
                                 
-                                <input type="button" class="loginbtn" value="로그인">
+                                <input type="button" class="loginbtn" value="로그인" onclick="doLogin()">
+                          </form>
                		  		</div>
                             
                             <p class="mt10"><img src="${contextPath }/images/index/member/login_mnt1.gif" alt=""/>

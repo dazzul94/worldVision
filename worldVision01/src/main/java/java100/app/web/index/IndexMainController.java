@@ -556,6 +556,26 @@ public class IndexMainController {
 	public String doJoin(Member member) {
 		dao.insertMember(member);
 		
-		return "redirect:/member/login";
+		return "member/login";
+	}
+	
+	@RequestMapping("doLogin")
+	public String doLogin(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
+		String jspPage = "member/login";
+		
+		if(dao.checkId(id)) {
+			if(dao.checkPass(id, pass)) {
+				System.out.println("로그인 성공");
+				jspPage = "main";
+			}else {
+				System.out.println("비밀번호가 틀렸습니다.");
+			}
+		}else {
+			System.out.println("id가 없습니다.");
+		}
+		
+		return jspPage;
 	}
 }
