@@ -133,61 +133,29 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; REQUEST &gt; <strong>입단신청</strong></p>
-            <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
+        	<p class="page_nav">HOME &gt; REQUEST &gt; <strong>각종증명서신청</strong></p>
+            <div class="sub_visual"><img src="{contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>입단신청<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>각종증명서신청<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
-            	<h3><img src="${contextPath }/images/index/online_title.gif"  alt=""/></h3>        	  
-                <p class="mt30"><img src="${contextPath }/images/index/info_title03.gif"  alt=""/></p>
+            	<h3><img src="{contextPath }/images/index/online_title.gif"  alt=""/></h3>        	  
+                
                 <!-- S: board -->
                  
-                    	<div class="writeLayout">
-				<table>
+                    	<div class="writeLayout mt30">
+                        
+                       
+                
+                <table>
 					<tbody>
                     <tr>
 						<th>이름</th>
 						<td><input type="text"></td>
-					</tr>
-                    <tr>
-						<th>희망지역</th>
-						<td><select>
-						  <option>강서반</option>
-						  <option>강남반</option>
-						  <option>강북반</option>
-						  <option>인산방</option>
-                          <option>분당반</option>
-						</select></td>
-					</tr>
-                    <tr>
-						<th>성별</th>
-						<td><input type="radio"> 남자 <input type="radio" class="ml15"> 여자</td>
-					</tr><tr>
-						<th>학년</th>
-						<td><input type="radio"> 2학년 <input type="radio" class="ml15"> 3학년 <input type="radio" class="ml15"> 4학년 <input type="radio" class="ml15"> 5학년 <input type="radio" class="ml15"> 6학년</td>
-					</tr>
-                    <tr>
-						<th>부모님 성함</th>
-						<td><input type="text"></td>
-					</tr>
-                    <tr>
-						<th>입단신청경로</th>
-						<td><select>
-						  <option>선택해주세요</option>
-						  <option>사전인지</option>
-						  <option>검색</option>
-                          <option>인터넷 검색</option>
-						  <option>지인소개</option>
-						  <option>단원소개</option>
-						  <option>공연관람</option>
-						  <option>홍보매체</option>
-						  <option>기타</option>
-					  </select> <input type="text" placeholder="검색어를 입력해 주세요"></td>
 					</tr>
                     <tr>
 						<th>일반전화</th>
@@ -205,20 +173,22 @@
 					</tr>
                     <tr>
 						<th>주소</th>
-						<td><input type="text"  class="zip"> - <input type="text" class="zip"> <a href="#" class="sbtn">우편번호</a><br/>
+						<td><input type="text" class="zip"> - <input type="text" class="zip"> <a href="#" class="sbtn">우편번호</a><br/>
                         <input type="text" class="wid100 mt3"><br/>
                         <input type="text" class="wid100 mt3"></td>
 					</tr>
-					<tr>
-						<th>기타</th>
+                    
+                    
+                    
+                   <tr>
+						<th>증명서 신청 내용</th>
 						<td><textarea class="textarea"> </textarea></td>
 						
 					</tr>
-					
 				</tbody></table>
                 
                 <div class="dot_line"></div>
-                <h3><img src="${contextPath }/images/index/online_title1.gif" alt=""/></h3>    
+                <h3><img src="{contextPath }/images/index/online_title1.gif" alt=""/></h3>    
                 <div style="width:100%;height:140px;overflow-x:hidden;overflow-y:scroll;border:1px solid #D4D0C8 ;">
 		<table cellpadding="0" cellspacing="0" border="0" width="100%">
 			<tbody><tr>
@@ -281,7 +251,7 @@
     <!-- footer -->
 	<footer id="footer">
     	<div class="inner">
-        	<h1><img src="${contextPath }/images/index/foot_logo.gif" alt=""/></h1>
+        	<h1><img src="{contextPath }/images/index/foot_logo.gif" alt=""/></h1>
             <div class="info">
             	<p>기관:월드비전 음악원 │ 주소:(우 07638) 서울특별시 강서구 강서로 47마길 85(내발산동 711-11) 월드비전 음악원<br/>
                 대표자:한상호 │ 사업자등록번호:109-82-09997 │ 대표전화:02-2662-1803 │ 팩스:02-2661-2568</p>

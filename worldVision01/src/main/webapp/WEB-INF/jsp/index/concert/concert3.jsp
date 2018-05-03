@@ -135,139 +135,41 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; CONCERT &gt; <strong>연주일정</strong></p>
+        	<p class="page_nav">HOME &gt; CONCERT &gt; <strong>기획연주</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>연주일정<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>기획연주<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
-            
-            		<!-- 달력 -->
-                    <p class="calendar_year">
-                    	<a href="#"><img src="${contextPath }/images/index/data_prev.gif" alt=""/></a>
-                        2018년 4월
-                        <a href="#"><img src="${contextPath }/images/index/data_next.gif" alt=""/></a>
-                    </p>
-                    
-                    <table class="calendar_table">
-        <thead>
-		<tr>
-          <th align="center" width="102"><font color="#ff2400">일요일</font></th>
-          <th align="center" width="103">월요일</th>
-          <th align="center" width="103">화요일</th>
-          <th align="center" width="103">수요일</th>
-          <th align="center" width="103">목요일</th>
-          <th align="center" width="103">금요일</th>
-          <th align="center" width="103"><font color="#3a6ebc">토요일</font></th>
-        </tr>
-        </thead>
-        <tbody>
-		<tr>
-	<td valign="top">
-	  <div><font color="#ff2400">1</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">2</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">3</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">4</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">5</font>
-	  
-	    <p title="부활절 음악예배" onclick="location.href='/index/data_01.php?no=480&amp;year=2018&amp;month=4';" onmouseover="Overit('480');" onmouseout="Outit();" style="cursor:pointer"><a href="concert01_view.html"><img src="${contextPath }/images/index/data_icon01.gif"> <font color="#000000">부활절 음악예배</font></a></p>
-        </div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">6</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">7</font></div>
-	</td>
-</tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">8</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">9</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">10</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">11</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">12</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">13</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">14</font></div>
-	</td>
-</tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">15</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">16</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">17</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">18</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">19</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">20</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">21</font></div>
-	</td>
-</tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">22</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">23</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">24</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">25</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">26</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">27</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">28</font></div>
-	</td>
-    </tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">29</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">30</font></div>
-	</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-		</tr>
-        </tbody></table>
-                    <!-- 달력 -->
+            	<p><img src="${contextPath }/images/index/concert_03_img2.jpg" alt=""/></p>
+              <p class="mt30">월드비전 합창단은 어린이와 청소년들의 문화 발전을 위한 다양한 기획연주를 통해 새로운 장르와 퍼포먼스를 시도하고, 합창 문화 발전에 기여하고 있다.</p>
+            	<div class="floatL mt50" style="width:370px;">
+           	    	<img src="${contextPath }/images/index/concert_03_img1.jpg" alt=""/> 
+                </div>
+                <div class="floatL mt50" style="width:360px;">
+           	    	<ul>
+                    	<li>- 신데렐라 - 세종문화회관 (1980)</li>
+                    	<li>- 요정과 인형 - 예술의 전당 (1994)</li>
+                    	<li>- Memoire-코엑스 오디토리움 (2005)</li>
+                    	<li>- Image 樂 - 세종문화회관 (2007-2009)</li>
+                    	<li>- Count your Blessings - 월드글로리아센터 (2007)</li>
+                    	<li>- 사랑과 감사의 축제 - 세종문화회관 (2010)</li>
+                    	<li>- Hymn Festival - 세종문화회관 (2011-2012)</li>
+                    	<li>- 선명회어린이합창단을 만나다 - 세종문화회관 (2013)</li>
+                    	<li>- 굿모닝 피니아스 - 영락교회 베다니홀, 동숭교회 (2013)</li>
+                    	<li>- 세계합창심포지엄 개최 기념 음악회 - 고양아람누리 (2014)</li>
+                    	<li>- Together - 예술의 전당 (2014)</li>
+                    	<li>- 한중교류콘서트-과천시민회관 (2015)</li>
+                    	<li>- Amazing Love - 예술의 전당 (2015)</li>
+                    	<li>- Carols for Christmas-고양아람누리 (2016)</li>
+                    	<li>- 월드비전 합창단 제56차 해외연주 기념음악회-예술의 전당 (2017)</li>
+                    	<li>- 세계민요 합창 모험극 '바다와 피리' / 세종문화회관 (2017)</li>
+                    </ul>
+                </div>
             </div><!--contentwrap-->
                 	
             </div>

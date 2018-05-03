@@ -114,7 +114,7 @@
 		});
 	</script>
     		<div class="tnb">
-            	<a href="#">로그인</a>
+            	<a href="login">로그인</a>
             </div>
     		<p><a href="http://www.worldvision.or.kr" target="_blank"><img src="${contextPath }/images/index/logo_button_world.gif" alt=""/></a></p>
         </div>
@@ -132,7 +132,7 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; ABOUT &gt; <strong>기관소개</strong></p>
+        	<p class="page_nav">HOME &gt; ABOUT &gt; <strong>오시는 길</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->

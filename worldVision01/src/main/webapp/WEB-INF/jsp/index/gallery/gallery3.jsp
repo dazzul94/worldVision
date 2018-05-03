@@ -112,70 +112,72 @@
 			$("nav.menu>ul>li").removeClass("on");
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
-		
-		function prevPage(cPage, search, cateSelect, sText){
-			if(search == null){
-				if(cPage != 1){
-					cPage--;
-					location.href = "board?cPage=" + cPage;
-				}else{
-					alert("이전 페이지가 없습니다.");
-				}	
+	</script>
+	<script>
+	function prevPage(cPage, search, cateSelect, sText){
+		if(search == null){
+			if(cPage != 1){
+				cPage--;
+				location.href = "gallery3?cPage=" + cPage;
 			}else{
-				if(cPage != 1){
-					cPage--;
-					location.href = "board?cPage=" + cPage + "&search=" + search 
-							+ "&cateSelect=" + cateSelect + "&sText=" + sText;
-				}else{
-					alert("이전 페이지가 없습니다.");
-				}
-			}
-			
-		}
-		
-		function nextPage(cPage, maxPage, search, cateSelect, sText){
-			if(search == null){
-				if(cPage != maxPage){
-					cPage++;
-					location.href = "board?cPage=" + cPage;
-				}else{
-					alert("다음 페이지가 없습니다.");
-				}	
-			}else{
-				if(cPage != maxPage){
-					cPage++;
-					location.href = "board?cPage=" + cPage + "&search=" + search 
-					+ "&cateSelect=" + cateSelect + "&sText=" + sText;
-				}else{
-					alert("다음 페이지가 없습니다.");
-				}
-			}
-			
-		}
-		
-		function goView(bbs_no, cPage, search, cateSelect, sText){
-			if(search == null){
-				location.href = "boardView?no=" + bbs_no + "&cPage=" + cPage+ "&str=공지사항&dbName=community01";
-			}else{
-				location.href = "boardView?no=" + bbs_no + "&cPage=" + cPage 
-						+ "&str=공지사항&dbName=community01&search=" + search 
+				alert("이전 페이지가 없습니다.");
+			}	
+		}else{
+			if(cPage != 1){
+				cPage--;
+				location.href = "gallery3?cPage=" + cPage + "&search=" + search 
 						+ "&cateSelect=" + cateSelect + "&sText=" + sText;
+			}else{
+				alert("이전 페이지가 없습니다.");
 			}
 		}
 		
-		function goSearch(){
-			var value = $("#serText").val();
-			var select = $("#serSelect option:selected").val();
-			var num = "";
-			if(select == "제목"){
-				num = "1"
-			}else if(select == "내용"){
-				num = "2";
+	}
+	
+	function nextPage(cPage, maxPage, search, cateSelect, sText){
+		if(search == null){
+			if(cPage != maxPage){
+				cPage++;
+				location.href = "gallery3?cPage=" + cPage;
 			}else{
-				num = "3";
+				alert("다음 페이지가 없습니다.");
+			}	
+		}else{
+			if(cPage != maxPage){
+				cPage++;
+				location.href = "gallery3?cPage=" + cPage + "&search=" + search 
+				+ "&cateSelect=" + cateSelect + "&sText=" + sText;
+			}else{
+				alert("다음 페이지가 없습니다.");
 			}
-			location.href = "board?search=1&cateSelect=" + num + "&sText=" + value;
 		}
+		
+	}
+	
+	function goView(bbs_no, cPage, search, cateSelect, sText){
+		if(search == null){
+			location.href = "galleryView?no=" + bbs_no + "&cPage=" + cPage+ "&str=포스터/이미지&dbName=gallery04";
+		}else{
+			location.href = "galleryView?no=" + bbs_no + "&cPage=" + cPage 
+					+ "&str=포스터/이미지&dbName=gallery04&search=" + search 
+					+ "&cateSelect=" + cateSelect + "&sText=" + sText;
+		}
+		
+	}
+	
+	function goSearch(){
+		var value = $("#serText").val();
+		var select = $("#serSelect option:selected").val();
+		var num = "";
+		if(select == "제목"){
+			num = "1"
+		}else if(select == "내용"){
+			num = "2";
+		}else{
+			num = "3";
+		}
+		location.href = "gallery3?search=1&cateSelect=" + num + "&sText=" + value;
+	}
 	</script>
     		<div class="tnb">
             	<a href="login">로그인</a>
@@ -184,25 +186,25 @@
         </div>
     </header>
     <!-- //header -->
-    
-    <section id="container">
+        <section id="container">
     	<article id="lnbWrap">
-        	<h2>BOARD</h2>
+        	<h2>GALLERY</h2>
             <ul>
-            	<li><a href="board">공지사항</a></li>
-                <li><a href="board2">보도자료</a></li>
-                <li><a href="board3">월비통신</a></li>
+            	<li><a href="gallery">사진</a></li>
+                <li><a href="gallery2">영상</a></li>
+                <li><a href="gallery3">포스터</a></li>
+                <li><a href="gallery4">음반</a></li>
             </ul>
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; BOARD &gt; <strong>공지사항</strong></p>
+        	<p class="page_nav">HOME &gt; GALLERY &gt; <strong>포스터/이미지</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>공지사항<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>포스터/이미지<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
@@ -233,7 +235,7 @@
 					<!--  
 					<tr>
                     	<td>1</td>
-                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a> <img src="${contextPath }/images/index/board/ico_new.gif" class="ml5" alt=""/></td>
+                        <td class="subject"><a href="#">내 주 되신 주를 참 사랑하고 - 이현철</a></td>
                         <td>관리자</td>
                         <td>2010-05-08</td>
                         <td>335</td>
@@ -337,7 +339,6 @@
                         <td>335</td>
 					</tr>
 					-->
-					
 					<c:forEach items="${bList }" var="board">
 						<tr>
                     	<td>${board.getBbs_no() }</td>
@@ -347,16 +348,15 @@
                         <td>${board.getBbs_hit() }</td>
 					</tr>
 					</c:forEach>
-					
 				</table>
-                
-                <c:choose>
+                	
+                	<c:choose>
                 	<c:when test="${search == null }">	
-					<div class="pagerWrap">
+                	<div class="pagerWrap">
                 
 						<c:choose>
-                		<c:when test="${startPage != 1 }">
-							<a href="board?cPage=${startPage - 10 }"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
+						<c:when test="${startPage != 1 }">
+							<a href="gallery3?cPage=${startPage - 10 }"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
 						</c:when>
 						<c:otherwise>
 							<img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" />
@@ -378,57 +378,56 @@
 						<c:forEach begin="${startPage }" end="${endPage }" step="1" var="i">
 							<c:choose>
 								<c:when test="${cPage == i }">
-									<a href="board?cPage=${i }" class="on">${i }</a>
+									<a href="gallery3?cPage=${i }" class="on">${i }</a>
 								</c:when>
 								<c:otherwise>
-									<a href="board?cPage=${i }">${i }</a>
+									<a href="gallery3?cPage=${i }">${i }</a>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
 						<a href="#" onclick="nextPage('${cPage}', '${maxPage }')" return false;><img src="${contextPath }/images/index/board/nextArr.png" alt="뒤로" /></a>
-						<c:choose>
+							<c:choose>
                 		<c:when test="${startPage+10 < maxPage }">
-							<a href="board?cPage=${startPage + 10}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>	
+							<a href="gallery3?cPage=${startPage + 10}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>	
 						</c:when>
 						<c:otherwise>
 							<img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" />
 						</c:otherwise>
-						</c:choose>	
+						</c:choose>
 			
             		</div>
-                	</c:when>
+            		</c:when>
             		<c:otherwise>
             		<div class="pagerWrap">
                 
 						<c:choose>
                 		<c:when test="${startPage != 1 }">
-							<a href="board?cPage=${startPage - 10 }&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
+							<a href="gallery3?cPage=${startPage - 10 }&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
 						</c:when>
 						<c:otherwise>
 							<img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" />
 						</c:otherwise>
 						</c:choose>
 						<a href="#" onclick="prevPage('${cPage}', '${search }', '${cateSelect}', '${sText }')" return false;><img src="${contextPath }/images/index/board/prevArr.png" alt="앞으로" /></a>
-
 						<c:forEach begin="${startPage }" end="${endPage }" step="1" var="i">
 							<c:choose>
 								<c:when test="${cPage == i }">
-									<a href="board?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}" class="on">${i }</a>
+									<a href="gallery3?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}" class="on">${i }</a>
 								</c:when>
 								<c:otherwise>
-									<a href="board?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}">${i }</a>
+									<a href="gallery3?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}">${i }</a>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
 						<a href="#" onclick="nextPage('${cPage}', '${maxPage }', '${search }', '${cateSelect}', '${sText }')" return false;><img src="${contextPath }/images/index/board/nextArr.png" alt="뒤로" /></a>
 						<c:choose>
                 		<c:when test="${startPage+10 < maxPage }">
-							<a href="board?cPage=${startPage + 10}&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>	
+							<a href="gallery3?cPage=${startPage + 10}&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>	
 						</c:when>
 						<c:otherwise>
 							<img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" />
 						</c:otherwise>
-						</c:choose>		
+						</c:choose>	
 			
             		</div>
             		</c:otherwise>
@@ -447,7 +446,7 @@
     	<div class="inner">
         	<h1><img src="${contextPath }/images/index/foot_logo.gif" alt=""/></h1>
             <div class="info">
-            	<p>기관:월드비전 음악원 │ 주소:(우 07638) 서울특별시 강서구 강서로 47마길 85(내발산동 711-11) 월드비전 음악원<br/>
+            <p>기관:월드비전 음악원 │ 주소:(우 07638) 서울특별시 강서구 강서로 47마길 85(내발산동 711-11) 월드비전 음악원<br/>
                 대표자:한상호 │ 사업자등록번호:109-82-09997 │ 대표전화:02-2662-1803 │ 팩스:02-2661-2568</p>
                 <p>COPYRIGHT 2010 WVCHOIR ALL RIGHTS RESERVED.</p>
             </div>

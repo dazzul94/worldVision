@@ -117,14 +117,14 @@
 			if(search == null){
 				if(cPage != 1){
 					cPage--;
-					location.href = "board?cPage=" + cPage;
+					location.href = "board3?cPage=" + cPage;
 				}else{
 					alert("이전 페이지가 없습니다.");
 				}	
 			}else{
 				if(cPage != 1){
 					cPage--;
-					location.href = "board?cPage=" + cPage + "&search=" + search 
+					location.href = "board3?cPage=" + cPage + "&search=" + search 
 							+ "&cateSelect=" + cateSelect + "&sText=" + sText;
 				}else{
 					alert("이전 페이지가 없습니다.");
@@ -137,14 +137,14 @@
 			if(search == null){
 				if(cPage != maxPage){
 					cPage++;
-					location.href = "board?cPage=" + cPage;
+					location.href = "board3?cPage=" + cPage;
 				}else{
 					alert("다음 페이지가 없습니다.");
 				}	
 			}else{
 				if(cPage != maxPage){
 					cPage++;
-					location.href = "board?cPage=" + cPage + "&search=" + search 
+					location.href = "board3?cPage=" + cPage + "&search=" + search 
 					+ "&cateSelect=" + cateSelect + "&sText=" + sText;
 				}else{
 					alert("다음 페이지가 없습니다.");
@@ -155,10 +155,10 @@
 		
 		function goView(bbs_no, cPage, search, cateSelect, sText){
 			if(search == null){
-				location.href = "boardView?no=" + bbs_no + "&cPage=" + cPage+ "&str=공지사항&dbName=community01";
+				location.href = "boardView?no=" + bbs_no + "&cPage=" + cPage+ "&str=월비통신&dbName=webzine";
 			}else{
 				location.href = "boardView?no=" + bbs_no + "&cPage=" + cPage 
-						+ "&str=공지사항&dbName=community01&search=" + search 
+						+ "&str=월비통신&dbName=webzine&search=" + search 
 						+ "&cateSelect=" + cateSelect + "&sText=" + sText;
 			}
 		}
@@ -174,8 +174,9 @@
 			}else{
 				num = "3";
 			}
-			location.href = "board?search=1&cateSelect=" + num + "&sText=" + value;
+			location.href = "board3?search=1&cateSelect=" + num + "&sText=" + value;
 		}
+		
 	</script>
     		<div class="tnb">
             	<a href="login">로그인</a>
@@ -196,13 +197,13 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; BOARD &gt; <strong>공지사항</strong></p>
+        	<p class="page_nav">HOME &gt; BOARD &gt; <strong>월비통신</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>공지사항<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>월비통신<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
@@ -337,7 +338,6 @@
                         <td>335</td>
 					</tr>
 					-->
-					
 					<c:forEach items="${bList }" var="board">
 						<tr>
                     	<td>${board.getBbs_no() }</td>
@@ -353,10 +353,9 @@
                 <c:choose>
                 	<c:when test="${search == null }">	
 					<div class="pagerWrap">
-                
-						<c:choose>
+                		<c:choose>
                 		<c:when test="${startPage != 1 }">
-							<a href="board?cPage=${startPage - 10 }"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
+							<a href="board3?cPage=${startPage - 10 }"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
 						</c:when>
 						<c:otherwise>
 							<img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" />
@@ -378,17 +377,17 @@
 						<c:forEach begin="${startPage }" end="${endPage }" step="1" var="i">
 							<c:choose>
 								<c:when test="${cPage == i }">
-									<a href="board?cPage=${i }" class="on">${i }</a>
+									<a href="board3?cPage=${i }" class="on">${i }</a>
 								</c:when>
 								<c:otherwise>
-									<a href="board?cPage=${i }">${i }</a>
+									<a href="board3?cPage=${i }">${i }</a>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
 						<a href="#" onclick="nextPage('${cPage}', '${maxPage }')" return false;><img src="${contextPath }/images/index/board/nextArr.png" alt="뒤로" /></a>
 						<c:choose>
                 		<c:when test="${startPage+10 < maxPage }">
-							<a href="board?cPage=${startPage + 10}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>	
+							<a href="board3?cPage=${startPage + 10}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>	
 						</c:when>
 						<c:otherwise>
 							<img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" />
@@ -399,10 +398,9 @@
                 	</c:when>
             		<c:otherwise>
             		<div class="pagerWrap">
-                
-						<c:choose>
+                		<c:choose>
                 		<c:when test="${startPage != 1 }">
-							<a href="board?cPage=${startPage - 10 }&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
+							<a href="board3?cPage=${startPage - 10 }&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
 						</c:when>
 						<c:otherwise>
 							<img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" />
@@ -413,22 +411,22 @@
 						<c:forEach begin="${startPage }" end="${endPage }" step="1" var="i">
 							<c:choose>
 								<c:when test="${cPage == i }">
-									<a href="board?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}" class="on">${i }</a>
+									<a href="board3?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}" class="on">${i }</a>
 								</c:when>
 								<c:otherwise>
-									<a href="board?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}">${i }</a>
+									<a href="board3?cPage=${i }&search=${search }&cateSelect=${cateSelect}&sText=${sText}">${i }</a>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
 						<a href="#" onclick="nextPage('${cPage}', '${maxPage }', '${search }', '${cateSelect}', '${sText }')" return false;><img src="${contextPath }/images/index/board/nextArr.png" alt="뒤로" /></a>
 						<c:choose>
                 		<c:when test="${startPage+10 < maxPage }">
-							<a href="board?cPage=${startPage + 10}&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>	
+							<a href="board3?cPage=${startPage + 10}&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" /></a>	
 						</c:when>
 						<c:otherwise>
 							<img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" />
 						</c:otherwise>
-						</c:choose>		
+						</c:choose>	
 			
             		</div>
             		</c:otherwise>

@@ -1,16 +1,17 @@
+<%@page import="javax.servlet.descriptor.TaglibDescriptor"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />	
 <title>::: 월드비전 합창단 :::</title>
 <link href="${contextPath }/css/index/common.css" rel="stylesheet" type="text/css">
 <link href="${contextPath }/css/index/style.css" rel="stylesheet" type="text/css">
 <link href="${contextPath }/css/index/animate.css" rel="stylesheet" type="text/css">
-<link href="${contextPath }/css/index/fonts.css" rel="stylesheet" type="text/css">
+<link href="${contextPath }/css/index/css/fonts.css" rel="stylesheet" type="text/css">
 <script language="JavaScript" src="${contextPath }/js/index/common.js"></script>
 <script language="JavaScript" src="${contextPath }/js/index/html5.js"></script>
 <script language="javascript" src="${contextPath }/js/index/jquery-1.12.3.js"></script>
@@ -98,8 +99,7 @@
 					</li>
 				</ul>
 			</nav>
-
-	<script type="text/javascript">
+				<script type="text/javascript">
 		$(".menu>ul>li>a").mouseover(function(){
 			if($("nav.menu>ul>li>div").is(":hidden")){
 				$("nav.menu>ul>li").removeClass("on");
@@ -112,9 +112,16 @@
 			$("nav.menu>ul>li").removeClass("on");
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
+		
+		function doJoin(){
+			var form = document.getElementById("jForm");
+			form.action = "doJoin";
+			form.submit();
+		}
+		
 	</script>
     		<div class="tnb">
-            	<a href="login">로그인</a>
+            	<a href="#">아이디/비번찾기</a>
             </div>
     		<p><a href="http://www.worldvision.or.kr" target="_blank"><img src="${contextPath }/images/index/logo_button_world.gif" alt=""/></a></p>
         </div>
@@ -123,151 +130,91 @@
     
     <section id="container">
     	<article id="lnbWrap">
-        	<h2>CONCERT</h2>
-            <ul>
-            	<li><a href="concert">연주일정</a></li>
-                <li><a href="concert2">초청연주</a></li>
-                <li><a href="concert3">기획연주</a></li>
-                <li><a href="concert4">미션연주</a></li>
-                <li><a href="concert5">해외연주</a></li>
-                
-            </ul>
+        	<h2>MEMBER</h2>
+           
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; CONCERT &gt; <strong>연주일정</strong></p>
+        	<p class="page_nav">HOME &gt; MEMBER &gt; <strong>회원가입</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>연주일정<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>회원가입<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
+            	<!-- join -->
+           	  <h3 class="wonh3">기본정보 입력</h3>
+              
+                <div class="writeLayout">
+                <form id="jForm">
+					<table>
+					<tbody>
+                    <tr>
+						<th><strong class="orange_f">*</strong> 이름</th>
+						<td>${name }<input type="hidden" value="${name }" name="member_name" /></td>
+					</tr>
+                    <tr>
+						<th><strong class="orange_f">*</strong> 아이디</th>
+						<td><input type="text" name="member_id"> <a href="#" class="sbtn">중복확인</a></td>
+					</tr>
+					<tr>
+						<th><strong class="orange_f">*</strong> 닉네임</th>
+						<td><input type="text" name="member_nick"> <a href="#" class="sbtn">중복확인</a></td>
+					</tr>
+                     <tr>
+						<th><strong class="orange_f">*</strong> 비밀번호</th>
+						<td><input type="text" name="member_pass"><span class="help_t">영문,숫자조합의 4~10자리(공백입력불가)</span></td>
+					</tr>
+                    <tr>
+						<th><strong class="orange_f">*</strong> 비밀번호 확인</th>
+						<td><input type="text"></td>
+					</tr>
+					 <tr>
+						<th><strong class="orange_f">*</strong> 주민등록번호</th>
+						<td><input type="text" name="member_reg_no1"> - <input type="password" name="member_reg_no2"></td>
+					</tr>
+                    <tr>
+						<th><strong class="orange_f">*</strong> 생년월일</th>
+						<td><input type="text" name="member_birth1"> <input type="radio" name="member_birth2" value="양력">양력 <input type="radio" class="ml5" name="member_birth2" value="음력"> 음력</td>
+					</tr>
+                    <tr>
+						<th><strong class="orange_f">*</strong> 이메일</th>
+						<td><input type="text" name="member_email"></td>
+					</tr>
+                    <tr>
+						<th>주소</th>
+						<td><input type="text" class="zip" name="member_zip1"> - <input type="text" class="zip" name="member_zip2"> <a href="#" class="sbtn">우편번호</a><br>
+                        <input type="text" class="wid100 mt3" name="member_address1"><br>
+                        <input type="text" class="wid100 mt3" name="member_address2"></td>
+					</tr>
+                    <tr>
+						<th>일반전화</th>
+						<td><input type="text"  class="tel" name="member_htel1"> - <input type="text" class="tel" name="member_htel2"> - <input type="text"  class="tel" name="member_htel3"></td>
+					</tr>
+                    <tr>
+						<th>휴대전화</th>
+						<td><input type="text" class="tel" name="member_tel1"> - <input type="text" class="tel" name="member_tel2"> - <input type="text"  class="tel" name="member_tel3"></td>
+					</tr>
+                    <tr>
+						<th>합창단과의 관계</th>
+						<td><input type="radio">후원자 <input type="radio" class="ml5"> 합창단 교사/직원 <input type="radio" class="ml5">단원/자모 <input type="radio" class="ml5"> 동문 <input type="radio" class="ml5"> 기타</td>
+					</tr>
+					
+				</tbody></table>
+                
+              </form>
             
-            		<!-- 달력 -->
-                    <p class="calendar_year">
-                    	<a href="#"><img src="${contextPath }/images/index/data_prev.gif" alt=""/></a>
-                        2018년 4월
-                        <a href="#"><img src="${contextPath }/images/index/data_next.gif" alt=""/></a>
-                    </p>
-                    
-                    <table class="calendar_table">
-        <thead>
-		<tr>
-          <th align="center" width="102"><font color="#ff2400">일요일</font></th>
-          <th align="center" width="103">월요일</th>
-          <th align="center" width="103">화요일</th>
-          <th align="center" width="103">수요일</th>
-          <th align="center" width="103">목요일</th>
-          <th align="center" width="103">금요일</th>
-          <th align="center" width="103"><font color="#3a6ebc">토요일</font></th>
-        </tr>
-        </thead>
-        <tbody>
-		<tr>
-	<td valign="top">
-	  <div><font color="#ff2400">1</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">2</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">3</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">4</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">5</font>
-	  
-	    <p title="부활절 음악예배" onclick="location.href='/index/data_01.php?no=480&amp;year=2018&amp;month=4';" onmouseover="Overit('480');" onmouseout="Outit();" style="cursor:pointer"><a href="concert01_view.html"><img src="${contextPath }/images/index/data_icon01.gif"> <font color="#000000">부활절 음악예배</font></a></p>
-        </div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">6</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">7</font></div>
-	</td>
-</tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">8</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">9</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">10</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">11</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">12</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">13</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">14</font></div>
-	</td>
-</tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">15</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">16</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">17</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">18</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">19</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">20</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">21</font></div>
-	</td>
-</tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">22</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">23</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">24</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">25</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">26</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">27</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">28</font></div>
-	</td>
-    </tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">29</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">30</font></div>
-	</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-		</tr>
-        </tbody></table>
-                    <!-- 달력 -->
+            
+			</div>
+                
+                <div class="clear boardbtn mt50 text_center">
+            		<a href="#" onclick="doJoin()" return false;>가입하기</a>
+                    <a href="login" class="gray">취소</a>
+            	</div>
+                <!-- join -->
             </div><!--contentwrap-->
                 	
             </div>

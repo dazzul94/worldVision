@@ -98,8 +98,7 @@
 					</li>
 				</ul>
 			</nav>
-
-	<script type="text/javascript">
+				<script type="text/javascript">
 		$(".menu>ul>li>a").mouseover(function(){
 			if($("nav.menu>ul>li>div").is(":hidden")){
 				$("nav.menu>ul>li").removeClass("on");
@@ -114,7 +113,7 @@
 		});
 	</script>
     		<div class="tnb">
-            	<a href="login">로그인</a>
+            	<a href="#">로그인</a>
             </div>
     		<p><a href="http://www.worldvision.or.kr" target="_blank"><img src="${contextPath }/images/index/logo_button_world.gif" alt=""/></a></p>
         </div>
@@ -125,11 +124,11 @@
     	<article id="lnbWrap">
         	<h2>CONCERT</h2>
             <ul>
-            	<li><a href="concert">연주일정</a></li>
-                <li><a href="concert2">초청연주</a></li>
-                <li><a href="concert3">기획연주</a></li>
-                <li><a href="concert4">미션연주</a></li>
-                <li><a href="concert5">해외연주</a></li>
+            	<li><a href="#">연주일정</a></li>
+                <li><a href="#">초청연주</a></li>
+                <li><a href="#">기획연주</a></li>
+                <li><a href="#">미션연주</a></li>
+                <li><a href="#">해외연주</a></li>
                 
             </ul>
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
@@ -146,10 +145,32 @@
             
            	<div class="contentWrap">
             
-            		<!-- 달력 -->
-                    <p class="calendar_year">
+            		<!-- 달력보기 -->
+                    <div class="viewLayout">
+                    	<table>
+  <thead>
+    <tr>
+      <th colspan="2">부활절 음악예배</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th>일시</th>
+      <td>2018년 04월 05일</td>
+    </tr>
+    <tr>
+      <th>내용</th>
+      <td>장소: 산성교회<br/>시간: 저녁 7시 30분</td>
+    </tr>
+  </tbody>
+</table>
+
+                    </div>
+                    <!-- 달력보기 -->
+       		  <!-- 달력 -->
+              		<p class="calendar_year">
                     	<a href="#"><img src="${contextPath }/images/index/data_prev.gif" alt=""/></a>
-                        2018년 4월
+                        2018
                         <a href="#"><img src="${contextPath }/images/index/data_next.gif" alt=""/></a>
                     </p>
                     
@@ -182,7 +203,7 @@
 	<td valign="top">
 	  <div><font color="#6c6c6c">5</font>
 	  
-	    <p title="부활절 음악예배" onclick="location.href='/index/data_01.php?no=480&amp;year=2018&amp;month=4';" onmouseover="Overit('480');" onmouseout="Outit();" style="cursor:pointer"><a href="concert01_view.html"><img src="${contextPath }/images/index/data_icon01.gif"> <font color="#000000">부활절 음악예배</font></a></p>
+	    <p title="부활절 음악예배" onclick="location.href='/index/data_01.php?no=480&amp;year=2018&amp;month=4';" onmouseover="Overit('480');" onmouseout="Outit();" style="cursor:pointer"><img src="../images/data_icon01.gif"> <font color="#000000">부활절 음악예배</font></p>
         </div>
 	</td>
 	<td valign="top">

@@ -133,61 +133,29 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; REQUEST &gt; <strong>입단신청</strong></p>
+        	<p class="page_nav">HOME &gt; REQUEST &gt; <strong>음반·악보 구입신청</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>입단신청<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>음반·악보 구입신청<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
             	<h3><img src="${contextPath }/images/index/online_title.gif"  alt=""/></h3>        	  
-                <p class="mt30"><img src="${contextPath }/images/index/info_title03.gif"  alt=""/></p>
+                
                 <!-- S: board -->
                  
-                    	<div class="writeLayout">
-				<table>
+                    	<div class="writeLayout mt30">
+                        
+                       
+                
+                <table>
 					<tbody>
                     <tr>
 						<th>이름</th>
 						<td><input type="text"></td>
-					</tr>
-                    <tr>
-						<th>희망지역</th>
-						<td><select>
-						  <option>강서반</option>
-						  <option>강남반</option>
-						  <option>강북반</option>
-						  <option>인산방</option>
-                          <option>분당반</option>
-						</select></td>
-					</tr>
-                    <tr>
-						<th>성별</th>
-						<td><input type="radio"> 남자 <input type="radio" class="ml15"> 여자</td>
-					</tr><tr>
-						<th>학년</th>
-						<td><input type="radio"> 2학년 <input type="radio" class="ml15"> 3학년 <input type="radio" class="ml15"> 4학년 <input type="radio" class="ml15"> 5학년 <input type="radio" class="ml15"> 6학년</td>
-					</tr>
-                    <tr>
-						<th>부모님 성함</th>
-						<td><input type="text"></td>
-					</tr>
-                    <tr>
-						<th>입단신청경로</th>
-						<td><select>
-						  <option>선택해주세요</option>
-						  <option>사전인지</option>
-						  <option>검색</option>
-                          <option>인터넷 검색</option>
-						  <option>지인소개</option>
-						  <option>단원소개</option>
-						  <option>공연관람</option>
-						  <option>홍보매체</option>
-						  <option>기타</option>
-					  </select> <input type="text" placeholder="검색어를 입력해 주세요"></td>
 					</tr>
                     <tr>
 						<th>일반전화</th>
@@ -205,16 +173,59 @@
 					</tr>
                     <tr>
 						<th>주소</th>
-						<td><input type="text"  class="zip"> - <input type="text" class="zip"> <a href="#" class="sbtn">우편번호</a><br/>
+						<td><input type="text"  class="zip"> - <input type="text"  class="zip"> <a href="#" class="sbtn">우편번호</a><br/>
                         <input type="text" class="wid100 mt3"><br/>
                         <input type="text" class="wid100 mt3"></td>
 					</tr>
-					<tr>
-						<th>기타</th>
+                    
+                    <tr>
+						<th>구입음반선택</th>
+					  <td><select name="tpe3_opt1[]" size="1" class="b_textarea" onchange="PayOK();">
+				<option value="" selected="selected">선택</option>
+        		<option>소원 (10,000원)</option>
+				<option>Together (10,000원)</option>
+				<option>Blessings (10,000원)</option>
+				<option>산유화 (10,000원)</option>
+				<option>Psalms_시편 (10,000원)</option>
+				<option>나 주를 찬양하리라 (10,000원)</option>
+				<option>Amazing Love_50주년 기념음반 (10,000원)</option>
+				<option>A Voice for the Voiceless (10,000원)</option>
+				<option>크리스마스 캐롤 및 성가 The Joyful Morning (10,000원)</option>
+				<option>고향의 봄.가곡.동요.민요 (10,000원)</option>
+				<option>Europe Concert_유럽콘서트 (10,000원)</option>
+				<option>World Folk Song Festival (10,000원)</option>
+				<option>사랑과 감사의 축제_50주년기념연주실황 DVD (15,000원)</option>
+				<option>2000년 세계어린이합창제2CD (10,000원)</option>
+				<option>2004년 세계어린이합창제2CD (10,000원)</option>
+       			<option>2013 세계어린이합창제 DVD  (20,000원 -&gt; 14,000원) -  1달간 30%할인기간입니다. </option>
+        
+			</select> <a href="#"><img src="${contextPath }/images/index/btn_plus.png" class="ml5" alt=""/></a><a href="#"><img src="../images/btn_minus.png" class="ml5" alt=""/></a></td>
+					</tr>
+                     <tr>
+						<th>구입악보</th>
+					  <td><select name="tpe3_opt2[]" class="b_textarea" onchange="PayOK();">
+				<option value="" selected="selected">선택</option>
+				<option>Blessings (10,000원)</option>
+				<option>Together (12,000원)</option>
+				<option>크리스마스 캐롤 및 성가집 The Joyful Morning (15,000원)</option>
+			</select> <a href="#"><img src="${contextPath }/images/index/btn_plus.png" class="ml5" alt=""/></a><a href="#"><img src="../images/btn_minus.png" class="ml5" alt=""/></a></td>
+					</tr>
+                    
+                   <tr>
+						<th>비고</th>
 						<td><textarea class="textarea"> </textarea></td>
 						
 					</tr>
-					
+					<tr>
+						<th>입금금액</th>
+						<td><input type="text">원 (배송료 2,500원은 별도입니다.)</td>
+					</tr>
+                    <tr>
+						<th>입금계좌</th>
+						<td>국민은행 444437-94-100073 (예금주:사회복지법인월드비전음악원)<br/>
+- 신청자와 입금자명이 다를 경우 연락주세요.<br/>
+- 입금확인후 2-3일내로 배송이 됩니다.</td>
+					</tr>
 				</tbody></table>
                 
                 <div class="dot_line"></div>

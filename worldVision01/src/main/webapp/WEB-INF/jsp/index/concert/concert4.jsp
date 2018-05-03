@@ -135,139 +135,20 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; CONCERT &gt; <strong>연주일정</strong></p>
+        	<p class="page_nav">HOME &gt; CONCERT &gt; <strong>미션연주</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>연주일정<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>미션연주<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
-            
-            		<!-- 달력 -->
-                    <p class="calendar_year">
-                    	<a href="#"><img src="${contextPath }/images/index/data_prev.gif" alt=""/></a>
-                        2018년 4월
-                        <a href="#"><img src="${contextPath }/images/index/data_next.gif" alt=""/></a>
-                    </p>
-                    
-                    <table class="calendar_table">
-        <thead>
-		<tr>
-          <th align="center" width="102"><font color="#ff2400">일요일</font></th>
-          <th align="center" width="103">월요일</th>
-          <th align="center" width="103">화요일</th>
-          <th align="center" width="103">수요일</th>
-          <th align="center" width="103">목요일</th>
-          <th align="center" width="103">금요일</th>
-          <th align="center" width="103"><font color="#3a6ebc">토요일</font></th>
-        </tr>
-        </thead>
-        <tbody>
-		<tr>
-	<td valign="top">
-	  <div><font color="#ff2400">1</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">2</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">3</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">4</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">5</font>
-	  
-	    <p title="부활절 음악예배" onclick="location.href='/index/data_01.php?no=480&amp;year=2018&amp;month=4';" onmouseover="Overit('480');" onmouseout="Outit();" style="cursor:pointer"><a href="concert01_view.html"><img src="${contextPath }/images/index/data_icon01.gif"> <font color="#000000">부활절 음악예배</font></a></p>
-        </div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">6</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">7</font></div>
-	</td>
-</tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">8</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">9</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">10</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">11</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">12</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">13</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">14</font></div>
-	</td>
-</tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">15</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">16</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">17</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">18</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">19</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">20</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">21</font></div>
-	</td>
-</tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">22</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">23</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">24</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">25</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">26</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">27</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#3a6ebc">28</font></div>
-	</td>
-    </tr><tr>	<td valign="top">
-	  <div><font color="#ff2400">29</font></div>
-	</td>
-	<td valign="top">
-	  <div><font color="#6c6c6c">30</font></div>
-	</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-		</tr>
-        </tbody></table>
-                    <!-- 달력 -->
+            	<p><img src="${contextPath }/images/index/concert_04_img1.jpg" alt=""/></p>
+              <p class="mt30">전국 주요 도시 및 문화 소외지역을 찾아가 음악을 통해 청소년과 지역주민 특히 교회 성도들에게 월드비전의 사역을 알리고, 
+동참할수 있는 연주를 하고 있다. 현대 합창곡, 동요, 즐거운 노래, 뮤지컬 등 다양한 레퍼토리로 많은 사람들에게 감도오가 행복을 전하고 있다.</p>
+            	
             </div><!--contentwrap-->
                 	
             </div>

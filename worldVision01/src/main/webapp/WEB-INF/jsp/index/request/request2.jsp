@@ -133,21 +133,37 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; REQUEST &gt; <strong>입단신청</strong></p>
+        	<p class="page_nav">HOME &gt; REQUEST &gt; <strong>합창단 후원신청</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>입단신청<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>합창단 후원신청<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
             	<h3><img src="${contextPath }/images/index/online_title.gif"  alt=""/></h3>        	  
-                <p class="mt30"><img src="${contextPath }/images/index/info_title03.gif"  alt=""/></p>
+                
                 <!-- S: board -->
                  
-                    	<div class="writeLayout">
+                    	<div class="writeLayout mt30">
+                        
+                        <table>
+					<tbody>
+                    <tr>
+						<th>후원종류</th>
+						<td><input type="radio"> 정기후원 <input type="radio" class="ml15"> 일시후원</td>
+					</tr>
+                    
+                    <tr>
+						<th>후원금액</th>
+						<td><input type="text"> 만원</td>
+					</tr>
+                   
+				</tbody></table>
+                
+                <h4 class="mt50"><img src="${contextPath }/images/index/info_title01.gif" alt=""/></h4>
 				<table>
 					<tbody>
                     <tr>
@@ -155,39 +171,8 @@
 						<td><input type="text"></td>
 					</tr>
                     <tr>
-						<th>희망지역</th>
-						<td><select>
-						  <option>강서반</option>
-						  <option>강남반</option>
-						  <option>강북반</option>
-						  <option>인산방</option>
-                          <option>분당반</option>
-						</select></td>
-					</tr>
-                    <tr>
-						<th>성별</th>
-						<td><input type="radio"> 남자 <input type="radio" class="ml15"> 여자</td>
-					</tr><tr>
-						<th>학년</th>
-						<td><input type="radio"> 2학년 <input type="radio" class="ml15"> 3학년 <input type="radio" class="ml15"> 4학년 <input type="radio" class="ml15"> 5학년 <input type="radio" class="ml15"> 6학년</td>
-					</tr>
-                    <tr>
-						<th>부모님 성함</th>
+						<th>생년월일</th>
 						<td><input type="text"></td>
-					</tr>
-                    <tr>
-						<th>입단신청경로</th>
-						<td><select>
-						  <option>선택해주세요</option>
-						  <option>사전인지</option>
-						  <option>검색</option>
-                          <option>인터넷 검색</option>
-						  <option>지인소개</option>
-						  <option>단원소개</option>
-						  <option>공연관람</option>
-						  <option>홍보매체</option>
-						  <option>기타</option>
-					  </select> <input type="text" placeholder="검색어를 입력해 주세요"></td>
 					</tr>
                     <tr>
 						<th>일반전화</th>
@@ -205,12 +190,31 @@
 					</tr>
                     <tr>
 						<th>주소</th>
-						<td><input type="text"  class="zip"> - <input type="text" class="zip"> <a href="#" class="sbtn">우편번호</a><br/>
+						<td><input type="text"  class="zip"> - <input type="text"  class="zip"> <a href="#" class="sbtn">우편번호</a><br/>
                         <input type="text" class="wid100 mt3"><br/>
                         <input type="text" class="wid100 mt3"></td>
 					</tr>
-					<tr>
-						<th>기타</th>
+                    <tr>
+						<th>CMS 신청안내</th>
+						<td><strong style="width:100px;display:inline-block;">은행명</strong> <input type="text" size="2"><br/>
+                        <strong style="width:100px;display:inline-block;">계좌번호</strong> <input type="text" class="mt3"><br/>
+                        <strong style="width:100px;display:inline-block;">예금주</strong> <input type="text" class="mt3"><br/>
+                        <strong style="width:100px;display:inline-block;">예금주 생년월일</strong> <input type="text" class="mt3"><br/>
+                        <strong style="width:100px;display:inline-block;">이체일</strong> <input type="radio"> 10일 <input type="radio" class="ml15"> 25일</td>
+					</tr>
+                    <tr>
+						<th>신청동기</th>
+						<td><select>
+						  <option>홈페이지</option>
+						  <option>지인소개</option>
+						  <option>방송매체</option>
+						  <option>후원캠페인</option>
+                          <option>기타</option>
+						</select>
+                        <strong style="width:100px;display:inline-block;" class="ml15">추천인</strong><input type="text">  <input type="text" placeholder="검색어를 입력해 주세요"></td>
+					</tr>
+                   <tr>
+						<th>비고</th>
 						<td><textarea class="textarea"> </textarea></td>
 						
 					</tr>

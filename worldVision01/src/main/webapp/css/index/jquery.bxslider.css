@@ -75,7 +75,7 @@
 }
 
 .bx-wrapper .bx-pager.bx-default-pager a {
-	background: url('../images/icon_nav_off.png') no-repeat left top;
+	background: url('http://localhost:8080/worldVision01/images/index/icon_nav_off.png') no-repeat left top;
 	opacity: .7; filter: alpha(opacity=70); 
 	text-indent: -9999px;
 	display: block;
@@ -89,7 +89,7 @@
 
 .bx-wrapper .bx-pager.bx-default-pager a.active {
 	width: 63px;
-	background: url('../images/icon_nav_on.png') no-repeat left top;
+	background: url('http://localhost:8080/worldVision01/images/index/icon_nav_on.png') no-repeat left top;
 }
 
 /* DIRECTION CONTROLS (NEXT / PREV) */
@@ -140,7 +140,7 @@
 	width: 22px;
 	height: 21px;
 	outline: 0;
-	background: url(../images/btn_play.png) no-repeat left top;
+	background: url(http://localhost:8080/worldVision01/images/index/btn_play.png) no-repeat left top;
 	margin: 0 0 0 0;
 }
 
@@ -155,7 +155,7 @@
 	width: 22px;
 	height: 21px;
 	outline: 0;
-	background: url(../images/btn_stop.png) no-repeat 0 0;
+	background: url(http://localhost:8080/worldVision01/images/index/btn_stop.png) no-repeat 0 0;
 	margin: 0 3px;
 }
 
