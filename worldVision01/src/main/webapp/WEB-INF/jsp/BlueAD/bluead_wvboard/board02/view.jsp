@@ -86,7 +86,7 @@
 
 
 </head><body>
-${bluead_wvboard02.bbs_content }
+ <a href=${bluead_wvboard02.bbs_content }></a>
 ${bluead_wvboard02.bbs_icon }
 ${bluead_wvboard02.bbs_thumb1 }
 </body></span>

@@ -4,38 +4,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
-<!-- <?
-session_start();
-
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/lib/class_db.php";
-$db = new DB();
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/fun/function.php";
-
-//게시판 체크
-Board_Chk($bbs_id);
-
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/lib/define.php";
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/lib/bbs_config.php";
-include $_SERVER['DOCUMENT_ROOT']."/BlueAD/lib/class_paging.php";
-
-//IP 필터링
-if($CFG_USE_IP_FILTERING == "Y") {
-  Filtering_IP($CFG_IP_FILTERING,__REMOTE_ADDR__);
-}
-
-if(!$mode) $mode = "list";
-
-if(!__ADMIN_ID__ || $bbs_admin != "chk") {
-  if($CFG_IFRAME == "N") {
-    include $_SERVER['DOCUMENT_ROOT']."/index/head.php";
-    include $_SERVER['DOCUMENT_ROOT']."/index/head_top.php";
-  }
-  if(trim($CFG_HEADER)) echo Tag_Allowed($CFG_HEADER,3);
-}
-else {
-    
-?>
- -->
 <html>
 <head>
 <title></title>
@@ -69,53 +37,12 @@ else {
 <script src="${contextPath}/js/BlueAD/lightbox/prototype.js" type="text/javascript"></script>
 <script src="${contextPath}/js/BlueAD/lightbox/scriptaculous.js?load=effects" type="text/javascript"></script>
 <script src="${contextPath}/js/BlueAD/lightbox/lightbox.js" type="text/javascript"></script>
-<!-- <?
-if(!defined("__BLUEAD__")) exit;
-
-if(__ADMIN_ID__ && $bbs_admin == "chk") include "include/list_javascript.php";
-
-//페이지 접근권한 체크
-if(!__ADMIN_ID__ || $bbs_admin != "chk") {
-  Page_Permission('LIST');
-}
-
-if(!$page) $page = 1;
-
-$en_keyword = urlencode($keyword);
-$en_cate    = urlencode($scate);
-$reply_int  = 10;
-
-//링크 정의 파일
-include "include/btn_link.php";
-
-//게시물 수
-if(!eregi("[^[:space:]]+",$keyword)) {
-  if($is_category == true && $scate) $db->Query("SELECT * FROM BlueAD_$bbs_id WHERE bbs_category = '$scate'");
-  else                               $db->Query("SELECT * FROM BlueAD_$bbs_id");
-}
-else {
-  if($is_category == true && $scate) $db->Query("SELECT * FROM BlueAD_$bbs_id WHERE bbs_category = '$scate' AND $key LIKE '%$keyword%'");
-  else                               $db->Query("SELECT * FROM BlueAD_$bbs_id WHERE $key LIKE '%$keyword%'");
-}
-
-$total_num = $db->recordNum();
-$paging = new PAGING($total_num, $page, $CFG_LIST_NUM, $CFG_BLOCK_NUM, $CFG_SKIN);
-
-//td 갯수 지정
-$colspan = 11;
-if($is_category == true)                $colspan++;
-if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
-?>
- -->
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr>
     <td>
-            <!-- <?
-      //카테고리 출력
-      if($is_category == true  && (__ADMIN_ID__ && $bbs_admin == "chk")  ) {
-      ?>
-       -->
-     </script><table border="0" cellspacing="0" cellpadding="0" width="100%">
+     </script>
+     <!--select 박스 , total,page  -->
+     <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr>
     <td>
 			      <select name="scate" class="bbs_select" onchange="location.href='board.php?bbs_id=wv_gallery01&scate='+this.value+'&bbs_admin=chk'">
@@ -138,27 +65,13 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
 <option value="Together 악보">Together 악보</option>
 <option value="소원">소원</option>
       </select>
-        <!-- <?
-        for($i=0; $i < count($cfg_category_arr); $i++) {
-          if($cfg_category_arr[$i] == $scate) echo"<option value=\"".$cfg_category_arr[$i]."\" selected>".$cfg_category_arr[$i]."</option>\n";
-          else                                echo"<option value=\"".$cfg_category_arr[$i]."\">".$cfg_category_arr[$i]."</option>\n";
-        }
-        ?>
-         -->
-      </select>
+      
       <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/newhot.gif">
     </td>
-    <td width="270" align="right" style="padding-right:3">
-    <span style="height:15;padding:1pt;font-size:10Px;font-family:verdana;">
-      total:<font color="red"><?= $total_num ?></font>&nbsp;&nbsp;
-      page:<font color="red"><?= $paging->curPage ?></font>
-      /<font color="red"><?= $paging->totalPage ?></font>
-    </span> &nbsp;
-    <!-- <?
-    //RSS Feed
-    if($CFG_USE_RSS == "Y" && $CFG_LEV_VIEW == 0) {
-    ?>
-     -->
+     <td align="right" style="font-size:10Px;font-family:verdana;">
+      <font color="">total:</font><font color="red"> ${totalCount}</font>&nbsp;&nbsp;
+      <font color="">page:</font><font color="red"> ${pageNo}</font>/<font color="red"> ${lastPageNo}</font>
+        &nbsp;
     <a href="/BlueAD/rss.php?bbs_id=<?= $bbs_id ?>" target="_blank"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/rss.gif" alt="RSS Feed" align="absmiddle"></a>
     </td>
   </tr>
@@ -166,8 +79,9 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
     <td height="3" colspan="2"></td>
   </tr>
 </table>
+ <!--select 박스 , total,page 끝 -->
+ 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-<!-- <? if(__ADMIN_ID__ && $bbs_admin == "chk") { ?> -->
 <form name="del_form" method="post" action="check_delete.php">
 <input type="hidden" name="bbs_id" value="<?= $bbs_id ?>">
 <input type="hidden" name="page" value="<?= $page ?>">
@@ -209,7 +123,7 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
         </td>
         <td></td>
         <td>&nbsp;&nbsp;&nbsp;
-          <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><!-- <img src="./upload/1198130437.gif" align="absmiddle"> --></a>  ${gallery.bbs_subject}   </td>
+       <a href="${gallery.bbs_no }" class="bbs_link">${gallery.bbs_subject} </a>
         <td align="center"></td>
          <td align="center"><span class="bbs_normal">${gallery.bbs_opt2 }</span></td>
         <td align="center"></td>
@@ -235,12 +149,14 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
           <td align="center">
             <table border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td align="center" valign="middle">
-                </td>
+                 <td  height="30" align="center">
+          <div id="paging" ></div>
+          </td>
               </tr>
             </table>
           </td>
           <td align="right" width="150">
+            <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0">
           </td>
         </tr>
       </table>
@@ -248,43 +164,182 @@ if(__ADMIN_ID__ && $bbs_admin == "chk") $colspan = $colspan + 2;
   </tr> 
 </form>
 </table>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<!--  -->
+        </tr>
+      </tbody>
+      </table>
+ 
+</td>  
+<br>
+
+ <!-- 검색 -->
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td colspan="3" height="25"></td>
   </tr>
   <tr>
-    <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/search_left.gif"></td>
-    <td align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/search_bg.gif">
-      <table border="0" cellspacing="0" cellpadding="0">
-        <form name="search_form" method="get" action="board.php">
-        <input type="hidden" name="bbs_id" value="<?= $bbs_id ?>">
+    <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_left.gif"/></td>
+    <td align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_bg.gif">
+ 
+        <form action="list">
+              <table align="center" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td>
-          <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/search_t.gif" align="absmiddle">
-          <select name="key" class="txtarea">
-            <option value="bbs_subject" <? if($key == "bbs_subject") echo"selected"; ?>>제목</option>
-            <option value="bbs_content" <? if($key == "bbs_content") echo"selected"; ?>>내용</option>
-            <option value="bbs_name" <? if($key == "bbs_name") echo"selected"; ?>>글쓴이</option>
+          <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_t.gif" align="absmiddle">
+          <select name="select" class="txtarea">
+            <option value="bbs_subject">제목</option>
+            <option value="bbs_content">내용</option>
+            <option value="bbs_name">글쓴이</option>
           </select>
-          <input type="text" size="50" maxlength="30" name="keyword" value="<?= $keyword ?>" class="bbs_input_search">
-          <input type="image" src="<?= __BBS_SKIN_DIR__ ?>/images/bluead_search.gif" align="absmiddle">
-          <!--a href="</?= $search_cancel_link ?>"><img src="</?= __BBS_SKIN_DIR__ ?>/images/search_cancel.gif" align="absmiddle"></a-->
+          <input type="text" size="50" maxlength="30" name="words" class="bbs_input_search">
+     <button type="submit" style="background-color: white; border:0px"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_search.gif" align="absmiddle"/></button>
           </td>
         </tr>
+          </table>
         </form>
-      </table>
+         
     </td>
-    <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/search_right.gif"></td>
+    <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_right.gif"></td>
   </tr>
   <tr>
     <td colspan="3" height="25"></td>
   </tr>
- 
 </table>
-</td>
-</tr>
-</table>
+  <!-- -------------------------------bottom ----------------------------------------------------->
 </div>
-</body>
+<script>
+    var obj = document.getElementsByName('check[]');
+    function setNo() {
+        var b = false;
 
+        for(var i=0; i<obj.length; i++) {
+            if(obj[i].checked == true) {
+                b = true;
+                break;
+            }
+        }
+          
+        if(b == false) {
+            alert("선택해 주세요");
+            return;
+        }
+
+
+        if(!confirm('선택하신 데이터를 모두 삭제 하시겠습니까?\n\n삭제후 복구는 불가능 합니다.')) return false;
+        /* delete */
+        var send_array = Array();
+        var send_cnt = 0;
+        var chkbox = $(".checkSelect");
+
+        for(i=0;i<chkbox.length;i++) {
+            if (chkbox[i].checked == true){
+                send_array[send_cnt] = chkbox[i].value;
+                send_cnt++;
+            }
+        }
+        window.location = "deleteAll?no=" + send_array;
+    }
+
+    function Allchange(f) {
+      if(f.checked == true) {
+        for(i = 0; i < obj.length; i++) {
+          obj[i].checked = true;
+        }
+      }
+      else {
+        for(i = 0; i < obj.length; i++) {
+          obj[i].checked = false;
+        }
+      }
+    }
+</script>
+
+<script type="text/javascript">
+    var totalData = '<c:out value="${totalCount}"/>';    // 총 데이터 수
+    var dataPerPage = '<c:out value="${pageSize}"/>';    // 한 페이지에 나타낼 데이터 수
+    var lastPageNo = '<c:out value="${lastPageNo}"/>';
+    var select = '<c:out value="${select}"/>';
+    var words = '<c:out value="${words}"/>';
+    var pageCount = 10;        // 한 화면에 나타낼 페이지 수
+    function paging(totalData, dataPerPage, pageCount, currentPage){
+        console.log("(카테고리)select: " + select);
+        console.log("(검색어)words: " + words);
+        console.log("(전체데이터개수)totalData: " + totalData);
+        console.log("(한 페이지에 나타낼 데잍터 수)dataPerPage: " + dataPerPage);
+        console.log("(보이는 페이지 개수무조건 열개!)pageCount: " + pageCount);
+        console.log("(현재 페이지)currentPage : " + currentPage);
+        var next = Number(currentPage) + 1;
+        var prev = Number(currentPage) - 1;
+        console.log("(이전 페이지 번호)prev : " + prev);
+        console.log("(다음 페이지 번호)next : " + next);
+        var totalPage = Math.ceil(totalData/dataPerPage);    // 총 페이지 수
+        var pageGroup = Math.ceil(currentPage/pageCount);    // 페이지 그룹
+        
+        console.log("(현재 페이지 그룹)pageGroup : " + pageGroup);
+        
+        var last = pageGroup * pageCount;    // 화면에 보여질 마지막 페이지 번호
+        if(last > totalPage)
+            last = totalPage;
+        var first = last - (pageCount-1);    // 화면에 보여질 첫번째 페이지 번호
+        if(first < 1) {first=1;last=lastPageNo;}
+        var afterNext = last+1;
+        var beforePrev = first-1;
+        console.log("(총 페이지 수)totalPage:" + totalPage);        
+        console.log("(화면에 보여질 마지막 페이지 번호)last : " + last);
+        console.log("(화면에 보여질 첫번쨰 페이지 번호)first : " + first);
+        console.log("(>누르면 갈페이지 번호)afterNext : " + afterNext);
+        console.log("(<누르면 갈 페이지 번호)beforePrev : " + beforePrev);
+        
+        console.log("-------------------------------------")
+        var html = "";
+        if(beforePrev > 0) {
+            html += "<a href='list?pn=" + beforePrev + "&select="+ select +"&words="+ words +"' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_on.gif' border='0'></a> ";
+        }else {
+            html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_off.gif' border='0'> ";
+        }
+        if(currentPage > 1) {
+            html += "<a href='list?pn=" + prev + "&select="+ select +"&words="+ words + "' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev_on.gif' border='0'></a>&nbsp; ";
+        } else {
+            html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev_off.gif' border='0'>&nbsp; ";
+        }
+        for(var i=first; i <= last; i++){
+            html += "<b><a href='list?pn="+ i + "&select="+ select +"&words="+ words + "' id=" + i + " class='bbs_link_page'>" + i + "</a></b> ";
+        }
+        if(currentPage < totalPage) {
+            html += "&nbsp;<a href='list?pn=" + next + "&select="+ select +"&words="+ words + "' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next_on.gif' border='0'></a> ";
+        } else {
+            html += "&nbsp;<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next_off.gif' border='0'> ";
+        }
+        if(last < totalPage) {
+            html += "<a href='list?pn=" + afterNext + "&select="+ select +"&words="+ words + "' id='afterNext'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next10_on.gif' border='0'></a>";
+        } else {
+            html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next10_off.gif' border='0'> ";
+        }
+        $("#paging").html(html);    // 페이지 목록 생성
+        $("#paging a").css("color", "#6C6C6C");
+        $("#paging a#" + currentPage).css({"text-decoration":"none", 
+                                           "color":"red", 
+                                           "font-weight":"bold"});    // 현재 페이지 표시
+                                           
+        $("#paging a").click(function(){
+            
+            var $item = $(this);
+            var $id = $item.attr("id");
+            var selectedPage = $item.text();
+            
+            if($id == "afterNext")    selectedPage = afterNext;
+            if($id == "beforePrev")    selectedPage = beforePrev;
+            
+            paging(totalData, dataPerPage, pageCount, selectedPage);
+        });
+                                           
+    }
+    
+    $("document").ready(function(){        
+        paging(totalData, dataPerPage, pageCount, '<c:out value="${pageNo}"/>');
+        
+    });
+</script>
+</body>
 </html>

@@ -136,9 +136,10 @@
 		where no=#{no}
 	</update>
 
-
+	<!-- 회원 수정   -->
 	<update id="update2" parameterType="bluead_Member">
 		update bluead_member set
+		member_pass=#{member_pass},
 		member_zip1=#{member_zip1},
 		member_zip2=#{member_zip2},
 		member_address1=#{member_address1},
@@ -153,9 +154,6 @@
 		where no=#{no}
 	</update>
 
-	<!-- <select id="findByNo2" parameterType="bluead_Member"> update bluead_member 
-		set member_name=#{member_name},member_htel1=#{member_htel1} where no=#{no} 
-		</select> -->
 </mapper>  
 
 

@@ -101,7 +101,7 @@ public class Bluead_MemberController {
 		model.addAttribute("bluead_member", bluead_memberService.get(no));
 		return "BlueAD/bluead_member/member01/view";
 	}
-
+	/*수정할 페이지*/
 	@RequestMapping(value="viewUpdate", method=RequestMethod.GET)
 	public String viewUpdate(@RequestParam(value = "no", defaultValue = "0") int no, Model model,Bluead_Member bluead_Member) throws Exception {
 		model.addAttribute("bluead_member", bluead_memberService.vup(no));
@@ -113,12 +113,13 @@ public class Bluead_MemberController {
 		return "BlueAD/bluead_member/member01/form";
 
 	}
-
+	/* 합창단과의 관계 변경  */
 	@RequestMapping("update")
 	public String update(HttpServletRequest request, Bluead_Member bluead_Member) throws Exception {
 		bluead_memberService.update(bluead_Member);
 		return "redirect:" + (String) request.getHeader("Referer");
 	}
+	/* 회원 수정  */
 	@RequestMapping("update2")
 	public String update2(HttpServletRequest request, Bluead_Member bluead_Member) throws Exception {
 		bluead_memberService.update2(bluead_Member);

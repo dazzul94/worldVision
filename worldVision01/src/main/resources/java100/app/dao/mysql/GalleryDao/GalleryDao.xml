@@ -69,21 +69,10 @@
 		from bluead_wv_gallery01
 		where bbs_no=#{value}
 	</select>
-
-	<!-- <select id="findByEmailAndPassword" resultMap="memberMap" parameterType="map"> 
-		<include refid="select1"/> from ex_memb where email=#{email} and pwd=password(#{password}) 
-		</select> <select id="findByEmail" resultMap="memberMap" parameterType="string"> 
-		<include refid="select1"/> from ex_memb where email=#{email} </select> -->
 	<select id="countAll" resultType="int">
 		select count(*) from bluead_wv_gallery01
 	</select>
 
-	<!-- <insert id="insert" parameterType="member" useGeneratedKeys="true" 
-		keyColumn="no" keyProperty="no"> insert into ex_memb(name,email,pwd,regdt) 
-		values(#{name},#{email},password(#{password}),now()) </insert> <update id="update" 
-		parameterType="member"> update ex_memb set name=#{name}, email=#{email}, 
-		pwd=password(#{password}) where no=#{no} </update> <delete id="delete" parameterType="int"> 
-		delete from ex_memb where no=#{value} </delete> -->
 
 </mapper>  
 
