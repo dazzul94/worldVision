@@ -56,4 +56,9 @@ public class Bluead_WvBoardServiceImpl implements Bluead_WvBoardService {
         return bluead_wvboardDao.delete(no);
     }
 
+	@Override
+	public int add(Bluead_WvBoard bluead_wvboard) {
+		 return bluead_wvboardDao.insert(bluead_wvboard);
+	}
+
 }

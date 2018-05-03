@@ -12,6 +12,7 @@ public interface Bluead_WvBoardDao {
     int countAll(Map<String, Object> options);
     int delete(int no);
     int deleteAll(HashMap<String, Object> numbers);
+	int insert(Bluead_WvBoard bluead_wvboard);
 }
 
 

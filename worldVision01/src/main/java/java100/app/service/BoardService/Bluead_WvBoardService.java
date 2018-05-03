@@ -25,6 +25,7 @@ public interface Bluead_WvBoardService {
     int getTotalCount(Map<String,Object> options);
     int delete(int no);
     int deleteAll(HashMap<String, Object> numbers);
+	int add(Bluead_WvBoard bluead_wvboard);
 }
 
 

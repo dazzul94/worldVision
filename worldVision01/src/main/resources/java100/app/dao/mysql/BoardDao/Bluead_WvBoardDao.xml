@@ -78,10 +78,6 @@
 		where bbs_no=#{value}
 	</select>
 
-	<!-- <select id="findByEmailAndPassword" resultMap="memberMap" parameterType="map"> 
-		<include refid="select1"/> from ex_memb where email=#{email} and pwd=password(#{password}) 
-		</select> <select id="findByEmail" resultMap="memberMap" parameterType="string"> 
-		<include refid="select1"/> from ex_memb where email=#{email} </select> -->
 	<select id="countAll" resultType="int" parameterType="map">
 		select count(*) from bluead_wv_board
 
@@ -144,6 +140,13 @@
         delete from bluead_wv_board
         where bbs_no=#{value}
     </delete>
+    
+         <insert id="insert"  parameterType="bluead_WvBoard" useGeneratedKeys="true" 
+		keyColumn="bbs_no" keyProperty="bbs_no">
+        insert into bluead_wv_board(bbs_name,bbs_email,bbs_subject,bbs_content,bbs_file1,bbs_file2,bbs_file3)
+        values(#{bbs_name},#{bbs_email},#{bbs_subject},#{bbs_content},#{bbs_file1},#{bbs_file2},#{bbs_file3})
+    </insert>
+        
 </mapper>  
 
 

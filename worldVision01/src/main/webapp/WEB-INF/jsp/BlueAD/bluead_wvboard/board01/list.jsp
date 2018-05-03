@@ -64,7 +64,7 @@
       </tr>
          <!-- -----------------공지리스트 --------------------------->
       <c:forEach items="${list}" var="board" varStatus="status">
-      <c:if test="${board.bbs_notice eq 'Y'}">
+      <c:if test="${board.bbs_notice eq 'B'}">
       <tr height="30">
         <td align="center" bgcolor="#f1f1f1"></td>
         <td align="center" bgcolor="#f1f1f1">&nbsp;</td>
@@ -130,7 +130,7 @@
           </td>
           <td align="right" width="300">
           <!--  쓰기  -->
-           <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0">
+           <a href="form"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0">
          </a>
                       </td>
   <!------------- paging ------------------->
