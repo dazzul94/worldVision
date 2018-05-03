@@ -23,7 +23,7 @@
 <jsp:include page="../board_left.jsp"/>
 </div>
 <div id="content">
-<form name="form" action="add" method='post' enctype="multipart/form-data">
+<form name="form" action="add" onsubmit="return checkIt();"method='post' enctype="multipart/form-data">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 자유게시판 </font></td>
@@ -66,7 +66,7 @@
   <tr>
     <td align="center" bgcolor="#f3f3f3">
       <table border="0" cellspacing="0" cellpadding="0" width="98%">
-      <form name="form" method="post" action="write_ok.php" enctype="multipart/form-data">
+     <%--  <form name="form" method="post" action="add" enctype="multipart/form-data"> 
       <input type="hidden" name="bbs_id" value="wv_board">
       <input type="hidden" name="bbs_no" value="">
       <input type="hidden" name="page" value="1">
@@ -76,7 +76,7 @@
       <input type="hidden" name="thread" value="">
       <input type="hidden" name="act" value="">
       <input type="hidden" name="CFG_FILTERING" value="성인/대출/광고/야동/양아치/세끼/꼴에/미친/새끼/똘아이/병신/씨발/씨바야/시발/좃까튼/조까튼/좃/꼴통/니나/미친X/젓가튼/젓같은/싸가지/4가지/개자식/개.새.끼/성추행">
-      <input type="hidden" name="bbs_admin" value="chk">
+      <input type="hidden" name="bbs_admin" value="chk">--%>
               <tr>
           <td width="100" height="30" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write_name.gif"></td>
           <td class="bbs_padding_left">
@@ -120,7 +120,7 @@
 						</tr>
 						<tr>
 							<td><!-- smarteditor -->
-							<textarea name="ir1" id="ir1" rows="10" cols="100">    </textarea>
+						 	<textarea name="bbs_content" id="ir1" rows="10" cols="100">    </textarea>
 							</td>
 						</tr>
 					</table>
@@ -165,13 +165,17 @@
     </td>
   </tr>
 </table>
+
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr height="50">
     <td align="center">
    <td height="50" align="center" valign="bottom">
-   <input type="button" value="등록" onclick="sendSub()">
+   
+   <input onfocus="this.blur();" onclick="window.alert('등록되었습니다')" type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif">
+   <img style="cursor: pointer;" onclick="location.href='list?pn=1'" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cancel.gif">
+   <%-- <input type="button" value="등록" onclick="sendSub()">
                         <input onclick="write()" type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif">
-                        <input onclick="list(${bluead_wv_board.bbs_no})"  type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cancel.gif"></td> 
+                        <input onclick="list(${bluead_wv_board.bbs_no})"  type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cancel.gif"></td>  --%>
   </tr>
 </table>
 </form>

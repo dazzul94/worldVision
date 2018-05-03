@@ -141,7 +141,7 @@
         where bbs_no=#{value}
     </delete>
     
-         <insert id="insert"  parameterType="bluead_WvBoard" useGeneratedKeys="true" 
+         <insert id="insert"  parameterType="bluead_wvboard" useGeneratedKeys="true" 
 		keyColumn="bbs_no" keyProperty="bbs_no">
         insert into bluead_wv_board(bbs_name,bbs_email,bbs_subject,bbs_content,bbs_file1,bbs_file2,bbs_file3)
         values(#{bbs_name},#{bbs_email},#{bbs_subject},#{bbs_content},#{bbs_file1},#{bbs_file2},#{bbs_file3})
