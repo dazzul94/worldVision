@@ -99,7 +99,8 @@
   <tr>
   <td width="150" height="75" class="field_b_pad">주소</td>
    <td style="padding-left: 10px;" bgcolor="#ffffff">
-  <input type="text" name="member_zip1" id="sample4_postcode" placeholder="우편번호" value="${bluead_member.member_zip1}">-  <input type="text" name="member_zip2" id="sample4_postcode" placeholder="우편번호" value="${bluead_member.member_zip2}">
+  <input type="text" name="member_zip1" id="sample4_postcode" placeholder="우편번호" value="${bluead_member.member_zip1}">-  
+  <input type="text" name="member_zip2" id="sample4_postcode2" placeholder="우편번호" value="${bluead_member.member_zip2}">
 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 <input type="text" size="50" name="member_address1" id="sample4_roadAddress" placeholder="도로명주소" value="${bluead_member.member_address1}">
 <input type="text"size="50" name="member_address2" id="sample4_jibunAddress" placeholder="지번주소" value="${bluead_member.member_address2}">
@@ -191,7 +192,8 @@ $("input:radio[name='member_birth2']:radio[value='양력']").prop("checked",true
                 }
  
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample4_postcode').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('sample4_postcode').value = data.postcode1; //구 우편번호 앞 3자리
+                document.getElementById('sample4_postcode2').value = data.postcode2; //구 우편번호 앞 3자리
                 document.getElementById('sample4_roadAddress').value = fullRoadAddr;
                 document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
  
