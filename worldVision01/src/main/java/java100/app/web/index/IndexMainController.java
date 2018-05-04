@@ -1,6 +1,8 @@
 package java100.app.web.index;
 
 
+import java.util.Properties;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -542,14 +544,19 @@ public class IndexMainController {
 	}
 	
 	@RequestMapping("findId")
-	public String goFind(Model model, HttpServletRequest request) {
+	public String goFind() {
+		
+		return "member/findid";
+	}
+	
+	@RequestMapping("doFindId")
+	public String doFind(Model model, HttpServletRequest request) {
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String sql = "SELECT member_id FROM bluead_member WHERE member_name = '" + name + "' && member_email = '" + email + "'";
 		String id = dao.getFindId(sql);
 		model.addAttribute("findId", id);
-		
-		return "member/findid";
+		return null;
 	}
 	
 	@RequestMapping("doJoin")
@@ -560,22 +567,93 @@ public class IndexMainController {
 	}
 	
 	@RequestMapping("doLogin")
-	public String doLogin(HttpServletRequest request) {
+	public String doLogin(Model model, HttpServletRequest request) {
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
 		String jspPage = "member/login";
-		
+		String msg = "";
 		if(dao.checkId(id)) {
 			if(dao.checkPass(id, pass)) {
 				System.out.println("로그인 성공");
+				msg = id + "님 로그인 되셨습니다.";
 				jspPage = "main";
 			}else {
 				System.out.println("비밀번호가 틀렸습니다.");
+				msg = "비밀번호가 틀렸습니다.";
 			}
 		}else {
 			System.out.println("id가 없습니다.");
+			msg = "id가 없습니다.";
 		}
 		
+		model.addAttribute("msg", msg);
 		return jspPage;
 	}
+	
+//	@RequestMapping("email")
+//	public String email(Model model, HttpServletRequest request) throws Exception{
+//		
+//		String email = request.getParameter("email");
+//		String authNum = "";
+//		
+//		authNum = randomNum();
+//		
+//		sendEmail(email, authNum);
+//		
+//		model.addAttribute("email", email);
+//		model.addAttribute("authNum", authNum);
+//		
+//		
+//		return "member/email";
+//	}
+//	
+//	private String randomNum() {
+//		StringBuffer buffer = new StringBuffer();
+//		for(int i=0; i<7;i++) {
+//			int n = (int)(Math.random()*10);
+//			buffer.append(n);
+//		}
+//		return buffer.toString();
+//	}
+//	private void sendEmail(String email, String authNum) {
+//		String host = "smtp.gmail.com";
+//		String subject = "인증번호";
+//		String fromName = "관리자";
+//		String from = "gongbba2@gmail.com";
+//		String to1 = email;
+//		String content = "인증번호 : " + authNum;
+//		
+//		try {
+//			Properties prop = new Properties();
+//			prop.put("mail.smtp.starttls.enable", "true");
+//			prop.put("mail.transport.protocol", "smtp");
+//			prop.put("mail.smtp.host", host);
+//			prop.setProperty("mail.smtp.socketFactory.class", "javax.ssl.SSLSocketFactory");
+//			prop.put("mail.smtp.port", "465");
+//			prop.put("mail.smtp.user", from);
+//			prop.put("mail.smtp.auth", "true");
+//			
+//			Session mailSession = Session.getInstance(prop, new javax.mail.Authenticator() {
+//				@Override
+//				protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+//					return new javax.mail.PasswordAuthentication("gongbba2@gmail.com", "wjdfur0882");
+//				}
+//			});
+//			
+//			Message message = new MimeMessage(mailSession) ;
+//			message.setFrom(new InternetAddress(from, MimeUtility.encodeText(fromName, "UTF-8", "B")));
+//			InternetAddress[] address1 = {new InternetAddress(to1)};
+//			message.setRecipients(Message.RecipientType.TO, address1);
+//         
+//            // 이메일 제목
+//            message.setSubject(subject);
+//             
+//            // 이메일 내용
+//            message.setContent(content, "text/html; charset=utf-8");
+//   
+//
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 }

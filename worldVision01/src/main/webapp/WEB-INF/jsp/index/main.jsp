@@ -34,7 +34,13 @@
 				controls: false
 			});
 		});
-
+		
+		function msg(msg){
+			if(msg != null && msg != ""){
+				alert(msg);	
+			}
+		}
+		
 </script>
 <!--[if lt IE 8]>
 		<script type="text/javascript">
@@ -45,7 +51,7 @@
 		</script>
 		<![endif]-->
 </head>
-<body id="wrap">
+<body id="wrap" onload="msg('${msg}')">
 	<!-- header -->
 	<header id="header">
     	<div class="inner">
