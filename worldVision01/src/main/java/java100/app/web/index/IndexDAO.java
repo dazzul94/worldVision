@@ -131,6 +131,15 @@ public class IndexDAO {
 		return jTmp.query(sql, mapper).size() != 0;
 	}
 	
+	public int insertApplication(Application application) {
+		String sql = "INSERT INTO bluead_online (name, tel1, tel2, tel3, htel1, htel2, htel3, email, zip1, zip2, address1, address2, contents, wdate) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		return jTmp.update(sql, application.getName(), application.getTel1(), application.getTel2(), application.getTel3(),
+				application.getHtel1(), application.getHtel2(), application.getHtel3(), application.getEmail(), application.getZip1(),
+				application.getZip2(), application.getAddress1(), application.getAddress2(), application.getContents(), application.getWdate());	
+	}
+	
 //	public String encrypt(String planText) {
 //        try{
 //            MessageDigest md = MessageDigest.getInstance("SHA-256");

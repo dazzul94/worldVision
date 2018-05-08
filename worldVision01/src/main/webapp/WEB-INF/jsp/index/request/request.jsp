@@ -112,6 +112,11 @@
 			$("nav.menu>ul>li").removeClass("on");
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
+		
+		function doSubmit(){
+			alert("신청을 완료 하셨습니다.");
+			$("#form").submit();	
+		}
 	</script>
     		<div class="tnb">
             	<a href="login">로그인</a>
@@ -148,11 +153,12 @@
                 <!-- S: board -->
                  
                     	<div class="writeLayout">
+                <form id="form" method="post" action="doRequest">
 				<table>
 					<tbody>
                     <tr>
 						<th>이름</th>
-						<td><input type="text"></td>
+						<td><input type="text" name="name"></td>
 					</tr>
                     <tr>
 						<th>희망지역</th>
@@ -166,14 +172,14 @@
 					</tr>
                     <tr>
 						<th>성별</th>
-						<td><input type="radio"> 남자 <input type="radio" class="ml15"> 여자</td>
+						<td><input type="radio" name="tpe_opt2" value="남자"> 남자 <input type="radio" class="ml15" name="tpe_opt2" value="여자"> 여자</td>
 					</tr><tr>
 						<th>학년</th>
-						<td><input type="radio"> 2학년 <input type="radio" class="ml15"> 3학년 <input type="radio" class="ml15"> 4학년 <input type="radio" class="ml15"> 5학년 <input type="radio" class="ml15"> 6학년</td>
+						<td><input type="radio" name="tpe_opt3" value="2학년"> 2학년 <input type="radio" class="ml15" name="tpe_opt3" value="3학년"> 3학년 <input type="radio" class="ml15" name="tpe_opt3" value="4학년"> 4학년 <input type="radio" class="ml15" name="tpe_opt3" value="5학년"> 5학년 <input type="radio" class="ml15" name="tpe_opt3" value="6학년"> 6학년</td>
 					</tr>
                     <tr>
 						<th>부모님 성함</th>
-						<td><input type="text"></td>
+						<td><input type="text" name="tpe1_opt4"></td>
 					</tr>
                     <tr>
 						<th>입단신청경로</th>
@@ -191,11 +197,11 @@
 					</tr>
                     <tr>
 						<th>일반전화</th>
-						<td><input type="text" class="tel"> - <input type="text" class="tel"> - <input type="text"  class="tel"></td>
+						<td><input type="text" class="tel" name="htel1"> - <input type="text" class="tel" name="htel2"> - <input type="text"  class="tel" name="htel3"></td>
 					</tr>
                     <tr>
 						<th>휴대전화</th>
-						<td><input type="text" class="tel"> - <input type="text" class="tel"> - <input type="text"  class="tel"></td>
+						<td><input type="text" class="tel" name="tel1"> - <input type="text" class="tel" name="tel2"> - <input type="text"  class="tel" name="tel3"></td>
 					</tr>
                     <tr>
 						<th>이메일</th>
@@ -205,13 +211,13 @@
 					</tr>
                     <tr>
 						<th>주소</th>
-						<td><input type="text"  class="zip"> - <input type="text" class="zip"> <a href="#" class="sbtn">우편번호</a><br/>
-                        <input type="text" class="wid100 mt3"><br/>
-                        <input type="text" class="wid100 mt3"></td>
+						<td><input type="text"  class="zip" name="zip1"> - <input type="text" class="zip" name="zip2"> <a href="#" class="sbtn">우편번호</a><br/>
+                        <input type="text" class="wid100 mt3" name="address1"><br/>
+                        <input type="text" class="wid100 mt3" name="address2"></td>
 					</tr>
 					<tr>
 						<th>기타</th>
-						<td><textarea class="textarea"> </textarea></td>
+						<td><textarea class="textarea" name="contents"> </textarea></td>
 						
 					</tr>
 					
@@ -263,9 +269,11 @@
         
             
 				<div class="boardbtn">
-                	<a href="#">보내기</a>
+				<input type="hidden" name="type" value="1" />
+                	<a href="#" onclick="doSubmit()" return false;>보내기</a>
                 	<a href="#" class="gray">취소</a>
                 </div>
+                </form>
 			</div>
                      
                 		

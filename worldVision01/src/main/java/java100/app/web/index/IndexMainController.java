@@ -277,10 +277,13 @@ public class IndexMainController {
 	
 	@RequestMapping("request")
 	public String goRequest() {
-		
 		return "request/request";
 	}
-	
+	@RequestMapping("doRequest")
+	public String doRequest(Application application) {
+		dao.insertApplication(application);
+		return "request/request";
+	}
 	@RequestMapping("request2")
 	public String goRequest2() {
 		
@@ -560,22 +563,28 @@ public class IndexMainController {
 	}
 	
 	@RequestMapping("doLogin")
-	public String doLogin(HttpServletRequest request) {
+	public String doLogin(Model model, HttpServletRequest request) {
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
 		String jspPage = "member/login";
 		
+		String msg = "";
 		if(dao.checkId(id)) {
 			if(dao.checkPass(id, pass)) {
 				System.out.println("로그인 성공");
+				msg = id + "님 로그인 되셨습니다.";
 				jspPage = "main";
 			}else {
 				System.out.println("비밀번호가 틀렸습니다.");
+				msg = "비밀번호가 틀렸습니다.";
 			}
 		}else {
 			System.out.println("id가 없습니다.");
+			msg = "id가 없습니다.";
 		}
 		
+		model.addAttribute("msg", msg);
 		return jspPage;
 	}
 }
+
