@@ -25,9 +25,11 @@
 		} */
 
 	#calendar {
-		/* width: 900px; */
-		height: 792px;
-		margin: 0 auto;
+		/* height: 792px;
+		margin: 0 auto; */
+		width: auto; height: auto;
+    	max-width: 1400px;
+    	margin: 0 auto;
 		}
 
 </style>
