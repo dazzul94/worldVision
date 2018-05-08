@@ -23,7 +23,7 @@
 
 		<if test="words != null">
 			<where>
-				bbs_names in
+				bbs_name in
 				<foreach collection="words" item="word" open="(" close=")"
 					separator=",">
 					#{word}
