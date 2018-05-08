@@ -120,7 +120,7 @@
 						</tr>
 						<tr>
 							<td><!-- smarteditor -->
-						 	<textarea name="bbs_content" id="ir1" rows="10" cols="100">    </textarea>
+						 	<textarea name="bbs_content" id="ir1" rows="10" cols="100"></textarea>
 							</td>
 						</tr>
 					</table>

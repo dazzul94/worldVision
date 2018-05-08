@@ -20,16 +20,16 @@
 <jsp:include page="../../top.jsp"/>
 </div>
 <div id="navigation">
-<jsp:include page="../member_left.jsp"/>
+<jsp:include page="../concert_left.jsp"/>
 </div>
 <div id="content">
 <form action="update" onsubmit="return checkIt();"method='post' enctype="multipart/form-data">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-  	<c:if test="${gubun eq 'terms'}">
+  	<c:if test="${gubun eq 'musicalView'}">
   		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 약관 관리 </font></td>
   	</c:if>
-    <c:if test="${gubun eq 'personalView'}">
+    <c:if test="${gubun eq 'musicalView2'}">
   		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 개인정보보호정책 </font></td>
   	</c:if>
   </tr>
@@ -50,11 +50,11 @@
 						<tr>
 							<td><!-- smarteditor -->
 							<textarea  name="ir1" id="ir1" rows="40" cols="250">
-								<c:if test="${gubun eq 'terms'}">
-								${bluead_member02.contents1}
+								<c:if test="${gubun eq 'musicalView'}">
+								${bluead_musical.content}
 								</c:if>
-								<c:if test="${gubun eq 'personalView'}">
-								${bluead_member02.contents2}
+								<c:if test="${gubun eq 'musicalView2'}">
+								${bluead_musical.content}
 								</c:if>
 							</textarea>
 							</td>

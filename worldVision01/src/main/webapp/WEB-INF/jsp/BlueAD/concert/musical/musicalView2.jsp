@@ -20,7 +20,7 @@
 <jsp:include page="../../top.jsp"/>
 </div>
 <div id="navigation">
-<jsp:include page="../member_left.jsp"/>
+<jsp:include page="../concert_left.jsp"/>
 </div>
 <div id="content">
 <form action="update" onsubmit="return checkIt();"method='post' enctype="multipart/form-data">

@@ -33,13 +33,7 @@ public class Bluead_Member02Controller {
 	@RequestMapping("update")
 	public String update(HttpServletRequest request, Bluead_Member02 bluead_Member02) throws Exception {
 		bluead_member02Service.update(bluead_Member02);
-		return "BlueAD/bluead_member/member02/view";
-	}
-	@RequestMapping("{no}")
-	public String view(@PathVariable int no, Model model) throws Exception {
-
-		model.addAttribute("bluead_member02", bluead_member02Service.get(no));
-		return "BlueAD/bluead_member/member02/view";
+		return "BlueAD/bluead_member/member02/termsView";
 	}
 	@RequestMapping("termsView")
 	public String termsView(@RequestParam(value = "gubun") String gubun, Model model) throws Exception {

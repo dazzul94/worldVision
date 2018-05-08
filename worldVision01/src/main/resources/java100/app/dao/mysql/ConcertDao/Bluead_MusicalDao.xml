@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- DAO 객체를 자동으로 생성하려면, namespace의 값이 인터페이스 이름과 같아야 한다. -->
+<mapper namespace="java100.app.dao.ConcertDao.Bluead_MusicalDao">
+
+	<resultMap type="bluead_Musical" id="bluead_MusicalMap">
+		<id column="name" property="name" />
+		<!-- 컬럼 이름과 프로퍼티 이름이 같아서 생략! -->
+		<!-- <result column="name" property="name"/> <result column="email" property="email"/> -->
+	</resultMap>
+<select id="findMusicalCont" resultMap="bluead_MusicalMap">
+		SELECT CONTENT 
+  		  FROM worlddb.bluead_choir_form
+		 where name="정기연주"
+	</select>
+</mapper>  
+
+
+
+
+
+
+
+
