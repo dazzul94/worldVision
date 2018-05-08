@@ -24,13 +24,13 @@
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../member02/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 이용약관</td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../member02/termsView?gubun=terms'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 이용약관</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../member03/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 개인정보보호정책</td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../member02/termsView?gubun=personalView'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 개인정보보호정책</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
