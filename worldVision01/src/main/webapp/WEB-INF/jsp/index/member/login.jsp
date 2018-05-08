@@ -24,15 +24,8 @@
 			document.createElement('footer');
 		</script>
 		<![endif]-->
-		<script type="text/javascript">
-			function msg(msg){
-				if(msg != null && msg != ""){
-					alert(msg);	
-				}
-			}
-		</script>
 </head>
-<body id="wrap" onload="msg('${msg}')">
+<body id="wrap">
 	<!-- header -->
 	<header id="header">
     	<div class="inner">
