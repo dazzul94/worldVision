@@ -8,4 +8,6 @@ public interface Bluead_Member02Dao {
 	int update(Bluead_Member02 bluead_Member02);
 
 	Bluead_Member02 findByNo(int no);
+
+	Bluead_Member02 findTermsCont();
 }

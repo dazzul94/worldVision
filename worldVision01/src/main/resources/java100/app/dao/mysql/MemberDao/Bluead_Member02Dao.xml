@@ -29,11 +29,17 @@
 		where no=#{no}
 	</update>
 
-<select id="findByNo" resultMap="bluead_MemberMap"
+	<select id="findByNo" resultMap="bluead_MemberMap"
 		parameterType="int">
 		<include refid="select1" />
 		from bluead_terms
 		where no=#{value}
+	</select>
+	
+	<select id="findTermsCont" resultMap="bluead_MemberMap">
+		SELECT CONTENTS1, CONTENTS2 
+  		  FROM worlddb.bluead_terms
+		 where no=1
 	</select>
 </mapper>  
 

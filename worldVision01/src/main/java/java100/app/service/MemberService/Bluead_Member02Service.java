@@ -16,6 +16,7 @@ public interface Bluead_Member02Service {
 
 	int update(Bluead_Member02 bluead_Member02);
 	Bluead_Member02 get(int no);
+	Bluead_Member02 getTermsCont();
 
 
 }

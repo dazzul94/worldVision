@@ -24,5 +24,9 @@ public class Bluead_Member02ServiceImpl implements Bluead_Member02Service {
 	public Bluead_Member02 get(int no) {
 		return bluead_member02Dao.findByNo(no);
 	}
+	@Override
+	public Bluead_Member02 getTermsCont() {
+		return bluead_member02Dao.findTermsCont();
+	}
 
 }

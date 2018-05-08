@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java100.app.domain.Member.Bluead_Member02;
 import java100.app.service.MemberService.Bluead_Member02Service;
@@ -38,6 +39,15 @@ public class Bluead_Member02Controller {
 	public String view(@PathVariable int no, Model model) throws Exception {
 
 		model.addAttribute("bluead_member02", bluead_member02Service.get(no));
-		return "BlueAD/bluead_member/member01/view";
+		return "BlueAD/bluead_member/member02/view";
+	}
+	@RequestMapping("termsView")
+	public String termsView(@RequestParam(value = "gubun") String gubun, Model model) throws Exception {
+		
+		Bluead_Member02 termsCont = bluead_member02Service.getTermsCont();
+		
+		model.addAttribute("bluead_member02", termsCont);
+		model.addAttribute("gubun", gubun);
+		return "BlueAD/bluead_member/member02/termsView";
 	}
 }
