@@ -73,13 +73,12 @@
 		/* for (var i = 0; i < bluead_scheduleList.length; i ++) {
 		console.log(bluead_scheduleList[i]);
 		} */
-		var jsonInfo = JSON.stringify(bluead_scheduleList);
-		console.log(jsonInfo);
-		console.log(jsonInfo.replace(/\\/g,'\\'));
+		/* var jsonInfo = JSON.stringify(bluead_scheduleList);
+		console.log(jsonInfo); */
 		
 		$('#calendar').fullCalendar({
 			editable: true,
-			events: jsonInfo
+			events: bluead_scheduleList
 				/* {
 					title: 'All Day Event',
 					start: new Date(y, m, 1)
