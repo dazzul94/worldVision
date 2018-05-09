@@ -115,7 +115,7 @@ public class Application {
 
 	public Application(String type, String member_id, String name, String tel1, String tel2, String tel3,
 			String htel1, String htel2, String htel3, String email, String zip1, String zip2, String address1,
-			String address2, String contents, String wdate) {
+			String address2, String contents) {
 		super();
 		this.type = type;
 		this.member_id = member_id;
@@ -422,7 +422,4 @@ public class Application {
 	public void setTpe1_opt4(String tpe1_opt4) {
 		this.tpe1_opt4 = tpe1_opt4;
 	}
-	
-	
-	
 }

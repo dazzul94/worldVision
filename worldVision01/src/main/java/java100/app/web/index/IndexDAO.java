@@ -132,12 +132,20 @@ public class IndexDAO {
 	}
 	
 	public int insertApplication(Application application) {
-		String sql = "INSERT INTO bluead_online (name, tel1, tel2, tel3, htel1, htel2, htel3, email, zip1, zip2, address1, address2, contents, wdate) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO bluead_online (type, member_id, name, tel1, tel2, tel3, htel1, htel2, htel3, email, zip1, zip2, address1, address2, contents) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
-		return jTmp.update(sql, application.getName(), application.getTel1(), application.getTel2(), application.getTel3(),
+		return jTmp.update(sql, application.getType(), application.getMember_id(), application.getName(), application.getTel1(), application.getTel2(), application.getTel3(),
 				application.getHtel1(), application.getHtel2(), application.getHtel3(), application.getEmail(), application.getZip1(),
-				application.getZip2(), application.getAddress1(), application.getAddress2(), application.getContents(), application.getWdate());	
+				application.getZip2(), application.getAddress1(), application.getAddress2(), application.getContents());	
+	}
+	
+	public int insertComment(Comment comment) {
+		String sql = "INSERT INTO bluead_comment(comm_fid, comm_thread, comm_bbs_id, comm_bbs_no, "
+				+ "comm_name, comm_content, comm_date) VALUES(?, ? ,?, ?, ?, ?, ?)";
+		
+		return jTmp.update(sql, comment.getComm_fid(),	comment.getComm_thread(), comment.getComm_bbs_id(), 
+				comment.getComm_bbs_no(), comment.getComm_name(), comment.getComm_content(), comment.getComm_date());
 	}
 	
 //	public String encrypt(String planText) {
