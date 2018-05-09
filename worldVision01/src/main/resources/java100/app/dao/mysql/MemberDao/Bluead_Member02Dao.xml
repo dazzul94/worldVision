@@ -26,7 +26,7 @@
 	<update id="update" parameterType="bluead_Member">
 		update bluead_terms set
 	 contents1=#{contents1}, contents2=#{contents2}
-		where no=#{no}
+		where no=1
 	</update>
 
 	

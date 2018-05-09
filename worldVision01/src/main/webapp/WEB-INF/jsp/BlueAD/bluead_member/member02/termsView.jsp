@@ -49,14 +49,21 @@
 						</tr>
 						<tr>
 							<td><!-- smarteditor -->
-							<textarea  name="ir1" id="ir1" rows="40" cols="250">
+							
 								<c:if test="${gubun eq 'terms'}">
+							<textarea  name="contents1" id="ir1" rows="40" cols="250">
 								${bluead_member02.contents1}
-								</c:if>
-								<c:if test="${gubun eq 'personalView'}">
-								${bluead_member02.contents2}
-								</c:if>
 							</textarea>
+							<textarea name="contents2" style="display:none;" value="${bluead_member02.contents2}"></textarea>
+								</c:if>
+								
+								<c:if test="${gubun eq 'personalView'}">
+								
+							<textarea  name="contents2" id="ir1" rows="40" cols="250">
+								${bluead_member02.contents2}
+							</textarea>
+								</c:if>
+								<input type="hidden" name="gubun" value="${gubun}">
 							</td>
 						</tr>
 					</table>			
