@@ -27,36 +27,40 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   	<c:if test="${gubun eq 'musicalView'}">
-  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 약관 관리 </font></td>
+  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 정기연주 </font></td>
   	</c:if>
     <c:if test="${gubun eq 'musicalView2'}">
-  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 개인정보보호정책 </font></td>
+  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 기획연주 </font></td>
+  	</c:if>
+  	 <c:if test="${gubun eq 'missionView'}">
+  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 미션연주 </font></td>
+  	</c:if>
+  	 <c:if test="${gubun eq 'foreignView'}">
+  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 해외연주 </font></td>
   	</c:if>
   </tr>
   <tr>
     <td height="1" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
   </tr>
-  <tr>
-    <td height="20"></td>
-  </tr>
 </table>
 
 					<table align="center" border="0" cellpadding="10" cellspacing="3" width="100%">
 						<tr>
-							<td bgcolor="#EFEFEF">
+							<td bgcolor="white">
 							<!-- ?? -->
 							</td>
 						</tr>
 						<tr>
 							<td><!-- smarteditor -->
-							<textarea  name="ir1" id="ir1" rows="40" cols="250">
+							
 								<c:if test="${gubun eq 'musicalView'}">
-								${bluead_musical.content}
+							<textarea  name="정기연주" id="ir1" rows="40" cols="250">${bluead_musical.content}</textarea>
 								</c:if>
 								<c:if test="${gubun eq 'musicalView2'}">
-								${bluead_musical.content}
+								<textarea name="contents1" style="display:none;">${bluead_member02.contents1}</textarea>
+								<textarea  name="contents2" id="ir1" rows="40" cols="250">${bluead_member02.contents2}</textarea>
 								</c:if>
-							</textarea>
+								<input type="hidden" name="gubun" value="${gubun}">
 							</td>
 						</tr>
 					</table>			
