@@ -117,12 +117,6 @@
 			var name = document.getElementById('name').value;
 			location.href = "join2?name=" + name;
 		}
-		
-		function goEmail(){
-			var email = $("#email").val();
-			location.href = "email?email=" + email;
-			
-		}
 	</script>
     		<div class="tnb">
             	<a href="login">로그인</a>
@@ -159,8 +153,8 @@
                                 <input type="text"></p>
                                 
                                 <p><label><img src="${contextPath }/images/index/member/fd4.gif" alt=""/></label>
-                                <input type="text" class="tel" name="email" id="email">  
-                                <a href="#" class="btn_normal" onclick="goEmail()" return false;>인증번호받기</a></p>
+                                <input type="text" class="tel">  
+                                <a href="#" class="btn_normal">인증번호받기</a></p>
                                 
 	  		  </div>
               

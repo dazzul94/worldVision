@@ -40,7 +40,7 @@
 				alert(msg);	
 			}
 		}
-		
+
 </script>
 <!--[if lt IE 8]>
 		<script type="text/javascript">
