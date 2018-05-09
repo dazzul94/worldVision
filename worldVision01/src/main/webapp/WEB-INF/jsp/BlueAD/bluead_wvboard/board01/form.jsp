@@ -13,6 +13,19 @@
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
 <link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css">
+<!-- lightbox(좌,우) -->
+<link rel="stylesheet" media="screen" href="/BlueAD/lightbox/css/lightbox.css" type="text/css">
+<script src="/BlueAD/lightbox/js/prototype.js" type="text/javascript"></script>
+<script src="/BlueAD/lightbox/js/scriptaculous.js?load=effects" type="text/javascript"></script>
+<script src="/BlueAD/lightbox/js/lightbox.js" type="text/javascript"></script>
+
+<!-- lightbox+(확대,좌,우)
+<link rel="stylesheet" type="text/css" href="/BlueAD/lightbox2/resource/sample.css" media="screen,tv" title="default"/> 
+<link rel="stylesheet" type="text/css" href="/BlueAD/lightbox2/resource/lightbox.css" media="screen,tv" />
+<script type="text/javascript" charset="euc-kr" src="/BlueAD/lightbox2/resource/lightbox_plus_min.js"></script>-->
+<script language="javascript" src="/BlueAD/js/new_win.js"></script>
+<link rel="stylesheet" type="text/css" href="skin/bbs/bluead_gray/style.css">
+<script language="javascript" src="/BlueAD/js/common_checking.js"></script>
 </head>
 
 <body>
@@ -35,33 +48,6 @@
     <td height="20"></td>
   </tr>
 </table>
- 
-
-<!-- lightbox(좌,우) -->
-<link rel="stylesheet" media="screen" href="/BlueAD/lightbox/css/lightbox.css" type="text/css">
-<script src="/BlueAD/lightbox/js/prototype.js" type="text/javascript"></script>
-<script src="/BlueAD/lightbox/js/scriptaculous.js?load=effects" type="text/javascript"></script>
-<script src="/BlueAD/lightbox/js/lightbox.js" type="text/javascript"></script>
-
-<!-- lightbox+(확대,좌,우)
-<link rel="stylesheet" type="text/css" href="/BlueAD/lightbox2/resource/sample.css" media="screen,tv" title="default"/> 
-<link rel="stylesheet" type="text/css" href="/BlueAD/lightbox2/resource/lightbox.css" media="screen,tv" />
-<script type="text/javascript" charset="euc-kr" src="/BlueAD/lightbox2/resource/lightbox_plus_min.js"></script>-->
-
-
-
-
-   
-
-<script language="javascript" src="/BlueAD/js/new_win.js"></script>
-<link rel="stylesheet" type="text/css" href="skin/bbs/bluead_gray/style.css">
-<script language="javascript" src="/BlueAD/js/common_checking.js"></script>
-<script language="javascript">
-
-
-
-//-->
-</script>
 <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#cbcbcb">
   <tr>
     <td align="center" bgcolor="#f3f3f3">
@@ -215,6 +201,30 @@ function sendSub(){
     } catch(e) {
     	}
     }
+    
+    
+    //이거 넣어줘야함~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//‘저장’ 버튼을 누르는 등 저장을 위한 액션을 했을 때 submitContents가 호출된다고 가정한다.
+
+function submitContents(elClickedObj) {
+
+    // 에디터의 내용이 textarea에 적용된다.
+
+    oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+
+ 
+
+    // 에디터의 내용에 대한 값 검증은 이곳에서
+
+    // document.getElementById("ir1").value를 이용해서 처리한다.
+
+ 
+
+    try {
+
+        elClickedObj.form.submit();
+
+    } catch(e) {}
 </script>
 </body>
 </html>
