@@ -36,14 +36,11 @@
   <tr>
     <td height="1" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
   </tr>
-  <tr>
-    <td height="20"></td>
-  </tr>
 </table>
 
 					<table align="center" border="0" cellpadding="10" cellspacing="3" width="100%">
 						<tr>
-							<td bgcolor="#EFEFEF">
+							<td bgcolor="white">
 							<!-- ?? -->
 							</td>
 						</tr>
