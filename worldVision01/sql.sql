@@ -8,7 +8,9 @@ FROM bluead_comment
 WHERE comm_bbs_id = 'wv_gallery02' && comm_bbs_no = 20
 ORDER BY comm_no DESC;
 SELECT * FROM bluead_member WHERE member_pass = old_password('1234');
-SELECT * FROM bluead_member WHERE member_id  = '1'
+SELECT * FROM bluead_comment WHERE comm_name = '공'
+SELECT * FROM bluead_member WHERE member_name = '성예진'
 SELECT member_id, member_pass FROM bluead_member WHERE member_pass = ? && member_id = ?;
 SELECT member_id, member_pass FROM bluead_member WHERE member_id = '1'
-DELETE FROM bluead_member WHERE member_id='1'
+DELETE FROM bluead_member WHERE member_name='1'
+DELETE FROM bluead_comment WHERE comm_name = '공'
