@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java100.app.dao.BoardDao.Bluead_WvBoard02Dao;
+import java100.app.domain.Board.Bluead_WvBoard;
 import java100.app.domain.Board.Bluead_WvBoard02;
 import java100.app.service.BoardService.Bluead_WvBoard02Service;
  
@@ -53,6 +54,11 @@ public class Bluead_WvBoard02ServiceImpl implements Bluead_WvBoard02Service {
     public int getTotalCount(Map<String,Object> options) {
         return bluead_wvboard02Dao.countAll(options);
     }
+
+	@Override
+	public int add(Bluead_WvBoard bluead_wvboard) {
+		 return bluead_wvboard02Dao.insert(bluead_wvboard);
+	}
 
 
 }

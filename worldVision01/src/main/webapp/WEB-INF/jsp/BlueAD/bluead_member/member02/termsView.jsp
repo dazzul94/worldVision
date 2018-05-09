@@ -67,7 +67,7 @@
     <td align="center">
    <td height="50" align="center" valign="bottom">
    
-   <input onfocus="this.blur();"   onclick="window.location='termsView'" type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif">
+   <input type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif" onclick="sendSub()">
    <%-- <input type="button" value="등록" onclick="sendSub()">
                         <input onclick="write()" type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif">
                         <input onclick="list(${bluead_wv_board.bbs_no})"  type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cancel.gif"></td>  --%>
@@ -90,7 +90,14 @@ nhn.husky.EZCreator.createInIFrame({
     fCreator: "createSEditor2"
 
 });
-
+function sendSub(){
+    oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+      window.alert(document.getElementById("ir1").value); 
+    try {
+    form.submit();
+    } catch(e) {
+       }
+    }
 </script>
 </body>
 </html>

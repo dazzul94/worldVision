@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java100.app.dao.BoardDao.Bluead_WvBoard03Dao;
+import java100.app.domain.Board.Bluead_WvBoard;
 import java100.app.domain.Board.Bluead_WvBoard03;
 import java100.app.service.BoardService.Bluead_WvBoard03Service;
  
@@ -55,4 +56,9 @@ public class Bluead_WvBoard03ServiceImpl implements Bluead_WvBoard03Service {
     public int deleteAll(HashMap<String, Object> numbers) {
         return bluead_wvboard03Dao.deleteAll(numbers);
     }
+
+	@Override
+	public int add(Bluead_WvBoard bluead_wvboard) {
+		return bluead_wvboard03Dao.insert(bluead_wvboard);
+	}
 }

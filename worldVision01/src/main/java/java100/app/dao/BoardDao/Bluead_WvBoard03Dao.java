@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java100.app.domain.Board.Bluead_WvBoard;
 import java100.app.domain.Board.Bluead_WvBoard03;
  
 public interface Bluead_WvBoard03Dao {
@@ -12,6 +13,7 @@ public interface Bluead_WvBoard03Dao {
     int countAll(Map<String, Object> options);
     int delete(int no);
     int deleteAll(HashMap<String, Object> numbers);
+	int insert(Bluead_WvBoard bluead_wvboard);
 }
 
 

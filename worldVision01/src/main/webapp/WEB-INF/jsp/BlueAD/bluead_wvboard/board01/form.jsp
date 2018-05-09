@@ -12,13 +12,13 @@
 <script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
-<link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css">
+<%-- <link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css"> 
 <!-- lightbox(좌,우) -->
 <link rel="stylesheet" media="screen" href="/BlueAD/lightbox/css/lightbox.css" type="text/css">
 <script src="/BlueAD/lightbox/js/prototype.js" type="text/javascript"></script>
 <script src="/BlueAD/lightbox/js/scriptaculous.js?load=effects" type="text/javascript"></script>
-<script src="/BlueAD/lightbox/js/lightbox.js" type="text/javascript"></script>
-
+< <script src="/BlueAD/lightbox/js/lightbox.js" type="text/javascript"></script> 
+--%>
 <!-- lightbox+(확대,좌,우)
 <link rel="stylesheet" type="text/css" href="/BlueAD/lightbox2/resource/sample.css" media="screen,tv" title="default"/> 
 <link rel="stylesheet" type="text/css" href="/BlueAD/lightbox2/resource/lightbox.css" media="screen,tv" />
@@ -95,24 +95,24 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
                             <tr>
                 <td>
-		<TABLE BORDER="1" WIDTH=100% cellspacing="0" bordercolor="#EFEFEF" bordercolordark="white" bordercolorlight="#DBDBDB">
-			<TR>
-				<TD>
-					<table align="center" border="0" cellpadding="1" cellspacing="3" width="100%">
-						<tr>
-							<td bgcolor="#EFEFEF">
-							<!-- ?? -->
-							</td>
-						</tr>
-						<tr>
-							<td><!-- smarteditor -->
-						 	<textarea name="bbs_content" id="ir1" rows="10" cols="100"></textarea>
-							</td>
-						</tr>
-					</table>
-				</TD>
-			</TR>
-		</TABLE>
+      <TABLE BORDER="1" WIDTH=100% cellspacing="0" bordercolor="#EFEFEF" bordercolordark="white" bordercolorlight="#DBDBDB">
+         <TR>
+            <TD>
+               <table align="center" border="0" cellpadding="1" cellspacing="3" width="100%">
+                  <tr>
+                     <td bgcolor="#EFEFEF">
+                     <!-- ?? -->
+                     </td>
+                  </tr>
+                  <tr>
+                     <td><!-- smarteditor -->
+                      <textarea name="bbs_content" id="ir1" rows="10" cols="100"></textarea>
+                     </td>
+                  </tr>
+               </table>
+            </TD>
+         </TR>
+      </TABLE>
                         <!-- <textarea name="bbs_content" id="bbs_content" rows="20" style="width:100%" class="bbs_textarea"></textarea> -->
                 </td>
               </tr>
@@ -156,11 +156,10 @@
   <tr height="50">
     <td align="center">
    <td height="50" align="center" valign="bottom">
-   
-   <input onfocus="this.blur();" onclick="window.alert('등록되었습니다')" type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif">
+    <input type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif" onclick="sendSub()">
    <img style="cursor: pointer;" onclick="location.href='list?pn=1'" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cancel.gif">
-   <%-- <input type="button" value="등록" onclick="sendSub()">
-                        <input onclick="write()" type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif">
+ 
+                        <%--  <input onclick="write()" type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif">
                         <input onclick="list(${bluead_wv_board.bbs_no})"  type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cancel.gif"></td>  --%>
   </tr>
 </table>
@@ -187,7 +186,7 @@ function sendSub(){
     try {
     form.submit();
     } catch(e) {
-    	}
+       }
     }
 /* function submitContents(elClickedObj) {
     oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java100.app.domain.Board.Bluead_WvBoard;
 import java100.app.service.BoardService.Bluead_WvBoard02Service;
 import java100.app.service.BoardService.Bluead_WvBoardService;
 
@@ -122,6 +123,12 @@ public class Bluead_WvBoard02Controller {
         String decodeResult = URLDecoder.decode((String)request.getHeader("Referer"), "UTF-8");
         System.out.println(decodeResult);*/
         return "redirect:" +  (String)request.getHeader("Referer");
+    }
+    @RequestMapping("add")
+    public String add(Bluead_WvBoard bluead_wvboard) throws Exception {
+        
+    	bluead_wvboard02Service.add(bluead_wvboard);
+        return "redirect:list";
     }
 }
 

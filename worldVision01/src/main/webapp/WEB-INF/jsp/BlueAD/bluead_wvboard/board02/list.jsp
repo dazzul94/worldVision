@@ -130,7 +130,7 @@
           </td>
           <td align="right" width="300">
           <!--  쓰기  -->
-           <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0">
+           <a href="form"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0">
          </a>
                       </td>
   <!------------- paging ------------------->
