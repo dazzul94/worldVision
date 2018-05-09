@@ -182,7 +182,7 @@ nhn.husky.EZCreator.createInIFrame({
 });
 function sendSub(){
     oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-      window.alert(document.getElementById("ir1").value); 
+      /* window.alert(document.getElementById("ir1").value);  */
     try {
     form.submit();
     } catch(e) {

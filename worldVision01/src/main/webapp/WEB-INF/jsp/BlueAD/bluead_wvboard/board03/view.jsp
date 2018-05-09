@@ -124,8 +124,8 @@ ${bluead_wvboard03.bbs_thumb1 }
      <a href="board.php?bbs_id=wv_community01&mode=write&act=modify&bbs_no=307&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_modify.gif" align="absmiddle" border="0"></a>
 
         <%--   <input align="absmiddle"  onclick="really(${bluead_wvboard03.no})" onfocus="this.blur();" type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_del.gif">  --%>
-<a href="javascript:post_del()"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_del.gif" align="absmiddle" border="0"></a>
-<a href="board.php?bbs_id=wv_community01&mode=write&page=1&key=&keyword=&bbs_admin=chk"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0"></a>
+<a href='delete?no=${bluead_wvboard03.bbs_no}'><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_del.gif" align="absmiddle" border="0"></a>
+<a href="form"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0"></a>
     </td>
   </tr>
 
