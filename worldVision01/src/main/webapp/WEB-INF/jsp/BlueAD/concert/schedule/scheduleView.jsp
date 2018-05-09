@@ -15,9 +15,7 @@
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/jquery.js'></script>
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/jquery-ui-custom.js'></script>
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/fullcalendar.min.js'></script>
-<script type="text/javascript" src="${contextPath}/js/BlueAD/Example.Modal.js"></script>
 <style type='text/css'>
-#modal {display:none;background-color:#FFFFFF;position:absolute;top:300px;left:200px;padding:10px;border:2px solid #E2E2E2;z-Index:9999}
 
 	/* body {
 		margin-top: 40px;
@@ -48,12 +46,6 @@
 <div id="content">
 <c:forEach items="${list}" var="online" varStatus="status"></c:forEach>
 <div id='calendar'></div>
-<div id="modal">
-    <h3>Test Modal</h3>
-    <p>이 창은 모달창입니다.</p>
-    <button id="confirm_button">확인</button>
-    <button class="js_close">닫기</button>
-</div>
 </div>
 <script type='text/javascript'>
 
@@ -65,38 +57,21 @@
 		var y = date.getFullYear();
 		
 		var bluead_scheduleList = [];
-		// 모달창 인스턴트 생성
-		  var myModal = new Example.Modal({
-		      id: "modal" // 모달창 아이디 지정
-		  });
-		    
 		<c:forEach items="${list}" var="bluead_schedule">
 		  var arr = new Object;
 
 		  var y=("<c:out value="${bluead_schedule.y}" />");
 		  var m=("<c:out value="${bluead_schedule.m}" />");
 		  var d=("<c:out value="${bluead_schedule.d}" />");
-		  var sno=("<c:out value="${bluead_schedule.no}" />"); //일단 url은 ok인데 모달창으로 띄우고 싶다
-		// 모달 창 여는 버튼에 이벤트 걸기
-		  $('body').delegate('.fc-event-title', 'click', function (sno) {
-		  	myModal.show(sno); // 모달창 보여주기
-		  });
 		  arr.title=("<c:out value="${bluead_schedule.subject}" />");
 		  arr.start= new Date(y,m,d);
 		  arr.end=new Date(y,m,d);
-		  /* arr.url="scheduleView?no=" + no; */
 		  /* arr.push("<c:out value="${bluead_schedule.no}" />");
 		  arr.push("<c:out value="${bluead_schedule.color}" />");
 		  arr.push("<c:out value="${bluead_schedule.content}" />"); */
 
 		  bluead_scheduleList.push(arr);
 		</c:forEach>
-		 
-		  // 모달 창 안에 있는 확인 버튼에 이벤트 걸기
-		  $("#confirm_button").click(function() {
-		      alert("나는 모달창이다.");
-		      myModal.hide(); // 모달창 감추기
-		  });
 		/* for (var i = 0; i < bluead_scheduleList.length; i ++) {
 		console.log(bluead_scheduleList[i]);
 		} */

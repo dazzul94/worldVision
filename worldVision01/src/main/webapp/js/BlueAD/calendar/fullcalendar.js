@@ -1614,7 +1614,7 @@ function _renderDaySegs(segs, rowCnt, view, minLeft, maxLeft, getRow, dayContent
 		}
 		html +=
 			"<div class='" + className + event.className.join(' ') + "' style='position:absolute;z-index:8;left:"+left+"px'>" +
-				"<a" + (event.url ? " href='" + htmlEscape(event.url) + "'" : '') + ">" +
+				"<a " + (event.url ? " href='" + htmlEscape(event.url) + "'" : '') + ">" +
 					(!event.allDay && seg.isStart ?
 						"<span class='fc-event-time'>" +
 							htmlEscape(formatDates(event.start, event.end, view.option('timeFormat'), options)) +

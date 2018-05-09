@@ -26,5 +26,10 @@ public class Bluead_ScheduleServiceImpl implements Bluead_ScheduleService {
 		return bluead_ScheduleDao.findAll();
 	}
 
+	@Override
+	public Bluead_Schedule getSchedule(int no) {
+		return bluead_ScheduleDao.getSchedule(no);
+	}
+
 
 }
