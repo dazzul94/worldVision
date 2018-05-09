@@ -205,7 +205,7 @@
 					</tr>
                     <tr>
 						<th>이메일</th>
-						<td><input type="text" > @ <input type="text" > <select>
+						<td><input type="text" name="email"> @ <input type="text" > <select>
 						  <option>직접입력</option>
 						</select></td>
 					</tr>
@@ -270,6 +270,7 @@
             
 				<div class="boardbtn">
 				<input type="hidden" name="type" value="1" />
+				<input type="hidden" name="member_id" value="" />
                 	<a href="#" onclick="doSubmit()" return false;>보내기</a>
                 	<a href="#" class="gray">취소</a>
                 </div>

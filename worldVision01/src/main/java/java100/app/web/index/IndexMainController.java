@@ -1,12 +1,16 @@
 package java100.app.web.index;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class IndexMainController {
@@ -119,6 +123,9 @@ public class IndexMainController {
 	public String goGalleryView(Model model, HttpServletRequest request) {
 		String str = request.getParameter("str");
 		String dbName = request.getParameter("dbName");
+		System.out.println("str = " + str);
+		System.out.println("dbName = " + dbName);
+		
 		String sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
 				+ "FROM bluead_wv_" + dbName + " WHERE bbs_no = " + request.getParameter("no");
 		Board[] list = dao.getBoard(sql);
@@ -126,12 +133,13 @@ public class IndexMainController {
 				+ "FROM bluead_comment WHERE comm_bbs_id = 'wv_" + dbName + 
 				"' && comm_bbs_no = " + request.getParameter("no") + " ORDER BY comm_no DESC";
 		Comment[] cList = dao.getComment(cSql);
-		
+
 		model.addAttribute("result", list[0]);
 		model.addAttribute("cPage", request.getParameter("cPage"));
 		model.addAttribute("str", str);
 		model.addAttribute("dbName", dbName);
 		model.addAttribute("cList", cList);
+		model.addAttribute("no", request.getParameter("no"));
 		if(request.getParameter("search") != null) {
 			model.addAttribute("search", request.getParameter("search"));
 			model.addAttribute("cateSelect", request.getParameter("cateSelect"));
@@ -139,6 +147,32 @@ public class IndexMainController {
 		}
 		
 		return "gallery/gallery_view";
+	}
+	
+	@RequestMapping("writeComment")
+	public String writeComment(HttpServletRequest request, RedirectAttributes ra) {
+		long time = System.currentTimeMillis(); 
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyyMMddhhmm");
+		String tStr = dayTime.format(new Date(time));
+		System.out.println(request.getParameter("comm_content"));
+		Comment comment = new Comment();
+		comment.setComm_content(request.getParameter("comm_content"));
+		comment.setComm_thread("A");
+		comment.setComm_fid(100);
+		comment.setComm_date(tStr);
+		comment.setComm_bbs_id("wv_" + request.getParameter("dbName"));
+		comment.setComm_bbs_no(Integer.parseInt(request.getParameter("no")));
+		comment.setComm_name("공");
+		dao.insertComment(comment);
+		ra.addAttribute("str", request.getParameter("str"));
+		ra.addAttribute("dbName", request.getParameter("dbName"));
+		ra.addAttribute("cPage", request.getParameter("cPage"));
+		ra.addAttribute("search", request.getParameter("search"));
+		ra.addAttribute("cateSelect", request.getParameter("cateSelect"));
+		ra.addAttribute("sText", request.getParameter("sText"));
+		ra.addAttribute("no", request.getParameter("no"));
+
+		return "redirect:galleryView";
 	}
 	
 	@RequestMapping("galleryWrite")
@@ -559,7 +593,7 @@ public class IndexMainController {
 	public String doJoin(Member member) {
 		dao.insertMember(member);
 		
-		return "member/login";
+		return "redirect:login";
 	}
 	
 	@RequestMapping("doLogin")

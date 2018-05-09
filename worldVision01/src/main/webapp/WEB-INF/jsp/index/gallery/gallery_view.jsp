@@ -127,6 +127,17 @@
 				+ "&cateSelect=" + cateSelect + "&sText=" + sText;
 			}
 		}
+		
+		function writeComment(cPage, dbName, search, cateSelect, sText, str, no){
+			var content = $("#commentT").val();
+			location.href = "writeComment?cPage=" + cPage + "&search=" + search 
+			+ "&cateSelect=" + cateSelect + "&sText=" + sText + "&dbName=" + dbName + "&str=" + str + "&no=" + no + "&comm_content=" + content;
+		}
+		
+		function startComment(){
+			$("#commentT").val("");
+			$("#commentT").attr('onclick', '').unbind('click');
+		}
 	</script>
     		<div class="tnb">
             	<a href="#">로그인</a>
@@ -185,7 +196,7 @@
                 
                 <!-- S : Comment -->
                 <div class="commentWrap">
-            		<textarea>댓글을 입력해 주세요</textarea><button>댓글쓰기</button>
+            		<textarea id="commentT" onclick="startComment()">댓글을 입력해 주세요</textarea><button onclick="writeComment('${cPage}', '${dbName }', '${search }', '${cateSelect}', '${sText }', '${str }', '${no }')">댓글쓰기</button>
                 </div>
                 
                 <div class="commentViewWrap">

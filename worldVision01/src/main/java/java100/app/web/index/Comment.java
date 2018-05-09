@@ -2,6 +2,8 @@ package java100.app.web.index;
 
 public class Comment {
 	private int comm_no;
+	private int comm_fid;
+	private String comm_thread;
 	private String comm_bbs_id;
 	private int comm_bbs_no;
 	private String comm_name;
@@ -78,6 +80,22 @@ public class Comment {
 
 	public void setComm_date(String comm_date) {
 		this.comm_date = comm_date;
+	}
+
+	public int getComm_fid() {
+		return comm_fid;
+	}
+
+	public void setComm_fid(int comm_fid) {
+		this.comm_fid = comm_fid;
+	}
+
+	public String getComm_thread() {
+		return comm_thread;
+	}
+
+	public void setComm_thread(String comm_thread) {
+		this.comm_thread = comm_thread;
 	}
 		
 }
