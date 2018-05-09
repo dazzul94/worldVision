@@ -1,17 +1,13 @@
-about - ok
-choir -  X
-concert - 달력, 내용 안들어가는거, 게시판 1개
-gallery - 사진 리스트 , 뷰쪽
-request -  간단메모 x
-community - 파일 , 수정, 삭제, 간단메모
-board-  community랑 똑같음, 링크 , 사진view
-member - 네이버 에디터 
-
-
-
-
-
-관리자 - X
+<관리자>
+(음악원 연혁관리)about - ok
+(합창단)choir -  X
+(연주회)concert - 달력(데이터 불러오기만 됌), 에디터4개, 게시판 1개
+(갤러리)gallery - 리스트만 됌, 기능 xx (게시판이4개인데 사진, 동영상, 이미지, 음악재생 등)
+(신청란)request -  간단메모 x -> 사용자한테 어떻게 보여지는지 모르겠음
+(커뮤니티)community - 파일 저장x , add x, update x, delete x, 댓글x
+(게시판)board-  파일, 댓글, 수정 안됌
+(회원관리)member - 간단메모 x
+관리자관리X - 관리사용법 , 게시판필터링, 팝업창관리, 접속통계, 정보수정 //
 
 
 
