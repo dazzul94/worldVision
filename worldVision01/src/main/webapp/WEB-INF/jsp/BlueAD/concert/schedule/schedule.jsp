@@ -16,7 +16,6 @@
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/jquery-ui-custom.js'></script>
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/fullcalendar.min.js'></script>
 <style type='text/css'>
-#modal {display:none;background-color:#FFFFFF;position:absolute;top:300px;left:200px;padding:10px;border:2px solid #E2E2E2;z-Index:9999}
 
 	/* body {
 		margin-top: 40px;

@@ -22,7 +22,7 @@
 								<tbody>
 									<tr>
 										<td height="24" class="left_mn" id="td_no0"
-											onclick="window.location='../board01/list'"
+											onclick="'../musical/musicalView?gubun=missionView'"
 											style="cursor: pointer"><img
 											src="${contextPath}/images/BlueAD/admin/left_dot.gif"
 											align="absmiddle" /> 연주일정</td>
