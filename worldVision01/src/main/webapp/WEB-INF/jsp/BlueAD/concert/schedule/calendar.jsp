@@ -61,7 +61,7 @@
 		<c:forEach items="${list}" var="bluead_schedule">
 		  var arr = new Object;
 		  var y=("<c:out value="${bluead_schedule.y}" />");
-		  var m=("<c:out value="${bluead_schedule.m}" />");
+		  var m=("<c:out value="${bluead_schedule.m -1}" />");
 		  var d=("<c:out value="${bluead_schedule.d}" />");
 		  var no=("<c:out value="${bluead_schedule.no}" />"); //일단 url은 ok인데 모달창으로 띄우고 싶다
 		
@@ -135,7 +135,7 @@
 		
 	});
 	function popup(url){ 
-		window.open(url, '', 'width=400, height=430'); return false;
+		window.open(url, '', 'width=900, height=550'); return false;
 		} 
 </script>
 </body>

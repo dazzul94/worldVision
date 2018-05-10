@@ -20,6 +20,18 @@
 		select * from bluead_schedule
 	    		where no=#{value}
 	</select>
+	
+	<update id="update" parameterType="bluead_Schedule"> 
+		update bluead_schedule set 
+		no=#{no}, 
+		y=#{y},
+		m=#{m},
+		d=#{d},
+		subject=#{subject},
+		color=#{color},
+		content=#{content} 
+		where no=#{no} 
+		</update>
 </mapper>  
 
 
