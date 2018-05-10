@@ -129,7 +129,11 @@ function sendSub(){
     oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
       window.alert(document.getElementById("ir1").value); 
     try {
-    form.submit();
+    	window.opener.name = "parentPage"; // 부모창의 이름 설정
+        document.form.target = "parentPage"; // 타켓을 부모창으로 설정
+        document.form.submit();
+        self.close();
+    //form.submit();
     } catch(e) {
        }
     }

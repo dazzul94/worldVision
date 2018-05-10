@@ -110,7 +110,7 @@ public class ScheduleController {
     @RequestMapping("update")
 	public String update(HttpServletRequest request, Bluead_Schedule bluead_schedule) throws Exception {
     	bluead_ScheduleService.update(bluead_schedule);
-		return "BlueAD/concert/schedule/calendar";
+		return "redirect:calendar";
 	}
 }
 
