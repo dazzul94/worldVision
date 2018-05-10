@@ -36,5 +36,10 @@ public class Bluead_ScheduleServiceImpl implements Bluead_ScheduleService {
 		return bluead_ScheduleDao.update(bluead_schedule);
 	}
 
+	@Override
+	public int delete(int no) {
+		return bluead_ScheduleDao.delete(no);
+	}
+
 
 }
