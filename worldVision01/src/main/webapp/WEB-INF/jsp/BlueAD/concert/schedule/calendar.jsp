@@ -46,7 +46,7 @@
 </div>
 <div id="content">
 <div id='calendar'></div>
- <a  href='scheduleView?no=7	' onClick="window.open(this.href, '', 'width=400, height=430'); return false;">ㅇㅇㅇㄴ</a> 
+ <!-- <a  href='scheduleView?no=7	' onClick="window.open(this.href, '', 'width=400, height=430'); return false;">ㅇㅇㅇㄴ</a>  -->
 </div>
 <script type='text/javascript'>
 

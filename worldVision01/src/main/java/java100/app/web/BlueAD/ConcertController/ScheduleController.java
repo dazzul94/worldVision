@@ -115,7 +115,7 @@ public class ScheduleController {
     public String delete(int no) throws Exception {
 
     	bluead_ScheduleService.delete(no);
-        return "BlueAD/concert/schedule/calendar";
+        return "redirect:calendar";
     }
 }
 
