@@ -153,15 +153,19 @@
                     
                     <div class="clear mb30"></div>
                     <h3 class="wonh3">지도교사</h3>  
+                    <!-- 
                     <div class="people_wrap">
                     <div class="floatL people_photo"><img src="${contextPath }/images/index/t1_teacher_37.jpg" alt=""/></div>
                     <div class="floatL people_info">
+                    
                     	<h4 class="wonh4">상임지휘자 <strong class="black_f">김보미(Bomi Kim)</strong></h4>  
                     	<p>2002년 연세대학교(교회음악과 합창지휘 전공)에서 학업을 마친 뒤 도독하여 레겐스부륵 음악대학(HfKM Regensburg)에서 교회음악 디플롬을 취득한 후 다시 오스트리아로 건너가 빈 국립음대(University of Music and Performing Arts Vienna)에서 교회음악 최고과정을 최우수로 졸업하였다.</p>
 
                    	  <p class="mt20">독일 유학 시절 ‘Kreuzkirche’의 오르가니스트로 그리고 레겐스부륵 시립 음악 학교의 교사로 활동하였으며 오스트리아 빈에서는 ‘Arnold Schoenberg Choir'의 부지휘자, ‘Theater an der Wien‘ 극장의 합창감독을 역임하였다. 2012년에는 빈 소년 합창단 역사상 최초의 동양인 상임지휘자이자 최초의 여성 상임지휘자로 발탁되어 4년간 활동하였다. 이러한 음악활동을 크게 인정받아 2013년에는 오스트리아 최고의 합창지휘자에게 주는 『Ortner Preis』를 수상하였다. 유럽에서 아르농쿠르, 아바도, 얀손스, 하딩 등 유명 지휘자들과 함께 작업하였으며 여러 합창단들과 함께 빈 무직 페어라인 황금홀, 미국 카네기 홀 등 유명 연주장에서 수 차례 연주하였다.</p>
 
                    	  <p class="mt20">2016년 한국으로 돌아와 자신의 모교인 연세대학교에 부임하여 학교 합창단(Yonsei Concert Choir)을 지휘함은 물론 후학 양성에 힘 쓰고 있으며 새문안 교회 새로핌 찬양대를 지휘하고 있다. 또한 서울 예술의 전당 소속 어린이 예술단(SAC THE LITTLE HARMONY)의 합창지휘 및 총감독을 맡고 있으며 앙상블 <무지카 미아>의 예술감독으로 그리고 앙상블 <The Singers>의 음악감독으로 활발하게 활동 중이다. 2018년 현재 월드비전 음악원의 상임지휘자로 취임하여 월드비전 합창단의 새로운 도약을 이끌고 있다. </p>
+                  
+                    
                     </div>
                     </div>
                     
@@ -185,7 +189,20 @@
                     	<p>반주자 허란은 연세대학교 및 동대학원 반주과를 수석 졸업하였다. 연세대학교 교육원 피아노지도자 과정을 수료하였으며 전국 학생음악 콩쿠르 1위, 음악저널 콩쿠르 1위의 수상 이력을 지니고 있다. 한일수교 초청 연주, 불가리아 국립 오케스트라 초청 협연 외에도 전국 여선교회 합창단 반주자로 역임, 앙상블 휘 소속 피아니스트 및 다수의 리사이틀과 콘서트 반주로 활동하였다. 신반포교회 임마누엘 성가대 반주자로 섬기고 있다. </p>
                     </div>
                     </div>
-                    
+                       -->
+                        <c:forEach items="${ctList }" var="cTeacher">
+                       <div class="people_wrap">
+                       
+                    <div class="floatL people_photo"><img src="${contextPath }/images/index/${cTeacher.getImg1_thumbo()}" alt=""/></div>
+                    <div class="floatL people_info">
+                    	
+                     	                    	<h4 class="wonh4">${cTeacher.getKor_name1() } <strong class="black_f">${cTeacher.getKor_name2() }</strong></h4>  
+                    	<p>${cTeacher.getKor_contents() }</p>
+                     
+                   
+                    </div>
+                    </div>
+                      </c:forEach>
                     
                     <div class="clear mt50"></div>
                     <h3 class="wonh3">연주반 단원</h3>  
@@ -193,6 +210,7 @@
                     <!-- 연주반 단원 -->
                     	<div class="child_people">
                         	<ul>
+                        	<!-- 
                             	<li>
                                 	<img src="${contextPath }/images/index/people/t1_member_259.jpg" />
                                     <p>봉서연</p>
@@ -353,6 +371,13 @@
                                 	<img src="${contextPath }/images/index/people/t1_member_845.jpg" />
                                     <p>권민채</p>
                                 </li>
+                                 -->
+                                 <c:forEach items="${cmList }" var="choirMember">
+                                 <li>
+                                	<img src="${contextPath }/images/index/people/${choirMember.getImg1_thumbo() }" />
+                                    <p>${choirMember.getName() }</p>
+                                </li>
+                                 </c:forEach>
                             </ul>
                         </div>
                     <!-- //연주반 단원 -->

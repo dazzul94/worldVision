@@ -14,3 +14,7 @@ SELECT member_id, member_pass FROM bluead_member WHERE member_pass = ? && member
 SELECT member_id, member_pass FROM bluead_member WHERE member_id = '1'
 DELETE FROM bluead_member WHERE member_name='1'
 DELETE FROM bluead_comment WHERE comm_name = '공'
+SELECT * FROM bluead_chior NATURAL JOIN bluead_chior_teacher NATURAL JOIN bluead_chior_member WHERE c_no = 1
+SELECT * FROM bluead_chior WHERE c_no = 3;
+SELECT * FROM bluead_chior_teacher WHERE c_no = 3;
+SELECT * FROM bluead_chior_member WHERE c_no = 3 ORDER BY sort;
