@@ -26,7 +26,7 @@
 <form action="update" onsubmit="return checkIt();"method='post' enctype="multipart/form-data">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 정기연주 </font></td>
+  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 기획연주 </font></td>
   </tr>
   <tr>
     <td height="1" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
@@ -42,7 +42,7 @@
 						<tr>
 							<td><!-- smarteditor -->
 							
-							<textarea  name="정기연주" id="ir1" rows="40" cols="250">${bluead_musical.content}</textarea>
+							<textarea  name="기획연주" id="ir1" rows="40" cols="250">${bluead_plan.content}</textarea>
 							</td>
 						</tr>
 					</table>			

@@ -26,37 +26,23 @@
 <form action="update" onsubmit="return checkIt();"method='post' enctype="multipart/form-data">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-  	<c:if test="${gubun eq 'terms'}">
-  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 약관 관리 </font></td>
-  	</c:if>
-    <c:if test="${gubun eq 'personalView'}">
-  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 개인정보보호정책 </font></td>
-  	</c:if>
+  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 미션연주 </font></td>
   </tr>
   <tr>
     <td height="1" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
-  </tr>
-  <tr>
-    <td height="20"></td>
   </tr>
 </table>
 
 					<table align="center" border="0" cellpadding="10" cellspacing="3" width="100%">
 						<tr>
-							<td bgcolor="#EFEFEF">
+							<td bgcolor="white">
 							<!-- ?? -->
 							</td>
 						</tr>
 						<tr>
 							<td><!-- smarteditor -->
-							<textarea  name="ir1" id="ir1" rows="40" cols="250">
-								<c:if test="${gubun eq 'terms'}">
-								${bluead_member02.contents1}
-								</c:if>
-								<c:if test="${gubun eq 'personalView'}">
-								${bluead_member02.contents2}
-								</c:if>
-							</textarea>
+							
+							<textarea  name="미션연주" id="ir1" rows="40" cols="250">${bluead_mission.content}</textarea>
 							</td>
 						</tr>
 					</table>			

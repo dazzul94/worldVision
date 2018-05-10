@@ -21,6 +21,21 @@ public class Bluead_MusicalServiceImpl implements Bluead_MusicalService {
 		return bluead_musicalDao.findMusicalCont();
 	}
 
+	@Override
+	public Bluead_Musical getMissionCont() {
+		return bluead_musicalDao.findMission();
+	}
+
+	@Override
+	public Bluead_Musical getPlanCont() {
+		return bluead_musicalDao.findPlan();
+	}
+
+	@Override
+	public Bluead_Musical getForeignCont() {
+		return bluead_musicalDao.findForeign();
+	}
+
 
 
 }

@@ -16,6 +16,24 @@
   		  FROM worlddb.bluead_choir_form
 		 where name="정기연주"
 	</select>
+	
+<select id="findMission" resultMap="bluead_MusicalMap">
+		SELECT CONTENT 
+  		  FROM worlddb.bluead_choir_form
+		 where name="미션연주"
+	</select>
+		
+<select id="findPlan" resultMap="bluead_MusicalMap">
+		SELECT CONTENT 
+  		  FROM worlddb.bluead_choir_form
+		 where name="기획연주"
+	</select>
+		
+<select id="findForeign" resultMap="bluead_MusicalMap">
+		SELECT CONTENT 
+  		  FROM worlddb.bluead_choir_form
+		 where name="해외연주"
+	</select>
 </mapper>  
 
 

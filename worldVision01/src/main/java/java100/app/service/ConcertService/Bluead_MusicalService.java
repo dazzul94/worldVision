@@ -6,5 +6,11 @@ public interface Bluead_MusicalService {
 
 	Bluead_Musical getMusicalCont();
 
+	Bluead_Musical getMissionCont();
+
+	Bluead_Musical getPlanCont();
+
+	Bluead_Musical getForeignCont();
+
 
 }

@@ -22,7 +22,7 @@
 								<tbody>
 									<tr>
 										<td height="24" class="left_mn" id="td_no0"
-											onclick="'../musical/musicalView?gubun=missionView'"
+											onclick="window.location='../conert/schedule'"
 											style="cursor: pointer"><img
 											src="${contextPath}/images/BlueAD/admin/left_dot.gif"
 											align="absmiddle" /> 연주일정</td>
@@ -34,7 +34,7 @@
 									</tr>
 									<tr>
 										<td height="24" class="left_mn" id="td_no0"
-											onclick="window.location='../board02/list'"
+											onclick="window.location='../musical/musicalView'"
 											style="cursor: pointer"><img
 											src="${contextPath}/images/BlueAD/admin/left_dot.gif"
 											align="absmiddle" /> 정기연주</td>
@@ -46,7 +46,7 @@
 									</tr>
 									<tr>
 										<td height="24" class="left_mn" id="td_no0"
-											onclick="window.location='../board03/list'"
+											onclick="window.location='../musical/planView'"
 											style="cursor: pointer"><img
 											src="${contextPath}/images/BlueAD/admin/left_dot.gif"
 											align="absmiddle" /> 기획연주</td>
@@ -58,7 +58,7 @@
 									</tr>
 									<tr>
 										<td height="24" class="left_mn" id="td_no0"
-											onclick="window.location='../board03/list'"
+											onclick="window.location='../musical/missionView'"
 											style="cursor: pointer"><img
 											src="${contextPath}/images/BlueAD/admin/left_dot.gif"
 											align="absmiddle" /> 미션연주</td>
@@ -70,7 +70,7 @@
 									</tr>
 																		<tr>
 										<td height="24" class="left_mn" id="td_no0"
-											onclick="window.location='../board03/list'"
+											onclick="window.location='../musical/foreignView'"
 											style="cursor: pointer"><img
 											src="${contextPath}/images/BlueAD/admin/left_dot.gif"
 											align="absmiddle" /> 해외연주</td>
