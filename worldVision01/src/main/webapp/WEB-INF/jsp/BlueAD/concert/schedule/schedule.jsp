@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
 <html>
 <head>
@@ -14,7 +15,7 @@
 <link rel='stylesheet' type='text/css' href='${contextPath}/css/BlueAD/admin/fullcalendar.css' />
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/jquery.js'></script>
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/jquery-ui-custom.js'></script>
-<script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/fullcalendar.min.js'></script>
+<script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/fullcalendar.js?ver=8'></script>
 <style type='text/css'>
 
 	/* body {
@@ -45,6 +46,7 @@
 </div>
 <div id="content">
 <div id='calendar'></div>
+<a  href='scheduleView?no=7	' onClick="window.open(this.href, '', 'width=400, height=430'); return false;">ㅇㅇㅇㄴ</a>
 </div>
 <script type='text/javascript'>
 
@@ -61,14 +63,14 @@
 		  var y=("<c:out value="${bluead_schedule.y}" />");
 		  var m=("<c:out value="${bluead_schedule.m}" />");
 		  var d=("<c:out value="${bluead_schedule.d}" />");
-		  var sno=("<c:out value="${bluead_schedule.no}" />"); //일단 url은 ok인데 모달창으로 띄우고 싶다
+		  var no=("<c:out value="${bluead_schedule.no}" />"); //일단 url은 ok인데 모달창으로 띄우고 싶다
 		
 		  arr.title=("<c:out value="${bluead_schedule.subject}" />");
 		  arr.start= new Date(y,m,d);
 		  arr.end=new Date(y,m,d);
-		  arr.sno=sno;
+		  arr.no=no;
 		  /* console.log(sno) */
-		  /* arr.url="scheduleView?no=" + no; */
+		  arr.url="scheduleView?no=" + no; 
 		  /* arr.push("<c:out value="${bluead_schedule.no}" />");
 		  arr.push("<c:out value="${bluead_schedule.color}" />");
 		  arr.push("<c:out value="${bluead_schedule.content}" />"); */
@@ -132,7 +134,9 @@
 		});
 		
 	});
-
+	function popup(url){ 
+		window.open(url, '', 'width=400, height=430'); return false;
+		} 
 </script>
 </body>
 </html>
