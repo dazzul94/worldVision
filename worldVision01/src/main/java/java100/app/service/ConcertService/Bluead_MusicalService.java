@@ -12,5 +12,13 @@ public interface Bluead_MusicalService {
 
 	Bluead_Musical getForeignCont();
 
+	int missionUpdate(Bluead_Musical bluead_Musical);
+
+	int planUpdate(Bluead_Musical bluead_Musical);
+
+	int foreignUpdate(Bluead_Musical bluead_Musical);
+
+	int musicalUpdate(Bluead_Musical bluead_Musical);
+
 
 }

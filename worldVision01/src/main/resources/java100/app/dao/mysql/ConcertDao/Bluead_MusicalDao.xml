@@ -11,29 +11,58 @@
 		<!-- 컬럼 이름과 프로퍼티 이름이 같아서 생략! -->
 		<!-- <result column="name" property="name"/> <result column="email" property="email"/> -->
 	</resultMap>
-<select id="findMusicalCont" resultMap="bluead_MusicalMap">
-		SELECT CONTENT 
-  		  FROM worlddb.bluead_choir_form
-		 where name="정기연주"
+	<select id="findMusicalCont" resultMap="bluead_MusicalMap">
+		SELECT CONTENT
+		FROM
+		worlddb.bluead_choir_form
+		where name="정기연주"
 	</select>
-	
-<select id="findMission" resultMap="bluead_MusicalMap">
-		SELECT CONTENT 
-  		  FROM worlddb.bluead_choir_form
-		 where name="미션연주"
+
+	<select id="findMission" resultMap="bluead_MusicalMap">
+		SELECT CONTENT
+		FROM
+		worlddb.bluead_choir_form
+		where name="미션연주"
 	</select>
-		
-<select id="findPlan" resultMap="bluead_MusicalMap">
-		SELECT CONTENT 
-  		  FROM worlddb.bluead_choir_form
-		 where name="기획연주"
+
+	<select id="findPlan" resultMap="bluead_MusicalMap">
+		SELECT CONTENT
+		FROM
+		worlddb.bluead_choir_form
+		where name="기획연주"
 	</select>
-		
-<select id="findForeign" resultMap="bluead_MusicalMap">
-		SELECT CONTENT 
-  		  FROM worlddb.bluead_choir_form
-		 where name="해외연주"
+
+	<select id="findForeign" resultMap="bluead_MusicalMap">
+		SELECT CONTENT
+		FROM
+		worlddb.bluead_choir_form
+		where name="해외연주"
 	</select>
+
+	<update id="musicalUpdate" parameterType="bluead_Musical">
+		update
+		bluead_choir_form set
+		content=#{content}
+		where name="정기연주"
+	</update>
+	<update id="missionUpdate" parameterType="bluead_Musical">
+		update
+		bluead_choir_form set
+		content=#{content}
+		where name="미션연주"
+	</update>
+	<update id="planUpdate" parameterType="bluead_Musical">
+		update bluead_choir_form
+		set
+		content=#{content}
+		where name="기획연주"
+	</update>
+	<update id="foreignUpdate" parameterType="bluead_Musical">
+		update
+		bluead_choir_form set
+		content=#{content}
+		where name="해외연주"
+	</update>
 </mapper>  
 
 

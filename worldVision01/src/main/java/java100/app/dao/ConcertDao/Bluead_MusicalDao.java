@@ -14,20 +14,13 @@ public interface Bluead_MusicalDao {
 
 	Bluead_Musical findForeign();
 
-	/*Bluead_Musical musicalView(HashMap<String, Object> options);*/
+	int missionUpdate(Bluead_Musical bluead_Musical);
+
+	int planUpdate(Bluead_Musical bluead_Musical);
+
+	int foreignUpdate(Bluead_Musical bluead_Musical);
+
+	int musicalUpdate(Bluead_Musical bluead_Musical);
+
+	/* Bluead_Musical musicalView(HashMap<String, Object> options); */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

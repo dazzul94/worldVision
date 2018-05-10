@@ -23,7 +23,7 @@
 <jsp:include page="../concert_left.jsp"/>
 </div>
 <div id="content">
-<form action="update" onsubmit="return checkIt();"method='post' enctype="multipart/form-data">
+<form action="foreignUpdate" onsubmit="return checkIt();"method='post' enctype="multipart/form-data">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 해외연주 </font></td>
@@ -42,7 +42,7 @@
 						<tr>
 							<td><!-- smarteditor -->
 							
-							<textarea  name="해외연주" id="ir1" rows="40" cols="250">${bluead_foreign.content}</textarea>
+							<textarea  name="content" id="ir1" rows="40" cols="250">${bluead_foreign.content}</textarea>
 							</td>
 						</tr>
 					</table>			
@@ -52,11 +52,7 @@
   <tr height="50">
     <td align="center">
    <td height="50" align="center" valign="bottom">
-   
-   <input onfocus="this.blur();"   onclick="window.location='termsView'" type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif">
-   <%-- <input type="button" value="등록" onclick="sendSub()">
-                        <input onclick="write()" type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif">
-                        <input onclick="list(${bluead_wv_board.bbs_no})"  type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cancel.gif"></td>  --%>
+    <input type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif" onclick="sendSub()">
   </tr>
 </table>
 </form>
@@ -76,6 +72,14 @@ nhn.husky.EZCreator.createInIFrame({
     fCreator: "createSEditor2"
 
 });
+function sendSub(){
+    oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+      window.alert(document.getElementById("ir1").value); 
+    try {
+    form.submit();
+    } catch(e) {
+       }
+    }
 </script>
 </body>
 </html>

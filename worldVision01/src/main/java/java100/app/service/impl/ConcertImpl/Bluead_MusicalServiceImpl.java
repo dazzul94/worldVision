@@ -36,6 +36,26 @@ public class Bluead_MusicalServiceImpl implements Bluead_MusicalService {
 		return bluead_musicalDao.findForeign();
 	}
 
+	@Override
+	public int missionUpdate(Bluead_Musical bluead_Musical) {
+		return bluead_musicalDao.missionUpdate(bluead_Musical);
+	}
+
+	@Override
+	public int planUpdate(Bluead_Musical bluead_Musical) {
+		return bluead_musicalDao.planUpdate(bluead_Musical);
+	}
+
+	@Override
+	public int foreignUpdate(Bluead_Musical bluead_Musical) {
+		return bluead_musicalDao.foreignUpdate(bluead_Musical);
+	}
+
+	@Override
+	public int musicalUpdate(Bluead_Musical bluead_Musical) {
+		return bluead_musicalDao.musicalUpdate(bluead_Musical);
+	}
+
 
 
 }
