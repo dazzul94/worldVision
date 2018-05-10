@@ -11,7 +11,7 @@ import java100.app.domain.Concert.Bluead_Schedule;
 import java100.app.service.ConcertService.Bluead_ScheduleService;
 
 @Controller
-@RequestMapping("/concert")
+@RequestMapping("/concert/schedule")
 public class ScheduleController {
 	
 	@Autowired
@@ -91,10 +91,10 @@ public class ScheduleController {
 		return new ModelAndView("jsonView", "jsonObject", bookArray);
     }*/
     
-    @RequestMapping("schedule")
+    @RequestMapping("calendar")
     public String schedule(Model model) throws Exception {
     	model.addAttribute("list", bluead_ScheduleService.list());
-    	return "BlueAD/concert/schedule/schedule";
+    	return "BlueAD/concert/schedule/calendar";
     }
     @RequestMapping("scheduleView")
 	public String scheduleView(@RequestParam int no, Model model) throws Exception {
