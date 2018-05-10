@@ -8,6 +8,8 @@ public interface Bluead_ScheduleDao {
     List<Bluead_Schedule> findAll();
 
 	Bluead_Schedule getSchedule(int no);
+
+	int update(Bluead_Schedule bluead_schedule);
 }
 
 

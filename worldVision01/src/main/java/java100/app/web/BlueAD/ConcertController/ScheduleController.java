@@ -1,5 +1,7 @@
 package java100.app.web.BlueAD.ConcertController;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java100.app.domain.Concert.Bluead_Schedule;
+import java100.app.domain.Member.Bluead_Member02;
 import java100.app.service.ConcertService.Bluead_ScheduleService;
 
 @Controller
@@ -103,6 +106,11 @@ public class ScheduleController {
 		
 		model.addAttribute("bluead_schedule", bluead_schedule);
 		return "BlueAD/concert/schedule/scheduleView";
+	}
+    @RequestMapping("update")
+	public String update(HttpServletRequest request, Bluead_Schedule bluead_schedule) throws Exception {
+    	bluead_ScheduleService.update(bluead_schedule);
+		return "redirect:calendar";
 	}
 }
 
