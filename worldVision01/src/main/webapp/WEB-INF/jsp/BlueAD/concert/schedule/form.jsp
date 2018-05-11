@@ -14,7 +14,6 @@
 </head>
 
 <body leftmargin="15" marginwidth="0" topmargin="10" marginheight="0" onload="document.form.subject.focus();">
-<c:if test="${not empty bluead_schedule}">
 <table border="0" cellspacing="0" cellpadding="0" width="770">
   <tr>
     <td height="25"><img src="${contextPath}/images/BlueAD/admin/blet.gif" width="6" height="13" align="absmiddle"><strong> 일정관리 </strong></td>
@@ -62,7 +61,6 @@
     </td>
   </tr>
 </table>
-</c:if>
 </body>
 <script language="JavaScript">
 //1번
@@ -131,7 +129,7 @@ nhn.husky.EZCreator.createInIFrame({
 });
 function sendSub(){
     oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-	if(document.getElementById("ir1").value == false) { 
+    if(document.getElementById("ir1").value == false) { 
 		alert('상세내용을 입력해 주세요.'); 
 		return;
 	} 

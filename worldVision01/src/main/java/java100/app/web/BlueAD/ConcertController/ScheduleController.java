@@ -117,6 +117,11 @@ public class ScheduleController {
     	bluead_ScheduleService.delete(no);
         return "redirect:calendar";
     }
+    @RequestMapping("form")
+	public String form() throws Exception {
+		return "BlueAD/concert/schedule/form";
+
+	}
 }
 
 

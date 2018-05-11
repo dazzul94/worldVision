@@ -12,10 +12,10 @@
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
 <link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css">
-<link rel='stylesheet' type='text/css' href='${contextPath}/css/BlueAD/admin/fullcalendar.css' />
+<link rel='stylesheet' type='text/css' href='${contextPath}/css/BlueAD/admin/fullcalendar.css?ver=15' />
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/jquery.js'></script>
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/jquery-ui-custom.js'></script>
-<script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/fullcalendar.js?ver=14'></script>
+<script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/fullcalendar.js?ver=3'></script>
 <style type='text/css'>
 
 	/* body {
@@ -132,11 +132,13 @@
 				} */
 			
 		});
-		
 	});
 	function popup(url){ 
 		window.open(url, '', 'width=900, height=550'); 
 		} 
+	function clickMe(){ 
+		window.open('form', '', 'width=900, height=550'); 
+	} 
 </script>
 </body>
 </html>

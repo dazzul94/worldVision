@@ -1126,7 +1126,7 @@ function Grid(element, options, methods, viewName) {
 			for (i=0; i<rowCnt; i++) {
 				s += "<tr class='fc-week" + i + "'>";
 				for (j=0; j<colCnt; j++) {
-					s += "<td class='fc-" +
+					s += "<td onclick='javascript:clickMe()' style='cursor: pointer' class='fc-" +
 						dayIDs[d.getDay()] + ' ' + // needs to be first
 						tm + '-state-default fc-day' + (i*colCnt+j) +
 						(j==dit ? ' fc-leftmost' : '') +
