@@ -10,6 +10,8 @@ public interface Bluead_ScheduleDao {
 	Bluead_Schedule getSchedule(int no);
 
 	int update(Bluead_Schedule bluead_schedule);
+
+	int delete(int no);
 }
 
 

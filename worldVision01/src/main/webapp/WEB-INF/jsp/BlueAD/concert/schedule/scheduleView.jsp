@@ -10,6 +10,7 @@
 <title></title>
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
 <script type="text/javascript" src="${contextPath}/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
 </head>
 
 <body leftmargin="15" marginwidth="0" topmargin="10" marginheight="0" onload="document.form.subject.focus();">
@@ -57,7 +58,7 @@
 <!--      <input type="button" class="input_btn" value="삭  제" onClick="parent.emailwindow.hide_w('delete')");">-->
       <input type="button" value="목  록"  onClick="window.close();" class="input_btn">&nbsp;&nbsp;
       <input type="button" value="저  장" name="B1" onClick="checkIt()"  class="input_btn"/>&nbsp;&nbsp;
-      <input type="button" class="input_btn" value="삭  제" onClick="go_del()">
+      <input type="button" id="deleteBtn" class="input_btn" value="삭  제" onClick="go_del(${bluead_schedule.no})">
     </td>
   </tr>
 </table>
@@ -86,10 +87,10 @@ function checkIt() {
 	sendSub();
 	//form.submit();
 }
-function go_del(){
+/* function go_del(){
   form.mode.value = "delete";
   form.submit();
-}
+} */
 
 
 
@@ -104,12 +105,21 @@ function go_del(){
   form.submit();
 */
 
-/*
-function go_del(url) {
-  if(confirm('삭제 하시겠습니까?')) location.href=url;
-  else return;
+
+function go_del(no) {
+	window.opener.name = "parentPage"; // 부모창의 이름 설정
+	$("#deleteBtn").target = "parentPage"; // 타켓을 부모창으로 설정
+	/* 여긴된당 */
+	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+		opener.location = "delete?no=" + no;
+	    window.alert("삭제되었습니다");
+	}else{   //취소
+    return;
+	}
+	/* 여긴된당 */
+	self.close();
 }
-*/
+
 </script>
 <script type="text/javascript">
 var oEditors = [];

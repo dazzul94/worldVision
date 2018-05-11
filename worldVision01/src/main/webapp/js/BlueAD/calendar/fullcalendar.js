@@ -1614,7 +1614,7 @@ function _renderDaySegs(segs, rowCnt, view, minLeft, maxLeft, getRow, dayContent
 		}
 		html +=
 			"<div class='" + className + event.className.join(' ') + "' style='position:absolute;z-index:8;left:"+left+"px'>" +
-				"<a " + (event.url ? " href='" + htmlEscape(event.url) +  "' onClick='javascript:popup(this.href)'" + " target='_blank'" : '') + ">" +
+				"<a " + (event.url ? " href='" + htmlEscape(event.url) +  "' onClick='javascript:popup(this.href); return false;'" + " " : '') + ">" +
 //				"<a " + (event.url ? " href='" + htmlEscape(event.url) + "' target='_blank'" : '') + ">" +  //target -> 새탭으로 연결
 //				"<a " + (event.url ? " href='" + htmlEscape(event.url) + "'" : '') + ">" + 					//기본
 					(!event.allDay && seg.isStart ?

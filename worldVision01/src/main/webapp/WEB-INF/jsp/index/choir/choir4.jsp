@@ -252,6 +252,7 @@ of Yangjeong High School.</p>
                     <!-- 연주반 단원 -->
                     	<div class="child_people">
                         	<ul>
+                            	<!-- 
                             	<li>
                                 	<img src="${contextPath }/images/index/people/t1_member_532.jpg" />
                                     <p>심은서</p>
@@ -384,6 +385,13 @@ of Yangjeong High School.</p>
                                 	<img src="${contextPath }/images/index/people/t1_member_791.jpg" />
                                     <p>성아인</p>
                                 </li>
+                            	 -->
+                            	 <c:forEach items="${cmList }" var="cMember">
+                            	 	<li>
+                                		<img src="${contextPath }/images/index/people/${cMember.getImg1_thumbo()}" />
+                                    	<p>${cMember.getName() }</p>
+                                	</li>
+                            	 </c:forEach>
                             </ul>
                         </div>
                     <!-- //연주반 단원 -->
@@ -469,6 +477,7 @@ Angels Children's Choir.</p>
                     <!-- 연주반 단원 -->
                     	<div class="child_people">
                         	<ul>
+                        	<!-- 
                             	<li>
                                 	<img src="${contextPath }/images/index/people/t1_member_532.jpg" />
                                     <p>심은서</p>
@@ -601,6 +610,13 @@ Angels Children's Choir.</p>
                                 	<img src="${contextPath }/images/index/people/t1_member_791.jpg" />
                                     <p>성아인</p>
                                 </li>
+                                -->
+                                 <c:forEach items="${cmList2 }" var="cMember2">
+                            	 	<li>
+                                		<img src="${contextPath }/images/index/people/${cMember2.getImg1_thumbo()}" />
+                                    	<p>${cMember2.getName() }</p>
+                                	</li>
+                            	 </c:forEach>
                             </ul>
                         </div>
                     <!-- //연주반 단원 -->
@@ -697,6 +713,7 @@ Finally, she is the voice teacher of World Vision Korea Children’s Choir in Ka
                     <!-- 연주반 단원 -->
                     	<div class="child_people">
                         	<ul>
+                        	<!-- 
                             	<li>
                                 	<img src="${contextPath }/images/index/people/t1_member_532.jpg" />
                                     <p>심은서</p>
@@ -830,6 +847,13 @@ Finally, she is the voice teacher of World Vision Korea Children’s Choir in Ka
                                     <p>성아인</p>
 
                                 </li>
+                                -->
+                                 <c:forEach items="${cmList3 }" var="cMember3">
+                            	 	<li>
+                                		<img src="${contextPath }/images/index/people/${cMember3.getImg1_thumbo()}" />
+                                    	<p>${cMember3.getName() }</p>
+                                	</li>
+                            	 </c:forEach>
                             </ul>
                         </div>
                     <!-- //연주반 단원 -->
@@ -924,6 +948,7 @@ Now, she works as a voice teacher for World Vision Korea Children’s Choir in I
                     <!-- 연주반 단원 -->
                     	<div class="child_people">
                         	<ul>
+                        	<!-- 
                             	<li>
                                 	<img src="${contextPath }/images/index/people/t1_member_532.jpg" />
                                     <p>심은서</p>
@@ -1057,6 +1082,13 @@ Now, she works as a voice teacher for World Vision Korea Children’s Choir in I
                                     <p>성아인</p>
 
                                 </li>
+                                -->
+                                 <c:forEach items="${cmList4 }" var="cMember4">
+                            	 	<li>
+                                		<img src="${contextPath }/images/index/people/${cMember4.getImg1_thumbo()}" />
+                                    	<p>${cMember4.getName() }</p>
+                                	</li>
+                            	 </c:forEach>
                             </ul>
                         </div>
                     <!-- //연주반 단원 -->
@@ -1150,6 +1182,7 @@ Currently, Hye Jin Lee teaches World Vision Korea Children's Choirs in Bundang r
                     <!-- 연주반 단원 -->
                     	<div class="child_people">
                         	<ul>
+                        	<!-- 
                             	<li>
                                 	<img src="${contextPath }/images/index/people/t1_member_532.jpg" />
                                     <p>심은서</p>
@@ -1283,6 +1316,13 @@ Currently, Hye Jin Lee teaches World Vision Korea Children's Choirs in Bundang r
                                     <p>성아인</p>
 
                                 </li>
+                                -->
+                                 <c:forEach items="${cmList5 }" var="cMember5">
+                            	 	<li>
+                                		<img src="${contextPath }/images/index/people/${cMember5.getImg1_thumbo()}" />
+                                    	<p>${cMember5.getName() }</p>
+                                	</li>
+                            	 </c:forEach>
                             </ul>
                         </div>
                     <!-- //연주반 단원 -->

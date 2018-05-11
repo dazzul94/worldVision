@@ -15,7 +15,7 @@
 <link rel='stylesheet' type='text/css' href='${contextPath}/css/BlueAD/admin/fullcalendar.css' />
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/jquery.js'></script>
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/jquery-ui-custom.js'></script>
-<script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/fullcalendar.js?ver=8'></script>
+<script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/fullcalendar.js?ver=14'></script>
 <style type='text/css'>
 
 	/* body {
@@ -46,7 +46,7 @@
 </div>
 <div id="content">
 <div id='calendar'></div>
-<a  href='scheduleView?no=7	' onClick="window.open(this.href, '', 'width=400, height=430'); return false;">ㅇㅇㅇㄴ</a>
+ <!-- <a  href='scheduleView?no=7	' onClick="window.open(this.href, '', 'width=400, height=430'); return false;">ㅇㅇㅇㄴ</a>  -->
 </div>
 <script type='text/javascript'>
 
@@ -135,7 +135,7 @@
 		
 	});
 	function popup(url){ 
-		window.open(url, '', 'width=900, height=550'); return false;
+		window.open(url, '', 'width=900, height=550'); 
 		} 
 </script>
 </body>

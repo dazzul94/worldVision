@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java100.app.domain.Concert.Bluead_Schedule;
-import java100.app.domain.Member.Bluead_Member02;
 import java100.app.service.ConcertService.Bluead_ScheduleService;
 
 @Controller
@@ -112,6 +111,12 @@ public class ScheduleController {
     	bluead_ScheduleService.update(bluead_schedule);
 		return "redirect:calendar";
 	}
+    @RequestMapping("delete")
+    public String delete(int no) throws Exception {
+
+    	bluead_ScheduleService.delete(no);
+        return "redirect:calendar";
+    }
 }
 
 

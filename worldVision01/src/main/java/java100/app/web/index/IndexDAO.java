@@ -148,6 +148,41 @@ public class IndexDAO {
 				comment.getComm_bbs_no(), comment.getComm_name(), comment.getComm_content(), comment.getComm_date());
 	}
 	
+	public ChoirMember[] getChoirMember(String sql) {	
+		RowMapper<ChoirMember> mapper = new RowMapper<ChoirMember>() {
+			@Override
+			public ChoirMember mapRow(ResultSet rs, int idx) 
+					throws SQLException {				
+				return new ChoirMember(
+					rs.getString("img1_thumbo"),
+					rs.getString("name")
+				);
+			}				
+		};		
+		List<ChoirMember> list = jTmp.query(sql, mapper);		
+		return list.toArray(new ChoirMember[0]);
+	}
+	
+	public ChoirTeacher[] getChoirTeacher(String sql) {	
+		RowMapper<ChoirTeacher> mapper = new RowMapper<ChoirTeacher>() {
+			@Override
+			public ChoirTeacher mapRow(ResultSet rs, int idx) 
+					throws SQLException {				
+				return new ChoirTeacher(
+					rs.getString("img1_thumbo"),
+					rs.getString("kor_name1"),
+					rs.getString("kor_name2"),
+					rs.getString("kor_contents"),
+					rs.getString("eng_name1"),
+					rs.getString("eng_name2"),
+					rs.getString("eng_contents")
+				);
+			}				
+		};		
+		List<ChoirTeacher> list = jTmp.query(sql, mapper);		
+		return list.toArray(new ChoirTeacher[0]);
+	}
+	
 //	public String encrypt(String planText) {
 //        try{
 //            MessageDigest md = MessageDigest.getInstance("SHA-256");

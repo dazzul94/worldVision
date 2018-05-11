@@ -66,13 +66,56 @@ public class IndexMainController {
 	}
 	
 	@RequestMapping("choir3")
-	public String goChoir3() {
+	public String goChoir3(Model model) {
+		String ctSql = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 1 ORDER BY sort DESC";
+		ChoirTeacher[] ctList = dao.getChoirTeacher(ctSql);
+		model.addAttribute("ctList", ctList);
+		
+		String sql = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 1 ORDER BY sort";
+		ChoirMember[] cmList = dao.getChoirMember(sql);
+		model.addAttribute("cmList", cmList);
 		
 		return "choir/choir3";				
 	}
 	
 	@RequestMapping("choir4")
-	public String goChoir4() {
+	public String goChoir4(Model model) {
+		
+		String ctSql = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 3 ORDER BY sort DESC";
+		String ctSql2 = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 4 ORDER BY sort DESC";
+		String ctSql3 = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 5 ORDER BY sort DESC";
+		String ctSql4 = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 6 ORDER BY sort DESC";
+		String ctSql5 = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 8 ORDER BY sort DESC";
+		
+		ChoirTeacher[] ctList = dao.getChoirTeacher(ctSql);
+		ChoirTeacher[] ctList2 = dao.getChoirTeacher(ctSql2);
+		ChoirTeacher[] ctList3 = dao.getChoirTeacher(ctSql3);
+		ChoirTeacher[] ctList4 = dao.getChoirTeacher(ctSql4);
+		ChoirTeacher[] ctList5 = dao.getChoirTeacher(ctSql5);
+		
+		model.addAttribute("ctList", ctList);
+		model.addAttribute("ctList2", ctList2);
+		model.addAttribute("ctList3", ctList3);
+		model.addAttribute("ctList4", ctList4);
+		model.addAttribute("ctList5", ctList5);
+		
+		String cmSql = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 3 ORDER BY sort";
+		String cmSql2 = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 4 ORDER BY sort";
+		String cmSql3 = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 5 ORDER BY sort";
+		String cmSql4 = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 6 ORDER BY sort";
+		String cmSql5 = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 8 ORDER BY sort";
+		
+		ChoirMember[] cmList = dao.getChoirMember(cmSql);
+		ChoirMember[] cmList2 = dao.getChoirMember(cmSql2);
+		ChoirMember[] cmList3 = dao.getChoirMember(cmSql3);
+		ChoirMember[] cmList4 = dao.getChoirMember(cmSql4);
+		ChoirMember[] cmList5 = dao.getChoirMember(cmSql5);
+		
+		model.addAttribute("cmList", cmList);
+		model.addAttribute("cmList2", cmList2);
+		model.addAttribute("cmList3", cmList3);
+		model.addAttribute("cmList4", cmList4);
+		model.addAttribute("cmList5", cmList5);
 		
 		return "choir/choir4";				
 	}
