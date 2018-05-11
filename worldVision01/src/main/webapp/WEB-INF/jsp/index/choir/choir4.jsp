@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix='fn' %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -112,9 +114,20 @@
 			$("nav.menu>ul>li").removeClass("on");
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
+		function logout(id){
+			alert(id+"님이 로그아웃 하셨습니다.");
+			location.href = "logout";
+		}
 	</script>
     		<div class="tnb">
-            	<a href="login">로그인</a>
+            	<c:choose>
+    			<c:when test="${loginId == null || loginId == '' }">
+    				<a href="login">로그인</a>
+    			</c:when>
+    			<c:otherwise>
+    				<a href="#" onclick="logout('${loginId}')" return false; >로그아웃</a>
+    			</c:otherwise>
+    		</c:choose>
             </div>
     		<p><a href="http://www.worldvision.or.kr" target="_blank"><img src="${contextPath }/images/index/logo_button_world.gif" alt=""/></a></p>
         </div>
@@ -184,7 +197,8 @@ function tab_menu(val, path){
        				
                     
                     <div class="clear mb30"></div>
-                    <h3 class="wonh3">지도교사</h3>  
+                    <h3 class="wonh3">지도교사</h3>
+                    <!--    
                     <div class="people_wrap">
                     <div class="floatL people_photo"><img src="${contextPath }/images/index/t1_teacher_22.jpg" alt=""/></div>
                     <div class="floatL people_info">
@@ -244,8 +258,25 @@ of Yangjeong High School.</p>
                     	
                     </div>
                     </div>
-                    
-                    
+                    -->
+                    <c:set var="i" value="0"></c:set>
+                        <c:forEach items="${ctList }" var="cTeacher">
+                     <div class="people_wrap">
+                    <div class="floatL people_photo"><img src="${contextPath }/images/index/${cTeacher.img1_thumbo}" alt=""/></div>
+                    <div class="floatL people_info">
+                    	<h4 class="wonh4">${cTeacher.kor_name1 }  <strong class="black_f">${cTeacher.kor_name2 }</strong></h4>  
+                    	<p>${cTeacher.kor_contents }</p>
+
+						<h4 class="wonh4 mt30">${cTeacher.eng_name1 } <strong class="black_f">${cTeacher.eng_name2 }</strong></h4>  
+                    	<p>${cTeacher.eng_contents }</p>
+
+					 <c:set var="i" value="${i+1 }"></c:set>
+                    </div>
+                    </div>
+                    <c:if test="${fn:length(ctList) != i }" >
+                    	<div class="clear dot_line"></div>
+                    </c:if>
+                    </c:forEach>
                     <div class="clear mt50"></div>
                     <h3 class="wonh3">강서반 단원</h3>  
                     

@@ -112,6 +112,10 @@
 			$("nav.menu>ul>li").removeClass("on");
 			$("nav.menu>ul>li>div").fadeOut(100);
 		});
+		function logout(id){
+			alert(id+"님이 로그아웃 하셨습니다.");
+			location.href = "logout";
+		}
 	</script>
 	<script>
 	function prevPage(cPage, search, cateSelect, sText){
@@ -180,7 +184,14 @@
 	}
 	</script>
     		<div class="tnb">
-            	<a href="login">로그인</a>
+            	<c:choose>
+    			<c:when test="${loginId == null || loginId == '' }">
+    				<a href="login">로그인</a>
+    			</c:when>
+    			<c:otherwise>
+    				<a href="#" onclick="logout('${loginId}')" return false; >로그아웃</a>
+    			</c:otherwise>
+    		</c:choose>
             </div>
     		<p><a href="http://www.worldvision.or.kr" target="_blank"><img src="${contextPath }/images/index/logo_button_world.gif" alt=""/></a></p>
         </div>
