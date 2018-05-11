@@ -30,7 +30,6 @@
 	</update>
 
 	
-	
 	<select id="findTermsCont" resultMap="bluead_MemberMap">
 		SELECT CONTENTS1, CONTENTS2 
   		  FROM worlddb.bluead_terms

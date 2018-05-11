@@ -32,6 +32,13 @@ public class Bluead_Member02Controller {
 
 	@RequestMapping("update")
 	public String update(@RequestParam(value = "gubun") String gubun, HttpServletRequest request, Bluead_Member02 bluead_Member02) throws Exception {
+		if (gubun.equals("terms")) {
+			System.out.println("텀");
+			bluead_Member02.setContents2(bluead_member02Service.getTermsCont().getContents2());
+		} else {
+			System.out.println("펄");
+			bluead_Member02.setContents1(bluead_member02Service.getTermsCont().getContents1());
+		}
 		bluead_member02Service.update(bluead_Member02);
 		System.out.println(gubun);
 		System.out.println("BlueAD/bluead_member/member02/termsView?gubun=" + gubun);

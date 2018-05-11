@@ -47,14 +47,17 @@
 						<tr>
 							<td><!-- smarteditor -->
 							
-								<c:if test="${gubun eq 'terms'}">
-							<textarea  name="contents1" id="ir1" rows="40" cols="250">${bluead_member02.contents1}</textarea>
-							<textarea name="contents2" style="display:none;">${bluead_member02.contents2}</textarea>
+							<textarea  
+							<c:if test="${gubun eq 'terms'}"> name="contents1"</c:if>
+							<c:if test="${gubun eq 'personalView'}"> name="contents2"</c:if>
+							 id="ir1" rows="40" cols="250">
+							<c:if test="${gubun eq 'terms'}">
+								${bluead_member02.contents1}
 								</c:if>
 								<c:if test="${gubun eq 'personalView'}">
-								<textarea name="contents1" style="display:none;">${bluead_member02.contents1}</textarea>
-								<textarea  name="contents2" id="ir1" rows="40" cols="250">${bluead_member02.contents2}</textarea>
+								${bluead_member02.contents2}
 								</c:if>
+							</textarea>
 								<input type="hidden" name="gubun" value="${gubun}">
 							</td>
 						</tr>
