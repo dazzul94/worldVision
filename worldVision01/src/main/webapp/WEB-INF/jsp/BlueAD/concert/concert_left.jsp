@@ -82,7 +82,7 @@
 									</tr>
 																		<tr>
 										<td height="24" class="left_mn" id="td_no0"
-											onclick="window.location='../board03/list'"
+											onclick="window.location='../repertory/list'"
 											style="cursor: pointer"><img
 											src="${contextPath}/images/BlueAD/admin/left_dot.gif"
 											align="absmiddle" /> 연주레퍼토리</td>
