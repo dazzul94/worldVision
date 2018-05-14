@@ -24,13 +24,16 @@
 </div>
 <div id="content">
 <form  method="post" action="choirUpdate" onSubmit="return FormCheckIt();" ENCTYPE="multipart/form-data">
-<!-- <input type="hidden" name="page" value="1">
-<input type="hidden" name="c_no" value="9">
-<input type="hidden" name="mode" value="modify"> -->
+ <input type="hidden" name="page" value="1">
+<input type="hidden" name="c_no" value="${choir01.c_no}">
+<input type="hidden" name="wdate" value="${choir01.wdate}">
+<input type="hidden" name="img1_thumb" value="${choir01.img1_thumb}">
+<input type="hidden" name="mode" value="modify"> 
     <table border="0" cellspacing="1" cellpadding="4" width="100%" bgcolor="#cad4e3">
     <tr>
       <td width="200" height="35" class="field_b_pad">분류</td>
-      <td bgcolor="#FFFFFF" style="padding-left:10px"><input type="radio" name="type" value="1" onClick="Tr_Display('1');"> 연주반&nbsp;&nbsp;&nbsp;<input type="radio" name="type" value="2" onClick="Tr_Display('2');"> 지역반&nbsp;&nbsp;&nbsp;<input type="radio" name="type" value="3" onClick="Tr_Display('3');" checked> 비전싱어즈&nbsp;&nbsp;&nbsp;</td>
+       
+      <td bgcolor="#FFFFFF" style="padding-left:10px"><input type="radio" name="type" value="${choir01.type}" onClick="Tr_Display('1');"> 연주반&nbsp;&nbsp;&nbsp;<input type="radio" name="type" value="2" onClick="Tr_Display('2');"> 지역반&nbsp;&nbsp;&nbsp;<input type="radio" name="type" value="3" onClick="Tr_Display('3');" checked> 비전싱어즈&nbsp;&nbsp;&nbsp;</td>
     </tr>
     <tr>
       <td height="35" class="field_b_pad">제목</td>
@@ -46,7 +49,7 @@
 
     <tr>
       <td height="35" class="field_b_pad">이미지</td>
-      <td bgcolor="#FFFFFF" style="padding-left:10px"><img src="/BlueAD/admin/choir/upload/t1_choir_9.jpg" style="cursor:hand"> <input type="checkbox" name="img_del" value="Y"> <font color="red">"choir_9.jpg"파일을 삭제합니다.</font><br><input name="img" type="file" class="b_input" /></td>
+      <td bgcolor="#FFFFFF" style="padding-left:10px"><img src="${contextPath}/images/BlueAD/admin/choir/upload/${choir01.img1_micro}"width="300px" height="200" ;> <input type="checkbox" name="img_del" value="Y"> <font color="red">파일을 삭제합니다.</font><br><input name="img1_micro" type="file" class="b_input" /></td>
     </tr>
       <tr id="tr1">
       <td height="35" class="field_b_pad">연습장소</td>
@@ -63,7 +66,9 @@
     <tr id="tr4">
       <td height="35" class="field_b_pad">약도주소[네이버지도연동]</td>
       <td bgcolor="#FFFFFF" style="padding-left:10px"><input type="text" class="b_input" name="map_addr" value="${choir01.map_addr}" size="50"></td>
+      
     </tr>
+    
     </table>
     
     
