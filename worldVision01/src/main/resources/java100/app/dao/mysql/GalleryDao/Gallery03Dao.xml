@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- DAO 객체를 자동으로 생성하려면, namespace의 값이 인터페이스 이름과 같아야 한다. -->
+<mapper namespace="java100.app.dao.GalleryDao.Gallery03Dao">
+
+	<resultMap type="gallery03" id="gallery03">
+		<id column="bbs_no" property="bbs_no" />
+		<!-- 컬럼 이름과 프로퍼티 이름이 같아서 생략! -->
+		<!-- <result column="name" property="name"/> <result column="email" property="email"/> -->
+	</resultMap>
+
+	<select id="findAll" resultMap="gallery03" parameterType="map">
+		select
+		* 
+		from bluead_wv_gallery03
+	</select>
+	<select id="countAll" resultType="int">
+		select count(*) from bluead_wv_gallery03
+	</select>
+
+
+</mapper>  
+
+
+
+
+
+
+
+
