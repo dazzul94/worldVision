@@ -12,4 +12,8 @@ public interface Choir01Service {
 
 	int getTotalCount(HashMap<String, Object> options);
 
+	Choir01 get(int no);
+
+	int choirUpdate(Choir01 choir01);
+
 }

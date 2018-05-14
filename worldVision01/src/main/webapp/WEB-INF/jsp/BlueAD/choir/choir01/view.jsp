@@ -23,44 +23,64 @@
 <jsp:include page="../choir_left.jsp"/>
 </div>
 <div id="content">
-<form action="missionUpdate" onsubmit="return checkIt();"method='post' enctype="multipart/form-data">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-  		<td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 미션연주 </font></td>
-  </tr>
-  <tr>
-    <td height="1" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
-  </tr>
-</table>
-
-					<table align="center" border="0" cellpadding="10" cellspacing="3" width="100%">
-						<tr>
-							<td bgcolor="white">
-							<!-- ?? -->
-							</td>
-						</tr>
-						<tr>
-							<td><!-- smarteditor -->
+<form  method="post" action="choirUpdate" onSubmit="return FormCheckIt();" ENCTYPE="multipart/form-data">
+<!-- <input type="hidden" name="page" value="1">
+<input type="hidden" name="c_no" value="9">
+<input type="hidden" name="mode" value="modify"> -->
+    <table border="0" cellspacing="1" cellpadding="4" width="100%" bgcolor="#cad4e3">
+    <tr>
+      <td width="200" height="35" class="field_b_pad">분류</td>
+      <td bgcolor="#FFFFFF" style="padding-left:10px"><input type="radio" name="type" value="1" onClick="Tr_Display('1');"> 연주반&nbsp;&nbsp;&nbsp;<input type="radio" name="type" value="2" onClick="Tr_Display('2');"> 지역반&nbsp;&nbsp;&nbsp;<input type="radio" name="type" value="3" onClick="Tr_Display('3');" checked> 비전싱어즈&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="35" class="field_b_pad">제목</td>
+      <td bgcolor="#FFFFFF" style="padding-left:10px"><input type="text" class="b_input" name="title"value="${choir01.title}" size="50" ></td>
+    </tr>
+    <tr>
+      <td height="35" class="field_b_pad">내용</td>
+      <td bgcolor="#FFFFFF" style="padding-left:10px">
+<!--  -->
 							
-							<textarea  name="content" id="ir1" rows="40" cols="250">${bluead_mission.content}</textarea>
-							</td>
+							<textarea  name="content" id="ir1" rows="20" cols="150">${choir01.contents}</textarea>
 						</tr>
-					</table>			
 
-<!-- -확인버튼 -->
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
-  <tr height="50">
-    <td align="center">
-   <td height="50" align="center" valign="bottom">
-   
-   <input type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif" onclick="sendSub()">
-   <%-- <input type="button" value="등록" onclick="sendSub()">
-                        <input onclick="write()" type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_ok.gif">
-                        <input onclick="list(${bluead_wv_board.bbs_no})"  type="image" src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_cancel.gif"></td>  --%>
-  </tr>
-</table>
+    <tr>
+      <td height="35" class="field_b_pad">이미지</td>
+      <td bgcolor="#FFFFFF" style="padding-left:10px"><img src="/BlueAD/admin/choir/upload/t1_choir_9.jpg" style="cursor:hand"> <input type="checkbox" name="img_del" value="Y"> <font color="red">"choir_9.jpg"파일을 삭제합니다.</font><br><input name="img" type="file" class="b_input" /></td>
+    </tr>
+      <tr id="tr1">
+      <td height="35" class="field_b_pad">연습장소</td>
+      <td bgcolor="#FFFFFF" style="padding-left:10px"><input type="text" class="b_input" name=y_place value="${choir01.y_place}" size="50"></td>
+    </tr>
+    <tr id="tr2">
+      <td height="35" class="field_b_pad">연습시간</td>
+      <td bgcolor="#FFFFFF" style="padding-left:10px"><input type="text" class="b_input" name="y_time" value="${choir01.y_time}" size="50"></td>
+    </tr>
+    <tr id="tr3">
+      <td height="35" class="field_b_pad">주소</td>
+      <td bgcolor="#FFFFFF" style="padding-left:10px"><input type="text" class="b_input" name="addr" value="${choir01.addr}" size="50"></td>
+    </tr>
+    <tr id="tr4">
+      <td height="35" class="field_b_pad">약도주소[네이버지도연동]</td>
+      <td bgcolor="#FFFFFF" style="padding-left:10px"><input type="text" class="b_input" name="map_addr" value="${choir01.map_addr}" size="50"></td>
+    </tr>
+    </table>
+    
+    
+  <td align="center">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td height="50" align="center">
+              <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/admin/btn_list.gif" style="cursor:pointer"></a>
+        <input type="image" src="${contextPath}/images/BlueAD/admin/btn_ok.gif" onclick="sendSub()">
+			  </td>
+    </tr>
+    </table>
+  </td>
+
 </form>
 </div>
+
 <script type="text/javascript">
 
 var oEditors = [];
