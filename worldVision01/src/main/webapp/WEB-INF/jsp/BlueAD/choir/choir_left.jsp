@@ -18,25 +18,19 @@
           <td>
             <table width="180" border="0" cellspacing="0" cellpadding="0">
 							              <tbody><tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community01/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 연주반</td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../choir01/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> CHOIR</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community03/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 강서반</td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community03/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> CHOIR 지도교사</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
               </tr>
 							              <tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community04/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 갤러리</td>
-              </tr>
-              <tr>
-                <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
-              </tr>
-							              <tr>
-                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community05/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> 비전싱어즈</td>
+                <td height="24" class="left_mn" id="td_no0" onclick="window.location='../community04/list'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/left_dot.gif" align="absmiddle"/> CHOIR 단원</td>
               </tr>
               <tr>
                 <td height="3" background="${contextPath}/images/BlueAD/admin/left_dot_line.gif" style="background-repeat:no-repeat"></td>
