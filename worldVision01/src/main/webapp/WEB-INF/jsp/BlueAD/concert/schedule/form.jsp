@@ -19,20 +19,19 @@
     <td height="25"><img src="${contextPath}/images/BlueAD/admin/blet.gif" width="6" height="13" align="absmiddle"><strong> 일정관리 </strong></td>
   </tr>
 </table>
-<form name="form" method="post" action="update">
-<input name="no" type="hidden" value="${bluead_schedule.no}">
-<input name="y" type="hidden" value="${bluead_schedule.y}">
-<input name="m" type="hidden" value="${bluead_schedule.m}">
-<input name="d" type="hidden" value="${bluead_schedule.d}">
+<form name="form" method="post" action="add">
+<input name="y" type="hidden" value="${dataY}">
+<input name="m" type="hidden" value="${dataM}">
+<input name="d" type="hidden" value="${dataD}">
 <table border="0" cellspacing="1" cellpadding="0" width="770" bgcolor="#E6E6E6">
   <tr height="28">
     <td width="70" class="pad_left" bgcolor="#F1F1F1">날짜</td>
-    <td bgcolor="#FFFFFF" class="pad_left">${bluead_schedule.y}년 ${bluead_schedule.m}월 ${bluead_schedule.d}일</td>
+    <td bgcolor="#FFFFFF" class="pad_left">${dataY}년 ${dataM}월 ${dataD}일</td>
   </tr>
   <tr height="28">
     <td class="pad_left" bgcolor="#F1F1F1">일정명</td>
     <td bgcolor="#FFFFFF" class="pad_left">
-      <input type="text" name="subject" size="60" value="${bluead_schedule.subject}">
+      <input type="text" name="subject" size="60">
       <select name="color">
       <option value="#000000" style="color:#000000" selected>검은색</option>
       <option value="#0000ff" style="color:#0000ff" >파랑색</option>
@@ -44,7 +43,7 @@
   <tr height="28">
     <td class="pad_left" bgcolor="#F1F1F1">상세내용</td>
     <td bgcolor="#FFFFFF" class="pad_all">
-    <textarea  name="content" id="ir1" style="width:100%" rows="20">${bluead_schedule.content}</textarea>
+    <textarea  name="content" id="ir1" style="width:100%" rows="20"></textarea>
 </td>
   </tr>
 </table>
@@ -57,7 +56,6 @@
 <!--      <input type="button" class="input_btn" value="삭  제" onClick="parent.emailwindow.hide_w('delete')");">-->
       <input type="button" value="목  록"  onClick="window.close();" class="input_btn">&nbsp;&nbsp;
       <input type="button" value="저  장" name="B1" onClick="checkIt()"  class="input_btn"/>&nbsp;&nbsp;
-      <input type="button" id="deleteBtn" class="input_btn" value="삭  제" onClick="go_del(${bluead_schedule.no})">
     </td>
   </tr>
 </table>

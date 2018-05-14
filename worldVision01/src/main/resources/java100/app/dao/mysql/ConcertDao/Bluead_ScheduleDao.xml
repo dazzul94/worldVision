@@ -37,6 +37,12 @@
         delete from bluead_schedule
         where no=#{value}
     </delete>
+    
+	 <insert id="insert" parameterType="bluead_Schedule" useGeneratedKeys="true" 
+		keyColumn="no" keyProperty="no"> 
+		insert into bluead_schedule(y,m,d,subject,color,content) 
+		values(#{y},#{m},#{d},#{subject},#{color},#{content}) 
+		</insert>
 </mapper>  
 
 

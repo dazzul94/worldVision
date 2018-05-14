@@ -118,10 +118,26 @@ public class ScheduleController {
         return "redirect:calendar";
     }
     @RequestMapping("form")
-	public String form() throws Exception {
+    //data=2018/05/11
+	public String form(@RequestParam String data, Model model) throws Exception {
+    	logger.debug(data);
+    	String[] splitedData = data.split("/");
+    	logger.debug(splitedData[0]); //y
+    	logger.debug(splitedData[1]); //m
+    	logger.debug(splitedData[2]); //d
+    	
+    	model.addAttribute("dataY", splitedData[0]);
+    	model.addAttribute("dataM", splitedData[1]);
+    	model.addAttribute("dataD", splitedData[2]);
 		return "BlueAD/concert/schedule/form";
 
 	}
+    @RequestMapping("add")
+    public String add(Bluead_Schedule bluead_Schedule) throws Exception {
+        
+    	bluead_ScheduleService.add(bluead_Schedule);
+    	return "redirect:calendar";
+    }
 }
 
 
