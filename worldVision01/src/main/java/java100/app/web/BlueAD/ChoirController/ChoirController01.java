@@ -100,7 +100,7 @@ public class ChoirController01 {
 	    }
 	    @RequestMapping("choirUpdate")
 	    public String choirUpdate(HttpServletRequest request, Choir01 choir01,MultipartFile file, BindingResult bindingResult) throws Exception {
-	    	 // 업로드 파일을 저장할 폴더 위치를 가져온다.
+	    /*	 // 업로드 파일을 저장할 폴더 위치를 가져온다.
 	        if (bindingResult.hasErrors()) {
 	            // 파라미터 값을 변수의 타입으로 변환하는데 오류가 있을 때,
 	            // 여기에 작업 코드를 작성하라!
@@ -110,7 +110,7 @@ public class ChoirController01 {
 
 	        String filename = writeUploadFile(file, uploadDir);
 	        choir01.setImg1_micro(filename);
-
+*/
 
 	    	choir01Service.choirUpdate(choir01);
 	 	   return "redirect:view";

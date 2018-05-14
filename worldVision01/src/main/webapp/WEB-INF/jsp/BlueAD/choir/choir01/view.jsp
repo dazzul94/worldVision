@@ -24,11 +24,9 @@
 </div>
 <div id="content">
 <form  method="post" action="choirUpdate" onSubmit="return FormCheckIt();" ENCTYPE="multipart/form-data">
- <input type="hidden" name="page" value="1">
 <input type="hidden" name="c_no" value="${choir01.c_no}">
 <input type="hidden" name="wdate" value="${choir01.wdate}">
 <input type="hidden" name="img1_thumb" value="${choir01.img1_thumb}">
-<input type="hidden" name="mode" value="modify"> 
     <table border="0" cellspacing="1" cellpadding="4" width="100%" bgcolor="#cad4e3">
     <tr>
       <td width="200" height="35" class="field_b_pad">분류</td>
@@ -44,7 +42,7 @@
       <td bgcolor="#FFFFFF" style="padding-left:10px">
 <!--  -->
 							
-							<textarea  name="content" id="ir1" rows="20" cols="150">${choir01.contents}</textarea>
+							<textarea  name="contents" id="ir1" rows="20" cols="150">${choir01.contents}</textarea>
 						</tr>
 
     <tr>
