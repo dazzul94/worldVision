@@ -9,5 +9,6 @@ public interface Bluead_ScheduleService {
 	Bluead_Schedule getSchedule(int no);
 	int update(Bluead_Schedule bluead_schedule);
 	int delete(int no);
+	int add(Bluead_Schedule bluead_Schedule);
 
 }

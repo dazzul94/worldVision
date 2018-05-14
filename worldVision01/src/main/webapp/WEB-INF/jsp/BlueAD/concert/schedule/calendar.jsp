@@ -15,7 +15,7 @@
 <link rel='stylesheet' type='text/css' href='${contextPath}/css/BlueAD/admin/fullcalendar.css?ver=15' />
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/jquery.js'></script>
 <script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/jquery-ui-custom.js'></script>
-<script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/fullcalendar.js?ver=3'></script>
+<script type='text/javascript' src='${contextPath}/js/BlueAD/calendar/fullcalendar.js?ver=11'></script>
 <style type='text/css'>
 
 	/* body {
@@ -129,16 +129,20 @@
 					start: new Date(y, m, 28),
 					end: new Date(y, m, 29),
 					url: 'http://google.com/'
-				} */
-			
+				} */,
+				 dayClick: function (date, jsEvent, view) {
+		                $('#eventDate').val($.fullCalendar.formatDate(date, 'dd/MM/yyyy'));
+		                console.log("포맷안된 날짜" +date);
+		                
+		                console.log("포맷된 날짜 toString()" +$.fullCalendar.formatDate(date, 'yyyy/MM/dd').toString());
+		                var data = $.fullCalendar.formatDate(date, 'yyyy/MM/dd').toString();
+		                windowObj = window.open('form?data=' + data, '', 'width=900, height=550'); 
+		            }
 		});
 	});
 	function popup(url){ 
 		window.open(url, '', 'width=900, height=550'); 
 		} 
-	function clickMe(){ 
-		window.open('form', '', 'width=900, height=550'); 
-	} 
 </script>
 </body>
 </html>
