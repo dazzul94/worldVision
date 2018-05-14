@@ -47,7 +47,7 @@
 
     <tr>
       <td height="35" class="field_b_pad">이미지</td>
-      <td bgcolor="#FFFFFF" style="padding-left:10px"><img src="${contextPath}/images/BlueAD/admin/choir/upload/${choir01.img1_micro}"width="300px" height="200" ;> <input type="checkbox" name="img_del" value="Y"> <font color="red">파일을 삭제합니다.</font><br><input name="img1_micro" type="file" class="b_input" /></td>
+      <td bgcolor="#FFFFFF" style="padding-left:10px"><img src="${contextPath}/images/BlueAD/admin/choir/upload/${choir01.img1_micro}"width="300px" height="200" ;> <input type="checkbox" name="img_del" value="Y"> <font color="red">파일을 삭제합니다.</font><br><input name="file" type="file" class="b_input" /></td>
     </tr>
       <tr id="tr1">
       <td height="35" class="field_b_pad">연습장소</td>
