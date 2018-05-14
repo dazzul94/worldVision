@@ -113,7 +113,7 @@ public class ChoirController01 {
 
 
 	    	choir01Service.choirUpdate(choir01);
-	 	   return "redirect:View";
+	 	   return "redirect:view";
 	    }
 	 	   long prevMillis = 0;
 	 	    int count = 0;

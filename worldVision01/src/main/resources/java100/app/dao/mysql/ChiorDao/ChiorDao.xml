@@ -63,7 +63,7 @@
 		select count(*)
 		from bluead_chior
 
-	<choose>
+		<choose>
 			<when test="select == 'all'">
 				<where> <!-- 제목,내용,글쓴이 -->
 					or title like '%${word}%'
@@ -94,18 +94,26 @@
 			</when>
 
 		</choose>
-</select>
-<select id="findByNo" resultMap="choir01" parameterType="int">
+	</select>
+	<select id="findByNo" resultMap="choir01" parameterType="int">
 		<include refid="select1" />
 		from bluead_chior
 		where c_no=#{value}
 	</select>
 	<update id="choirUpdate" parameterType="choir01">
-	   update bluead_chior set
-       title=#{title},
-       contents=#{contents},
-       img1_micro=#{img1_micro}
-	   where c_no=#{c_no}
+		update bluead_chior set
+		c_no=#{c_no},
+		type=#{type},
+		img1_thumb=#{img1_thumb},
+		title=#{title},
+		contents=#{contents},
+		img1_micro=#{img1_micro},
+		y_place=#{y_place},
+		y_time=#{y_time},
+		addr=#{addr},
+		map_addr=#{map_addr},
+		wdate=#{wdate}
+		where c_no=#{c_no}
 	</update>
 
 </mapper>  
