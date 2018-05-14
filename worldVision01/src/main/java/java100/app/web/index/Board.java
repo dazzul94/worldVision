@@ -12,6 +12,7 @@ public class Board {
 		super();
 	}
 	
+	// 읽기용
 	public Board(int bbs_no, String bbs_name, String bbs_subject, String bbs_content, int bbs_hit, String bbs_date) {
 		super();
 		this.bbs_no = bbs_no;
@@ -19,6 +20,15 @@ public class Board {
 		this.bbs_subject = bbs_subject;
 		this.bbs_content = bbs_content;
 		this.bbs_hit = bbs_hit;
+		this.bbs_date = bbs_date;
+	}
+	
+	// 쓰기용
+	public Board(String bbs_name, String bbs_subject, String bbs_content, String bbs_date) {
+		super();
+		this.bbs_name = bbs_name;
+		this.bbs_subject = bbs_subject;
+		this.bbs_content = bbs_content;
 		this.bbs_date = bbs_date;
 	}
 

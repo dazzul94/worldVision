@@ -223,8 +223,12 @@ public class IndexMainController {
 	}
 	
 	@RequestMapping("galleryWrite")
-	public String goGalleryWrite() {
-		
+	public String goGalleryWrite(Model model, HttpServletRequest request) {
+		String str = "사진갤러리";
+		if(request.getParameter("mod").equals("2")) {
+			str = "포스터/이미지";
+		}
+		model.addAttribute("str", str);
 		return "gallery/gallery_write";
 	}
 	

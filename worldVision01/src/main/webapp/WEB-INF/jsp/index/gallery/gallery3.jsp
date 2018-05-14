@@ -118,6 +118,7 @@
 		}
 	</script>
 	<script>
+	// < 버튼을 눌렀을 때 이전 목록으로 이동
 	function prevPage(cPage, search, cateSelect, sText){
 		if(search == null){
 			if(cPage != 1){
@@ -137,7 +138,7 @@
 		}
 		
 	}
-	
+	// > 버튼을 눌렀을때 다음 목록으로 이동
 	function nextPage(cPage, maxPage, search, cateSelect, sText){
 		if(search == null){
 			if(cPage != maxPage){
@@ -157,7 +158,7 @@
 		}
 		
 	}
-	
+	// 게시글 보는 페이지로 이동
 	function goView(bbs_no, cPage, search, cateSelect, sText){
 		if(search == null){
 			location.href = "galleryView?no=" + bbs_no + "&cPage=" + cPage+ "&str=포스터/이미지&dbName=gallery04";
@@ -168,7 +169,7 @@
 		}
 		
 	}
-	
+	// 검색
 	function goSearch(){
 		var value = $("#serText").val();
 		var select = $("#serSelect option:selected").val();
@@ -182,6 +183,22 @@
 		}
 		location.href = "gallery3?search=1&cateSelect=" + num + "&sText=" + value;
 	}
+	// 목록 버튼 눌렀을때 처음 페이지로 가기
+	function goFirst(){
+		location.href = "gallery3";
+	}
+	// 글 쓰기 페이지로 가기
+	function goWrite(){
+		location.href = "galleryWrite?mod=2";
+	}	
+	$(document).ready(function() {
+		var loginId = $("#btn_write").attr("name");
+		alert(loginId);
+		if(loginId == null || loginId == ""){
+			$("#btn_write").hide()	
+		}
+		 
+	});
 	</script>
     		<div class="tnb">
             	<c:choose>
@@ -364,7 +381,10 @@
                 	<c:choose>
                 	<c:when test="${search == null }">	
                 	<div class="pagerWrap">
-                
+                		<table>
+                			<tr>
+                				<td align="left"><button onclick="goFirst()">목록</button></td>
+                				<td align="center">
 						<c:choose>
 						<c:when test="${startPage != 1 }">
 							<a href="gallery3?cPage=${startPage - 10 }"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
@@ -405,12 +425,19 @@
 							<img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" />
 						</c:otherwise>
 						</c:choose>
-			
+						
+								</td>
+								<td align="right"><button id="btn_write" name="${loginId }" onclick="goWrite()">쓰기</button></td>
+							</tr>
+						</table>
             		</div>
             		</c:when>
             		<c:otherwise>
             		<div class="pagerWrap">
-                
+						<table>
+                			<tr>
+                				<td align="left"><button onclick="goFirst()">목록</button></td>
+                				<td align="center">                
 						<c:choose>
                 		<c:when test="${startPage != 1 }">
 							<a href="gallery3?cPage=${startPage - 10 }&search=${search }&cateSelect=${cateSelect}&sText=${sText}"><img src="${contextPath }/images/index/board/frontArr.png" alt="맨앞으로" /></a>
@@ -438,11 +465,15 @@
 						<c:otherwise>
 							<img src="${contextPath }/images/index/board/backArr.png" alt="맨뒤로" />
 						</c:otherwise>
-						</c:choose>	
-			
+						</c:choose>
+						</td>
+								<td align="right"><button id="btn_write" name="${loginId }" onclick="goWrite()">쓰기</button></td>
+							</tr>
+						</table>	
             		</div>
             		</c:otherwise>
             		</c:choose>
+            		
 			</div>
             <!-- E: board -->
             </div><!--contentwrap-->

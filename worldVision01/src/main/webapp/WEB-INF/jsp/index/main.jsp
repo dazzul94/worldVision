@@ -200,10 +200,10 @@
       	<div class="content_l">
         	<h3><img src="${contextPath}/images/index/main/title1.png" alt=""/></h3>
             <ul>
-            	<li><a href="#"><img src="${contextPath}/images/index/main/main_btn1.png" alt=""/></a></li>
-                <li><a href="#"><img src="${contextPath}/images/index/main/main_btn2.png" alt=""/></a></li>
-                <li><a href="#"><img src="${contextPath}/images/index/main/main_btn3.png" alt=""/></a></li>
-                <li><a href="#"><img src="${contextPath}/images/index/main/main_btn4.png" alt=""/></a></li>
+            	<li><a href="choir"><img src="${contextPath}/images/index/main/main_btn1.png" alt=""/></a></li>
+                <li><a href="concert"><img src="${contextPath}/images/index/main/main_btn2.png" alt=""/></a></li>
+                <li><a href="gallery"><img src="${contextPath}/images/index/main/main_btn3.png" alt=""/></a></li>
+                <li><a href="request"><img src="${contextPath}/images/index/main/main_btn4.png" alt=""/></a></li>
                 <li><a href="http://www.facebook.com/wvkcc" target="_blank"><img src="${contextPath}/images/index/main/main_btn5.png" alt=""/></a></li>
                 <li><a href="http://www.youtube.com/user/wvchoir" target="_blank"><img src="${contextPath}/images/index/main/main_btn6.png" alt=""/></a></li>
             </ul>
@@ -249,13 +249,13 @@
         <!--// 중앙 -->
         <!-- 우측 -->
         <div class="content_r">
-        	<p><a href="#"><img src="${contextPath}/images/index/main/main_btn7.png" alt=""/></a></p>
-            <p><a href="#"><img src="${contextPath}/images/index/main/main_btn9.png" alt=""/></a></p>
+        	<p><a href="request"><img src="${contextPath}/images/index/main/main_btn7.png" alt=""/></a></p>
+            <p><a href="request2"><img src="${contextPath}/images/index/main/main_btn9.png" alt=""/></a></p>
             <ul>
-            	<li><a href="#"><img src="${contextPath}/images/index/main/main_btn10.png" alt=""/></a></li>
-                <li><a href="#"><img src="${contextPath}/images/index/main/main_btn11.png" alt=""/></a></li>
-                <li><a href="#"><img src="${contextPath}/images/index/main/main_btn12.png" alt=""/></a></li>
-                <li><a href="#"><img src="${contextPath}/images/index/main/main_btn13.png" alt=""/></a></li>
+            	<li><a href="gallery4"><img src="${contextPath}/images/index/main/main_btn10.png" alt=""/></a></li>
+                <li><a href="gallery2"><img src="${contextPath}/images/index/main/main_btn11.png" alt=""/></a></li>
+                <li><a href="gallery"><img src="${contextPath}/images/index/main/main_btn12.png" alt=""/></a></li>
+                <li><a href="board3"><img src="${contextPath}/images/index/main/main_btn13.png" alt=""/></a></li>
             </ul>
         </div>
         <!-- 우측 -->

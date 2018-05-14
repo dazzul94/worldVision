@@ -194,7 +194,7 @@
 						<td colspan="4" class="content">${result.getBbs_content() }</td>
 					</tr>
 				</table>
-                
+                 
                 <!-- S : Comment -->
                 <div class="commentWrap">
             		<textarea>댓글을 입력해 주세요</textarea><button>댓글쓰기</button>

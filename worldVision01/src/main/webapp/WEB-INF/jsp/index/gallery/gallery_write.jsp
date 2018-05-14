@@ -132,13 +132,13 @@
             <p><a href="#"><img src="${contextPath }/images/index/sub_banner1.gif" alt=""/></a></p>
         </article>
         <article id="contentWrap">
-        	<p class="page_nav">HOME &gt; GALLERY &gt; <strong>사진갤러리</strong></p>
+        	<p class="page_nav">HOME &gt; GALLERY &gt; <strong>${str }</strong></p>
             <div class="sub_visual"><img src="${contextPath }/images/index/sub_top.jpg" alt=""/></div>
             
             <!-- 서브내용 시작 -->
           <div class="subWrap">
             	<div class="titleWrap">
-            		<h3>사진갤러리<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
+            		<h3>${str }<span>월드비전 합창단의 비전은 모든 어린이의 풍성한 삶입니다.</span></h3>
             	</div>
             
            	<div class="contentWrap">
@@ -177,7 +177,7 @@
             <!-- 서브내용 끝 -->
         </article>
     </section>
-    
+
     <!-- footer -->
 	<footer id="footer">
     	<div class="inner">
