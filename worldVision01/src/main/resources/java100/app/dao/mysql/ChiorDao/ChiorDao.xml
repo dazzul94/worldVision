@@ -95,6 +95,18 @@
 
 		</choose>
 </select>
+<select id="findByNo" resultMap="choir01" parameterType="int">
+		<include refid="select1" />
+		from bluead_chior
+		where c_no=#{value}
+	</select>
+	<update id="choirUpdate" parameterType="choir01">
+	   update bluead_chior set
+       title=#{title},
+       contents=#{contents},
+       img1_micro=#{img1_micro}
+	   where c_no=#{c_no}
+	</update>
 
 </mapper>  
 

@@ -37,8 +37,19 @@ public class Choir01ServiceImpl implements Choir01Service {
 
 	@Override
 	public int getTotalCount(HashMap<String, Object> options) {
-		// TODO Auto-generated method stub
 		return choir01Dao.countAll(options);
+	}
+
+
+	@Override
+	public Choir01 get(int no) {
+		return choir01Dao.findByNo(no);
+	}
+
+
+	@Override
+	public int choirUpdate(Choir01 choir01) {
+		return choir01Dao.choirUpdate(choir01);
 	} 
     
 
