@@ -17,7 +17,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@SessionAttributes("loginId")
+@SessionAttributes("member")
 public class IndexMainController {
 	
 	@Autowired
@@ -231,7 +231,11 @@ public class IndexMainController {
 		model.addAttribute("str", str);
 		return "gallery/gallery_write";
 	}
-	
+	@RequestMapping("doGalleryWrite")
+	public String doGalleryWrite() {
+		
+		return null;
+	}
 	@RequestMapping("gallery2")
 	public String goGallery2(Model model, HttpServletRequest request) {
 		String str_pNum = request.getParameter("cPage");	// 현재 페이지 번호
@@ -657,8 +661,10 @@ public class IndexMainController {
 		if(dao.checkId(id)) {
 			if(dao.checkPass(id, pass)) {
 				System.out.println("로그인 성공");
-				msg = id + "님 로그인 되셨습니다.";
-				model.addAttribute("loginId", id);
+				String sql = "SELECT * FROM bluead_member WHERE member_id = '" + id + "'";
+				Member member = dao.getMember(sql);
+				msg = member.getMember_name() + "님 로그인 되셨습니다.";
+				model.addAttribute("member", member);
 				jspPage = "main";
 			}else {
 				System.out.println("비밀번호가 틀렸습니다.");

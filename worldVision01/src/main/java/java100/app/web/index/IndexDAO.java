@@ -182,7 +182,31 @@ public class IndexDAO {
 		List<ChoirTeacher> list = jTmp.query(sql, mapper);		
 		return list.toArray(new ChoirTeacher[0]);
 	}
-	
+	public Member getMember(String sql) {
+		RowMapper<Member> mapper = new RowMapper<Member>() {
+			@Override
+			public Member mapRow(ResultSet rs, int idx) 
+					throws SQLException {				
+				return new Member(
+					rs.getString("member_id"),
+					rs.getString("member_nick"),
+					rs.getString("member_name"),
+					rs.getString("member_email"),
+					rs.getString("member_address1"),
+					rs.getString("member_address2"),
+					rs.getString("member_tel1"),
+					rs.getString("member_tel2"),
+					rs.getString("member_tel3"),
+					rs.getString("member_htel1"),
+					rs.getString("member_htel2"),
+					rs.getString("member_htel3"),
+					rs.getString("member_zip1"),
+					rs.getString("member_zip2")
+				);
+			}				
+		};	
+		return jTmp.query(sql, mapper).get(0);
+	}
 //	public String encrypt(String planText) {
 //        try{
 //            MessageDigest md = MessageDigest.getInstance("SHA-256");
