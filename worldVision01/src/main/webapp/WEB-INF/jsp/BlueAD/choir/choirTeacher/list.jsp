@@ -26,7 +26,7 @@
 <!--  회원관리 이미지 -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> CHOIR</td>
+    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> CHOIR 지도교사</td>
   </tr>
   <tr>
     <td height="4" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
@@ -35,54 +35,82 @@
     <td height="20"></td>
   </tr>
 </table>
+<!-- 카테고릐~ -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-  <tbody><tr>    
-    <td align="right" style="font-size:10Px;font-family:verdana;">
+<tr>
+  <td style="padding:5 5 5 5;">
+	<select name="c_no" onchange="location.href='/BlueAD/admin/choir_teacher/list.php?c_no='+this.value;"><option value="">::전체보기::</option><option value="1">[연주반] 연주반</option><option value="3">[지역반] 강서반</option><option value="4">[지역반] 강남반</option><option value="5">[지역반] 강북반</option><option value="6">[지역반] 일산반</option><option value="7">[연주반] 영재반</option><option value="8">[지역반] 분당반</option><option value="9">[비전싱어즈] 비전싱어즈</option></select>
+  </td>
+  <td align="right" style="font-size:10Px;font-family:verdana;">
       <font color="">total:</font><font color="red"> ${totalCount}</font>&nbsp;&nbsp;
       <font color="">page:</font><font color="red"> ${pageNo}</font>/<font color="red"> ${lastPageNo}</font>
     </td>
-  </tr>
-</tbody></table>
+    
+</tr>
+</table>
 
 <!-- 테이블 시작  -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr>
     <td>
       <table border="0" cellspacing="1" cellpadding="0" width="100%" align="center" bgcolor="#cad4e3">
-        <tr height="25" align="center">
-          <td width="10" class="field_b">	번호</td>
-          <td width="30" class="field_b">분류</td>
-          <td width="30" class="field_b">이름</td>
-          <td width="30" class="field_b">이미지</td>
-          <td width="20" class="field_b">등록일</td>
-        </tr>
-       
+		<tr height="25" align="center">
+		  <td width="50" class="field_b">번호</td>
+		  <td width="110" class="field_b">이미지</td>
+		  <td class="field_b">CHOIR</td>
+		  <td width="200" class="field_b">한글이름</td>
+		  <td width="250" class="field_b">영문이름</td>
+		  <td width="60" class="field_b">정렬</td>
+		  <td width="100" class="field_b">등록일</td>
+		</tr>
+		       
        <!-- 반복문 시작 -->
-       <c:forEach items="${list}" var="choir01" varStatus="status">
-          <tr height="30" bgcolor="#FFFFFF" onMouseOver="this.style.background='#f5f5f5'" onMouseOut="this.style.background='#FFFFFF'">
-            <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">${(totalCount - status.index) - ((pageNo - 1) * pageSize)}</td>
-            <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">
-				<c:choose>
-			       <c:when test="${choir01.type == '1'}">
-			           연주반
+       <c:forEach items="${list}" var="choirTeacher" varStatus="status">
+          <tr bgcolor="#FFFFFF" onMouseOver="this.style.background='#f5f5f5'" onMouseOut="this.style.background='#FFFFFF'">
+            <td align="center">${(totalCount - status.index) - ((pageNo - 1) * pageSize)}</td>
+            <td align="center" style="padding:5 0 5 0;"><img src="${contextPath}/images/BlueAD/admin/choirTeacher/upload/${choirTeacher.img1_thumbo}" width="80"></td>
+		    <td align="center" style="padding:5 0 5 0;"><a href="${choirTeacher.ct_no}">
+		    <c:choose>
+			       <c:when test="${choirTeacher.c_no == '1'}">
+			           [연주반] 연주반
 			       </c:when>
-			       <c:when test="${choir01.type == '2'}">
-			           지역반
+			       <c:when test="${choirTeacher.c_no == '3'}">
+			           [지역반] 강서반
 			       </c:when>
-			       <c:when test="${choir01.type == '3'}">
-			           비전싱어즈
+			       <c:when test="${choirTeacher.c_no == '4'}">
+			           [지역반] 강남반
+			       </c:when>
+			       <c:when test="${choirTeacher.c_no == '5'}">
+			           [지역반] 강북반
+			       </c:when>
+			       <c:when test="${choirTeacher.c_no == '6'}">
+			           [지역반] 일산반
+			       </c:when>
+			       <c:when test="${choirTeacher.c_no == '7'}">
+			           [연주반] 영재반
+			       </c:when>
+			       <c:when test="${choirTeacher.c_no == '8'}">
+			           [지역반] 분당반
+			       </c:when>
+			       <c:when test="${choirTeacher.c_no == '9'}">
+			           [비전싱어즈] 비전싱어즈
 			       </c:when>
 			       <c:otherwise>
 			          1,2,3 가 아닌 다른거근영...
 			       </c:otherwise>
 			   </c:choose>
-
-            </td>
-            <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">${choir01.title}</td>
-             <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/choir/upload/${choir01.img1_micro}" width="300px" height="200" ;></td>
-              <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">${choir01.wdate}</td>
+		    
+		    </a></td>
+		    <td align="center" style="padding:5 0 5 0;"><a href="${choirTeacher.ct_no}">${choirTeacher.kor_name1} / ${choirTeacher.kor_name2}</a></td>
+		    <td align="center" style="padding:5 0 5 0;"><a href="${choirTeacher.ct_no}">${choirTeacher.eng_name1} / ${choirTeacher.eng_name2}</a></td>
+		    <td align="center">
+			<a href="query.php?mode=sort_up&ct_no=37&sort=50&key=&keyword=&c_no=">▲</a><br>
+			<a href="query.php?mode=sort_dn&ct_no=37&sort=50&key=&keyword=&c_no=">▼</a>
+		    </td>
+		    <td align="center" style="padding:5 0 5 0;">${choirTeacher.wdate}</td>
           </tr>
-           </c:forEach> <!--  반복문 끝 -->
+           </c:forEach> 
+           <!--  반복문 끝 -->
       </table>
       <!--  목록 버튼 , 선택삭제 버튼 -->
       <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
