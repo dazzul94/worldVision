@@ -114,8 +114,6 @@
 <img src="${contextPath}/upload/wv_board/${bluead_wvboard.bbs_file2_micro }"width="600px" height="800px"alt="">
 <img src="${contextPath}/upload/wv_board/${bluead_wvboard.bbs_file3_micro }" width="600px" height="800px"alt="">
 ${bluead_wvboard.bbs_content }
-<img src="${contextPath}/images/BlueAD/editor/uploaded/img/${bluead_wvboard.bbs_content }" alt="">
-\"http://wvchoir.bluead.co.kr/BlueAD/editor/uploaded/img/1387156607.jpg
 </body></span>
           </td>
         </tr>
