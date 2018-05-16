@@ -62,6 +62,7 @@
           <td width="30" class="field_b">이미지</td>
           <td width="20" class="field_b">등록일</td>
         </tr>
+        
        
        <!-- 반복문 시작 -->
        <c:forEach items="${list}" var="choir01" varStatus="status">

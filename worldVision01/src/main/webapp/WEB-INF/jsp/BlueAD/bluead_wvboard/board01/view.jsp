@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
@@ -59,7 +59,11 @@
         <tr>
           <td width="70" height="27" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_name.gif"></td>
           <td style="padding-left:10">
-            <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><span class="bbs_normal">${bluead_wvboard.bbs_name }</span></td>
+            <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link">
+            
+            <span class="bbs_normal">${bluead_wvboard.bbs_name }</span>
+            
+            </td>
           <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_date.gif"></td>
           <td width="120" align="center"><span class="bbs_normal">${bluead_wvboard.bbs_date }</span></td>
           <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_hit.gif"></td>
@@ -77,9 +81,14 @@
         <tr>
           <td width="70" height="27" align="center"><span class="bbs_normal"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_file1.gif"></span></td>
           <!-- 파일 다운 ㄴㄴ  -->
-          <td colspan="3" style="padding-left:10"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/hwp.gif" align="absmiddle">&nbsp;<a href="download.php?bbs_id=wv_community01&bbs_no=307&bbs_admin=chk&file_no=2" class="bbs_link">${community.bbs_file1 }</a>&nbsp;<span class="bbs_normal">(0.02M)</span></td>
+
+          <td colspan="3" style="padding-left:10">
+          <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/hwp.gif" align="absmiddle">&nbsp;
+          
+          <a href="${contextPath}/upload/wv_board/${bluead_wvboard.bbs_file1_micro }" download>${bluead_wvboard.bbs_file1 }</a>&nbsp;<span class="bbs_normal"></span></td>
+          
           <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_down.gif"></td>
-          <td width="45" align="center"><span class="bbs_normal">${bluead_wvboard.bbs_down1_hit }</span></td>
+          <td width="45" align="center"><span class="bbs_normal">${bluead_wvboard.bbs_hit }</span></td>
         </tr>
       </table>
     </td>
