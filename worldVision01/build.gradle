@@ -34,6 +34,13 @@ repositories {
     jcenter()
 }
 dependencies {
+//excel파일 업로드 jxl
+// https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl
+compile group: 'net.sourceforge.jexcelapi', name: 'jxl', version: '2.6.12'
+//excel파일 업로드  poi
+// https://mvnrepository.com/artifact/org.apache.poi/poi
+compile group: 'org.apache.poi', name: 'poi', version: '3.17'
+
     // MySQL DBMS의 JDBC Driver
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.44'
     
