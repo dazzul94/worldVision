@@ -294,7 +294,7 @@ of Yangjeong High School.</p>
                             	 -->
                             	 <c:forEach items="${cmList }" var="cMember">
                             	 	<li>
-                                		<img src="${contextPath }/images/index/people/${cMember.getImg1_thumbo()}" />
+                                		<img src="${contextPath }/images/index/people/${cMember.getImg1_thumbo()}" width="113" height="150" />
                                     	<p>${cMember.getName() }</p>
                                 	</li>
                             	 </c:forEach>
@@ -324,6 +324,7 @@ of Yangjeong High School.</p>
                     
                     <div class="clear mb30"></div>
                     <h3 class="wonh3">지도교사</h3>  
+                    <!-- 
                     <div class="people_wrap">
                     <div class="floatL people_photo"><img src="${contextPath }/images/index/t1_teacher_31.jpg" alt=""/></div>
                     <div class="floatL people_info">
@@ -339,6 +340,8 @@ Bundang region, Kangseo region. She is now conducting World Vision Korea Childre
 Choir in Kangnam region.</p>
                     </div>
                     </div>
+                    
+                      
                     
               <div class="clear dot_line"></div>
               
@@ -375,7 +378,25 @@ Currently, she is the voice coach with the World Vision Korea Children's Choir i
 Angels Children's Choir.</p>
                     </div>
                     </div>
-                    
+                     -->
+                     <c:set var="i" value="0"></c:set>
+                        <c:forEach items="${ctList2 }" var="cTeacher">
+                     <div class="people_wrap">
+                    <div class="floatL people_photo"><img src="${contextPath }/images/index/${cTeacher.img1_thumbo}" alt=""/></div>
+                    <div class="floatL people_info">
+                    	<h4 class="wonh4">${cTeacher.kor_name1 }  <strong class="black_f">${cTeacher.kor_name2 }</strong></h4>  
+                    	<p>${cTeacher.kor_contents }</p>
+
+						<h4 class="wonh4 mt30">${cTeacher.eng_name1 } <strong class="black_f">${cTeacher.eng_name2 }</strong></h4>  
+                    	<p>${cTeacher.eng_contents }</p>
+
+					 <c:set var="i" value="${i+1 }"></c:set>
+                    </div>
+                    </div>
+                    <c:if test="${fn:length(ctList) != i }" >
+                    	<div class="clear dot_line"></div>
+                    </c:if>
+                    </c:forEach>
                     
                     <div class="clear mt50"></div>
                     <h3 class="wonh3">강남반 단원</h3>  
@@ -519,7 +540,7 @@ Angels Children's Choir.</p>
                                 -->
                                  <c:forEach items="${cmList2 }" var="cMember2">
                             	 	<li>
-                                		<img src="${contextPath }/images/index/people/${cMember2.getImg1_thumbo()}" />
+                                		<img src="${contextPath }/images/index/people/${cMember2.getImg1_thumbo()}" width="113" height="150"/>
                                     	<p>${cMember2.getName() }</p>
                                 	</li>
                             	 </c:forEach>
@@ -548,6 +569,7 @@ Angels Children's Choir.</p>
                     
                     <div class="clear mb30"></div>
                     <h3 class="wonh3">지도교사</h3>  
+                    <!--  
                     <div class="people_wrap">
                     <div class="floatL people_photo"><img src="${contextPath }/images/index/t1_teacher_25.jpg" alt=""/></div>
                     <div class="floatL people_info">
@@ -611,7 +633,25 @@ of Dong-an Presbyterian Church Daybreak Choir and a member of Yoon Hak Won Chora
 Finally, she is the voice teacher of World Vision Korea Children’s Choir in Kangbuk region</p>
                     </div>
                     </div>
-                    
+                    -->
+                     <c:set var="i" value="0"></c:set>
+                        <c:forEach items="${ctList3 }" var="cTeacher">
+                     <div class="people_wrap">
+                    <div class="floatL people_photo"><img src="${contextPath }/images/index/${cTeacher.img1_thumbo}" alt=""/></div>
+                    <div class="floatL people_info">
+                    	<h4 class="wonh4">${cTeacher.kor_name1 }  <strong class="black_f">${cTeacher.kor_name2 }</strong></h4>  
+                    	<p>${cTeacher.kor_contents }</p>
+
+						<h4 class="wonh4 mt30">${cTeacher.eng_name1 } <strong class="black_f">${cTeacher.eng_name2 }</strong></h4>  
+                    	<p>${cTeacher.eng_contents }</p>
+
+					 <c:set var="i" value="${i+1 }"></c:set>
+                    </div>
+                    </div>
+                    <c:if test="${fn:length(ctList) != i }" >
+                    	<div class="clear dot_line"></div>
+                    </c:if>
+                    </c:forEach>
                     
                     <div class="clear mt50"></div>
                     <h3 class="wonh3">강북반 단원</h3>  
@@ -756,7 +796,7 @@ Finally, she is the voice teacher of World Vision Korea Children’s Choir in Ka
                                 -->
                                  <c:forEach items="${cmList3 }" var="cMember3">
                             	 	<li>
-                                		<img src="${contextPath }/images/index/people/${cMember3.getImg1_thumbo()}" />
+                                		<img src="${contextPath }/images/index/people/${cMember3.getImg1_thumbo()}" width="113" height="150" />
                                     	<p>${cMember3.getName() }</p>
                                 	</li>
                             	 </c:forEach>
@@ -788,6 +828,7 @@ Finally, she is the voice teacher of World Vision Korea Children’s Choir in Ka
                     
                     <div class="clear mb30"></div>
                     <h3 class="wonh3">지도교사</h3>  
+                    <!--  
                     <div class="people_wrap">
                     <div class="floatL people_photo"><img src="${contextPath }/images/index/t1_teacher_47.jpg" alt=""/></div>
                     <div class="floatL people_info">
@@ -846,7 +887,25 @@ of the Southern California, and 2014 Climacteric of the seminar in Bethlehem cho
 Now, she works as a voice teacher for World Vision Korea Children’s Choir in Ilsan region, a soloist in Geumcheongu ladies choir, a vocal trainer in Scala Youth Choir, a conductor in Unyu school choir and a soloist in Bethlehem choir.</p>
                     </div>
                     </div>
-                    
+                    -->
+                     <c:set var="i" value="0"></c:set>
+                        <c:forEach items="${ctList4 }" var="cTeacher">
+                     <div class="people_wrap">
+                    <div class="floatL people_photo"><img src="${contextPath }/images/index/${cTeacher.img1_thumbo}" alt=""/></div>
+                    <div class="floatL people_info">
+                    	<h4 class="wonh4">${cTeacher.kor_name1 }  <strong class="black_f">${cTeacher.kor_name2 }</strong></h4>  
+                    	<p>${cTeacher.kor_contents }</p>
+
+						<h4 class="wonh4 mt30">${cTeacher.eng_name1 } <strong class="black_f">${cTeacher.eng_name2 }</strong></h4>  
+                    	<p>${cTeacher.eng_contents }</p>
+
+					 <c:set var="i" value="${i+1 }"></c:set>
+                    </div>
+                    </div>
+                    <c:if test="${fn:length(ctList) != i }" >
+                    	<div class="clear dot_line"></div>
+                    </c:if>
+                    </c:forEach>
                     
                     <div class="clear mt50"></div>
                     <h3 class="wonh3">일산반 단원</h3>  
@@ -991,7 +1050,7 @@ Now, she works as a voice teacher for World Vision Korea Children’s Choir in I
                                 -->
                                  <c:forEach items="${cmList4 }" var="cMember4">
                             	 	<li>
-                                		<img src="${contextPath }/images/index/people/${cMember4.getImg1_thumbo()}" />
+                                		<img src="${contextPath }/images/index/people/${cMember4.getImg1_thumbo()}" width="113" height="150" />
                                     	<p>${cMember4.getName() }</p>
                                 	</li>
                             	 </c:forEach>
@@ -1021,6 +1080,7 @@ Now, she works as a voice teacher for World Vision Korea Children’s Choir in I
                     
                     <div class="clear mb30"></div>
                     <h3 class="wonh3">지도교사</h3>  
+                    <!-- 
                     <div class="people_wrap">
                     <div class="floatL people_photo"><img src="${contextPath }/images/index/t1_teacher_28.jpg" alt=""/></div>
                     <div class="floatL people_info">
@@ -1080,7 +1140,25 @@ In World Vision Korea Children's Choir, she taught in several regional (educatio
 Currently, Hye Jin Lee teaches World Vision Korea Children's Choirs in Bundang regions,  Woncheon Elementary School and Chonchon Elementary School.  and she is a Soloist in Bundang Woori Church.</p>
                     </div>
                     </div>
-                    
+                    -->
+                     <c:set var="i" value="0"></c:set>
+                        <c:forEach items="${ctList5 }" var="cTeacher">
+                     <div class="people_wrap">
+                    <div class="floatL people_photo"><img src="${contextPath }/images/index/${cTeacher.img1_thumbo}" alt=""/></div>
+                    <div class="floatL people_info">
+                    	<h4 class="wonh4">${cTeacher.kor_name1 }  <strong class="black_f">${cTeacher.kor_name2 }</strong></h4>  
+                    	<p>${cTeacher.kor_contents }</p>
+
+						<h4 class="wonh4 mt30">${cTeacher.eng_name1 } <strong class="black_f">${cTeacher.eng_name2 }</strong></h4>  
+                    	<p>${cTeacher.eng_contents }</p>
+
+					 <c:set var="i" value="${i+1 }"></c:set>
+                    </div>
+                    </div>
+                    <c:if test="${fn:length(ctList) != i }" >
+                    	<div class="clear dot_line"></div>
+                    </c:if>
+                    </c:forEach>
                     
                     <div class="clear mt50"></div>
                     <h3 class="wonh3">분당반 단원</h3>  
@@ -1225,7 +1303,7 @@ Currently, Hye Jin Lee teaches World Vision Korea Children's Choirs in Bundang r
                                 -->
                                  <c:forEach items="${cmList5 }" var="cMember5">
                             	 	<li>
-                                		<img src="${contextPath }/images/index/people/${cMember5.getImg1_thumbo()}" />
+                                		<img src="${contextPath }/images/index/people/${cMember5.getImg1_thumbo()}" width="113" height="150" />
                                     	<p>${cMember5.getName() }</p>
                                 	</li>
                             	 </c:forEach>

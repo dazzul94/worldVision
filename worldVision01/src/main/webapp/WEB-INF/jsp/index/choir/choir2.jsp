@@ -324,7 +324,7 @@ function tab_menu(val, path){
                     <div class="history_wrap">
                     	<table width="100%" border="0" cellspacing="0" cellpadding="0" id="contents1">
 			              <tbody>
-			              <c:forEach items="${hList1}" var="history">
+			              <c:forEach items="${internal_hList}" var="history">
 			              
 			              <tr>
                 <td width="80">
@@ -343,7 +343,7 @@ function tab_menu(val, path){
                     <div class="history_wrap">
                     	<table width="100%" border="0" cellspacing="0" cellpadding="0" id="contents2">
 			              <tbody>
-			              <c:forEach items="${hList2}" var="history">
+			              <c:forEach items="${foreign_hList}" var="history">
 			              
 			              <tr>
                 <td width="80">

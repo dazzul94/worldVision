@@ -3,18 +3,28 @@ package java100.app.web.index;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java100.app.domain.index.Board;
+import java100.app.domain.index.ChoirMember;
+import java100.app.domain.index.ChoirTeacher;
+import java100.app.domain.index.Comment;
+import java100.app.domain.index.History;
+import java100.app.domain.index.Member;
+import java100.app.service.indexService.BoardService;
+import java100.app.service.indexService.ChoirService;
+import java100.app.service.indexService.MemberService;
 
 @Controller
 @SessionAttributes("member")
@@ -23,60 +33,55 @@ public class IndexMainController {
 	@Autowired
 	private IndexDAO dao;
 	
+	@Autowired
+	private MemberService memberService;
+	@Autowired
+	private ChoirService choirService;
+	@Autowired
+	private BoardService boardService;
+	
 	@RequestMapping("/")
-	public String goMain() {
-		
+	public String goMain() {		
 		return "main";
 	}
 	
 	@RequestMapping("about")
-	public String goAbout() {
-		
+	public String goAbout() {	
 		return "about/about";
 	}
 	
 	@RequestMapping("about2")
-	public String goAbout2() {
-		
+	public String goAbout2() {		
 		return "about/about2";
 	}
 	
 	@RequestMapping("about3")
-	public String goAbout3() {
-		
+	public String goAbout3() {		
 		return "about/about3";
 	}
 	
 	@RequestMapping("choir")
-	public String goChoir() {
-		
+	public String goChoir() {		
 		return "choir/choir";				
 	}
 	
 	@RequestMapping("choir2")
 	public String goChoir2(Model model) {
-		String sql = "SELECT contents, year, month, cate "
-				+ "FROM bluead_history "
-				+ "WHERE cate = '1' ORDER BY year DESC, month DESC";
-		String sql2 = "SELECT contents, year, month, cate "
-				+ "FROM bluead_history "
-				+ "WHERE cate = '2' ORDER BY year DESC, month DESC";
-		History[] hList1 = dao.getHistory(sql);
-		History[] hList2 = dao.getHistory(sql2);
+
+		History[] internal_hList = choirService.getInternalHistory();
+		History[] foreign_hList = choirService.getForeignHistory();
 		
-		model.addAttribute("hList1", hList1);
-		model.addAttribute("hList2", hList2);
+		model.addAttribute("internal_hList", internal_hList);
+		model.addAttribute("foreign_hList", foreign_hList);
 		
 		return "choir/choir2";				
 	}
 	
 	@RequestMapping("choir3")
 	public String goChoir3(Model model) {
-		String ctSql = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 1 ORDER BY sort DESC";
-		ChoirTeacher[] ctList = dao.getChoirTeacher(ctSql);
+		ChoirTeacher[] ctList = choirService.getChoirTeacherList(1);
 		model.addAttribute("ctList", ctList);
-		String sql = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 1 ORDER BY sort";
-		ChoirMember[] cmList = dao.getChoirMember(sql);
+		ChoirMember[] cmList = choirService.getChoirMemberList(1);
 		model.addAttribute("cmList", cmList);
 		
 		return "choir/choir3";				
@@ -85,35 +90,23 @@ public class IndexMainController {
 	@RequestMapping("choir4")
 	public String goChoir4(Model model) {
 		
-		String ctSql = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 3 ORDER BY sort DESC";
-		String ctSql2 = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 4 ORDER BY sort DESC";
-		String ctSql3 = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 5 ORDER BY sort DESC";
-		String ctSql4 = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 6 ORDER BY sort DESC";
-		String ctSql5 = "SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents FROM bluead_chior_teacher WHERE c_no = 8 ORDER BY sort DESC";
-		
-		ChoirTeacher[] ctList = dao.getChoirTeacher(ctSql);
-		ChoirTeacher[] ctList2 = dao.getChoirTeacher(ctSql2);
-		ChoirTeacher[] ctList3 = dao.getChoirTeacher(ctSql3);
-		ChoirTeacher[] ctList4 = dao.getChoirTeacher(ctSql4);
-		ChoirTeacher[] ctList5 = dao.getChoirTeacher(ctSql5);
+		ChoirTeacher[] ctList = choirService.getChoirTeacherList(3);
+		ChoirTeacher[] ctList2 = choirService.getChoirTeacherList(4);
+		ChoirTeacher[] ctList3 = choirService.getChoirTeacherList(5);
+		ChoirTeacher[] ctList4 = choirService.getChoirTeacherList(6);
+		ChoirTeacher[] ctList5 = choirService.getChoirTeacherList(8);
 		
 		model.addAttribute("ctList", ctList);
 		model.addAttribute("ctList2", ctList2);
 		model.addAttribute("ctList3", ctList3);
 		model.addAttribute("ctList4", ctList4);
 		model.addAttribute("ctList5", ctList5);
-		
-		String cmSql = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 3 ORDER BY sort";
-		String cmSql2 = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 4 ORDER BY sort";
-		String cmSql3 = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 5 ORDER BY sort";
-		String cmSql4 = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 6 ORDER BY sort";
-		String cmSql5 = "SELECT img1_thumbo, name FROM bluead_chior_member WHERE c_no = 8 ORDER BY sort";
-		
-		ChoirMember[] cmList = dao.getChoirMember(cmSql);
-		ChoirMember[] cmList2 = dao.getChoirMember(cmSql2);
-		ChoirMember[] cmList3 = dao.getChoirMember(cmSql3);
-		ChoirMember[] cmList4 = dao.getChoirMember(cmSql4);
-		ChoirMember[] cmList5 = dao.getChoirMember(cmSql5);
+
+		ChoirMember[] cmList = choirService.getChoirMemberList(3);
+		ChoirMember[] cmList2 = choirService.getChoirMemberList(4);
+		ChoirMember[] cmList3 = choirService.getChoirMemberList(5);
+		ChoirMember[] cmList4 = choirService.getChoirMemberList(6);
+		ChoirMember[] cmList5 = choirService.getChoirMemberList(8);
 		
 		model.addAttribute("cmList", cmList);
 		model.addAttribute("cmList2", cmList2);
@@ -172,16 +165,15 @@ public class IndexMainController {
 		String dbName = request.getParameter("dbName");
 		System.out.println("str = " + str);
 		System.out.println("dbName = " + dbName);
-		
-		String sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-				+ "FROM bluead_wv_" + dbName + " WHERE bbs_no = " + request.getParameter("no");
-		Board[] list = dao.getBoard(sql);
-		String cSql = "SELECT comm_no, comm_bbs_id, comm_name, comm_content, comm_pass, comm_date "
-				+ "FROM bluead_comment WHERE comm_bbs_id = 'wv_" + dbName + 
-				"' && comm_bbs_no = " + request.getParameter("no") + " ORDER BY comm_no DESC";
-		Comment[] cList = dao.getComment(cSql);
 
-		model.addAttribute("result", list[0]);
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("dbName", dbName);
+		params.put("no", request.getParameter("no"));
+		Board board = boardService.getBoard(params);
+
+		Comment[] cList = boardService.getCommentList(params);
+
+		model.addAttribute("result", board);
 		model.addAttribute("cPage", request.getParameter("cPage"));
 		model.addAttribute("str", str);
 		model.addAttribute("dbName", dbName);
@@ -622,7 +614,6 @@ public class IndexMainController {
 	
 	@RequestMapping("join")
 	public String gojoin() {
-		
 		return "member/join";
 	}
 	
@@ -633,21 +624,26 @@ public class IndexMainController {
 		return "member/join2";
 	}
 	
+	@RequestMapping("find")
+	public String goFind() {
+		return "member/findid";
+	}
+	
 	@RequestMapping("findId")
-	public String goFind(Model model, HttpServletRequest request) {
+	public String findId(Model model, HttpServletRequest request) {
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-		String sql = "SELECT member_id FROM bluead_member WHERE member_name = '" + name + "' && member_email = '" + email + "'";
-		String id = dao.getFindId(sql);
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("name", name);
+		params.put("email", email);
+		String id = memberService.findId(params);
 		model.addAttribute("findId", id);
-		
-		return "member/findid";
+		return null;
 	}
 	
 	@RequestMapping("doJoin")
 	public String doJoin(Member member) {
-		dao.insertMember(member);
-		
+		memberService.insertMember(member);	
 		return "redirect:login";
 	}
 	
@@ -658,11 +654,13 @@ public class IndexMainController {
 		String jspPage = "member/login";
 		
 		String msg = "";
-		if(dao.checkId(id)) {
-			if(dao.checkPass(id, pass)) {
+		if(memberService.checkId(id) != null) {
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("id", id);
+			params.put("pass", pass);
+			if(memberService.checkPass(params) != null) {
 				System.out.println("로그인 성공");
-				String sql = "SELECT * FROM bluead_member WHERE member_id = '" + id + "'";
-				Member member = dao.getMember(sql);
+				Member member = memberService.getMember(id);
 				msg = member.getMember_name() + "님 로그인 되셨습니다.";
 				model.addAttribute("member", member);
 				jspPage = "main";
@@ -681,7 +679,6 @@ public class IndexMainController {
 	
 	@RequestMapping("logout")
 	public String logout(SessionStatus sStatus) {
-
 		sStatus.setComplete();
 		return "redirect:/index/";
 	}

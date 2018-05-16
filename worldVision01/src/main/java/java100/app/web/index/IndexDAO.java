@@ -10,6 +10,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java100.app.domain.index.Board;
+import java100.app.domain.index.ChoirMember;
+import java100.app.domain.index.ChoirTeacher;
+import java100.app.domain.index.Comment;
+import java100.app.domain.index.History;
+import java100.app.domain.index.Member;
+
 @Repository
 public class IndexDAO {
 	@Autowired

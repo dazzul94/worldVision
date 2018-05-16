@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- DAO 객체를 자동으로 생성하려면, namespace의 값이 인터페이스 이름과 같아야 한다. -->
+<mapper namespace="java100.app.dao.indexDao.MemberDao">
+	
+	<select id="getMember" resultType="member" parameterType="String">
+		select *
+		from bluead_member
+		where member_id = #{id}
+	</select>
+	
+
+	<select id="checkId" resultType="String" parameterType="String">
+		select member_id
+		from bluead_member
+		where member_id = #{id}
+	</select>
+	
+	<select id="checkPass" resultType="String" parameterType="map">
+		select member_id, member_pass 
+		from bluead_member 
+		where member_id = #{id} and member_pass = OLD_PASSWORD(#{pass})
+	</select>
+	
+	<select id="findId" resultType="String" parameterType="map">
+		select member_id 
+		from bluead_member 
+		where member_name = #{name} and member_email = #{email}
+	</select>
+	
+	<insert id="insertMember" parameterType="member" useGeneratedKeys="true" keyColumn="no" keyProperty="no">
+		insert into bluead_member (member_id, member_nick, member_pass, member_name, member_reg_no1, 
+				member_reg_no2, member_birth1, member_birth2, member_email, member_zip1, member_zip2, 
+				member_address1, member_address2, member_tel1, member_tel2, member_tel3, member_htel1,
+				member_htel2, member_htel3) 
+				values (#{member_id}, #{member_nick}, OLD_PASSWORD(#{member_pass}), #{member_name}, 
+				#{member_reg_no1}, #{member_reg_no2} ,#{member_birth1} ,#{member_birth2} ,#{member_email},
+				#{member_zip1}, #{member_zip2}, #{member_address1}, #{member_address2}, #{member_tel1},
+				#{member_tel2}, #{member_tel3}, #{member_htel1}, #{member_htel2}, #{member_htel3})
+	</insert>
+	<!-- <insert id="insert" parameterType="member" useGeneratedKeys="true" 
+		keyColumn="no" keyProperty="no"> insert into ex_memb(name,email,pwd,regdt) 
+		values(#{name},#{email},password(#{password}),now()) </insert> <update id="update" 
+		parameterType="member"> update ex_memb set name=#{name}, email=#{email}, 
+		pwd=password(#{password}) where no=#{no} </update> <delete id="delete" parameterType="int"> 
+		delete from ex_memb where no=#{value} </delete> -->
+
+</mapper>

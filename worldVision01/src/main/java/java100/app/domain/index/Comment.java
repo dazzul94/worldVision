@@ -1,4 +1,4 @@
-package java100.app.web.index;
+package java100.app.domain.index;
 
 public class Comment {
 	private int comm_no;

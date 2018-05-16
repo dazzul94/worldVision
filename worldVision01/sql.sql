@@ -18,3 +18,6 @@ SELECT * FROM bluead_chior NATURAL JOIN bluead_chior_teacher NATURAL JOIN bluead
 SELECT * FROM bluead_chior WHERE c_no = 3;
 SELECT * FROM bluead_chior_teacher WHERE c_no = 3;
 SELECT * FROM bluead_chior_member WHERE c_no = 3 ORDER BY sort;
+SELECT contents, year, month, cate
+		FROM bluead_history
+		WHERE cate = '1' ORDER BY no DESC

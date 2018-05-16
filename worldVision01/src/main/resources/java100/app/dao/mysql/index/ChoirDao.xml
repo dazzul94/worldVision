@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- DAO 객체를 자동으로 생성하려면, namespace의 값이 인터페이스 이름과 같아야 한다. -->
+<mapper namespace="java100.app.dao.indexDao.ChoirDao">
+	
+	<select id="getInternalHistory" resultType="History">
+		SELECT contents, year, month, cate
+		FROM bluead_history
+		WHERE cate = '1' ORDER BY no DESC
+	</select>
+	
+
+	<select id="getForeignHistory" resultType="History">
+		SELECT contents, year, month, cate
+		FROM bluead_history
+		WHERE cate = '2' ORDER BY no DESC
+	</select>
+	
+	<select id="getChoirTeacherList" resultType="ChoirTeacher" parameterType="int">
+		SELECT img1_thumbo, kor_name1, kor_name2, kor_contents, eng_name1, eng_name2, eng_contents 
+		FROM bluead_chior_teacher 
+		WHERE c_no = #{c_no} ORDER BY sort DESC
+	</select>
+	
+	<select id="getChoirMemberList" resultType="ChoirMember" parameterType="int">
+		SELECT img1_thumbo, name 
+		FROM bluead_chior_member 
+		WHERE c_no = #{c_no} ORDER BY sort
+	</select>
+</mapper>
