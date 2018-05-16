@@ -15,7 +15,7 @@ import java100.app.domain.Admin.Login;
 import java100.app.service.AdminService.LoginService;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/auth")
 @SessionAttributes("loginUser")
 public class LoginController {
     
@@ -24,27 +24,27 @@ public class LoginController {
     @RequestMapping(value="login", method=RequestMethod.GET)
     public String form(Model model) {
         model.addAttribute("menuVisible", false);
-        return "BlueAD/admin/loginform";
+        return "BlueAD/auth/loginform";
     }
     
     @RequestMapping(value="login", method=RequestMethod.POST)
     public String login(
-            String id, 
-            String password,
+            String admin_id, 
+            String admin_pass,
             HttpServletResponse response,
             Model model) {
         
-        Login login = loginService.get(id, password);
+        Login login = loginService.get(admin_id, admin_pass);
         
         if (login == null) {
             model.addAttribute("loginUser", null);
             model.addAttribute("menuVisible", false);
-            return "BlueAD/admin/loginfail"; 
+            return "BlueAD/auth/loginfail"; 
         }
         
         model.addAttribute("loginUser", login);
         
-        return "redirect:../member/list";
+        return "redirect:../about/list";
     }
     
     @RequestMapping("logout")

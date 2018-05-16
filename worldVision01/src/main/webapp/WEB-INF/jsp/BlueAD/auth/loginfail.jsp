@@ -19,7 +19,7 @@
 
 </div>
 
-<jsp:include page="../jslib.jsp"/>
+<jsp:include page="../../jslib.jsp"/>
 
 </body>
 </html>

@@ -53,8 +53,10 @@ function getCookie(Name) {
           <td height="800" valign="top" background="${contextPath}/images/BlueAD/admin/ad_login_bg.jpg" style="background-repeat:no-repeat; padding:368px 0 0 540px">
             <table width="230" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="165" height="20"><input type="text" name="admin_id" class="log_id" tabindex="1"></td>
-                <td rowspan="2" align="right"><input type="image" src="${contextPath}/images/BlueAD/admin/btn_login.gif" style="corsor:hand" onFocus="this.blur();" tabindex="3"></td>
+                <td width="165" height="20">
+                <input type="text" name="admin_id" class="log_id" tabindex="1"></td>
+                <td rowspan="2" align="right">
+                <input type="image" src="${contextPath}/images/BlueAD/admin/btn_login.gif" style="corsor:hand" onFocus="this.blur();" tabindex="3"></td>
               </tr>
               <tr>
                 <td height="20"><input type="password" name="admin_pass" class="log_pw" tabindex="2"></td>
