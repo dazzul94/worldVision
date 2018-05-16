@@ -57,7 +57,7 @@ function TodayFunc() {
               <td><img src="${contextPath}/images/BlueAD/admin/admin_logo.gif" onClick="go_chk('left.php','main.php');" style="cursor:hand"></td>
             </tr>
           </table></td>
-          <td height="25" align="right" style="padding-right:20px"><a href="/" target="_blank" class="top_blue">사이트보기</a> &nbsp;   <a href="${contextPath}/BlueAD/auth/logout"  class="top_blue">로그아웃</a></td>
+          <td height="25" align="right" style="padding-right:20px"><a href="../../index/" target="_blank" class="top_blue">사이트보기</a> &nbsp;   <a href="${contextPath}/BlueAD/auth/logout"  class="top_blue">로그아웃</a></td>
         </tr>
         <tr>
           <td height="50" valign="top" style="padding:35px 20px 0 20px">
