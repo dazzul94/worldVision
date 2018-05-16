@@ -7,6 +7,7 @@ import java.util.HashMap;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,9 @@ public class ChoirController01 {
 	@Autowired
 	ServletContext servletContext;
 	@Autowired Choir01Service choir01Service;
+
+	static Logger logger = Logger.getLogger(ChoirController01.class);
+
 	@RequestMapping("form")
 	public String form() throws Exception {
 		return "BlueAD/choir/choir01/form";
@@ -99,45 +103,40 @@ public class ChoirController01 {
 		return "BlueAD/choir/choir01/view";
 	}
 	@RequestMapping("choirUpdate")
-	public String choirUpdate(HttpServletRequest request, Choir01 choir01, MultipartFile file, BindingResult bindingResult) throws Exception {
+	public String choirUpdate(@RequestParam(value="img_del", defaultValue="N") String img_del,HttpServletRequest request, Choir01 choir01, MultipartFile file, BindingResult bindingResult) throws Exception {
 		// 업로드 파일을 저장할 폴더 위치를 가져온다.
 		if (bindingResult.hasErrors()) {
 			// 파라미터 값을 변수의 타입으로 변환하는데 오류가 있을 때,
 			// 여기에 작업 코드를 작성하라!
 			System.out.println("파라미터 값을 변환하는 중에 오류 발생!");
 		}
-		/*
-		System.out.println("이전 사진 이름: " + member.getOriginalFilename());
-        System.out.println("바뀐 사진 이름: " + file.getOriginalFilename());
-        if (file.getOriginalFilename().equals("")) {
-            System.out.println("사진 등록 X");
-            member.setPhoto(member.getOriginalFilename());
-        } else {
-            System.out.println("사진 등록 O");
-            String uploadDir = servletContext.getRealPath("/download");
-            String filename = writeUploadFile(file, uploadDir);
-            member.setPhoto(filename);
-        }
-        */
-		System.out.println("이전 사진 이름: " + choir01.getOriginalFilename());
-        System.out.println("바뀐 사진 이름: " + file.getOriginalFilename());
-        if (file.getOriginalFilename().equals("")) {
-            System.out.println("사진 등록 X");
-            choir01.setImg1_micro(choir01.getOriginalFilename());
-        } else {
-		String uploadDir = servletContext.getRealPath("/images/BlueAD/admin/choir/upload");
-		String filename = writeUploadFile(file, uploadDir);
-		choir01.setImg1_micro(filename);
-	}
-        choir01Service.choirUpdate(choir01);
-		
+		logger.debug("이전 사진 이름: " + choir01.getOriginalFilename());
+		logger.debug("바뀐 사진 이름: " + file.getOriginalFilename());
+		logger.debug("img_del =" + img_del);
+
+		if (img_del.equals("Y")) {
+			logger.debug("img 삭제 체크당함");
+			choir01.setImg1_micro(" ");
+		}
+		else {
+			if (file.getOriginalFilename().equals("")) {
+				System.out.println("사진 등록 X");
+				choir01.setImg1_micro(choir01.getOriginalFilename());
+			} else {
+				String uploadDir = servletContext.getRealPath("/images/BlueAD/admin/choir/upload");
+				String filename = writeUploadFile(file, uploadDir);
+				choir01.setImg1_micro(filename);
+			}
+		}
+		choir01Service.choirUpdate(choir01);
+
 		return "redirect:list";
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	// 밑에는 파일 업로드 method
 	long prevMillis = 0;
 	int count = 0;
