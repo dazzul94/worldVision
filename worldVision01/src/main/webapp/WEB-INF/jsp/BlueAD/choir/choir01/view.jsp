@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<p id="status"></p>
 <div id="header">
 <jsp:include page="../../top.jsp"/>
 </div>
@@ -27,6 +28,7 @@
 <input type="hidden" name="c_no" value="${choir01.c_no}">
 <input type="hidden" name="wdate" value="${choir01.wdate}">
 <input type="hidden" name="img1_thumb" value="${choir01.img1_thumb}">
+<input name="originalFilename" type="hidden" value="${choir01.img1_micro}" size="40">
     <table border="0" cellspacing="1" cellpadding="4" width="100%" bgcolor="#cad4e3">
     <tr>
       <td width="200" height="35" class="field_b_pad">분류</td>
@@ -47,7 +49,12 @@
 
     <tr>
       <td height="35" class="field_b_pad">이미지</td>
-      <td bgcolor="#FFFFFF" style="padding-left:10px"><img src="${contextPath}/images/BlueAD/admin/choir/upload/${choir01.img1_micro}"width="300px" height="200" ;> <input type="checkbox" name="img_del" value="Y"> <font color="red">파일을 삭제합니다.</font><br><input name="file" type="file" class="b_input" /></td>
+      <td bgcolor="#FFFFFF" style="padding-left:10px">
+      <div id="holder">
+      <img src="${contextPath}/images/BlueAD/admin/choir/upload/${choir01.img1_micro}" width="300px" height="200"> 
+      </div>
+      <input type="checkbox" name="img_del" value="Y"> <font color="red">파일을 삭제합니다.</font><br>
+      <input name="file" type="file" class="b_input" id="prevv"/></td>
     </tr>
       <tr id="tr1">
       <td height="35" class="field_b_pad">연습장소</td>
@@ -107,6 +114,35 @@ function sendSub(){
     } catch(e) {
        }
     }
+    
+var upload = document.getElementById('prevv'),
+holder = document.getElementById('holder'),
+state = document.getElementById('status');
+
+if (typeof window.FileReader === 'undefined') {
+state.className = 'fail';
+} else {
+state.className = 'success';
+}
+
+upload.onchange = function (e) {
+	  e.preventDefault();
+
+	  var file = upload.files[0],
+	      reader = new FileReader();
+	  reader.onload = function (event) {
+	    var img = new Image();
+	    img.src = event.target.result;
+	    // note: no onload required since we've got the dataurl...I think! :)
+	    img.height = 200;
+  		img.width = 300;
+	    holder.innerHTML = '';
+	    holder.appendChild(img);
+	  };
+	  reader.readAsDataURL(file);
+
+	  return false;
+	};
 </script>
 </body>
 </html>
