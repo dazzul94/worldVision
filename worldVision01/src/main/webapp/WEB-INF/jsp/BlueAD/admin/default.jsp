@@ -20,7 +20,7 @@
 </div>
 
 <div id="content">
-<jsp:include page="../../member/list.jsp"/>
+<jsp:include page="../../index/main.jsp"/>
 </div>
 
 </body>

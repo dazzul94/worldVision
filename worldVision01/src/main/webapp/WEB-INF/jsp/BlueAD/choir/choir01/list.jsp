@@ -59,7 +59,7 @@
           <td width="10" class="field_b">번호</td>
           <td width="30" class="field_b">분류</td>
           <td width="30" class="field_b">이름</td>
-          <td width="50" class="field_b">이미지</td>
+          <td width="30" class="field_b">이미지</td>
           <td width="20" class="field_b">등록일</td>
         </tr>
        
@@ -67,7 +67,10 @@
        <c:forEach items="${list}" var="choir01" varStatus="status">
           <tr height="30" bgcolor="#FFFFFF" onMouseOver="this.style.background='#f5f5f5'" onMouseOut="this.style.background='#FFFFFF'">
             <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">${(totalCount - status.index) - ((pageNo - 1) * pageSize)}</td>
-            <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">${choir01.type}</td>
+            <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">${choir01.type}
+			    <%--  	<c:if test="${choir01.type eq '2' } ">비전싱어즈
+			     	</c:if> --%>
+            </td>
             <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">${choir01.title}</td>
              <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/choir/upload/${choir01.img1_micro}" width="300px" height="200" ;></td>
               <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">${choir01.wdate}</td>
