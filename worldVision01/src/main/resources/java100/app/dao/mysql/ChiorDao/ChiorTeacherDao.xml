@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- DAO 객체를 자동으로 생성하려면, namespace의 값이 인터페이스 이름과 같아야 한다. -->
+<mapper namespace="java100.app.dao.ChoirDao.ChoirTeacherDao">
+
+	<resultMap type="choirTeacher" id="choirTeacher">
+		<id column="ct_no" property="ct_no" />
+		<!-- 컬럼 이름과 프로퍼티 이름이 같아서 생략! -->
+		<!-- <result column="name" property="name"/> <result column="email" property="email"/> -->
+	</resultMap>
+
+	<sql id="select1">
+		select
+		*
+	</sql>
+	<select id="findAll" resultMap="choirTeacher" parameterType="map">
+		<include refid="select1" />
+		from bluead_chior_teacher
+
+
+		<choose>
+			<when test="select == 'all'">
+				<where> <!-- 제목,내용,글쓴이 -->
+					<!-- or title like '%${word}%'
+					or contents like '%${word}%' -->
+				</where>
+			</when>
+
+			<when test="select == 'title'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or title like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+			<when test="select == 'contents'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or contents like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+		</choose>
+		order by sort desc
+		limit #{startIndex}, #{size}
+
+	</select>
+
+
+
+	<select id="countAll" resultType="int">
+		select count(*)
+		from bluead_chior_teacher
+
+		<choose>
+			<when test="select == 'all'">
+				<where> <!-- 제목,내용,글쓴이 -->
+					<!-- or title like '%${word}%'
+					or contents like '%${word}%' -->
+				</where>
+			</when>
+
+			<when test="select == 'title'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or title like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+			<when test="select == 'contents'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or contents like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+		</choose>
+	</select>
+	<select id="findByNo" resultMap="choirTeacher" parameterType="int">
+		<include refid="select1" />
+		from bluead_chior_teacher
+		where ct_no=#{value}
+	</select>
+ 	<update id="choirUpdate" parameterType="choir01">
+		update bluead_chior_teacher set
+		c_no=#{c_no},
+		img1_micro=#{img1_micro},
+		img1_thumbo=#{img1_thumbo},
+		kor_name1=#{kor_name1},
+		kor_name2=#{kor_name2},
+		kor_contents=#{kor_contents},
+		eng_name1=#{eng_name1},
+		eng_name2=#{eng_name2},
+		eng_contents=#{eng_contents},
+		sort=#{sort},
+		wdate=#{wdate}
+		where ct_no=#{ct_no}
+	</update> 
+
+</mapper>  
+
+
+
+
+
+
+
+
+
