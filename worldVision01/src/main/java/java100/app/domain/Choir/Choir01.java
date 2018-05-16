@@ -12,12 +12,8 @@ String y_time;
 String addr;
 String map_addr;
 String wdate;
-@Override
-public String toString() {
-	return "Choir01 [c_no=" + c_no + ", type=" + type + ", title=" + title + ", contents=" + contents + ", img1_micro="
-			+ img1_micro + ", img1_thumb=" + img1_thumb + ", y_place=" + y_place + ", y_time=" + y_time + ", addr="
-			+ addr + ", map_addr=" + map_addr + ", wdate=" + wdate + "]";
-}
+String originalFilename;
+
 public int getC_no() {
 	return c_no;
 }
@@ -83,6 +79,12 @@ public String getWdate() {
 }
 public void setWdate(String wdate) {
 	this.wdate = wdate;
+}
+public String getOriginalFilename() {
+	return originalFilename;
+}
+public void setOriginalFilename(String originalFilename) {
+	this.originalFilename = originalFilename;
 }
 
 

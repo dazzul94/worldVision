@@ -86,9 +86,8 @@
           <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/hwp.gif" align="absmiddle">&nbsp;
           
           <a href="${contextPath}/upload/wv_board/${bluead_wvboard.bbs_file1_micro }" download>${bluead_wvboard.bbs_file1 }</a>&nbsp;<span class="bbs_normal"></span></td>
-          
           <td width="70" align="center"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_view_down.gif"></td>
-          <td width="45" align="center"><span class="bbs_normal">${bluead_wvboard.bbs_hit }</span></td>
+          <td width="45" align="center"><span class="bbs_normal">${bluead_wvboard.bbs_down1_hit }</span></td>
         </tr>
       </table>
     </td>
@@ -111,7 +110,12 @@
 
 
 </head><body>
+<img src="${contextPath}/upload/wv_board/${bluead_wvboard.bbs_file1_micro }"width="600px" height="800px"alt="">
+<img src="${contextPath}/upload/wv_board/${bluead_wvboard.bbs_file2_micro }"width="600px" height="800px"alt="">
+<img src="${contextPath}/upload/wv_board/${bluead_wvboard.bbs_file3_micro }" width="600px" height="800px"alt="">
 ${bluead_wvboard.bbs_content }
+<img src="${contextPath}/images/BlueAD/editor/uploaded/img/${bluead_wvboard.bbs_content }" alt="">
+\"http://wvchoir.bluead.co.kr/BlueAD/editor/uploaded/img/1387156607.jpg
 </body></span>
           </td>
         </tr>

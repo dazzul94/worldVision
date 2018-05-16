@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java100.app.dao.Admin.LoginDao;
+import java100.app.dao.AdminDao.LoginDao;
 import java100.app.domain.Admin.Login;
 import java100.app.service.AdminService.LoginService;
 
@@ -16,12 +16,12 @@ public class LoginServiceImpl implements LoginService {
     LoginDao loginDao;
     
     @Override
-    public Login get(String id, String password) {
+    public Login get(String admin_id, String admin_pass) {
         HashMap<String,Object> params = new HashMap<>();
-        params.put("id", id);
-        params.put("password", password);
+        params.put("admin_id", admin_id);
+        params.put("admin_pass", admin_pass);
         
-        return loginDao.findByEmailAndPassword(params);   
+        return loginDao.findByIDAndPassword(params);   
         }
 
 }

@@ -35,20 +35,14 @@
     <td height="20"></td>
   </tr>
 </table>
-<%-- 
-<!--국내 국외 토탈.페이지 -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"><tbody>
-	<tr>
-		<td height=30><a href='list'><span >국내</span></a> | <a href='abroadList'><span >국외</span></a></td>
-	</tr>
-  <tr>    
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody><tr>    
     <td align="right" style="font-size:10Px;font-family:verdana;">
       <font color="">total:</font><font color="red"> ${totalCount}</font>&nbsp;&nbsp;
       <font color="">page:</font><font color="red"> ${pageNo}</font>/<font color="red"> ${lastPageNo}</font>
     </td>
   </tr>
 </tbody></table>
- --%>
 
 <!-- 테이블 시작  -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -56,7 +50,7 @@
     <td>
       <table border="0" cellspacing="1" cellpadding="0" width="100%" align="center" bgcolor="#cad4e3">
         <tr height="25" align="center">
-          <td width="10" class="field_b">번호</td>
+          <td width="10" class="field_b">	번호</td>
           <td width="30" class="field_b">분류</td>
           <td width="30" class="field_b">이름</td>
           <td width="30" class="field_b">이미지</td>
@@ -68,9 +62,24 @@
        <c:forEach items="${list}" var="choir01" varStatus="status">
           <tr height="30" bgcolor="#FFFFFF" onMouseOver="this.style.background='#f5f5f5'" onMouseOut="this.style.background='#FFFFFF'">
             <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">${(totalCount - status.index) - ((pageNo - 1) * pageSize)}</td>
-            <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">${choir01.type}
+            <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">
 			    <%--  	<c:if test="${choir01.type eq '2' } ">비전싱어즈
 			     	</c:if> --%>
+				<c:choose>
+			       <c:when test="${choir01.type == '1'}">
+			           연주반
+			       </c:when>
+			       <c:when test="${choir01.type == '2'}">
+			           지역반
+			       </c:when>
+			       <c:when test="${choir01.type == '3'}">
+			           비전싱어즈
+			       </c:when>
+			       <c:otherwise>
+			          1,2,3 가 아닌 다른거근영...
+			       </c:otherwise>
+			   </c:choose>
+
             </td>
             <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer">${choir01.title}</td>
              <td align="center"onclick="window.location='${choir01.c_no}'" style="cursor:pointer"><img src="${contextPath}/images/BlueAD/admin/choir/upload/${choir01.img1_micro}" width="300px" height="200" ;></td>

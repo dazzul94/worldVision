@@ -4,19 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- DAO 객체를 자동으로 생성하려면, namespace의 값이 인터페이스 이름과 같아야 한다. -->
-<mapper namespace="java100.app.dao.LoginDao">
+<mapper namespace="java100.app.dao.AdminDao.LoginDao">
 
 	<resultMap type="login" id="loginMap">
-      <id column="loginno" property="loginNo" />
-      <result column="id" property="id" />
-      <result column="password" property="password" />
+      <id column="admin_no" property="admin_no" />
+      <result column="admin_id" property="admin_id" />
+      <result column="admin_pass" property="admin_pass" />
    </resultMap>
 
-	 <select id="findByEmailAndPassword" 
+	 <select id="findByIDAndPassword" 
             resultMap="loginMap" parameterType="map">
         select *
-        from login
-        where id=#{id} and password=password(#{password})
+        from bluead_admin
+        where admin_id=#{admin_id} and admin_pass=#{admin_pass}
     </select>
 </mapper>  
 
