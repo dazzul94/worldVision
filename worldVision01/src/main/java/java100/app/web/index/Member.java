@@ -61,6 +61,26 @@ public class Member {
 		this.member_htel2 = member_htel2;
 		this.member_htel3 = member_htel3;
 	}
+	
+	public Member(String member_id, String member_nick, String member_name, String member_email, String member_address1,
+			String member_address2, String member_tel1, String member_tel2, String member_tel3, String member_htel1,
+			String member_htel2, String member_htel3, String member_zip1, String member_zip2) {
+		super();
+		this.member_id = member_id;
+		this.member_nick = member_nick;
+		this.member_name = member_name;
+		this.member_email = member_email;
+		this.member_address1 = member_address1;
+		this.member_address2 = member_address2;
+		this.member_tel1 = member_tel1;
+		this.member_tel2 = member_tel2;
+		this.member_tel3 = member_tel3;
+		this.member_htel1 = member_htel1;
+		this.member_htel2 = member_htel2;
+		this.member_htel3 = member_htel3;
+		this.member_zip1 = member_zip1;
+		this.member_zip2 = member_zip2;
+	}
 
 	public int getNo() {
 		return no;
