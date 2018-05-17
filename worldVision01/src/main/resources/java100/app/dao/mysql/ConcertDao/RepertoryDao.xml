@@ -75,7 +75,58 @@
 
  <select id="countAll" resultType="int" parameterType="map">
       select count(*) from bluead_wv_concert01
-   </select>
+  <choose>
+			<when test="bbs_category != null and bbs_category != ''">
+
+				<where>
+					and bbs_category =#{bbs_category}
+
+				</where>
+			</when>
+			<when test="select == 'all'">
+				<where> <!-- 곡명bbs_subject , 가사bbs_content , 가수bbs_opt1 -->
+					or bbs_subject like '%${word}%'
+					or bbs_content like '%${word}%'
+					or bbs_opt1 like '%${word}%'
+					
+
+				</where>
+			</when>
+
+			<when test="select == 'bbs_subject'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_subject like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+			<when test="select == 'bbs_content'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_content like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+	<when test="select == 'bbs_opt1'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_opt1 like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when> 
+		</choose>
+	</select>
 </mapper>  
 
 
