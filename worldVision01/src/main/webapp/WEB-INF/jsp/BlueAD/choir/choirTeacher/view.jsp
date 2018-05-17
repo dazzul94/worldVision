@@ -11,7 +11,7 @@
 <script type="text/javascript"
 	src="${contextPath}/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script
-	src='${contextPath}/node_modules/jquery/d	ist/jquery.slim.min.js'></script>
+	src='${contextPath}/node_modules/jquery/dist/jquery.slim.min.js'></script>
 <link rel="stylesheet" type="text/css"
 	href="${contextPath}/css/BlueAD/admin/div.css">
 <link rel="stylesheet" type="text/css"

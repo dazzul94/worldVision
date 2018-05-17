@@ -7,11 +7,11 @@
 <html>
 <head>
 <title></title>
-<script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
+<script
+	src='${contextPath}/node_modules/jquery/dist/jquery.slim.min.js'></script>
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
 <link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
 <link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css">
-<script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
 </head>
 
 <body>
@@ -22,6 +22,7 @@
 <jsp:include page="../choir_left.jsp"/>
 </div>
 <div id="content">
+<c:set var="c_no" value="${c_no}" />
 
 <!--  회원관리 이미지 -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -39,8 +40,8 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
 <tr>
   <td style="padding:5 5 5 5;"> <!-- 여기 해야함 -->
-	<select name="c_no" onchange="location.href='/BlueAD/admin/choir_teacher/list.php?c_no='+this.value;">
-	<option value="">::전체보기::</option>
+	<select name="c_no" id="c_noType" onchange="location.href='list?c_no='+this.value;">
+	<option value="all">::전체보기::</option>
 	<option value="1">[연주반] 연주반</option>
 	<option value="3">[지역반] 강서반</option>
 	<option value="4">[지역반] 강남반</option>
@@ -136,6 +137,7 @@
 </tr>
 </table>
 <form action="list">
+<input type="hidden" name="c_no" value="${c_no}">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td align="center">
@@ -207,8 +209,10 @@
     var select = '<c:out value="${select}"/>';
     var words = '<c:out value="${words}"/>';
     var pageCount = 10;        // 한 화면에 나타낼 페이지 수
+    var c_no = '<c:out value="${c_no}"/>'; //c_no
     function paging(totalData, dataPerPage, pageCount, currentPage){
         console.log("(카테고리)select: " + select);
+        console.log("(위에 카테고리)c_no: " + c_no);
         console.log("(검색어)words: " + words);
         console.log("(전체데이터개수)totalData: " + totalData);
         console.log("(한 페이지에 나타낼 데잍터 수)dataPerPage: " + dataPerPage);
@@ -239,25 +243,25 @@
         console.log("-------------------------------------")
         var html = "";
         if(beforePrev > 0) {
-            html += "<a href='list?pn=" + beforePrev + "&select="+ select +"&words="+ words +"' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_on.gif' border='0'></a> ";
+            html += "<a href='list?pn=" + beforePrev + "&select="+ select +"&words="+ words  + "&c_no="+ c_no +"' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_on.gif' border='0'></a> ";
         }else {
             html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev10_off.gif' border='0'> ";
         }
         if(currentPage > 1) {
-            html += "<a href='list?pn=" + prev + "&select="+ select +"&words="+ words + "' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev_on.gif' border='0'></a>&nbsp; ";
+            html += "<a href='list?pn=" + prev + "&select="+ select +"&words="+ words + "&c_no="+ c_no + "' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev_on.gif' border='0'></a>&nbsp; ";
         } else {
             html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_prev_off.gif' border='0'>&nbsp; ";
         }
         for(var i=first; i <= last; i++){
-            html += "<b><a href='list?pn="+ i + "&select="+ select +"&words="+ words + "' id=" + i + " class='bbs_link_page'>" + i + "</a></b> ";
+            html += "<b><a href='list?pn="+ i + "&select="+ select +"&words="+ words + "&c_no="+ c_no + "' id=" + i + " class='bbs_link_page'>" + i + "</a></b> ";
         }
         if(currentPage < totalPage) {
-            html += "&nbsp;<a href='list?pn=" + next + "&select="+ select +"&words="+ words + "' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next_on.gif' border='0'></a> ";
+            html += "&nbsp;<a href='list?pn=" + next + "&select="+ select +"&words="+ words + "&c_no="+ c_no + "' id='beforePrev'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next_on.gif' border='0'></a> ";
         } else {
             html += "&nbsp;<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next_off.gif' border='0'> ";
         }
         if(last < totalPage) {
-            html += "<a href='list?pn=" + afterNext + "&select="+ select +"&words="+ words + "' id='afterNext'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next10_on.gif' border='0'></a>";
+            html += "<a href='list?pn=" + afterNext + "&select="+ select +"&words="+ words + "&c_no="+ c_no + "' id='afterNext'><img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next10_on.gif' border='0'></a>";
         } else {
             html += "<img src='${contextPath}/images/BlueAD/skin/bbs/common/page_next10_off.gif' border='0'> ";
         }
@@ -283,7 +287,24 @@
     
     $("document").ready(function(){        
         paging(totalData, dataPerPage, pageCount, '<c:out value="${pageNo}"/>');
-        
+        var c_no = '<c:out value="${c_no}"/>'; //c_no
+        if (c_no == '1') {
+			$("#c_noType option:eq(1)").prop("selected", true);
+		} else if (c_no == '3') {
+			$("#c_noType option:eq(2)").prop("selected", true);
+		} else if (c_no == '4') {
+			$("#c_noType option:eq(3)").prop("selected", true);
+		} else if (c_no == '5') {
+			$("#c_noType option:eq(4)").prop("selected", true);
+		} else if (c_no == '6') {
+			$("#c_noType option:eq(5)").prop("selected", true);
+		} else if (c_no == '7') {
+			$("#c_noType option:eq(6)").prop("selected", true);
+		} else if (c_no == '8') {
+			$("#c_noType option:eq(7)").prop("selected", true);
+		} else if (c_no == '9') {
+			$("#c_noType option:eq(8)").prop("selected", true);
+		}
     });
 </script>
 </body>

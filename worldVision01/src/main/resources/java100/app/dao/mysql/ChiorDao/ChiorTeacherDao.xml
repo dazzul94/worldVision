@@ -49,6 +49,9 @@
 			</when>
 
 		</choose>
+		<if test="c_no != 'all'">
+		and c_no=#{c_no}
+		</if>
 		order by sort desc
 		limit #{startIndex}, #{size}
 
@@ -56,7 +59,7 @@
 
 
 
-	<select id="countAll" resultType="int">
+	<select id="countAll" resultType="int" parameterType="map">
 		select count(*)
 		from bluead_chior_teacher
 
@@ -71,8 +74,7 @@
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or kor_name2 like
-							'%${word}%'
+							or kor_name2 like '%${word}%'
 						</foreach>
 					</where>
 				</if>
@@ -82,14 +84,16 @@
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or eng_name2 like
-							'%${word}%'
+							or eng_name2 like '%${word}%'
 						</foreach>
 					</where>
 				</if>
 			</when>
 
 		</choose>
+		<if test="c_no != 'all'">
+		and c_no=#{c_no}
+		</if>
 	</select>
 	<select id="findByNo" resultMap="choir_Teacher" parameterType="int">
 		<include refid="select1" />
