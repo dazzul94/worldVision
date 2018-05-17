@@ -21,3 +21,4 @@ SELECT * FROM bluead_chior_member WHERE c_no = 3 ORDER BY sort;
 SELECT contents, year, month, cate
 		FROM bluead_history
 		WHERE cate = '1' ORDER BY no DESC
+select bbs_no, bbs_subject, bbs_name, bbs_date, bbs_hit from bluead_wv_gallery02 order by desc limit '0', '12'

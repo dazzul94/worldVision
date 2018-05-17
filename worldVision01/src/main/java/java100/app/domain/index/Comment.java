@@ -6,24 +6,31 @@ public class Comment {
 	private String comm_thread;
 	private String comm_bbs_id;
 	private int comm_bbs_no;
+	private int comm_emot;
 	private String comm_name;
 	private String comm_content;
 	private String comm_pass;
+	private String comm_ip;
 	private String comm_date;
 	
 	public Comment() {
 		super();
 	}
 	
-	public Comment(int comm_no, String comm_bbs_id, String comm_name, String comm_content, String comm_pass,
-			String comm_date) {
-		super();
-		this.comm_no = comm_no;
-		this.comm_bbs_id = comm_bbs_id;
-		this.comm_name = comm_name;
-		this.comm_content = comm_content;
-		this.comm_pass = comm_pass;
-		this.comm_date = comm_date;
+	public int getComm_emot() {
+		return comm_emot;
+	}
+
+	public void setComm_emot(int comm_emot) {
+		this.comm_emot = comm_emot;
+	}
+
+	public String getComm_ip() {
+		return comm_ip;
+	}
+
+	public void setComm_ip(String comm_ip) {
+		this.comm_ip = comm_ip;
 	}
 
 	public int getComm_no() {

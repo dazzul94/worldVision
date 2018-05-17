@@ -19,10 +19,26 @@ public class BoardServiceImpl implements BoardService {
 	public Board getBoard(Map<String, Object> params) {
 		return dao.getBoard(params);
 	}
+	
+	@Override
+	public Board[] getBoardList(Map<String, Object> params) {
+		return dao.getBoardList(params);
+	}
 
 	@Override
 	public Comment[] getCommentList(Map<String, Object> params) {
 		return dao.getCommentList(params);
 	}
 
+	@Override
+	public void insertComment(Comment comment) {
+		dao.insertComment(comment);
+	}
+
+	@Override
+	public int getCountBoard(Map<String, Object> params) {
+		System.out.println("dbname = " + params.get("dbName"));
+		return dao.getCountBoard(params);
+	}
+	
 }
