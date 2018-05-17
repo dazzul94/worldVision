@@ -12,4 +12,5 @@ public interface RepertoryService {
 	int delete(int no);
 	int add(Bluead_Schedule bluead_Schedule);*/
 	int getTotalCount(Map<String, Object> options);
+	Repertory get(int no);
 }

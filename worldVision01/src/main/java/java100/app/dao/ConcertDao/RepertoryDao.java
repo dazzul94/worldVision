@@ -15,6 +15,7 @@ public interface RepertoryDao {
 	int delete(int no);
 
 	int insert(Bluead_Schedule bluead_Schedule);*/
+	Repertory findByNo(int no);
 }
 
 

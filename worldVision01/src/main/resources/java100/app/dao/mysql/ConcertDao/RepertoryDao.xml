@@ -127,6 +127,12 @@
 			</when> 
 		</choose>
 	</select>
+	<select id="findByNo" resultMap="repertoryMap"
+		parameterType="int">
+		<include refid="select1" />
+		from bluead_wv_concert01
+		where bbs_no=#{value}
+	</select>
 </mapper>  
 
 

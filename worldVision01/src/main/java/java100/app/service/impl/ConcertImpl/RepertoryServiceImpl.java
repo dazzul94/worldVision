@@ -39,4 +39,9 @@ public class RepertoryServiceImpl implements RepertoryService {
 		return repertoryDao.countAll(options);
 	}
 
+	@Override
+	public Repertory get(int no) {
+		return repertoryDao.findByNo(no);
+	}
+
 }

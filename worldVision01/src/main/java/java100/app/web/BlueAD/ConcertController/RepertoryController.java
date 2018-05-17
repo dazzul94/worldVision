@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -85,6 +86,15 @@ public class RepertoryController {
         model.addAttribute("list", repertoryService.list(pageNo, pageSize, options));
         return "BlueAD/concert/repertory/list";
     }
+    @RequestMapping("{no}")
+	public String view(@PathVariable int no, Model model) throws Exception {
+
+		model.addAttribute("repertory", repertoryService.get(no));
+		return "BlueAD/concert/repertory/view"; /// WEB-INF/jsp/BlueAD/bluead_wvboard/board01/view.jsp
+														/// //viewResolver의
+														/// 역할(VIEW를 주는것=JSP 경로를
+														/// 주는것)
+	}
 }
 
 
