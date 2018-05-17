@@ -11,10 +11,71 @@
 		<!-- 컬럼 이름과 프로퍼티 이름이 같아서 생략! -->
 		<!-- <result column="name" property="name"/> <result column="email" property="email"/> -->
 	</resultMap>
-	<select id="findAll" resultMap="repertoryMap" parameterType="map"> select * from bluead_wv_concert01</select>
-	<select id="countAll" resultType="int" parameterType="map">
-		select count(*) from bluead_wv_concert01
+	<sql id="select1">
+		select
+		*
+	</sql>
+	<select id="findAll" resultMap="repertoryMap" parameterType="map">
+		<include refid="select1" />
+		from bluead_wv_concert01
+		<choose>
+			<when test="bbs_category != null and bbs_category != ''">
+
+				<where>
+					and bbs_category =#{bbs_category}
+
+				</where>
+			</when>
+			<when test="select == 'all'">
+				<where> <!-- 곡명bbs_subject , 가사bbs_content , 가수bbs_opt1 -->
+					or bbs_subject like '%${word}%'
+					or bbs_content like '%${word}%'
+					or bbs_opt1 like '%${word}%'
+					
+
+				</where>
+			</when>
+
+			<when test="select == 'bbs_subject'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_subject like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+			<when test="select == 'bbs_content'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_content like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when>
+
+	<when test="select == 'bbs_opt1'">
+				<if test="words != null">
+					<where>
+						<foreach collection="words" item="word">
+							or bbs_opt1 like
+							'%${word}%'
+						</foreach>
+					</where>
+				</if>
+			</when> 
+		</choose>
+		order by bbs_no desc
+		limit #{startIndex}, #{size}
 	</select>
+
+ <select id="countAll" resultType="int" parameterType="map">
+      select count(*) from bluead_wv_concert01
+   </select>
 </mapper>  
 
 

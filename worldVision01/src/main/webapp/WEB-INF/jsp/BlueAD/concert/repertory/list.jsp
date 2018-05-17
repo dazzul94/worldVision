@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+   pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -7,11 +7,9 @@
 <html>
 <head>
 <title></title>
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css?ver=1">
-<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css?ver=1">
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/div.css">
+<link rel="stylesheet" type="text/css" href="${contextPath}/css/BlueAD/admin/style.css">
 <link rel="stylesheet" media="screen" href="${contextPath}/css/BlueAD/lightbox/lightbox.css" type="text/css">
-<script type="text/javascript" src="${contextPath}/js/BlueAD/jquery-1.3.2.min.js"></script>
-
 </head>
 
 <body>
@@ -23,89 +21,107 @@
 </div>
 <div id="content">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tbody><tr>
-    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"> 월드</td>
+  <tr>
+    <td height="25" class="txt_blue_b"><img src="${contextPath}/images/BlueAD/admin/title_icon.gif" align="absmiddle"><font color="#5555aa"> 연주레퍼토리</font></td>
   </tr>
   <tr>
-    <td height="4" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
+    <td height="1" background="${contextPath}/images/BlueAD/admin/title_dot_line.gif"></td>
   </tr>
   <tr>
     <td height="20"></td>
   </tr>
-</tbody></table>
-<!--  dd -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-  <tbody><tr>    
-   <td>
-      <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/newhot.gif">
+</table>
+ 
+<!-- lightbox(좌,우) -->
+
+<script src="${contextPath}/js/BlueAD/lightbox/prototype.js" type="text/javascript"></script>
+<script src="${contextPath}/js/BlueAD/lightbox/scriptaculous.js?load=effects" type="text/javascript"></script>
+<script src="${contextPath}/js/BlueAD/lightbox/lightbox.js" type="text/javascript"></script>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+  <tr>
+    <td>
+     </script>
+     <!--select 박스 , total,page  -->
+     <table border="0" cellspacing="0" cellpadding="0" width="100%">
+  <tr>
+    <td>
+			      <select  id="memberCategory" onchange="changeCategoryType()">
+        <option value="">전체</option>
+        <option value="찬송가">찬송가</option>
+<option value="시편">시편</option>
+<option value="현대음악">현대음악</option>
+<option value="가곡">가곡</option>
+<option value="즐거운 노래 ">즐거운 노래</option>
+<option value="동요">동요</option>
+<option value="일반곡">일반곡</option>
+<option value="민요">민요</option>
+<option value="크리스마스">크리스마스</option>
+      </select>
+      
+      <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/newhot.gif">
     </td>
-    <td align="right" style="font-size:10Px;font-family:verdana;">
+     <td align="right" style="font-size:10Px;font-family:verdana;">
       <font color="">total:</font><font color="red"> ${totalCount}</font>&nbsp;&nbsp;
       <font color="">page:</font><font color="red"> ${pageNo}</font>/<font color="red"> ${lastPageNo}</font>
+        &nbsp;
+    <a href="/BlueAD/rss.php?bbs_id=<?= $bbs_id ?>" target="_blank"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/rss.gif" alt="RSS Feed" align="absmiddle"></a>
     </td>
   </tr>
-</tbody></table>
-
-<tr>
-<td>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="1" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_left.gif"></td>
-        <td width="35" height="29" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><input type="checkbox" name="allChk" onClick="Allchange(this)" style="cursor:hand; background-color:#f6f5f1"></td>
-        <td width="40" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_no.gif"></td>
-        <td width="1" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_line.gif"></td>
-        <td align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><span class="bbs_normal"><b><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_subject.gif"></b></span></td>
-        <td width="1" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_line.gif"></td>
-        <td width="90" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_name.gif"></td>
-        <td width="1" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_line.gif"></td>
-        <td width="75" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_day.gif"></td>
-        <td width="1" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_line.gif"></td>
-        <td width="45" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_hit.gif"></td>
-        <td width="4" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_right.gif"></td>
-      </tr>
-         <!-- -----------------공지리스트 --------------------------->
-      <c:forEach items="${list}" var="community01" varStatus="status">
-      <c:if test="${community01.bbs_notice eq 'Y'}">
-      <tr height="30">
-        <td align="center" bgcolor="#f1f1f1"></td>
-        <td align="center" bgcolor="#f1f1f1">&nbsp;</td>
-        <td align="center" bgcolor="#f1f1f1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/icon_notice.gif" border="0" align="absmiddle"></td>
-        <td align="center" bgcolor="#f1f1f1"></td>
-        <td bgcolor="#f1f1f1">&nbsp;&nbsp;&nbsp;<a href="${community01.bbs_no}" class="bbs_link">${community01.bbs_subject}</a></td>
-        <td align="center" bgcolor="#f1f1f1"></td>
-        <td align="center" bgcolor="#f1f1f1">
-          <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><img src="${contextPath}/images/BlueAD/skin/bbs/1198130437.gif" align="absmiddle"></a>        
-        </td>
-        <td bgcolor="#f1f1f1"></td>
-        <td align="center" bgcolor="#f1f1f1"><span class="bbs_normal">${community01.bbs_date}</span>
-        </td>
-        <td align="center" bgcolor="#f1f1f1"></td>
-        <td align="center" bgcolor="#f1f1f1"><span class="bbs_normal">${community01.bbs_hit}</span></td>
-      </tr>
+  <tr>
+    <td height="3" colspan="2"></td>
+  </tr>
+</table>
+ <!--select 박스 , total,page 끝 -->
+ 
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="del_form" method="post" action="check_delete.php">
+<input type="hidden" name="bbs_id" value="<?= $bbs_id ?>">
+<input type="hidden" name="page" value="<?= $page ?>">
+<input type="hidden" name="key" value="<?= $key ?>">
+<input type="hidden" name="keyword" value="<?= $en_keyword ?>">
+  <tr>
+    <td>  
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
      <tr>
-        <td bgcolor="#e6e6e6"></td>
-        <td colspan="13" bgcolor="#e6e6e6" height="1"></td>
+        <td width="4" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_left.gif"></td>
+        
+        <td width="35" height="29" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><input type="checkbox" name="allChk" onclick="Allchange(this)" style="cursor:hand; background-color:#f6f5f1"></td>
+        
+        <td width="40" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_no.gif"></td>
+        <td width="1" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_line.gif"></td>
+                <td width="80" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_div01.gif"></td>
+        <td width="1" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_line.gif"></td>
+                <td align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><span class="bbs_normal"><b><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_subject.gif"></b></span></td>
+        <td width="1" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_line.gif"></td>
+        <td width="80" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_name2.gif"></td>
+        <td width="1" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_line.gif"></td>
+        <td width="80" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_name3.gif"></td>
+        <td width="1" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_line.gif"></td>
+                <td width="45" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_listening.gif"></td>
+        <td width="4" align="center" background="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_bg.gif"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_right.gif"></td>
       </tr>
-      </c:if>
-      </c:forEach>
-      <!-- ----------------공지리스트 --------------------->
+     
        <!-- ----------------------------리스트---------------------------- -->
-    <c:forEach items="${list}" var="community01" varStatus="status">
+<c:forEach items="${list}" var="concert01" varStatus="status">
       <tr height="30">
         <td align="center"></td>
-        <td align="center"><input type="checkbox" name="bbs_no[]" value="${community01.bbs_no}" style="cursor:hand"></td>
-        <td align="center"><span class="bbs_normal">${community01.bbs_no}</span></td>
+                <td align="center"><input type="checkbox" name="bbs_no[]" value="133" style="cursor:hand"></td>
+                <td align="center"><span class="bbs_normal">${concert01.bbs_no }</span>
+</td>
         <td align="center"></td>
-        <td>&nbsp;&nbsp;&nbsp;<a href="${community01.bbs_no}" class="bbs_link">${community01.bbs_subject} </a>
+                <td>
+          &nbsp;&nbsp;&nbsp;<a href="${concert01.bbs_no }" class="bbs_link">${concert01.bbs_category} </a>
+                                         
         </td>
         <td></td>
-        <td align="center">
-          <a href="email_send.php?email=d3ZjaG9pckB3dmNob2lyLm9yLmty" target="email_frm" class="bbs_link"><img src="${contextPath}/images/BlueAD/skin/bbs/1198130437.gif" align="absmiddle"></a>        
-        </td>
+        <td>&nbsp;&nbsp;&nbsp;
+       <a href="${concert01.bbs_no }" class="bbs_link">${concert01.bbs_subject} </a>
         <td align="center"></td>
-        <td align="center"><span class="bbs_normal">${community01.bbs_date}</span></td>
+         <td align="center"><span class="bbs_normal">${concert01.bbs_opt2 }</span></td>
         <td align="center"></td>
-        <td align="center"><span class="bbs_normal">${community01.bbs_hit}</span></td>
+        <td align="center"><span class="bbs_normal"></span></td>
+        <td align="center"></td>
+        <td align="center"><span class="bbs_normal"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/icon_audio.gif" border="0" align="absmiddle" onclick="listen('225,');" style="cursor:pointer"></span></td>
         <td align="center"></td>
       </tr>
       <tr>
@@ -113,30 +129,36 @@
         <td colspan="13" bgcolor="#e6e6e6" height="1"></td>
       </tr>
       </c:forEach>
-           </tbody></table>
-    </td>
-  </tr>
-  <!-- 목록, 선택삭제 -->
-    <td>
-      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-        <tbody>
+             <!-- ----------------------------리스트---------------------------- -->
+      </table>
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-    <td valign="middle" width="300">
-            <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list.gif" style="cursor:pointer"></a>
-           <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_list_sel.gif"  style="cursor:pointer" onclick="setNo()">
+          <td height="35" valign="middle" width="350">
+            <a href="<?= $search_cancel_link ?>"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_list.gif" align="absmiddle" border="0"></a>
+            <a href="javascript:All_del();"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_list_sel.gif" align="absmiddle" border="0"></a>
+            <a href="javascript:All_del();"> <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/btn_select_listen.gif" align="absmiddle" border="0"></a>
           </td>
-  <!-- 목록, 선택삭제 -->
-  <!------------------ paging ---------------------->
-    <!--  <td width="165"></td>  -->
-          <td  height="30" align="center">
+          <td align="center">
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                 <td  height="30" align="center">
           <div id="paging" ></div>
           </td>
-          <td align="right" width="300">
-          <!--  쓰기  -->
-           <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0">
-         </a>
-                      </td>
-  <!------------- paging ------------------->
+              </tr>
+            </table>
+          </td>
+          <td align="right" width="150">
+            <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr> 
+</form>
+</table>
+
+<!--  -->
         </tr>
       </tbody>
       </table>
@@ -163,7 +185,7 @@
             <option value="bbs_content">내용</option>
             <option value="bbs_name">글쓴이</option>
           </select>
-          <input type="text" size="50" maxlength="30" name="words" onFocus="this.select()">
+          <input type="text" size="50" maxlength="30" name="words" class="bbs_input_search">
      <button type="submit" style="background-color: white; border:0px"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_search.gif" align="absmiddle"/></button>
           </td>
         </tr>
@@ -310,7 +332,20 @@
     $("document").ready(function(){        
         paging(totalData, dataPerPage, pageCount, '<c:out value="${pageNo}"/>');
         
+        var bbs_category = '<c:out value="${bbs_category}"/>';
+        
+        if (bbs_category.length > 0) {
+        	$('#memberCategory').val(bbs_category);	
+        }
+        
+        
+        
     });
+    /*리스트 합창단과의 관계 선택시 이벤트 */
+    function changeCategoryType()() {
+    	var memberCategory = $('#memberCategory').val();
+    	location.href = "${contextPath}/BlueAD/concert/repertory/list?bbs_category=" + bbs_category;
+    	}
 </script>
 </body>
 </html>

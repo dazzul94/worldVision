@@ -24,10 +24,10 @@ public class RepertoryController {
             @RequestParam(value="pn", defaultValue="1") int pageNo,
             @RequestParam(value="ps", defaultValue="20") int pageSize,
             @RequestParam(value = "select", defaultValue="all") String select,
+        	@RequestParam(value = "bbs_category", defaultValue = "") String bbs_category,
             @RequestParam(value="words", required=false) String[] words,
             @RequestParam(value="oc", required=false) String orderColumn,
             @RequestParam(value="al", required=false) String align,
-            @RequestParam(value="type", defaultValue="1") String type,
             Model model) throws Exception {
         
         
@@ -59,14 +59,15 @@ public class RepertoryController {
             options.put("select", select);
             model.addAttribute("select", select);
         }
-        if (type != null) {
-            options.put("type", type);
-            model.addAttribute("type", type);
-        }
+        if (bbs_category != null) {
+			options.put("bbs_category",bbs_category);
+			model.addAttribute("bbs_category", bbs_category);
+		}
         if (words != null && words[0].length() > 0) {
-            options.put("words", words);
-            model.addAttribute("words", words[0]);
-        }
+			System.out.println(words[0]);
+			options.put("words", words);
+			model.addAttribute("words", words[0]);// 페이지 넘겨도 검색조건 가져오기
+		}
         options.put("orderColumn", orderColumn);
         options.put("align", align);
         
