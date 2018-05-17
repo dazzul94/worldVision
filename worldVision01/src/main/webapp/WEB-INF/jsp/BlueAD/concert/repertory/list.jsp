@@ -33,7 +33,7 @@
 </table>
  
 <!-- lightbox(좌,우) -->
-
+<script src='${contextPath}/node_modules/jquery/dist/jquery.slim.min.js'></script>
 <script src="${contextPath}/js/BlueAD/lightbox/prototype.js" type="text/javascript"></script>
 <script src="${contextPath}/js/BlueAD/lightbox/scriptaculous.js?load=effects" type="text/javascript"></script>
 <script src="${contextPath}/js/BlueAD/lightbox/lightbox.js" type="text/javascript"></script>
@@ -45,7 +45,7 @@
      <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr>
     <td>
-			      <select  id="memberCategory" onchange="changeCategoryType()">
+			      <select  id="bbs_Category" onchange="changeCategoryType()">
         <option value="">전체</option>
         <option value="찬송가">찬송가</option>
 <option value="시편">시편</option>
@@ -104,12 +104,13 @@
        <!-- ----------------------------리스트---------------------------- -->
 <c:forEach items="${list}" var="concert01" varStatus="status">
       <tr height="30">
+      <!-- 선택삭제 -->
         <td align="center"></td>
-                <td align="center"><input type="checkbox" name="bbs_no[]" value="133" style="cursor:hand"></td>
-                <td align="center"><span class="bbs_normal">${concert01.bbs_no }</span>
-</td>
+                 <td align="center"><input type="checkbox" id="check" name="check[]"  class="checkSelect"value="${concert01.bbs_no}" style="cursor:pointer"></td>
+             
+               <td align="center">${(totalCount - status.index) - ((pageNo - 1) * pageSize)}</td>
         <td align="center"></td>
-                <td>
+                <td><!-- 음반 -->
           &nbsp;&nbsp;&nbsp;<a href="${concert01.bbs_no }" class="bbs_link">${concert01.bbs_category} </a>
                                          
         </td>
@@ -117,7 +118,7 @@
         <td>&nbsp;&nbsp;&nbsp;
        <a href="${concert01.bbs_no }" class="bbs_link">${concert01.bbs_subject} </a>
         <td align="center"></td>
-         <td align="center"><span class="bbs_normal">${concert01.bbs_opt2 }</span></td>
+         <td align="center"><span class="bbs_normal">${concert01.bbs_opt1 }</span></td>
         <td align="center"></td>
         <td align="center"><span class="bbs_normal"></span></td>
         <td align="center"></td>
@@ -129,28 +130,29 @@
         <td colspan="13" bgcolor="#e6e6e6" height="1"></td>
       </tr>
       </c:forEach>
-             <!-- ----------------------------리스트---------------------------- -->
+             <!------------------------------리스트------------------------------>
       </table>
       
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td height="35" valign="middle" width="350">
-            <a href="<?= $search_cancel_link ?>"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_list.gif" align="absmiddle" border="0"></a>
-            <a href="javascript:All_del();"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_list_sel.gif" align="absmiddle" border="0"></a>
-            <a href="javascript:All_del();"> <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/btn_select_listen.gif" align="absmiddle" border="0"></a>
+          <td height="25" valign="middle" width="350">
+         
+           <a><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_list_sel.gif" onclick="setNo()"></a>
+           <a><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/btn_select_listen.gif" onclick="setNo()></a>
           </td>
-          <td align="center">
-            <table border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                 <td  height="30" align="center">
+          
+          
+       <!------------------ paging ---------------------->
+      <td width="165"></td>  
+          <td  height="30" align="center">
           <div id="paging" ></div>
           </td>
-              </tr>
-            </table>
-          </td>
-          <td align="right" width="150">
-            <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0">
-          </td>
+          <td align="right" width="300">
+          <!--  쓰기  -->
+           <a href="form"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_write.gif" align="absmiddle" border="0">
+         </a>
+                      </td>
+  <!------------- paging ------------------->
         </tr>
       </table>
     </td>
@@ -179,6 +181,7 @@
               <table align="center" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td>
+          
           <img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_t.gif" align="absmiddle">
           <select name="select" class="txtarea">
             <option value="bbs_subject">제목</option>
@@ -187,13 +190,15 @@
           </select>
           <input type="text" size="50" maxlength="30" name="words" class="bbs_input_search">
      <button type="submit" style="background-color: white; border:0px"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/bluead_search.gif" align="absmiddle"/></button>
+          <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray_0302/bluead_list.gif" align="absmiddle" border="0"></a>
           </td>
         </tr>
           </table>
         </form>
          
     </td>
-    <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_right.gif"></td>
+    <td width="5"><img src="${contextPath}/images/BlueAD/skin/bbs/bluead_gray/search_right.gif">
+    </td>
   </tr>
   <tr>
     <td colspan="3" height="25"></td>
@@ -249,6 +254,18 @@
 </script>
 
 <script type="text/javascript">
+$("document").ready(function(){        
+    paging(totalData, dataPerPage, pageCount, '<c:out value="${pageNo}"/>');
+    
+    var bbs_Category = '<c:out value="${bbs_category}"/>';
+    console.log(bbs_Category);
+    if (bbs_Category.length > 0) {
+    	$('#bbs_Category').val(bbs_category);	
+    }
+    
+    
+    
+});
     var totalData = '<c:out value="${totalCount}"/>';    // 총 데이터 수
     var dataPerPage = '<c:out value="${pageSize}"/>';    // 한 페이지에 나타낼 데이터 수
     var lastPageNo = '<c:out value="${lastPageNo}"/>';
@@ -329,22 +346,11 @@
                                            
     }
     
-    $("document").ready(function(){        
-        paging(totalData, dataPerPage, pageCount, '<c:out value="${pageNo}"/>');
-        
-        var bbs_category = '<c:out value="${bbs_category}"/>';
-        
-        if (bbs_category.length > 0) {
-        	$('#memberCategory').val(bbs_category);	
-        }
-        
-        
-        
-    });
+    
     /*리스트 합창단과의 관계 선택시 이벤트 */
-    function changeCategoryType()() {
-    	var memberCategory = $('#memberCategory').val();
-    	location.href = "${contextPath}/BlueAD/concert/repertory/list?bbs_category=" + bbs_category;
+    function changeCategoryType() {
+    	var bbs_Category = $('#bbs_Category').val();
+    	location.href = "${contextPath}/BlueAD/concert/repertory/list?bbs_category=" + bbs_Category;
     	}
 </script>
 </body>
