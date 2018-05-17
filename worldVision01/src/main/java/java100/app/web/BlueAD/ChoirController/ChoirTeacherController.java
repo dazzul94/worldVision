@@ -40,10 +40,10 @@ public class ChoirTeacherController {
 			@RequestParam(value="pn", defaultValue="1") int pageNo,
 			@RequestParam(value="ps", defaultValue="10") int pageSize,
 			@RequestParam(value="words", required=false) String[] words,
-			@RequestParam(value="select", defaultValue="all") String select,
+			@RequestParam(value="select", defaultValue="all") String select, //검색
 			@RequestParam(value="oc", required=false) String orderColumn,
 			@RequestParam(value="al", required=false) String align,
-			@RequestParam(value="cate", defaultValue="1") String cate,
+			@RequestParam(value="c_no", defaultValue="all") String c_no, //카테고리
 			Model model) throws Exception {
 
 
@@ -73,9 +73,9 @@ public class ChoirTeacherController {
 			options.put("words", words);
 			model.addAttribute("words", words[0]);
 		}
-		if (cate != null) {
-			options.put("cate", cate);
-			model.addAttribute("cate", cate);
+		if (c_no != null) {
+			options.put("c_no", c_no);
+			model.addAttribute("c_no", c_no);
 		}
 		options.put("orderColumn", orderColumn);
 		options.put("align", align);

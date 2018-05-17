@@ -38,8 +38,17 @@
 <!-- 카테고릐~ -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
 <tr>
-  <td style="padding:5 5 5 5;">
-	<select name="c_no" onchange="location.href='/BlueAD/admin/choir_teacher/list.php?c_no='+this.value;"><option value="">::전체보기::</option><option value="1">[연주반] 연주반</option><option value="3">[지역반] 강서반</option><option value="4">[지역반] 강남반</option><option value="5">[지역반] 강북반</option><option value="6">[지역반] 일산반</option><option value="7">[연주반] 영재반</option><option value="8">[지역반] 분당반</option><option value="9">[비전싱어즈] 비전싱어즈</option></select>
+  <td style="padding:5 5 5 5;"> <!-- 여기 해야함 -->
+	<select name="c_no" onchange="location.href='/BlueAD/admin/choir_teacher/list.php?c_no='+this.value;">
+	<option value="">::전체보기::</option>
+	<option value="1">[연주반] 연주반</option>
+	<option value="3">[지역반] 강서반</option>
+	<option value="4">[지역반] 강남반</option>
+	<option value="5">[지역반] 강북반</option>
+	<option value="6">[지역반] 일산반</option>
+	<option value="7">[연주반] 영재반</option>
+	<option value="8">[지역반] 분당반</option>
+	<option value="9">[비전싱어즈] 비전싱어즈</option></select>
   </td>
   <td align="right" style="font-size:10Px;font-family:verdana;">
       <font color="">total:</font><font color="red"> ${totalCount}</font>&nbsp;&nbsp;
@@ -112,32 +121,34 @@
            </c:forEach> 
            <!--  반복문 끝 -->
       </table>
-      <!--  목록 버튼 , 선택삭제 버튼 -->
-      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-        <tr height="5">
-          <td colspan="3"></td>
-        </tr>
-        <tr>
-          <td valign="middle" width="200">
-          <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/admin/btn_list.gif" style="cursor:pointer"></a>
-      
-        </td>
-         <!------------------ paging ---------------------->
-          <td width="300"></td>
-          <td height="50" align="center">
-          <div id="paging"></div>
-          </td>
-          <td align="right" width="300"><!-- 오른쪽 간격 -->
-                      </td>
-  <!------------- paging ------------------->
-         
-        </tr>
-      
+      </td>
+      </tr>
       </table>
-      <!--  목록버튼 ,선택삭제 버튼 -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+  <td valign="middle" width="300">
+    <a href="list?pn=1"><img src="${contextPath}/images/BlueAD/admin/btn_list.gif" style="cursor:pointer"></a>
+  </td>
+  <td height="50" align="center">
+    <div id="paging"></div>
+  </td>
+  <td align="right" width="300"><img src="${contextPath}/images/BlueAD/admin/btn_write.gif" style="cursor:pointer" onClick="location.href='./write.php?mode=write&page=1&key=&keyword=&c_no=';"></td>
+</tr>
+</table>
+<form action="list">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center">
+      <select name="select">
+      <option value="kor_name2">한글이름</option>
+      <option value="eng_name2">영문이름</option>
+      </select>
+      <input type="text" size="20" maxlength="30" name="words" value="" class="b_input">
+      <input type="image" src="${contextPath}/images/BlueAD/admin/btn_search.gif" align="absmiddle" onfocus="this.blur();">
     </td>
   </tr>
-</table> <!--  테이블 끝 -->
+</table>
+</form>
 
 
 
