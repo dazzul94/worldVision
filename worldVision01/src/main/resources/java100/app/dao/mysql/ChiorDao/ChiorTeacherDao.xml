@@ -6,7 +6,7 @@
 <!-- DAO 객체를 자동으로 생성하려면, namespace의 값이 인터페이스 이름과 같아야 한다. -->
 <mapper namespace="java100.app.dao.ChoirDao.ChoirTeacherDao">
 
-	<resultMap type="choirTeacher" id="choirTeacher">
+	<resultMap type="choir_Teacher" id="choir_Teacher">
 		<id column="ct_no" property="ct_no" />
 		<!-- 컬럼 이름과 프로퍼티 이름이 같아서 생략! -->
 		<!-- <result column="name" property="name"/> <result column="email" property="email"/> -->
@@ -16,7 +16,7 @@
 		select
 		*
 	</sql>
-	<select id="findAll" resultMap="choirTeacher" parameterType="map">
+	<select id="findAll" resultMap="choir_Teacher" parameterType="map">
 		<include refid="select1" />
 		from bluead_chior_teacher
 
@@ -95,7 +95,7 @@
 
 		</choose>
 	</select>
-	<select id="findByNo" resultMap="choirTeacher" parameterType="int">
+	<select id="findByNo" resultMap="choir_Teacher" parameterType="int">
 		<include refid="select1" />
 		from bluead_chior_teacher
 		where ct_no=#{value}

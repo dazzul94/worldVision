@@ -1,6 +1,6 @@
 package java100.app.domain.Choir;
 
-public class ChoirTeacher {
+public class Choir_Teacher {
 	int ct_no;
 	int c_no;
 	String img1_micro;

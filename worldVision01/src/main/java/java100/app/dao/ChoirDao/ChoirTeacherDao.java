@@ -3,17 +3,17 @@ package java100.app.dao.ChoirDao;
 import java.util.HashMap;
 import java.util.List;
 
-import java100.app.domain.Choir.ChoirTeacher;
+import java100.app.domain.Choir.Choir_Teacher;
 
 public interface ChoirTeacherDao {
 
 	int countAll(HashMap<String, Object> options);
 
-	List<ChoirTeacher> findAll(HashMap<String, Object> params);
+	List<Choir_Teacher> findAll(HashMap<String, Object> params);
 
-	ChoirTeacher findByNo(int no);
+	Choir_Teacher findByNo(int no);
 
-	int choirUpdate(ChoirTeacher choirTeacher);
+	int choirUpdate(Choir_Teacher choirTeacher);
 }
 
 

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java100.app.domain.Choir.ChoirTeacher;
+import java100.app.domain.Choir.Choir_Teacher;
 import java100.app.service.ChoirService.ChoirTeacherService;
 @Controller
 @RequestMapping("/choir/choirTeacher")
@@ -103,7 +103,7 @@ public class ChoirTeacherController {
 		return "BlueAD/choir/choirTeacher/view";
 	}
 	@RequestMapping("choirUpdate")
-	public String choirUpdate(@RequestParam(value="img_del", defaultValue="N") String img_del,HttpServletRequest request, ChoirTeacher choirTeacher, MultipartFile file, BindingResult bindingResult) throws Exception {
+	public String choirUpdate(@RequestParam(value="img_del", defaultValue="N") String img_del,HttpServletRequest request, Choir_Teacher choirTeacher, MultipartFile file, BindingResult bindingResult) throws Exception {
 		// 업로드 파일을 저장할 폴더 위치를 가져온다.
 		if (bindingResult.hasErrors()) {
 			// 파라미터 값을 변수의 타입으로 변환하는데 오류가 있을 때,
