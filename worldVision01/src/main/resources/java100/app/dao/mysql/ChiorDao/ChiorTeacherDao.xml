@@ -19,32 +19,29 @@
 	<select id="findAll" resultMap="choir_Teacher" parameterType="map">
 		<include refid="select1" />
 		from bluead_chior_teacher
-
-
 		<choose>
 			<when test="select == 'all'">
-				<where> <!-- 제목,내용,글쓴이 -->
-					<!-- or title like '%${word}%'
-					or contents like '%${word}%' -->
+				<where> 
+					or kor_name2 like '%%' 
 				</where>
 			</when>
 
-			<when test="select == 'title'">
+			<when test="select == 'kor_name2'">
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or title like
+							or kor_name2 like
 							'%${word}%'
 						</foreach>
 					</where>
 				</if>
 			</when>
 
-			<when test="select == 'contents'">
+			<when test="select == 'eng_name2'">
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or contents like
+							or eng_name2 like
 							'%${word}%'
 						</foreach>
 					</where>
@@ -65,28 +62,27 @@
 
 		<choose>
 			<when test="select == 'all'">
-				<where> <!-- 제목,내용,글쓴이 -->
-					<!-- or title like '%${word}%'
-					or contents like '%${word}%' -->
+				<where> 
+					or kor_name2 like '%%' 
 				</where>
 			</when>
 
-			<when test="select == 'title'">
+			<when test="select == 'kor_name2'">
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or title like
+							or kor_name2 like
 							'%${word}%'
 						</foreach>
 					</where>
 				</if>
 			</when>
 
-			<when test="select == 'contents'">
+			<when test="select == 'eng_name2'">
 				<if test="words != null">
 					<where>
 						<foreach collection="words" item="word">
-							or contents like
+							or eng_name2 like
 							'%${word}%'
 						</foreach>
 					</where>

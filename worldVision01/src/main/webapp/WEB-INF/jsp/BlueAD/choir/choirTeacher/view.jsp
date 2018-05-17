@@ -58,16 +58,20 @@
 							bgcolor="#cad4e3">
 							<tr>
 								<td width="100" height="35" class="field_b_pad">CHOIR</td>
-								<td bgcolor="#FFFFFF" style="padding-left: 10px"><select
-									name="c_no"><option value="">::선택하세요::</option>
-										<option value="1" selected>[연주반] 연주반</option>
+								<td bgcolor="#FFFFFF" style="padding-left: 10px"> 
+									<select id="choirType" name="c_no">
+									<c:set var="c_no" value="${choirTeacher.c_no}" />
+										<option value="">::선택하세요::</option>
+										<option value="1">[연주반] 연주반</option>
 										<option value="3">[지역반] 강서반</option>
 										<option value="4">[지역반] 강남반</option>
 										<option value="5">[지역반] 강북반</option>
 										<option value="6">[지역반] 일산반</option>
 										<option value="7">[연주반] 영재반</option>
 										<option value="8">[지역반] 분당반</option>
-										<option value="9">[비전싱어즈] 비전싱어즈</option></select></td>
+										<option value="9">[비전싱어즈] 비전싱어즈</option>
+									</select>
+								</td>
 							</tr>
 							<tr>
 								<td height="35" class="field_b_pad">이미지</td>
@@ -151,6 +155,27 @@
 			f.submit();
 		}
 	//-->
+	window.onload = function() {
+			var c_no = '<c:out value="${c_no}"/>'; 
+			
+			if (c_no == '1') {
+				$("#choirType option:eq(1)").prop("selected", true);
+			} else if (c_no == '3') {
+				$("#choirType option:eq(2)").prop("selected", true);
+			} else if (c_no == '4') {
+				$("#choirType option:eq(3)").prop("selected", true);
+			} else if (c_no == '5') {
+				$("#choirType option:eq(4)").prop("selected", true);
+			} else if (c_no == '6') {
+				$("#choirType option:eq(5)").prop("selected", true);
+			} else if (c_no == '7') {
+				$("#choirType option:eq(6)").prop("selected", true);
+			} else if (c_no == '8') {
+				$("#choirType option:eq(7)").prop("selected", true);
+			} else if (c_no == '9') {
+				$("#choirType option:eq(8)").prop("selected", true);
+			}
+	}
 	</script>
 </body>
 </html>
