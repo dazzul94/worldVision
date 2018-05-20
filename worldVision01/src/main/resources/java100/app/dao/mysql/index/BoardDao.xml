@@ -8,13 +8,13 @@
 	
 	<select id="getBoard" resultType="board" parameterType="map">
 		SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date 
-		FROM bluead_wv_${dbName}
+		FROM ${dbName}
 		WHERE bbs_no = ${no}
 	</select>
 	
 	<select id="getCommentList" resultType="Comment" parameterType="map">
 		SELECT comm_no, comm_bbs_id, comm_name, comm_content, comm_pass, comm_date
-		FROM bluead_comment WHERE comm_bbs_id = wv_#{dbName} 
+		FROM bluead_comment WHERE comm_bbs_id = #{comm_bbs_id} 
 		and comm_bbs_no = #{no} ORDER BY comm_no DESC
 	</select>
 	
@@ -39,16 +39,17 @@
 		from ${dbName}
 		<choose>
 			<when test="cateSelect == '1'">
-				where bbs_subject like '%${sText}%'
+				<where>or bbs_subject like '%${sText}%'</where>
 			</when>
 			<when test="cateSelect == '2'">
-				where bbs_content like '%${sText}%'
+				<where>or bbs_content like '%${sText}%'</where>
 			</when>
 			<when test="cateSelect == '3'">
-				where bbs_subject like '%${sText}%' or bbs_content like '%${sText}%'
+				<where>or bbs_subject like '%${sText}%' or bbs_content like '%${sText}%'</where>
 			</when>
 		</choose>
-		order by bbs_no desc limit ${start_no}, ${perPage} 
+		order by bbs_no desc
+		limit ${start_no}, ${perPage} 
 	</select>
 	
 	<insert id="insertComment" parameterType="comment" useGeneratedKeys="true">

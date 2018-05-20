@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java100.app.domain.index.Application;
 import java100.app.domain.index.Board;
 import java100.app.domain.index.ChoirMember;
 import java100.app.domain.index.ChoirTeacher;
@@ -29,9 +30,6 @@ import java100.app.service.indexService.MemberService;
 @Controller
 @SessionAttributes("member")
 public class IndexMainController {
-	
-	@Autowired
-	private IndexDAO dao;
 	
 	@Autowired
 	private MemberService memberService;
@@ -167,8 +165,9 @@ public class IndexMainController {
 		System.out.println("dbName = " + dbName);
 
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("dbName", dbName);
+		params.put("dbName", "bluead_wv_" + dbName);
 		params.put("no", request.getParameter("no"));
+		params.put("comm_bbs_id", "wv_" + dbName);
 		Board board = boardService.getBoard(params);
 
 		Comment[] cList = boardService.getCommentList(params);
@@ -333,7 +332,7 @@ public class IndexMainController {
 	}
 	@RequestMapping("doRequest")
 	public String doRequest(Application application) {
-		dao.insertApplication(application);
+		
 		return "request/request";
 	}
 	@RequestMapping("request2")
@@ -360,8 +359,6 @@ public class IndexMainController {
 		String search = request.getParameter("search");		// 검색으로 왔는지 그냥 왔는지 확인하는 변수 (그냥 = null, 검색 = 1)
 		String cateSelect = request.getParameter("cateSelect");	// 검색일 때 어떤 항목으로 왔는지(제목 = 1, 내용 = 2, 제목 + 내용 = 3)
 		String sText = request.getParameter("sText");	//	검색어
-		String sql = null;
-		String temp = null;
 		
 		int cPage = 0;
 		int perPage = 12;
@@ -373,38 +370,27 @@ public class IndexMainController {
 		int perPageCount = 10;
 		int startPage = ((cPage - 1) / perPageCount) * perPageCount + 1;
 		int endPage = startPage + perPageCount - 1;
-		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-				+ "FROM bluead_wv_community01 ORDER BY bbs_no DESC";
 
-		if(search != null) {
-			if (cateSelect.equals("1")) {
-				temp = "bbs_subject like '%" + sText + "%'  ORDER BY bbs_no DESC";
-			}else if(cateSelect.equals("2")) {
-				temp = "bbs_content like '%" + sText + "%'  ORDER BY bbs_no DESC";
-			}else{
-				temp = "bbs_subject like '%" + sText + "%' or bbs_content like '%" 
-						+ sText + "%' ORDER BY bbs_no DESC";
-			}
-			sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-					+ "FROM bluead_wv_community01 WHERE " + temp;
-		}
-		int bCount = dao.getBoard(sql).length;
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("dbName", "bluead_wv_community01");
+		params.put("sText", sText);
+		params.put("cateSelect", cateSelect);
+		
+		int bCount = boardService.getCountBoard(params);
 		int maxPage = bCount / 12 + 1;
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
-		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-				+ "FROM bluead_wv_community01 "
-				+ "ORDER BY bbs_no DESC LIMIT " + (cPage-1)*perPage + "," + perPage;
+		int start_no = (cPage-1) * perPage;
+		params.put("start_no",start_no);
+		params.put("perPage", perPage);
+
 		if(search != null) {
-			sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-					+ "FROM bluead_wv_community01 WHERE " + temp + 
-					" LIMIT " + (cPage-1)*perPage + "," + perPage;
 			model.addAttribute("search", search);
 			model.addAttribute("cateSelect", cateSelect);
 			model.addAttribute("sText", sText);
 		}
-		Board[] bList = dao.getBoard(sql);
+		Board[] bList = boardService.getBoardList(params);
 		model.addAttribute("bList", bList);
 		model.addAttribute("bCount", bCount);
 		model.addAttribute("cPage", cPage);
@@ -419,24 +405,27 @@ public class IndexMainController {
 	public String goBoardView(Model model, HttpServletRequest request) {
 		String str = request.getParameter("str");
 		String dbName = request.getParameter("dbName");
-		String sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-				+ "FROM bluead_wv_" + dbName + " WHERE bbs_no = " + request.getParameter("no");
-		Board[] list = dao.getBoard(sql);
-		String cSql = "SELECT comm_no, comm_bbs_id, comm_name, comm_content, comm_pass, comm_date "
-				+ "FROM bluead_comment WHERE comm_bbs_id = 'wv_" + dbName + 
-				"' && comm_bbs_no = " + request.getParameter("no") + " ORDER BY comm_no DESC";
-		Comment[] cList = dao.getComment(cSql);
-		
-		model.addAttribute("result", list[0]);
+		System.out.println("str = " + str);
+		System.out.println("dbName = " + dbName);
+
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("dbName", "bluead_wv_" + dbName);
+		params.put("no", request.getParameter("no"));
+		params.put("comm_bbs_id", "wv_" + dbName);
+		Board board = boardService.getBoard(params);
+
+		Comment[] cList = boardService.getCommentList(params);
+
+		model.addAttribute("result", board);
 		model.addAttribute("cPage", request.getParameter("cPage"));
 		model.addAttribute("str", str);
 		model.addAttribute("dbName", dbName);
 		model.addAttribute("cList", cList);
+		model.addAttribute("no", request.getParameter("no"));
 		if(request.getParameter("search") != null) {
 			model.addAttribute("search", request.getParameter("search"));
 			model.addAttribute("cateSelect", request.getParameter("cateSelect"));
 			model.addAttribute("sText", request.getParameter("sText"));
-			
 		}
 		return "board/board_view";
 	}
@@ -453,12 +442,9 @@ public class IndexMainController {
 		String search = request.getParameter("search");		// 검색으로 왔는지 그냥 왔는지 확인하는 변수 (그냥 = null, 검색 = 1)
 		String cateSelect = request.getParameter("cateSelect");	// 검색일 때 어떤 항목으로 왔는지(제목 = 1, 내용 = 2, 제목 + 내용 = 3)
 		String sText = request.getParameter("sText");	//	검색어
-		String sql = null;
-		String temp = null;
 		
 		int cPage = 0;
 		int perPage = 12;
-		
 		if(str_pNum == null) {
 			cPage = 1;
 		}else {
@@ -467,39 +453,27 @@ public class IndexMainController {
 		int perPageCount = 10;
 		int startPage = ((cPage - 1) / perPageCount) * perPageCount + 1;
 		int endPage = startPage + perPageCount - 1;
-		
-		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-				+ "FROM bluead_wv_data ORDER BY bbs_no DESC";
 
-		if(search != null) {
-			if (cateSelect.equals("1")) {
-				temp = "bbs_subject like '%" + sText + "%'  ORDER BY bbs_no DESC";
-			}else if(cateSelect.equals("2")) {
-				temp = "bbs_content like '%" + sText + "%'  ORDER BY bbs_no DESC";
-			}else{
-				temp = "bbs_subject like '%" + sText + "%' or bbs_content like '%" 
-						+ sText + "%' ORDER BY bbs_no DESC";
-			}
-			sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-					+ "FROM bluead_wv_data WHERE " + temp;
-		}
-		int bCount = dao.getBoard(sql).length;
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("dbName", "bluead_wv_data");
+		params.put("sText", sText);
+		params.put("cateSelect", cateSelect);
+		
+		int bCount = boardService.getCountBoard(params);
 		int maxPage = bCount / 12 + 1;
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
-		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-				+ "FROM bluead_wv_data "
-				+ "ORDER BY bbs_no DESC LIMIT " + (cPage-1)*perPage + "," + perPage;
+		int start_no = (cPage-1) * perPage;
+		params.put("start_no",start_no);
+		params.put("perPage", perPage);
+
 		if(search != null) {
-			sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-					+ "FROM bluead_wv_data WHERE " + temp + 
-					" LIMIT " + (cPage-1)*perPage + "," + perPage;
 			model.addAttribute("search", search);
 			model.addAttribute("cateSelect", cateSelect);
 			model.addAttribute("sText", sText);
 		}
-		Board[] bList = dao.getBoard(sql);
+		Board[] bList = boardService.getBoardList(params);
 		model.addAttribute("bList", bList);
 		model.addAttribute("bCount", bCount);
 		model.addAttribute("cPage", cPage);
@@ -516,62 +490,42 @@ public class IndexMainController {
 		String search = request.getParameter("search");		// 검색으로 왔는지 그냥 왔는지 확인하는 변수 (그냥 = null, 검색 = 1)
 		String cateSelect = request.getParameter("cateSelect");	// 검색일 때 어떤 항목으로 왔는지(제목 = 1, 내용 = 2, 제목 + 내용 = 3)
 		String sText = request.getParameter("sText");	//	검색어
-		String sql = null;
-		String temp = null;
 		
 		int cPage = 0;
 		int perPage = 12;
-		int perPageCount = 10;
-		
 		if(str_pNum == null) {
 			cPage = 1;
 		}else {
 			cPage = Integer.parseInt(str_pNum);
 		}
-		
+		int perPageCount = 10;
 		int startPage = ((cPage - 1) / perPageCount) * perPageCount + 1;
 		int endPage = startPage + perPageCount - 1;
-				
-		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-				+ "FROM bluead_wv_webzine ORDER BY bbs_no DESC";
 
-		if(search != null) {
-			if (cateSelect.equals("1")) {
-				temp = "bbs_subject like '%" + sText + "%'  ORDER BY bbs_no DESC";
-			}else if(cateSelect.equals("2")) {
-				temp = "bbs_content like '%" + sText + "%'  ORDER BY bbs_no DESC";
-			}else{
-				temp = "bbs_subject like '%" + sText + "%' or bbs_content like '%" 
-						+ sText + "%' ORDER BY bbs_no DESC";
-			}
-			sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-					+ "FROM bluead_wv_webzine WHERE " + temp;
-		}
-		int bCount = dao.getBoard(sql).length;
-		int maxPage = bCount / 12 + 1;
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("dbName", "bluead_wv_webzine");
+		params.put("sText", sText);
+		params.put("cateSelect", cateSelect);
 		
+		int bCount = boardService.getCountBoard(params);
+		int maxPage = bCount / 12 + 1;
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
-		
-		sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-				+ "FROM bluead_wv_webzine "
-				+ "ORDER BY bbs_no DESC LIMIT " + (cPage-1)*perPage + "," + perPage;
+		int start_no = (cPage-1) * perPage;
+		params.put("start_no",start_no);
+		params.put("perPage", perPage);
+
 		if(search != null) {
-			sql = "SELECT bbs_no, bbs_name, bbs_subject, bbs_content, bbs_hit, bbs_date "
-					+ "FROM bluead_wv_webzine WHERE " + temp + 
-					" LIMIT " + (cPage-1)*perPage + "," + perPage;
 			model.addAttribute("search", search);
 			model.addAttribute("cateSelect", cateSelect);
 			model.addAttribute("sText", sText);
 		}
-		Board[] bList = dao.getBoard(sql);
+		Board[] bList = boardService.getBoardList(params);
 		model.addAttribute("bList", bList);
 		model.addAttribute("bCount", bCount);
 		model.addAttribute("cPage", cPage);
 		model.addAttribute("maxPage", maxPage);
-		model.addAttribute("startPage", startPage);
-		model.addAttribute("endPage", endPage);
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		

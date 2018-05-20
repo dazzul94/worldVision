@@ -22,6 +22,8 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public Board[] getBoardList(Map<String, Object> params) {
+		System.out.println(params.get("cateSelect"));
+		System.out.println(params.get("sText"));
 		return dao.getBoardList(params);
 	}
 

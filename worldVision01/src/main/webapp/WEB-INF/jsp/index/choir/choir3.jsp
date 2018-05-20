@@ -268,7 +268,7 @@
                                  -->
                                  <c:forEach items="${cmList }" var="choirMember">
                                  <li>
-                                	<img src="${contextPath }/images/index/people/${choirMember.getImg1_thumbo() }" />
+                                	<img src="${contextPath }/images/index/people/${choirMember.getImg1_thumbo() }" width="113" height="150" />
                                     <p>${choirMember.getName() }</p>
                                 </li>
                                  </c:forEach>
